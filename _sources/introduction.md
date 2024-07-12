@@ -4,16 +4,18 @@ Many important research questions demand a multi-disciplinary approach in which 
 
 The idea for CDIF first emerged from workshops and discussions at conferences prior to the WorldFAIR project, beginning in 2018. The WorldFAIR project provided an opportunity to advance that vision, through aset of 11 case studies across many domains, allowing the needs and practices around FAIR within such domains to be summarised in the form of FAIR Implementation Profiles (FIPs). Based on the FIPs and focused meetings, the requirements for CDIF were established. A group of 30 invited experts from different FAIR initiatives and standards bodies made up a Working Group and an Advisory Group to synthesise the findings from WorldFAIR and to produce the current CDIF draft. 
 
-The framework is based on a set of five core profiles that address the most important functions for
-cross-domain FAIR implementation.
+The framework is based on a set of five core profiles that address the most important functions for cross-domain FAIR implementation.
 1. Discovery (patterns for metadata content, serialization and publication)
 2. Data access (documentation of access conditions and permitted use)
-3. Controlled vocabularies (practices for the publication of controlled vocabularies and semantic
-artefacts)
-4. Data integration (documentation of the structural and semantic aspects of data to make it
-integration-ready)
+3. Controlled vocabularies (practices for the publication of controlled vocabularies and semantic artefacts)
+4. Data integration (documentation of the structural and semantic aspects of data to make it integration-ready)
 5. Universals (description of ‘universal’ elements -- time, geography, and units of measurement).
 
-Each of these profiles is supported by specific recommendations, including the set of metadata fields in
-specific standards to use, and the method of implementation to be employed for machine-level
-interoperability.
+Each of these profiles is supported by specific recommendations, including the set of metadata fields in specific standards to use, and the method of implementation to be employed for machine-level interoperability.
+
+
+CDIF is designed to leverage the work of other FAIR initiatives such as FAIR-Impact and the work in EOSC. It is designed to be implementable with existing tools, standards, and technologies but, as a set of recommended practices, must be maintained as FAIR implementations develop and evolution occurs in the technology sphere. CDIF leverages methodologies such as FIPs from the [GO FAIR Foundation](https://www.go-fair.org/how-to-go-fair/fair-implementation-profile/). Importantly, it aligns with efforts such as the [EOSC Interoperability Framework](https://op.europa.eu/en/publication-detail/-/publication/d787ea54-6a87-11eb-aeb5-01aa75ed71a1/language-en), and developments such as [Signposting](https://signposting.org/FAIR/) and reference implementation of the [FAIR Digital Object Framework](https://fairdo.org/). Work on semantic mapping and in some other areas is informed by on-going developments in other fora such as [RDA](https://www.rd-alliance.org/). CDIF is designed to enable the practical implementation of FAIR by supporting these frameworks and approaches in cross-domain scenarios. 
+
+In any given domain, the standards used should be to a considerable extent mappable to and from their corresponding CDIF profiles, reducing the volume of mappings needed to interoperate effectively for core FAIR functions in multi-disciplinary scenarios. Broadly speaking, FAIR demands an increase in the metadata provided by the disseminators of data, especially if we are to automate resource-intensive data integration tasks, which today are largely manual. In a cross-domain scenario, the sheer number of mappings needed is not supportable. CDIF provides a solution by changing a many-to-many dynamic into a many-to-one dynamic. 
+ 
+CDIF is not intended to replace existing community standards, but to supplement them for communication across domain and infrastructure boundaries. It does not aim to replace the specific models needed within different domains, but it does aim to establish a foundation of common metadata which can support a core set of FAIR functionality. Real-world examples of large-scale standards-based exchange networks, such as the [Statistical Data and Metadata Exchange](https://sdmx.org/) (SDMX) and the [Ocean InfoHub](https://oceaninfohub.org/odis/) (ODIS) have been used as inspiration for the overall approach, to ensure its feasibility for practical implementation. This draft includes links to early prototypes for such data as the Sustainable Development Goal Indicators and some of their source data, showing how the mining of the native standard descriptions of the source, to produce its equivalent in CDIF, can support disaggregation and integration of that data with other sources. 
