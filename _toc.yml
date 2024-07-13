@@ -1,0 +1,20 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: introduction
+parts:
+  - caption: Introduction
+    numbered: False
+    chapters:
+    - file: futuretopics
+    - file: summaryofprofiles
+  - caption: Background
+    numbered: False
+    chapters:
+    - file: background/whycdif
+    - file: background/history
+  - caption: Getting Started
+    numbered: False
+    chapters:
+      - file: background/structure.md
