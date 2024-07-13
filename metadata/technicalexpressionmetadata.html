@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Publishing metadata" href="publishingmetadata.html" />
-    <link rel="prev" title="Future work" href="../background/futuretopics.html" />
+    <link rel="prev" title="Design principles" href="../background/principles.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,6 +186,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../background/structure.html">The structure of the CDIF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../background/summaryofprofiles.html">Summary of CDIF profiles and recommendations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../background/futuretopics.html">Future work</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Principles</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../background/principles.html">Design principles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Discovery</span></p>
 <ul class="current nav bd-sidenav">
@@ -418,7 +422,7 @@ document.write(`
 <p>In order for resources to be discoverable on the Web, the search applications that are used to find things must locate some representation of the resource and must be able to parse that representation and generate indexes for searching. In the realm of linked HTML Web pages, search engines parse the text content and links on Web pages to create text-based indexes and use links to find other pages to crawl the Web. This approach does not work for datasets, images, sound recordings, videos, and other non-narrative text resources, so separate representations of their content are constructed as metadata, in a format that can be parsed and indexed by search applications. This pattern is also applied to text resources to provide more explicit documentation. At the simplest level the content of the metadata can consist of text describing the resource and a link to access the resource, analogous to what is included on the cards in a legacy library card catalogue. Representing the metadata content using a structured, machine-readable format makes the information more precise and accessible to software agents.</p>
 <section id="metadata-content">
 <h3>Metadata content<a class="headerlink" href="#metadata-content" title="Link to this heading">#</a></h3>
-<p>In the digital world, a wide variety of metadata schemes have evolved for describing resources. These schemes are structured to allow a richer understanding of the information, and typically at least include information about the set of fifteen generic elements identified as the Dublin Core: Creator, Contributor, Publisher, Title, Date, Language, Format, Subject, Description, Identifier, Relation, Source, Type, Coverage, and Rights, first drafted at a 1995 meeting in Dublin, Ohio58. These elements are defined at an abstract level and served well with free text content values for use by humans. Such semi-structured metadata is insufficient to support machine-actionable reuse of the described resources.  In order to be machine-actionable, the structure, syntax, and element-value representations in a metadata document must conform to conventions that client software can be programmed to parse and ‘understand’. ‘Understand’ in this context means recognise the incoming bitstream content and take appropriate, useful action. The metadata provider must communicate the conventions used to serialise the metadata they provide. Ideally this is done with an identifier for a specification document that details the conventions used. Some widely used metadata specifications include DCAT, DataCite Schema59, ISO 19115-160, EML61, FGDC CSDGM62, CERIF63, <a class="reference external" href="http://schema.org">schema.org</a>, and DDI. These specifications determine the structure and syntax of metadata documents, but leave latitude on how the values of some metadata elements are represented, and often offer multiple valid approaches to representing the same information.</p>
+<p>In the digital world, a wide variety of metadata schemes have evolved for describing resources. These schemes are structured to allow a richer understanding of the information, and typically at least include information about the set of fifteen generic elements identified as the Dublin Core: Creator, Contributor, Publisher, Title, Date, Language, Format, Subject, Description, Identifier, Relation, Source, Type, Coverage, and Rights, <a class="reference external" href="https://www.dublincore.org/resources/metadata-basics/">first drafted at a 1995 meeting in Dublin, Ohio</a>. These elements are defined at an abstract level and served well with free text content values for use by humans. Such semi-structured metadata is insufficient to support machine-actionable reuse of the described resources.  In order to be machine-actionable, the structure, syntax, and element-value representations in a metadata document must conform to conventions that client software can be programmed to parse and ‘understand’. ‘Understand’ in this context means recognise the incoming bitstream content and take appropriate, useful action. The metadata provider must communicate the conventions used to serialise the metadata they provide. Ideally this is done with an identifier for a specification document that details the conventions used. Some widely used metadata specifications include <a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/">DCAT</a>, <a class="reference external" href="https://schema.datacite.org/">DataCite Schema</a>, <a class="reference external" href="https://www.iso.org/standard/53798.html">ISO 19115-1</a>, <a class="reference external" href="https://eml.ecoinformatics.org/">EML</a>, <a class="reference external" href="https://www.fgdc.gov/metadata/csdgm-standard">FGDC CSDGM</a>, <a class="reference external" href="https://eurocris.org/eurocris_archive/cerifsupport.org/cerif-in-brief/index.html">CERIF</a>, <a class="reference external" href="https://schema.org/">schema.org</a>, and <a class="reference external" href="https://ddialliance.org/Specification/">DDI</a>. These specifications determine the structure and syntax of metadata documents, but leave latitude on how the values of some metadata elements are represented, and often offer multiple valid approaches to representing the same information.</p>
 </section>
 <section id="metadata-profiles">
 <h3>Metadata profiles<a class="headerlink" href="#metadata-profiles" title="Link to this heading">#</a></h3>
@@ -458,12 +462,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../background/futuretopics.html"
+       href="../background/principles.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Future work</p>
+        <p class="prev-next-title">Design principles</p>
       </div>
     </a>
     <a class="right-next"

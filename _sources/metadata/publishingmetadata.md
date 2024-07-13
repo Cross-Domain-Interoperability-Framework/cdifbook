@@ -15,11 +15,13 @@ One of the drivers for the success of the World Wide Web is the emergence of sea
 
 **Getting the metadata**: Once a crawler for a search application finds a document that should be indexed, it must determine if there is structured metadata to index, and what conventions the metadata uses. Possible approaches:
 
-1. Each resource has an HTML landing page that describes the resource for human users, and contains embedded metadata for machine clients. Metadata can be embedded in landing pages using the HTML <script> element, in alignment with the Data on the Web Best Practices, specifically [section 8.2, Metadata](https://www.w3.org/TR/dwbp/#metadata) (See Example 1). This approach requires that each published resource has a human-readable landing page, intended to be the target of search by human users. Scripts are normally embedded in the <head> section of an HTML document. The <script> element has at minimum a 'type' attribute that provides a MIME-type specifying the type of script. Example 1.
+1. Each resource has an HTML landing page that describes the resource for human users, and contains embedded metadata for machine clients. Metadata can be embedded in landing pages using the HTML <script> element, in alignment with the Data on the Web Best Practices, specifically [section 8.2, Metadata](https://www.w3.org/TR/dwbp/#metadata) (See Example 1). This approach requires that each published resource has a human-readable landing page, intended to be the target of search by human users. Scripts are normally embedded in the <head> section of an HTML document. The <script> element has at minimum a 'type' attribute that provides a MIME-type specifying the type of script. 
+
 ![example1](./figures/ex1-jsonldembededinhtml.jpg)
 Example 1. A JSON-LD metadata object embedded as a script in an HTML document.
 
 2. Metadata can be embedded in the HTML <head> section of a landing page using HTML <meta> elements, which have a 'name' attribute that can be used to identify different metadata properties (see Example 2). This approach has been implemented by some off-the-shelf repository software (e.g. Dataverse). The HTML <meta> elements are intended to describe the HTML document that contains the [<meta> element](https://www.w3.org/TR/2011/WD-html5-author-20110809/the-meta-element.html), not some external resource that the Web page is about. CDIF recommends against this approach and suggests using the script approach (No 1 in this list) instead because that is more widely used and allows richer metadata content to be included. 
+
 ![example2](./figures/ex2-htmlmetatags.jpg)
 Example 2. HTML meta tags with metadata about a resource.
 
@@ -47,5 +49,6 @@ provides labelled links.
 There are many possible approaches a client application could use to extract the information it needs from a metadata record. The simplest and likely most accurate approach is for the metadata to conform to a profile that the application is programmed to parse, and to communicate that profile conformance to the application. This entails two requirements. The profile must be documented in a way that allows software developers to write code to parse metadata conforming to the profile, and the profile must have an identifier that can be used to assert conformance.
 
 - The use of <script> or <link> elements (in the HTTP or HTML header) allows metadata to be offered following multiple specifications with the 'type' and 'profile' attributes used to identify the [particular conventions](https://www.w3.org/TR/dx-prof-conneg/#dfn-profile) (Example 3). Minimally, the metadata record should assert the specification used to generate the record in a metadata property.
+
 ![example3](./figures/ex3-scriptwithtype.jpg)
 Example 3. Script with a type parameter in the MIME-type string
