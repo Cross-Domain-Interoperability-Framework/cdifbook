@@ -362,7 +362,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -378,6 +380,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signposting">Signposting</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -390,6 +400,12 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="publishing-metadata">
 <h1>Publishing metadata<a class="headerlink" href="#publishing-metadata" title="Link to this heading">#</a></h1>
 <p>The use of standardised metadata to describe resources is one facet of discoverability, but mechanisms to make these metadata descriptions discoverable by search applications or other machine agents is also necessary. Search applications harvest metadata to index and present in search results. In other cases a machine agent might have an identifier for a resource on the Web and want to get its metadata to learn about the content and capabilities of the resource.</p>
+<section id="signposting">
+<h2>Signposting<a class="headerlink" href="#signposting" title="Link to this heading">#</a></h2>
+<p>Signposting is an approach to discovering the content and capabilities of resources accessed by resolving URIs on the Web. Like the FAIR Digital Object framework, it starts with an identifier that can be resolved, and uses typed Web links (<a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc8288">IETF RFC8288</a>) and <a class="reference external" href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA registered relationship</a> types to enable an agent to discover what is identified and navigate to metadata with more information. These signposting links can implement the linking requirements of the <a class="reference external" href="https://www.slideshare.net/hvdsomp/fair-signposting-a-kiss-approach-to-a-burning-issue">Fair Digital Object Framework</a>. The CDIF metadata requirements outlined below include recommended or optional properties necessary to create a FDO PID Kernel information record (FDOFIdentificationRecord in Figure 1, below) as recommended by the Research Data Alliance (RDA)(<a class="reference external" href="https://doi.org/10.15497/RDA00031">Weigel et al. (2018)</a> ). Signposting can be used to implement FDOF requirements, and in the following implementation discussion we outline how Signposting is compatible with CDIF. The mapping from the PID Kernel information record to the CDIF metadata <a class="reference external" href="http://schema.org">schema.org</a> recommended implementation is shown in <a class="reference internal" href="#"><span class="xref myst">PID kernel mapping</span></a>. Mapping from Signposting link relation types to CDIF metadata elements is shown in <a class="reference internal" href="#"><span class="xref myst">Signposting link mapping</span></a>.</p>
+<p><img alt="FDOF-CDIF metadata relations." src="../_images/fdof-cdif-relations.jpg" />
+Figure 1. FDOF-CDIF metadata relations.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -437,6 +453,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signposting">Signposting</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
