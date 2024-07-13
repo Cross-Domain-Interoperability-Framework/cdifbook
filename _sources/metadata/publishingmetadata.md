@@ -6,6 +6,7 @@ The use of standardised metadata to describe resources is one facet of discovera
 Signposting is an approach to discovering the content and capabilities of resources accessed by resolving URIs on the Web. Like the FAIR Digital Object framework, it starts with an identifier that can be resolved, and uses typed Web links ([IETF RFC8288](https://datatracker.ietf.org/doc/html/rfc8288)) and [IANA registered relationship](https://www.iana.org/assignments/link-relations/link-relations.xhtml) types to enable an agent to discover what is identified and navigate to metadata with more information. These signposting links can implement the linking requirements of the [Fair Digital Object Framework](https://www.slideshare.net/hvdsomp/fair-signposting-a-kiss-approach-to-a-burning-issue). The CDIF metadata requirements outlined below include recommended or optional properties necessary to create a FDO PID Kernel information record (FDOFIdentificationRecord in Figure 1, below) as recommended by the Research Data Alliance (RDA)([Weigel et al. (2018)](https://doi.org/10.15497/RDA00031) ). Signposting can be used to implement FDOF requirements, and in the following implementation discussion we outline how Signposting is compatible with CDIF. The mapping from the PID Kernel information record to the CDIF metadata schema.org recommended implementation is shown in [PID kernel mapping](). Mapping from Signposting link relation types to CDIF metadata elements is shown in [Signposting link mapping]().
 
 ![FDOF-CDIF metadata relations.](./figures/fdof-cdif-relations.jpg)
+
 Figure 1. FDOF-CDIF metadata relations.
 
 ## Search engines
@@ -18,11 +19,13 @@ One of the drivers for the success of the World Wide Web is the emergence of sea
 1. Each resource has an HTML landing page that describes the resource for human users, and contains embedded metadata for machine clients. Metadata can be embedded in landing pages using the HTML &lt;script&gt; element, in alignment with the Data on the Web Best Practices, specifically [section 8.2, Metadata](https://www.w3.org/TR/dwbp/#metadata) (See Example 1). This approach requires that each published resource has a human-readable landing page, intended to be the target of search by human users. Scripts are normally embedded in the &lt;head&gt; section of an HTML document. The &lt;script&gt; element has at minimum a 'type' attribute that provides a MIME-type specifying the type of script. 
 
 ![example1](./figures/ex1-jsonldembededinhtml.jpg)
+
 Example 1. A JSON-LD metadata object embedded as a script in an HTML document.
 
 2. Metadata can be embedded in the HTML &lt;head&gt; section of a landing page using HTML &lt;meta&gt; elements, which have a 'name' attribute that can be used to identify different metadata properties (see Example 2). This approach has been implemented by some off-the-shelf repository software (e.g. Dataverse). The HTML &lt;meta&gt; elements are intended to describe the HTML document that contains the [&lt;meta&gt; element](https://www.w3.org/TR/2011/WD-html5-author-20110809/the-meta-element.html), not some external resource that the Web page is about. CDIF recommends against this approach and suggests using the script approach (No 1 in this list) instead because that is more widely used and allows richer metadata content to be included. 
 
 ![example2](./figures/ex2-htmlmetatags.jpg)
+
 Example 2. HTML meta tags with metadata about a resource.
 
 3. Metadata can be linked from the landing page using the HTML &lt;link&gt; element in the &lt;head&gt; section to provide a Web locator (URL) that can be used to retrieve a full metadata document about the described resource. The link element has the "rel='describedby'" attribute to indicate that the link is to metadata; a 'type' attribute to provide the MIME type of the target metadata record; and optionally a 'profile' attribute to identify specific metadata conventions. Note that multiple links could be provided to different metadata views, e.g. a CDIF record, a PID Kernel record, a FDOFidentifierRecord, etc. This approach depends on Web-crawlers to identify and follow these links to get the metadata that the provider wants indexed. This is one of the [Signposting approaches](https://signposting.org/).
@@ -51,4 +54,5 @@ There are many possible approaches a client application could use to extract the
 - The use of &lt;script&gt; or &lt;link&gt; elements (in the HTTP or HTML header) allows metadata to be offered following multiple specifications with the 'type' and 'profile' attributes used to identify the [particular conventions](https://www.w3.org/TR/dx-prof-conneg/#dfn-profile) (Example 3). Minimally, the metadata record should assert the specification used to generate the record in a metadata property.
 
 ![example3](./figures/ex3-scriptwithtype.jpg)
+
 Example 3. Script with a type parameter in the MIME-type string

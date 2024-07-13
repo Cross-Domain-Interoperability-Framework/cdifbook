@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Technical expression of metadata &#8212; Cross Domain Interoperability Framework Handbook</title>
+    <title>Basic discovery metadata content model &#8212; Cross Domain Interoperability Framework Handbook</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'metadata/technicalexpressionmetadata';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'metadata/contentmodel';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Publishing metadata" href="publishingmetadata.html" />
-    <link rel="prev" title="Design principles" href="../background/principles.html" />
+    <link rel="next" title="Queryable distributions" href="queryabledistributions.html" />
+    <link rel="prev" title="Metadata Recommendations" href="recommendations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,11 +193,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Discovery</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Technical expression of metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technicalexpressionmetadata.html">Technical expression of metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishingmetadata.html">Publishing metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="distributionapis.html">Queryable distribution interfaces (API)</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="contentmodel.html">Basic discovery metadata content model</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Basic discovery metadata content model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="queryabledistributions.html">Queryable distributions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="schemaorgimplementation.html">schemaorgimplementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publication.html">Metadata publication</a></li>
@@ -283,7 +283,7 @@
       
       
       
-      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fmetadata/technicalexpressionmetadata.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fmetadata/contentmodel.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -313,7 +313,7 @@
       
       
       
-      <li><a href="../_sources/metadata/technicalexpressionmetadata.md" target="_blank"
+      <li><a href="../_sources/metadata/contentmodel.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -397,7 +397,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Technical expression of metadata</h1>
+    <h1>Basic discovery metadata content model</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,12 +407,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-objects">Digital Objects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-content">Metadata content</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-profiles">Metadata profiles</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required">Required</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-but-nilable">Required, but nilable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-for-metadata-management">Required for metadata management</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended">Recommended</a></li>
 </ul>
             </nav>
         </div>
@@ -424,27 +422,61 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="technical-expression-of-metadata">
-<h1>Technical expression of metadata<a class="headerlink" href="#technical-expression-of-metadata" title="Link to this heading">#</a></h1>
-<p>The Internet and World Wide Web constitute an immense body of data, information, and knowledge accessible to anyone with a computer that can interact with the system. The Web can be thought of as a library containing a large fraction of the written, recorded, and graphic works of humanity, or as a database containing an almost unimaginable spectrum of data from scientific research, historical records, government records, sensor networks, etc.</p>
-<p>The challenge with this mountain of resources is to find particular nuggets useful to answer questions and solve problems. Addressing this problem requires, <em>first</em>, understanding what kinds of things the World Wide Web offers, referred to as ‘<strong>resources</strong>’ in this discussion. <em>Second</em>, how are these resources described and documented such that they are useful? <em>Third</em>, how can descriptions of resources be made available on the Web to guide users to find and use the resources? In the CDIF framework we think of things on the World Wide Web as Digital Objects (First issue). Metadata objects are a special kind of digital object that describes and documents things on the web (Second issue). The third issue is addressed using existing web technology and emerging conventions.</p>
-<section id="digital-objects">
-<h2>Digital Objects<a class="headerlink" href="#digital-objects" title="Link to this heading">#</a></h2>
-<p>A resource is an identifiable thing of interest to someone; it might be a Digital Object (DO) or a Non-digital Resource. A Digital Object is a packaged, identifiable sequence of digital bits that carries some information. A Digital Object has exactly one digital representation: a bitstream. The Digital Object bitstream might be the resource of interest, or it might be a representation of an abstract or physical resource that cannot be transmitted electronically (see <a class="reference external" href="https://en.wikipedia.org/wiki/HTTPRange-14">HTTP Range-14</a> ). The identifier for a Digital Object can be dereferenced to access the object directly. A non-digital resource is a material entity (e.g. person, rock sample), an abstract entity (e.g. Donald Duck, The Land of Oz), or a ‘Work’ or ‘Expression’ in the <a class="reference external" href="https://www.loc.gov/cds/downloads/FRBR.PDF">FRBR sense</a> (e.g. Beethoven’s 9th Symphony, Dickens’ ‘Tale of Two Cities’). Identifiers for non-digital resources must dereference on the Web to a Digital Object that is a representation of the non-digital thing and can be transmitted electronically.</p>
-<p>In the FAIR Digital Object Framework (FDOF), a Digital Object (DO) is a specific bit stream that carries some information and has a persistent, registered, resolvable identifier (PID) that can be resolved to obtain a PID kernel record. Note that ‘Digital Object’ is capitalised in this document to emphasise that it is being used in this specific sense. The PID kernel record provides documentation for the source of the PID, expected lifetime, type of resource it identifies, linkage to the resource it identifies, and other attributes specified in a schema identified in the PID kernel record <a class="reference external" href="https://doi.org/10.15497/RDA00031">PID profile (Weigel et al., 2018)</a>. The PID kernel record is a metadata record conforming to a particular PID profile.</p>
-<p>Digital Objects are FAIR (FDOs) when they are part of an ecosystem comprising services and infrastructure to support realisation of the FAIR (Findable, Accessible, Interoperable, Reusable) principles. In the FAIR Digital Object Framework (FDOF) there must be a mechanism to access either the object or its metadata by dereferencing the object’s PID. Metadata content must enable the identified resource to be found, used and cited, enable interoperability and reuse, and include machine-actionable statements about dependencies and licensing. <a class="reference external" href="https://fairdigitalobjectframework.org/">Bonino et al. (2022)</a> propose some approaches to access the FDOFIdentifierRecord (Kernel metadata) and other FDOF requirements; the level of adoption for this approach is uncertain.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-discovery-metadata-content-model">
+<h1>Basic discovery metadata content model<a class="headerlink" href="#basic-discovery-metadata-content-model" title="Link to this heading">#</a></h1>
+<p>The core of the CDIF profile for resource discovery is a set of implementation-independent content requirements that specify the required information to support a basic level of discovery interoperability for resources of any type.  The following list includes the minimum required content for basic resource description, discovery, and access. This recommendation is a synthesis of various metadata schemes, including ISO 19115-1:2014, <a class="reference external" href="http://schema.org">schema.org</a> conventions from ESIPFed Science on <a class="reference external" href="http://Schema.org">Schema.org</a> and Ocean Data net, DCAT, DCAT-AP, and <a class="reference external" href="https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0">FDO Kernel Attributes-2.0</a>. A mapping between these various schemas and CDIF content elements is available in <a class="reference internal" href="tbd.html"><span class="doc std std-doc">TBD</span></a>. Note that these content requirements are scoped for a broad spectrum of resource types. It is expected that other fields will need to be added in extensions for specific kinds of resources.</p>
+<section id="required">
+<h2>Required<a class="headerlink" href="#required" title="Link to this heading">#</a></h2>
+<p>If the content of a required element does not provide useful information, the metadata is considered useless for even the most rudimentary discovery use cases. Conformant metadata MUST provide valid values, i.e., a meaningful title that identifies the resource, either a URL or text statement of how to obtain the resource, a statement of any licensing, usage, or access constraints (i.e., Rights), and identifiers for the specification of the metadata serialisation and the type of the resource described.</p>
+<ul class="simple">
+<li><p><strong>Resource identifier</strong> (1 entry): A globally unique, resolvable identifier for the resource described by the metadata record.</p></li>
+<li><p><strong>Title</strong> (1 entry): Succinct (preferably &lt;250 characters) name of the resource; should be sufficient to uniquely identify the resource for a human user.</p></li>
+<li><p><strong>Distribution</strong>: URL, Distribution object, or Access Instructions (1 entry): If the resource is a digital object accessible online, provide a URL that will retrieve the resource. If the resource has multiple representations, provide a Distribution Object documenting the various options with a URL and representation profile for each. Metadata for distributions through an API that allows query, filter, or processing as part of a data access request are described in the Queryable Distribution Interfaces (API) section, below. If the resource is not accessible online, provide a URL to a landing page used to access the resource, or minimally, provide a text description explaining how to access the resource in the metadata (Access Instructions).</p></li>
+<li><p><strong>Rights</strong> (1 to many entry): Information about required access permissions, licences, contractual requirements, use constraints, and security constraints. Might be described in text or through links to external documents. (See 6.4. Data Access for providing machine-actionable rights descriptions.)</p></li>
+<li><p><strong>Metadata profile identifier</strong> (1 to many): Identifier for metadata specification (profile) used to create this metadata record. Generally this will be populated automatically if the metadata is created using CDIF aware tools.</p></li>
+<li><p><strong>Resource type</strong> (1 to many): A scoped name (label with classification scheme) that specifies the kind of resource described by the metadata. The resource type might be used to determine validation requirements specific to descriptions for that kind of resource.</p></li>
+</ul>
 </section>
-<section id="metadata">
-<h2>Metadata<a class="headerlink" href="#metadata" title="Link to this heading">#</a></h2>
-<p>In order for resources to be discoverable on the Web, the search applications that are used to find things must locate some representation of the resource and must be able to parse that representation and generate indexes for searching. In the realm of linked HTML Web pages, search engines parse the text content and links on Web pages to create text-based indexes and use links to find other pages to crawl the Web. This approach does not work for datasets, images, sound recordings, videos, and other non-narrative text resources, so separate representations of their content are constructed as metadata, in a format that can be parsed and indexed by search applications. This pattern is also applied to text resources to provide more explicit documentation. At the simplest level the content of the metadata can consist of text describing the resource and a link to access the resource, analogous to what is included on the cards in a legacy library card catalogue. Representing the metadata content using a structured, machine-readable format makes the information more precise and accessible to software agents.</p>
-<section id="metadata-content">
-<h3>Metadata content<a class="headerlink" href="#metadata-content" title="Link to this heading">#</a></h3>
-<p>In the digital world, a wide variety of metadata schemes have evolved for describing resources. These schemes are structured to allow a richer understanding of the information, and typically at least include information about the set of fifteen generic elements identified as the Dublin Core: Creator, Contributor, Publisher, Title, Date, Language, Format, Subject, Description, Identifier, Relation, Source, Type, Coverage, and Rights, <a class="reference external" href="https://www.dublincore.org/resources/metadata-basics/">first drafted at a 1995 meeting in Dublin, Ohio</a>. These elements are defined at an abstract level and served well with free text content values for use by humans. Such semi-structured metadata is insufficient to support machine-actionable reuse of the described resources.  In order to be machine-actionable, the structure, syntax, and element-value representations in a metadata document must conform to conventions that client software can be programmed to parse and ‘understand’. ‘Understand’ in this context means recognise the incoming bitstream content and take appropriate, useful action. The metadata provider must communicate the conventions used to serialise the metadata they provide. Ideally this is done with an identifier for a specification document that details the conventions used. Some widely used metadata specifications include <a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/">DCAT</a>, <a class="reference external" href="https://schema.datacite.org/">DataCite Schema</a>, <a class="reference external" href="https://www.iso.org/standard/53798.html">ISO 19115-1</a>, <a class="reference external" href="https://eml.ecoinformatics.org/">EML</a>, <a class="reference external" href="https://www.fgdc.gov/metadata/csdgm-standard">FGDC CSDGM</a>, <a class="reference external" href="https://eurocris.org/eurocris_archive/cerifsupport.org/cerif-in-brief/index.html">CERIF</a>, <a class="reference external" href="https://schema.org/">schema.org</a>, and <a class="reference external" href="https://ddialliance.org/Specification/">DDI</a>. These specifications determine the structure and syntax of metadata documents, but leave latitude on how the values of some metadata elements are represented, and often offer multiple valid approaches to representing the same information.</p>
+<section id="required-but-nilable">
+<h2>Required, but nilable<a class="headerlink" href="#required-but-nilable" title="Link to this heading">#</a></h2>
+<p>These are content elements for which every resource should have useful information, but for which the information may not be available. A corresponding field should be included in each metadata record, but may have value ‘nil:missing’, ‘nil:unknown’ or similar nil value. Use ‘nil:notapplicable’ for Temporal Coverage, Geographic Extent or Statistical Variable when these are not applicable to the described resource.</p>
+<ul class="simple">
+<li><p><strong>Description</strong> (1 entry): Inform the reader about the resource’s content, context, provenance, and any other information deemed useful for future cross-domain usage. - Originators (1 to many entries): One or more parties (person or organisation) that have a role related to the origin of the resource, e.g., author or editor. Each party has a name (label), identifier, and optional contact information.</p></li>
+<li><p><strong>Modified Date</strong> (1 entry): Date (not temporal extent) when the most recent changes to the resource were completed. Use a “year” or [ISO 8601 date and time] format. Alternative date formatting must be machine-readable and consistent across all datasets.</p></li>
+<li><p><strong>Distribution Agent</strong> (1 entry):The party (person or organisation) to contact about accessing the resource. Each party has a name (label), identifier, and optional contact information. If there are multiple distribution options with different contact points, the Distribution Agent should be specified as part of the Distribution Object.</p></li>
+<li><p><strong>Statistical Variable</strong> (1 to many entries): Only applicable to datasets, otherwise nil:{reason}. A complete description of a dataset should include a list of the fields in the data, with each field mapped to a variable that is represented by the content of that field. (See <a class="reference internal" href="tbd.html"><span class="doc std std-doc">tbd</span></a>.) Variable definitions should minimally specify the property represented by name. Identification of the property represented with a resolvable URI is strongly recommended. Variable descriptions should include documentation for how units of measure and reference systems for values are specified (see <a class="reference internal" href="tbd.html"><span class="doc std std-doc">Universals</span></a> ). Details of data structure and schema more closely related to interoperability, data integration, and usage than to data discovery are discussed in <a class="reference internal" href="tbd.html"><span class="doc std std-doc">tbd</span></a>. Describing Data to Make it “Integration-Ready”.</p></li>
+<li><p><strong>Temporal Coverage</strong> (1 entry). The time interval represented by or the subject of the described resource. This could be the time interval when data were collected, or an archaeological or geological time interval that is the subject of the resource. Need to account for clock time, calendar time (Gregorian, Julian, Hebrew, Islamic, Chinese, Mayan…), cyclical time (summer, first quarter, mating season, new moon, pay day) and for named time ordinal eras (Jurassic, Younger Dryas, Early Minoan I, Late Stone Age). See <a class="reference external" href="https://www.w3.org/TR/owl-time/">OWL Time</a>.</p></li>
+<li><p><strong>Geographic Extent</strong> - horizontal (if applicable, 1 entry, minimum bounding rectangle or point): In order to support cross-domain searches based on geospatial location, location coordinates must be given in decimal degrees using the WGS 8486 datum. There are various other systems for describing location (see <a class="reference internal" href="tbd.html"><span class="doc std std-doc">Space</span></a> ); these can be provided as alternate location descriptions, recognizing that they might be meaningful to some metadata harvesting agents. Some resources may not be usefully described by a WGS 84 extent, in which case indicate nil:notapplicable; this would include extraterrestrial resources.</p>
+<ul>
+<li><p><em>Bounding Rectangle</em>: North Bounding Latitude, South Bounding Latitude, East Bounding Longitude, West Bounding Longitude. The minimum rectangle that completely contains the coverage extent for the resource content. Coordinate order and syntax are determined by the serialisation profile.</p></li>
+<li><p><em>Point</em>: Latitude, Longitude. A centroid point for the coverage extent of the resource, or the location of the resource content if a point location is appropriate. Coordinate order and syntax are determined by the serialisation profile.</p></li>
+<li><p><em>Named location</em>: Place name referenced to some gazetteer. Use scoped name pattern {label, authority, optional identifier} (see <a class="reference internal" href="tbd.html"><span class="doc std std-doc">placename</span></a> ).</p></li>
+</ul>
+</li>
+</ul>
 </section>
-<section id="metadata-profiles">
-<h3>Metadata profiles<a class="headerlink" href="#metadata-profiles" title="Link to this heading">#</a></h3>
-<p>Achieving the level of metadata interoperability required for CDIF will require the adoption of one (or a small number of) metadata specification(s), along with more specific conventions on vocabularies used for metadata properties. We refer to such a set of specific conventions as a profile. CDIF provides recommendations for a metadata profile compatible with machine processing. This profile includes the base file MIME-type, an information model for the metadata content, and how that information is represented both syntactically and semantically. Most profiles are based on an existing metadata specification, e.g. <a class="reference external" href="http://schema.org">schema.org</a>, DCAT, ISO19115-1, EML, DDI-CDI, but provide additional detail to resolve ambiguities in the base specification, or rules for vocabularies and data types for element values that extend or restrict the base specification. The simplest presentation of a profile specification can be a text document that describes the information required, identifies the base specification, and states any conventions or rules for profile conformance. Such a document could be used by a software developer writing code to use information in metadata conforming to the profile. Profiles might also be specified in a machine-actionable way, e.g., the Dublin Core Tabular Application Profiles (DCTAP)64, Profiles Vocabulary65, SHACL rules66, XML schematron rules67, or other schema or rule representations. Using a rule-based representation for metadata profiles provides an approach to defining and communicating metadata constraints that can be validated automatically to support metadata profile interoperability, reusability, and quality.</p>
+<section id="required-for-metadata-management">
+<h2>Required for metadata management<a class="headerlink" href="#required-for-metadata-management" title="Link to this heading">#</a></h2>
+<p>These elements provide essential information for the operation of a distributed catalogue system with harvesting of metadata between catalogue servers. Values should be populated automatically by metadata creation tools, requiring no user input. Nil values are allowed.</p>
+<ul class="simple">
+<li><p><strong>Metadata Date</strong> (1 entry): Last metadata update/creation date-time stamp in ISO 8601 date and time format. This may be automatically updated on metadata import if a metadata format conversion is necessary.</p></li>
+<li><p><strong>Metadata Contact Agent</strong> (1 entry): The party responsible for metadata content and accuracy; Agent object includes a name (label), identifier, and optional contact information</p></li>
+<li><p><strong>Metadata Identifier</strong> (1 entry): The identifier for the Digital object that contains the metadata.</p></li>
+</ul>
 </section>
+<section id="recommended">
+<h2>Recommended<a class="headerlink" href="#recommended" title="Link to this heading">#</a></h2>
+<p>Other properties that should be specified if possible and relevant. All are optional.</p>
+<ul class="simple">
+<li><p><strong>Checksum</strong>. (0 or 1): A string value calculated from the content of a digital object that allows verification that the content of the object has not been modified. Even insignificant changes to the content of the file will change its checksum. The algorithm used to calculate the checksum must be documented. See also <a class="reference external" href="https://www.rfc-editor.org/rfc/rfc6920.html">RFC-6920 ‘Naming things with hashes’</a> that establishes ways to identify checksum algorithms and to represent checksum values as a URI. Note that checksums apply to specific digital objects, typically a unique resource representation. Non-digital resources do not have checksums; their representations can have checksums. See implementation notes in Appendix 1.</p></li>
+<li><p><strong>Funding</strong>. (0 to many entries): Cite funding sources (Grants, contracts…). Each source has a grant or contract identifier, source organisation, and label.</p></li>
+<li><p><strong>Keyword</strong> (0 to many entries): Distinguish ‘tags’ and ‘controlled terms’. Tags are simply words that a metadata creator thinks will be useful for users to identify resources of interest. Controlled terms are words defined in a vocabulary that minimally include the word (a fixed string to identify the term for humans) and a definition. Each term represents some concept. More semantically rich vocabularies would include resolvable identifiers, source information, and links to related terms (see <a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1009041">Cox et al., 2021</a> ). One common set of relationships in a vocabulary is a kind-of hierarchy linking broader to narrower concepts. Controlled terms should minimally be represented in metadata with a label and scheme name that identifies the source vocabulary; ideally a term URI and scheme URI could be included for more accurate identification and data integration.</p></li>
+<li><p><strong>Policies</strong> (0 to many entries): Policies used in management of the described resource, including whether the content may be changed (mutable or immutable), any scheduled updates, what is the expected lifetime for resource availability, what (if any) is the maintenance schedule, versioning, documentation for changes and change requests. Explicit support for specific policy frameworks can be included (e.g., CARE).</p></li>
+<li><p><strong>Publication Date</strong> (0 or 1): Date (not temporal extent) when the resource was made accessible. Use a ‘year’ or ISO 8601 date and time format. Alternative date formatting must be machine-readable and consistent across all datasets. If no publication date is known, estimate the publication date range, enter the oldest year as the publication date, and include the estimated date range in the Description field.</p></li>
+<li><p><strong>Other related agents</strong> (0 to many entries): Recognition for others who have contributed to the production of the resource but are not recognized as authors/creators. Includes a variety of roles like maintainer, publisher, point of contact, copyright holder, contributor (see e.g. <a class="reference external" href="https://datacite-metadata-schema.readthedocs.io/en/4.5_draft/properties/recommended_optional/property_contributor.html#a-contributortype">DataCite contributor types</a>, <a class="reference external" href="https://wiki.esipfed.org/ISO_19115_and_19115-2_CodeList_Dictionaries#CI_RoleCode">ISO19115-1 role code</a> )</p></li>
+<li><p><strong>Related resources</strong> (0 to many entries): Links to related data, publications, annotation, data sources, software used, etc. Links have at least a label, relationship type, and resolvable target resource identifier.</p></li>
+<li><p><strong>Version</strong> (0 or 1): If the resource is versioned, specify the label for this version. Version labels should follow a scheme that allows alphanumeric sorting reflecting the order of version release.</p></li>
+</ul>
 </section>
 </section>
 
@@ -479,20 +511,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../background/principles.html"
+       href="recommendations.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Design principles</p>
+        <p class="prev-next-title">Metadata Recommendations</p>
       </div>
     </a>
     <a class="right-next"
-       href="publishingmetadata.html"
+       href="queryabledistributions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Publishing metadata</p>
+        <p class="prev-next-title">Queryable distributions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -512,12 +544,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-objects">Digital Objects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-content">Metadata content</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-profiles">Metadata profiles</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required">Required</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-but-nilable">Required, but nilable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-for-metadata-management">Required for metadata management</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended">Recommended</a></li>
 </ul>
   </nav></div>
 

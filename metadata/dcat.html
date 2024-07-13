@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Technical expression of metadata &#8212; Cross Domain Interoperability Framework Handbook</title>
+    <title>Data Catalog Vocabulary (DCAT) vocabulary &#8212; Cross Domain Interoperability Framework Handbook</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'metadata/technicalexpressionmetadata';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'metadata/dcat';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Publishing metadata" href="publishingmetadata.html" />
-    <link rel="prev" title="Design principles" href="../background/principles.html" />
+    <link rel="next" title="Data Access Introduction" href="../data_access/intro.html" />
+    <link rel="prev" title="Metadata publication" href="publication.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,16 +193,16 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Discovery</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Technical expression of metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technicalexpressionmetadata.html">Technical expression of metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishingmetadata.html">Publishing metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="distributionapis.html">Queryable distribution interfaces (API)</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="contentmodel.html">Basic discovery metadata content model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="queryabledistributions.html">Queryable distributions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="schemaorgimplementation.html">schemaorgimplementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publication.html">Metadata publication</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
 </ul>
 </details></li>
 </ul>
@@ -283,7 +283,7 @@
       
       
       
-      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fmetadata/technicalexpressionmetadata.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fmetadata/dcat.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -313,7 +313,7 @@
       
       
       
-      <li><a href="../_sources/metadata/technicalexpressionmetadata.md" target="_blank"
+      <li><a href="../_sources/metadata/dcat.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -384,9 +384,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -397,24 +395,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Technical expression of metadata</h1>
+    <h1>Data Catalog Vocabulary (DCAT) vocabulary</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-objects">Digital Objects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-content">Metadata content</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-profiles">Metadata profiles</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -424,28 +409,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="technical-expression-of-metadata">
-<h1>Technical expression of metadata<a class="headerlink" href="#technical-expression-of-metadata" title="Link to this heading">#</a></h1>
-<p>The Internet and World Wide Web constitute an immense body of data, information, and knowledge accessible to anyone with a computer that can interact with the system. The Web can be thought of as a library containing a large fraction of the written, recorded, and graphic works of humanity, or as a database containing an almost unimaginable spectrum of data from scientific research, historical records, government records, sensor networks, etc.</p>
-<p>The challenge with this mountain of resources is to find particular nuggets useful to answer questions and solve problems. Addressing this problem requires, <em>first</em>, understanding what kinds of things the World Wide Web offers, referred to as ‘<strong>resources</strong>’ in this discussion. <em>Second</em>, how are these resources described and documented such that they are useful? <em>Third</em>, how can descriptions of resources be made available on the Web to guide users to find and use the resources? In the CDIF framework we think of things on the World Wide Web as Digital Objects (First issue). Metadata objects are a special kind of digital object that describes and documents things on the web (Second issue). The third issue is addressed using existing web technology and emerging conventions.</p>
-<section id="digital-objects">
-<h2>Digital Objects<a class="headerlink" href="#digital-objects" title="Link to this heading">#</a></h2>
-<p>A resource is an identifiable thing of interest to someone; it might be a Digital Object (DO) or a Non-digital Resource. A Digital Object is a packaged, identifiable sequence of digital bits that carries some information. A Digital Object has exactly one digital representation: a bitstream. The Digital Object bitstream might be the resource of interest, or it might be a representation of an abstract or physical resource that cannot be transmitted electronically (see <a class="reference external" href="https://en.wikipedia.org/wiki/HTTPRange-14">HTTP Range-14</a> ). The identifier for a Digital Object can be dereferenced to access the object directly. A non-digital resource is a material entity (e.g. person, rock sample), an abstract entity (e.g. Donald Duck, The Land of Oz), or a ‘Work’ or ‘Expression’ in the <a class="reference external" href="https://www.loc.gov/cds/downloads/FRBR.PDF">FRBR sense</a> (e.g. Beethoven’s 9th Symphony, Dickens’ ‘Tale of Two Cities’). Identifiers for non-digital resources must dereference on the Web to a Digital Object that is a representation of the non-digital thing and can be transmitted electronically.</p>
-<p>In the FAIR Digital Object Framework (FDOF), a Digital Object (DO) is a specific bit stream that carries some information and has a persistent, registered, resolvable identifier (PID) that can be resolved to obtain a PID kernel record. Note that ‘Digital Object’ is capitalised in this document to emphasise that it is being used in this specific sense. The PID kernel record provides documentation for the source of the PID, expected lifetime, type of resource it identifies, linkage to the resource it identifies, and other attributes specified in a schema identified in the PID kernel record <a class="reference external" href="https://doi.org/10.15497/RDA00031">PID profile (Weigel et al., 2018)</a>. The PID kernel record is a metadata record conforming to a particular PID profile.</p>
-<p>Digital Objects are FAIR (FDOs) when they are part of an ecosystem comprising services and infrastructure to support realisation of the FAIR (Findable, Accessible, Interoperable, Reusable) principles. In the FAIR Digital Object Framework (FDOF) there must be a mechanism to access either the object or its metadata by dereferencing the object’s PID. Metadata content must enable the identified resource to be found, used and cited, enable interoperability and reuse, and include machine-actionable statements about dependencies and licensing. <a class="reference external" href="https://fairdigitalobjectframework.org/">Bonino et al. (2022)</a> propose some approaches to access the FDOFIdentifierRecord (Kernel metadata) and other FDOF requirements; the level of adoption for this approach is uncertain.</p>
-</section>
-<section id="metadata">
-<h2>Metadata<a class="headerlink" href="#metadata" title="Link to this heading">#</a></h2>
-<p>In order for resources to be discoverable on the Web, the search applications that are used to find things must locate some representation of the resource and must be able to parse that representation and generate indexes for searching. In the realm of linked HTML Web pages, search engines parse the text content and links on Web pages to create text-based indexes and use links to find other pages to crawl the Web. This approach does not work for datasets, images, sound recordings, videos, and other non-narrative text resources, so separate representations of their content are constructed as metadata, in a format that can be parsed and indexed by search applications. This pattern is also applied to text resources to provide more explicit documentation. At the simplest level the content of the metadata can consist of text describing the resource and a link to access the resource, analogous to what is included on the cards in a legacy library card catalogue. Representing the metadata content using a structured, machine-readable format makes the information more precise and accessible to software agents.</p>
-<section id="metadata-content">
-<h3>Metadata content<a class="headerlink" href="#metadata-content" title="Link to this heading">#</a></h3>
-<p>In the digital world, a wide variety of metadata schemes have evolved for describing resources. These schemes are structured to allow a richer understanding of the information, and typically at least include information about the set of fifteen generic elements identified as the Dublin Core: Creator, Contributor, Publisher, Title, Date, Language, Format, Subject, Description, Identifier, Relation, Source, Type, Coverage, and Rights, <a class="reference external" href="https://www.dublincore.org/resources/metadata-basics/">first drafted at a 1995 meeting in Dublin, Ohio</a>. These elements are defined at an abstract level and served well with free text content values for use by humans. Such semi-structured metadata is insufficient to support machine-actionable reuse of the described resources.  In order to be machine-actionable, the structure, syntax, and element-value representations in a metadata document must conform to conventions that client software can be programmed to parse and ‘understand’. ‘Understand’ in this context means recognise the incoming bitstream content and take appropriate, useful action. The metadata provider must communicate the conventions used to serialise the metadata they provide. Ideally this is done with an identifier for a specification document that details the conventions used. Some widely used metadata specifications include <a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/">DCAT</a>, <a class="reference external" href="https://schema.datacite.org/">DataCite Schema</a>, <a class="reference external" href="https://www.iso.org/standard/53798.html">ISO 19115-1</a>, <a class="reference external" href="https://eml.ecoinformatics.org/">EML</a>, <a class="reference external" href="https://www.fgdc.gov/metadata/csdgm-standard">FGDC CSDGM</a>, <a class="reference external" href="https://eurocris.org/eurocris_archive/cerifsupport.org/cerif-in-brief/index.html">CERIF</a>, <a class="reference external" href="https://schema.org/">schema.org</a>, and <a class="reference external" href="https://ddialliance.org/Specification/">DDI</a>. These specifications determine the structure and syntax of metadata documents, but leave latitude on how the values of some metadata elements are represented, and often offer multiple valid approaches to representing the same information.</p>
-</section>
-<section id="metadata-profiles">
-<h3>Metadata profiles<a class="headerlink" href="#metadata-profiles" title="Link to this heading">#</a></h3>
-<p>Achieving the level of metadata interoperability required for CDIF will require the adoption of one (or a small number of) metadata specification(s), along with more specific conventions on vocabularies used for metadata properties. We refer to such a set of specific conventions as a profile. CDIF provides recommendations for a metadata profile compatible with machine processing. This profile includes the base file MIME-type, an information model for the metadata content, and how that information is represented both syntactically and semantically. Most profiles are based on an existing metadata specification, e.g. <a class="reference external" href="http://schema.org">schema.org</a>, DCAT, ISO19115-1, EML, DDI-CDI, but provide additional detail to resolve ambiguities in the base specification, or rules for vocabularies and data types for element values that extend or restrict the base specification. The simplest presentation of a profile specification can be a text document that describes the information required, identifies the base specification, and states any conventions or rules for profile conformance. Such a document could be used by a software developer writing code to use information in metadata conforming to the profile. Profiles might also be specified in a machine-actionable way, e.g., the Dublin Core Tabular Application Profiles (DCTAP)64, Profiles Vocabulary65, SHACL rules66, XML schematron rules67, or other schema or rule representations. Using a rule-based representation for metadata profiles provides an approach to defining and communicating metadata constraints that can be validated automatically to support metadata profile interoperability, reusability, and quality.</p>
-</section>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="data-catalog-vocabulary-dcat-vocabulary">
+<h1>Data Catalog Vocabulary (DCAT) vocabulary<a class="headerlink" href="#data-catalog-vocabulary-dcat-vocabulary" title="Link to this heading">#</a></h1>
+<p>DCAT is an important specification for exposing discovery metadata. To support those who use DCAT, we recommend that the DCAT metadata be expressed in JSON-LD as recommended for <a class="reference external" href="http://Schema.org">Schema.org</a>, and the equivalent fields be used.</p>
+<p>DCAT has become very common in some areas: DCAT-AP and GeoDCAT have gained a lot of traction in Europe. DCAT-US promises to gain similar traction. While this varies domain-by-domain, the fact that DCAT itself is designed for describing data, while <a class="reference external" href="http://Schema.org">Schema.org</a> is immensely broad in scope (it describes basically everything for the purposes of the Web!), means that DCAT has some features which are specifically useful for CDIF’s purposes.</p>
+<p>There are several different mappings between <a class="reference external" href="http://Schema.org">Schema.org</a> and DCAT available, and some may be more appropriate than others for any particular implementation. By default, however, we recommend the mapping from the W3C group which has developed DCAT:</p>
+<ol class="arabic simple">
+<li><p>DCAT - <a class="reference external" href="http://Schema.org">Schema.org</a> mapping in the context of DCAT version 2:</p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ec-jrc.github.io/dcat-ap-to-schema-org/">https://ec-jrc.github.io/dcat-ap-to-schema-org/</a> or <a class="reference external" href="https://www.w3.org/TR/vocab-dcat-2/#dcat-sdo">https://www.w3.org/TR/vocab-dcat-2/#dcat-sdo</a></p></li>
+<li><p><a class="reference external" href="https://w3c.github.io/dxwg/dcat/rdf/dcat-schema.ttl">https://w3c.github.io/dxwg/dcat/rdf/dcat-schema.ttl</a> is a mapping between DCAT2 and SDO 3.4. “…This mapping is axiomatized using the predicates rdfs:subClassOf, rdfs:subPropertyOf, owl:equivalentClass, owl:equivalentProperty, skos:closeMatch, and also using the annotation properties sdo:domainIncludes and sdo:rangeIncludes to match <a class="reference external" href="https://www.w3.org/TR/vocab-dcat-2/#bib-schema-org">SCHEMA-ORG</a> semantics. …” .</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Update in the DCAT version 3 documentation: <a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/#dcat-sdo">https://www.w3.org/TR/vocab-dcat-3/#dcat-sdo</a></p></li>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
@@ -479,20 +457,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../background/principles.html"
+       href="publication.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Design principles</p>
+        <p class="prev-next-title">Metadata publication</p>
       </div>
     </a>
     <a class="right-next"
-       href="publishingmetadata.html"
+       href="../data_access/intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Publishing metadata</p>
+        <p class="prev-next-title">Data Access Introduction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -502,26 +480,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-objects">Digital Objects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-content">Metadata content</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-profiles">Metadata profiles</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

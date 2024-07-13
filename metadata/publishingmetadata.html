@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'metadata/publishingmetadata';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Queryable distribution interfaces (API)" href="distributionapis.html" />
     <link rel="prev" title="Technical expression of metadata" href="technicalexpressionmetadata.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -194,6 +195,23 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="technicalexpressionmetadata.html">Technical expression of metadata</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Publishing metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributionapis.html">Queryable distribution interfaces (API)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="contentmodel.html">Basic discovery metadata content model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queryabledistributions.html">Queryable distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemaorgimplementation.html">schemaorgimplementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publication.html">Metadata publication</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Access</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data_access/intro.html">Data Access Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrloverview.html">Overview of ODRL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/policies.html">Data access policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlimplementation.html">odrlimplementation</a></li>
 </ul>
 
     </div>
@@ -410,8 +428,8 @@ document.write(`
 <section id="signposting">
 <h2>Signposting<a class="headerlink" href="#signposting" title="Link to this heading">#</a></h2>
 <p>Signposting is an approach to discovering the content and capabilities of resources accessed by resolving URIs on the Web. Like the FAIR Digital Object framework, it starts with an identifier that can be resolved, and uses typed Web links (<a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc8288">IETF RFC8288</a>) and <a class="reference external" href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA registered relationship</a> types to enable an agent to discover what is identified and navigate to metadata with more information. These signposting links can implement the linking requirements of the <a class="reference external" href="https://www.slideshare.net/hvdsomp/fair-signposting-a-kiss-approach-to-a-burning-issue">Fair Digital Object Framework</a>. The CDIF metadata requirements outlined below include recommended or optional properties necessary to create a FDO PID Kernel information record (FDOFIdentificationRecord in Figure 1, below) as recommended by the Research Data Alliance (RDA)(<a class="reference external" href="https://doi.org/10.15497/RDA00031">Weigel et al. (2018)</a> ). Signposting can be used to implement FDOF requirements, and in the following implementation discussion we outline how Signposting is compatible with CDIF. The mapping from the PID Kernel information record to the CDIF metadata <a class="reference external" href="http://schema.org">schema.org</a> recommended implementation is shown in <a class="reference internal" href="#"><span class="xref myst">PID kernel mapping</span></a>. Mapping from Signposting link relation types to CDIF metadata elements is shown in <a class="reference internal" href="#"><span class="xref myst">Signposting link mapping</span></a>.</p>
-<p><img alt="FDOF-CDIF metadata relations." src="../_images/fdof-cdif-relations.jpg" />
-Figure 1. FDOF-CDIF metadata relations.</p>
+<p><img alt="FDOF-CDIF metadata relations." src="../_images/fdof-cdif-relations.jpg" /></p>
+<p>Figure 1. FDOF-CDIF metadata relations.</p>
 </section>
 <section id="search-engines">
 <h2>Search engines<a class="headerlink" href="#search-engines" title="Link to this heading">#</a></h2>
@@ -421,16 +439,16 @@ Figure 1. FDOF-CDIF metadata relations.</p>
 <ol class="arabic simple">
 <li><p>Each resource has an HTML landing page that describes the resource for human users, and contains embedded metadata for machine clients. Metadata can be embedded in landing pages using the HTML &lt;script&gt; element, in alignment with the Data on the Web Best Practices, specifically <a class="reference external" href="https://www.w3.org/TR/dwbp/#metadata">section 8.2, Metadata</a> (See Example 1). This approach requires that each published resource has a human-readable landing page, intended to be the target of search by human users. Scripts are normally embedded in the &lt;head&gt; section of an HTML document. The &lt;script&gt; element has at minimum a ‘type’ attribute that provides a MIME-type specifying the type of script.</p></li>
 </ol>
-<p><img alt="example1" src="../_images/ex1-jsonldembededinhtml.jpg" />
-Example 1. A JSON-LD metadata object embedded as a script in an HTML document.</p>
+<p><img alt="example1" src="../_images/ex1-jsonldembededinhtml.jpg" /></p>
+<p>Example 1. A JSON-LD metadata object embedded as a script in an HTML document.</p>
 <ol class="arabic simple" start="2">
 <li><p>Metadata can be embedded in the HTML &lt;head&gt; section of a landing page using HTML &lt;meta&gt; elements, which have a ‘name’ attribute that can be used to identify different metadata properties (see Example 2). This approach has been implemented by some off-the-shelf repository software (e.g. Dataverse). The HTML &lt;meta&gt; elements are intended to describe the HTML document that contains the <a class="reference external" href="https://www.w3.org/TR/2011/WD-html5-author-20110809/the-meta-element.html">&lt;meta&gt; element</a>, not some external resource that the Web page is about. CDIF recommends against this approach and suggests using the script approach (No 1 in this list) instead because that is more widely used and allows richer metadata content to be included.</p></li>
 </ol>
-<p><img alt="example2" src="../_images/ex2-htmlmetatags.jpg" />
-Example 2. HTML meta tags with metadata about a resource.</p>
+<p><img alt="example2" src="../_images/ex2-htmlmetatags.jpg" /></p>
+<p>Example 2. HTML meta tags with metadata about a resource.</p>
 <ol class="arabic simple" start="3">
 <li><p>Metadata can be linked from the landing page using the HTML &lt;link&gt; element in the &lt;head&gt; section to provide a Web locator (URL) that can be used to retrieve a full metadata document about the described resource. The link element has the “rel=’describedby’” attribute to indicate that the link is to metadata; a ‘type’ attribute to provide the MIME type of the target metadata record; and optionally a ‘profile’ attribute to identify specific metadata conventions. Note that multiple links could be provided to different metadata views, e.g. a CDIF record, a PID Kernel record, a FDOFidentifierRecord, etc. This approach depends on Web-crawlers to identify and follow these links to get the metadata that the provider wants indexed. This is one of the <a class="reference external" href="https://signposting.org/">Signposting approaches</a>.</p></li>
-<li><p>The server providing the resource can be configured to include &lt;link&gt; elements in the <a class="reference external" href="https://tools.ietf.org/html/rfc8288">HTTP response header</a> that indicate the location of machine-actionable metadata describing the subject of the URL target. As in the HTML link approach, these links would have a “rel=’describedby’” attribute to indicate that the link is to metadata, a ‘type’ attribute to provide the MIME type of the target metadata record, and optionally a ‘profile’ attribute to identify specific metadata conventions. The advantage of this approach is that the HTTP response header links can be provided for any resource that has an HTTP URL, so links to metadata can be accessed for non-textual resources that do not have an associated HTML landing page. If the download size for the resource is large, a client can use the HTTP ‘head’ request to access this header information without downloading the <a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-4.3.2">entire file</a>. This approach would enable indexing of large resource collections that have a single landing page, but for which the individual resources do not have a landing page, e.g. a STAC catalogue. The downside is that many client applications do not use the <a class="reference external" href="https://www.w3.org/TR/ldp-bp/#use-case-2-providing-metadata-in-both-http-headers-and-html-body">HTTP header information</a>. This is a second Signposting approach. CDIF recommends this approach for resources that do not have landing pages; see <a class="reference internal" href="#tbd"><span class="xref myst">implementation recommendations</span></a>.</p></li>
+<li><p>The server providing the resource can be configured to include &lt;link&gt; elements in the <a class="reference external" href="https://tools.ietf.org/html/rfc8288">HTTP response header</a> that indicate the location of machine-actionable metadata describing the subject of the URL target. As in the HTML link approach, these links would have a “rel=’describedby’” attribute to indicate that the link is to metadata, a ‘type’ attribute to provide the MIME type of the target metadata record, and optionally a ‘profile’ attribute to identify specific metadata conventions. The advantage of this approach is that the HTTP response header links can be provided for any resource that has an HTTP URL, so links to metadata can be accessed for non-textual resources that do not have an associated HTML landing page. If the download size for the resource is large, a client can use the HTTP ‘head’ request to access this header information without downloading the <a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-4.3.2">entire file</a>. This approach would enable indexing of large resource collections that have a single landing page, but for which the individual resources do not have a landing page, e.g. a STAC catalogue. The downside is that many client applications do not use the <a class="reference external" href="https://www.w3.org/TR/ldp-bp/#use-case-2-providing-metadata-in-both-http-headers-and-html-body">HTTP header information</a>. This is a second Signposting approach. CDIF recommends this approach for resources that do not have landing pages; see <a class="reference internal" href="tbd.html"><span class="doc std std-doc">implementation recommendations</span></a>.</p></li>
 <li><p>A sitemap can point directly to metadata documents in formats that the search engine can parse. With the basic sitemap XML schema, all metadata would need to conform to a single profile. In the implementation section below, the CDIF proposes using an extension to the sitemap scheme that allows labelled links to the indexing targets.</p></li>
 <li><p>Another option is for the sitemap to provide a URL that retrieves a document containing a collection of metadata records, something like the US Government <a class="reference external" href="http://Data.gov">Data.gov</a> <a class="reference external" href="https://project-open-data.cio.gov/v1.1/schema/catalog.json">Project Open Data Catalog</a>, or <a class="reference external" href="https://book.oceaninfohub.org/indexing/graphpub.html">Ocean Info Hub graph first approach</a>, with individual records providing CDIF profile metadata.</p></li>
 </ol>
@@ -455,8 +473,8 @@ provides labelled links.</p></li>
 <ul class="simple">
 <li><p>The use of &lt;script&gt; or &lt;link&gt; elements (in the HTTP or HTML header) allows metadata to be offered following multiple specifications with the ‘type’ and ‘profile’ attributes used to identify the <a class="reference external" href="https://www.w3.org/TR/dx-prof-conneg/#dfn-profile">particular conventions</a> (Example 3). Minimally, the metadata record should assert the specification used to generate the record in a metadata property.</p></li>
 </ul>
-<p><img alt="example3" src="../_images/ex3-scriptwithtype.jpg" />
-Example 3. Script with a type parameter in the MIME-type string</p>
+<p><img alt="example3" src="../_images/ex3-scriptwithtype.jpg" /></p>
+<p>Example 3. Script with a type parameter in the MIME-type string</p>
 </section>
 </section>
 
@@ -498,6 +516,15 @@ Example 3. Script with a type parameter in the MIME-type string</p>
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Technical expression of metadata</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="distributionapis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Queryable distribution interfaces (API)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
