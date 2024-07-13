@@ -180,8 +180,19 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="futuretopics.html">Future work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summaryofprofiles.html">Summary of CDIF profiles and recommendations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="background/whycdif.html">Why CDIF?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="background/history.html">How was the CDIF developed?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="background/structure.html">The structure of the CDIF</a></li>
 </ul>
 
     </div>
@@ -354,7 +365,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -370,6 +383,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-cdif">What is CDIF</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#who-can-use-the-cdif">Who can use the CDIF?</a><ul class="visible nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -394,7 +420,20 @@ document.write(`
 <p>Each of these profiles is supported by specific recommendations, including the set of metadata fields in specific standards to use, and the method of implementation to be employed for machine-level interoperability.</p>
 <p>CDIF is designed to leverage the work of other FAIR initiatives such as FAIR-Impact and the work in EOSC. It is designed to be implementable with existing tools, standards, and technologies but, as a set of recommended practices, must be maintained as FAIR implementations develop and evolution occurs in the technology sphere. CDIF leverages methodologies such as FIPs from the <a class="reference external" href="https://www.go-fair.org/how-to-go-fair/fair-implementation-profile/">GO FAIR Foundation</a>. Importantly, it aligns with efforts such as the <a class="reference external" href="https://op.europa.eu/en/publication-detail/-/publication/d787ea54-6a87-11eb-aeb5-01aa75ed71a1/language-en">EOSC Interoperability Framework</a>, and developments such as <a class="reference external" href="https://signposting.org/FAIR/">Signposting</a> and reference implementation of the <a class="reference external" href="https://fairdo.org/">FAIR Digital Object Framework</a>. Work on semantic mapping and in some other areas is informed by on-going developments in other fora such as <a class="reference external" href="https://www.rd-alliance.org/">RDA</a>. CDIF is designed to enable the practical implementation of FAIR by supporting these frameworks and approaches in cross-domain scenarios.</p>
 <p>In any given domain, the standards used should be to a considerable extent mappable to and from their corresponding CDIF profiles, reducing the volume of mappings needed to interoperate effectively for core FAIR functions in multi-disciplinary scenarios. Broadly speaking, FAIR demands an increase in the metadata provided by the disseminators of data, especially if we are to automate resource-intensive data integration tasks, which today are largely manual. In a cross-domain scenario, the sheer number of mappings needed is not supportable. CDIF provides a solution by changing a many-to-many dynamic into a many-to-one dynamic.</p>
-<p>CDIF is not intended to replace existing community standards, but to supplement them for communication across domain and infrastructure boundaries. It does not aim to replace the specific models needed within different domains, but it does aim to establish a foundation of common metadata which can support a core set of FAIR functionality. Real-world examples of large-scale standards-based exchange networks, such as the <a class="reference external" href="https://sdmx.org/">Statistical Data and Metadata Exchange</a> (SDMX) and the <a class="reference external" href="https://oceaninfohub.org/odis/">Ocean InfoHub</a> (ODIS) have been used as inspiration for the overall approach, to ensure its feasibility for practical implementation. This draft includes links to early prototypes for such data as the Sustainable Development Goal Indicators and some of their source data, showing how the mining of the native standard descriptions of the source, to produce its equivalent in CDIF, can support disaggregation and integration of that data with other sources.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="what-is-cdif">
+<h1>What is CDIF<a class="headerlink" href="#what-is-cdif" title="Link to this heading">#</a></h1>
+<p><strong>CDIF is not intended to replace existing community standards</strong>, but to supplement them for communication across domain and infrastructure boundaries. It does not aim to replace the specific models needed within different domains, but it does aim to establish a foundation of common metadata which can support a core set of FAIR functionality. Real-world examples of large-scale standards-based exchange networks, such as the <a class="reference external" href="https://sdmx.org/">Statistical Data and Metadata Exchange</a> (SDMX) and the <a class="reference external" href="https://oceaninfohub.org/odis/">Ocean InfoHub</a> (ODIS) have been used as inspiration for the overall approach, to ensure its feasibility for practical implementation. This draft includes links to early prototypes for such data as the Sustainable Development Goal Indicators and some of their source data, showing how the mining of the native standard descriptions of the source, to produce its equivalent in CDIF, can support disaggregation and integration of that data with other sources.</p>
+<p>There is a wealth of research on how FAIR can be implemented, and investigations into this subject show no sign of abating. CDIF is not a research project, nor does it intend to outline the best possible solution to the challenges of FAIR implementation. Instead, it is first and foremost a practical exercise: how can we find a set of common standards and technology approaches that will enable us to implement FAIR for cross-domain scenarios using things which exist today? Standards are only useful if they are agreed and implemented, so CDIF tries to advocate those standards and technology already in common use. There are gaps in current practice that require additional information and standards, but these are minority cases. Web standards already exist for supporting most of the needed functions, but they are not always used in ways which are interoperable, requiring a common approach for at least some core aspects. The CDIF recommendations are based on practical considerations: we must agree on a body of practice, and whether it is the best possible solution is a secondary concern. More important is that it be implemented widely, so that FAIR exchange can become as easy as possible. Once laid, such a foundation can be perfected.</p>
+<p>To this end, CDIF identifies a set of common functions which are needed to implement FAIR: describing data for discovery and assessment, supporting access to data by describing the licensing and conditions of use, laying out the structure and semantics of data to support automated integration, and providing information regarding the provenance of data and resources. In each area, practical recommendations are made regarding what standard or standards should be used, and how they should be implemented. In those areas where there is no clear practice which can be recommended, or which require further investigation, this is noted. For the provision of basic discovery metadata, the description of licence conditions, the publication of controlled vocabularies, and the description of data to make it ‘integration ready’, specific steps are described which can be used to guide immediate implementation.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="who-can-use-the-cdif">
+<h1>Who can use the CDIF?<a class="headerlink" href="#who-can-use-the-cdif" title="Link to this heading">#</a></h1>
+<p>CDIF is aimed primarily at data infrastructures, i.e. those organisations which develop, maintain, and disseminate FAIR resources for reuse, often as centralised points of access within their communities or area(s) of interest. While data stewardship by research organisations is an important element of FAIR, not all research organisations perform this dissemination, instead relying on data archives or other dedicated repositories. FAIR reuse is most effective when authoritative producers, or those acting on their behalf, provide their data and metadata to others for reuse, so the authoritative versions of such resources are the ones which get reused. Such organisations are often motivated to be the point of dissemination, as it is their mission, and they bear the responsibility, both legal and reputational, for those resources. CDIF is a tool which they can use to better support this mission.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -444,6 +483,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-cdif">What is CDIF</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#who-can-use-the-cdif">Who can use the CDIF?</a><ul class="visible nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
