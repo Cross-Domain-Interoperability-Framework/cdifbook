@@ -199,10 +199,17 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="contentmodel.html">Basic discovery metadata content model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="queryabledistributions.html">Queryable distributions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="schemaorgimplementation.html">schemaorgimplementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemaorgimplementation.html">Serialization of CDIF metadata</a></li>
+
+
 <li class="toctree-l2"><a class="reference internal" href="publication.html">Metadata publication</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="mapping.html">Metadata mappings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="pidkernel.html">Mapping from CDIF metadata to RDA PID Kernel attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signpostinglinkrel.html">Mapping from Signposting relations to CDIF metadata elements</a></li>
 </ul>
 </details></li>
 </ul>
@@ -211,7 +218,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../data_access/intro.html">Data Access Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_access/odrloverview.html">Overview of ODRL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_access/policies.html">Data access policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlimplementation.html">odrlimplementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlinternalpolicies.html">Representing internal access policies with ODRL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlaggregateaccessconditions.html">Aggregate Access conditions - Parties and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlsharedservices.html">Conventions for ODRL Parties and Actions</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlfederatedanalysis.html">Federated analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlincdif.html">ODRL implementation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example metadata documents</a></li>
 </ul>
 
     </div>
@@ -443,7 +459,7 @@ document.write(`
 </section>
 <section id="metadata-profiles">
 <h3>Metadata profiles<a class="headerlink" href="#metadata-profiles" title="Link to this heading">#</a></h3>
-<p>Achieving the level of metadata interoperability required for CDIF will require the adoption of one (or a small number of) metadata specification(s), along with more specific conventions on vocabularies used for metadata properties. We refer to such a set of specific conventions as a profile. CDIF provides recommendations for a metadata profile compatible with machine processing. This profile includes the base file MIME-type, an information model for the metadata content, and how that information is represented both syntactically and semantically. Most profiles are based on an existing metadata specification, e.g. <a class="reference external" href="http://schema.org">schema.org</a>, DCAT, ISO19115-1, EML, DDI-CDI, but provide additional detail to resolve ambiguities in the base specification, or rules for vocabularies and data types for element values that extend or restrict the base specification. The simplest presentation of a profile specification can be a text document that describes the information required, identifies the base specification, and states any conventions or rules for profile conformance. Such a document could be used by a software developer writing code to use information in metadata conforming to the profile. Profiles might also be specified in a machine-actionable way, e.g., the Dublin Core Tabular Application Profiles (DCTAP)64, Profiles Vocabulary65, SHACL rules66, XML schematron rules67, or other schema or rule representations. Using a rule-based representation for metadata profiles provides an approach to defining and communicating metadata constraints that can be validated automatically to support metadata profile interoperability, reusability, and quality.</p>
+<p>Achieving the level of metadata interoperability required for CDIF will require the adoption of one (or a small number of) metadata specification(s), along with more specific conventions on vocabularies used for metadata properties. We refer to such a set of specific conventions as a profile. CDIF provides recommendations for a metadata profile compatible with machine processing. This profile includes the base file MIME-type, an information model for the metadata content, and how that information is represented both syntactically and semantically. Most profiles are based on an existing metadata specification, e.g. <a class="reference external" href="http://schema.org">schema.org</a>, DCAT, ISO19115-1, EML, DDI-CDI, but provide additional detail to resolve ambiguities in the base specification, or rules for vocabularies and data types for element values that extend or restrict the base specification. The simplest presentation of a profile specification can be a text document that describes the information required, identifies the base specification, and states any conventions or rules for profile conformance. Such a document could be used by a software developer writing code to use information in metadata conforming to the profile. Profiles might also be specified in a machine-actionable way, e.g., the <a class="reference external" href="https://www.dublincore.org/specifications/dctap/">Dublin Core Tabular Application Profiles (DCTAP)</a>, <a class="reference external" href="https://www.w3.org/TR/dx-prof/">Profiles Vocabulary</a>, <a class="reference external" href="https://www.w3.org/TR/shacl/">SHACL rules</a>, <a class="reference external" href="https://www.schematron.com/">XML schematron rules</a>, or other schema or rule representations. Using a rule-based representation for metadata profiles provides an approach to defining and communicating metadata constraints that can be validated automatically to support metadata profile interoperability, reusability, and quality.</p>
 </section>
 </section>
 </section>

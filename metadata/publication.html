@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Data Catalog Vocabulary (DCAT) vocabulary" href="dcat.html" />
-    <link rel="prev" title="schemaorgimplementation" href="schemaorgimplementation.html" />
+    <link rel="prev" title="Serialization of CDIF metadata" href="schemaorgimplementation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -199,10 +199,17 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="contentmodel.html">Basic discovery metadata content model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="queryabledistributions.html">Queryable distributions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="schemaorgimplementation.html">schemaorgimplementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemaorgimplementation.html">Serialization of CDIF metadata</a></li>
+
+
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Metadata publication</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="mapping.html">Metadata mappings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="pidkernel.html">Mapping from CDIF metadata to RDA PID Kernel attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signpostinglinkrel.html">Mapping from Signposting relations to CDIF metadata elements</a></li>
 </ul>
 </details></li>
 </ul>
@@ -211,7 +218,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../data_access/intro.html">Data Access Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_access/odrloverview.html">Overview of ODRL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_access/policies.html">Data access policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlimplementation.html">odrlimplementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlinternalpolicies.html">Representing internal access policies with ODRL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlaggregateaccessconditions.html">Aggregate Access conditions - Parties and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlsharedservices.html">Conventions for ODRL Parties and Actions</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlfederatedanalysis.html">Federated analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlincdif.html">ODRL implementation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example metadata documents</a></li>
 </ul>
 
     </div>
@@ -433,7 +449,7 @@ document.write(`
 <p>Figure. Decision graph to determine where metadata is located, from the resource publisher’s perspective. Steps are numbers and referenced in text.</p>
 <section id="option-1-embedded-in-html">
 <h2>Option 1. Embedded in HTML<a class="headerlink" href="#option-1-embedded-in-html" title="Link to this heading">#</a></h2>
-<p>Starting at the top (1) in the above figure, if there are HTML landing pages that describe the resources of interest, and the metadata publisher has the necessary authority to update the content of these pages, then CDIF metadata serialised as JSON-LD (see Appendix 1) should be embedded in an HTML <script> element in the &lt;head&amp;gt&gt; section of each landing page (3). The script should have the following type and profile attributes:</p>
+<p>Starting at the top (1) in the above figure, if there are HTML landing pages that describe the resources of interest, and the metadata publisher has the necessary authority to update the content of these pages, then CDIF metadata serialised as JSON-LD (see Appendix 1) should be embedded in an HTML &lt;script&gt; element in the &lt;head&gt; section of each landing page (3). The script should have the following type and profile attributes:</p>
 <p style="text-align: center;">type="application/ld+json" profile="CDIF1.0"</p>
 </section>
 <section id="option-2-individual-metadata-file-urls">
@@ -461,7 +477,7 @@ document.write(`
 <p><img alt="Basic harvesting pattern" src="../_images/basicharvestingpattern.jpg" /></p>
 <p>Figure. Basic harvesting pattern: sitemap with locations that contain HTML documents with embedded CDIF metadata</p>
 <p>If resources do not have landing pages, or the landing pages cannot be modified, harvesters must be provided with links to the metadata records to index. The basic approach for this next level of service is similar, but the harvester cannot assume that the metadata is embedded in the content accessed from the sitemap url/loc. The sitemap url/locs must either get the metadata document directly, or it might get the resource content directly. In the second case, a URL to get the metadata must be included in the HTTP response header. Because the basic sitemap only provides a URL, the harvester will need to check which of these options is being used. The approach using standard Web architecture is to inspect the HTTP response header. If the returned document is a CDIF metadata document, the header will have a content-type parameter with the value “<em>application/ld+json; profile=’CDIF1.0’</em>” or <em>profile=’CDIF-list-1.0’</em> if the document is an itemList with multiple metadata records. The harvester should get the content at the sitemap url/loc and use that. If the content-type has a different value, then the header should have link element with <em>rel=’describedby’</em>, <em>type=’application/ld+json’</em>, and <em>profile=’CDIF1.0’</em> or <em>profile=’CDIF-list-1.0’</em>. In this case, the harvester will GET the content at the link href and use that. Inclusion of the describedby link in the HTTP header is the pattern used by Signposting.</p>
-<p>Other <a class="reference internal" href="#.metadata/signpostinglinkrel"><span class="xref myst">Signposting links</span></a> could be inserted into the HTTP response headers (or HTTP landing pages if they exist) if Web site administrators allow. This can provide additional value for clients implementing signposting.</p>
+<p>Other <a class="reference internal" href="signpostinglinkrel.html"><span class="std std-doc">Signposting links</span></a> could be inserted into the HTTP response headers (or HTTP landing pages if they exist) if Web site administrators allow. This can provide additional value for clients implementing signposting.</p>
 <p><img alt="Harvesting pattern for locations that do not have embedded metadata scripts" src="../_images/harvestnoembeddedscript.jpg" /></p>
 <p>Figure. Harvesting pattern for locations that do not have embedded metadata scripts. Either the url/loc content is a metadata document (JSON-LD, CDIF profile), or there is a Signposting link with <em>rel=describedby</em> in the HTTP head. To indicate that this is not a standard sitemap, the robots.txt link to the sitemap should identify CDIF1.0 as the userAgent.</p>
 <p>Note that in this second case, the sitemap url/loc locations will get content that is not HTML. A non-CDIF aware harvester will be expecting HTML (or indexable text) content, and this might cause problems. Harvesters will generally find the sitemap using a link from a <a class="reference external" href="https://datatracker.ietf.org/doc/rfc9309/">robots.txt</a> file placed in the root of the server containing the sitemap and metadata. In the robots file, the user agent value can be used to indicate a sitemap link for CDIF-aware agents in cases for which the sitemap links are not to pages that have embedded CDIF metadata &lt;script&gt; elements. If the harvester accesses a sitemap under this user agent, the url/loc location content should be processed as outlined in the last paragraph.</p>
@@ -506,7 +522,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">schemaorgimplementation</p>
+        <p class="prev-next-title">Serialization of CDIF metadata</p>
       </div>
     </a>
     <a class="right-next"

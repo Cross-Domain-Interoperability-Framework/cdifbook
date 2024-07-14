@@ -199,10 +199,17 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="contentmodel.html">Basic discovery metadata content model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="queryabledistributions.html">Queryable distributions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="schemaorgimplementation.html">schemaorgimplementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemaorgimplementation.html">Serialization of CDIF metadata</a></li>
+
+
 <li class="toctree-l2"><a class="reference internal" href="publication.html">Metadata publication</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="mapping.html">Metadata mappings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="pidkernel.html">Mapping from CDIF metadata to RDA PID Kernel attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signpostinglinkrel.html">Mapping from Signposting relations to CDIF metadata elements</a></li>
 </ul>
 </details></li>
 </ul>
@@ -211,7 +218,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../data_access/intro.html">Data Access Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_access/odrloverview.html">Overview of ODRL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_access/policies.html">Data access policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlimplementation.html">odrlimplementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlinternalpolicies.html">Representing internal access policies with ODRL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlaggregateaccessconditions.html">Aggregate Access conditions - Parties and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlsharedservices.html">Conventions for ODRL Parties and Actions</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlfederatedanalysis.html">Federated analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlincdif.html">ODRL implementation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example metadata documents</a></li>
 </ul>
 
     </div>
@@ -427,7 +443,7 @@ document.write(`
 <p>The use of standardised metadata to describe resources is one facet of discoverability, but mechanisms to make these metadata descriptions discoverable by search applications or other machine agents is also necessary. Search applications harvest metadata to index and present in search results. In other cases a machine agent might have an identifier for a resource on the Web and want to get its metadata to learn about the content and capabilities of the resource.</p>
 <section id="signposting">
 <h2>Signposting<a class="headerlink" href="#signposting" title="Link to this heading">#</a></h2>
-<p>Signposting is an approach to discovering the content and capabilities of resources accessed by resolving URIs on the Web. Like the FAIR Digital Object framework, it starts with an identifier that can be resolved, and uses typed Web links (<a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc8288">IETF RFC8288</a>) and <a class="reference external" href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA registered relationship</a> types to enable an agent to discover what is identified and navigate to metadata with more information. These signposting links can implement the linking requirements of the <a class="reference external" href="https://www.slideshare.net/hvdsomp/fair-signposting-a-kiss-approach-to-a-burning-issue">Fair Digital Object Framework</a>. The CDIF metadata requirements outlined below include recommended or optional properties necessary to create a FDO PID Kernel information record (FDOFIdentificationRecord in Figure 1, below) as recommended by the Research Data Alliance (RDA)(<a class="reference external" href="https://doi.org/10.15497/RDA00031">Weigel et al. (2018)</a> ). Signposting can be used to implement FDOF requirements, and in the following implementation discussion we outline how Signposting is compatible with CDIF. The mapping from the PID Kernel information record to the CDIF metadata <a class="reference external" href="http://schema.org">schema.org</a> recommended implementation is shown in <a class="reference internal" href="#"><span class="xref myst">PID kernel mapping</span></a>. Mapping from Signposting link relation types to CDIF metadata elements is shown in <a class="reference internal" href="#"><span class="xref myst">Signposting link mapping</span></a>.</p>
+<p>Signposting is an approach to discovering the content and capabilities of resources accessed by resolving URIs on the Web. Like the FAIR Digital Object framework, it starts with an identifier that can be resolved, and uses typed Web links (<a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc8288">IETF RFC8288</a>) and <a class="reference external" href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA registered relationship</a> types to enable an agent to discover what is identified and navigate to metadata with more information. These signposting links can implement the linking requirements of the <a class="reference external" href="https://www.slideshare.net/hvdsomp/fair-signposting-a-kiss-approach-to-a-burning-issue">Fair Digital Object Framework</a>. The CDIF metadata requirements outlined below include recommended or optional properties necessary to create a FDO PID Kernel information record (FDOFIdentificationRecord in Figure 1, below) as recommended by the Research Data Alliance (RDA)(<a class="reference external" href="https://doi.org/10.15497/RDA00031">Weigel et al. (2018)</a> ). Signposting can be used to implement FDOF requirements, and in the following implementation discussion we outline how Signposting is compatible with CDIF. The mapping from the PID Kernel information record to the CDIF metadata <a class="reference external" href="http://schema.org">schema.org</a> recommended implementation is shown in <a class="reference internal" href="pidkernel.html"><span class="std std-doc">PID kernel mapping</span></a>. Mapping from Signposting link relation types to CDIF metadata elements is shown in <a class="reference internal" href="signpostinglinkrel.html"><span class="std std-doc">Signposting link mapping</span></a>.</p>
 <p><img alt="FDOF-CDIF metadata relations." src="../_images/fdof-cdif-relations.jpg" /></p>
 <p>Figure 1. FDOF-CDIF metadata relations.</p>
 </section>
