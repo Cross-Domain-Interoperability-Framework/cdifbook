@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Overview of ODRL" href="odrloverview.html" />
-    <link rel="prev" title="Data Catalog Vocabulary (DCAT) vocabulary" href="../metadata/dcat.html" />
+    <link rel="prev" title="Metadata mappings" href="../metadata/mapping.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,13 +205,19 @@
 <li class="toctree-l2"><a class="reference internal" href="../metadata/dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../metadata/mapping.html">Metadata mappings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Access</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Access Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="odrloverview.html">Overview of ODRL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html">Data access policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="odrlimplementation.html">odrlimplementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odrlinternalpolicies.html">Representing internal access policies with ODRL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odrlaggregateaccessconditions.html">Aggregate Access conditions - Parties and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odrlsharedservices.html">Conventions for ODRL Parties and Actions</a></li>
+
 </ul>
 
     </div>
@@ -408,10 +414,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-recommendation">High-level recommendation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-and-enablers-for-cdif-using-odrl">Risks and enablers for CDIF using ODRL</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-recommendation">High-level recommendation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-and-enablers-for-cdif-using-odrl">Risks and enablers for CDIF using ODRL</a></li>
 </ul>
             </nav>
         </div>
@@ -476,10 +480,10 @@ This recommendation acknowledges the importance of all those (and related) eleme
 <section id="high-level-recommendation">
 <h2>High-level recommendation<a class="headerlink" href="#high-level-recommendation" title="Link to this heading">#</a></h2>
 <p>To promote interoperability and mutual intelligibility around access conditions, CDIF recommends use of the <a class="reference external" href="https://www.w3.org/TR/odrl-model/">Open Digital Rights Language (ODRL)</a> to describe data asset access policies. ODRL is a RDF-based, ‘widely adopted language for expressing permissions, obligations, and conditions related to digital rights’ (<a class="reference external" href="https://arxiv.org/pdf/2309.11289.pdf">Policy Patterns for Usage Control in Data Spaces, 2023</a> ) that can be serialised in JSON and XML. While minimal in terms of classes and relationships, it nonetheless allows sufficient flexibility through the use of constraints and refinements and descriptive logic. ODRL also allows straightforward extensions to the core model and vocabulary with ODRL Profiles.</p>
-<section id="risks-and-enablers-for-cdif-using-odrl">
-<h3>Risks and enablers for CDIF using ODRL<a class="headerlink" href="#risks-and-enablers-for-cdif-using-odrl" title="Link to this heading">#</a></h3>
-<p>The existence of ODRL as an existing, well-supported W3C standard is a key ‘enabler’ for CDIF, based on the the stated <a class="reference internal" href="#../background/principles.html#mainstream"><span class="xref myst">principle</span></a> committed to using existing, well-supported standards wherever possible. The first risk with ODRL is that it doesn’t cover all scenarios. The scenario-based discussion in following sections aim to tease out what can be done with ODRL immediately and what scenarios might need further extensions or new approaches. Our conclusion is that  ODRL and its extension/profiling capability is quite useful as is. The second risk is the barrier to adoption of ODRL. There is an urgent need for tooling to simplify how domain scientists and data curators use this mature W3C standard. The information model, ontology, and linked data implementation are beyond the capability of many scientists and infrastructure service providers who can benefit from standardised access policies at scale. This risk is both high and likely and currently has no mitigation.</p>
 </section>
+<section id="risks-and-enablers-for-cdif-using-odrl">
+<h2>Risks and enablers for CDIF using ODRL<a class="headerlink" href="#risks-and-enablers-for-cdif-using-odrl" title="Link to this heading">#</a></h2>
+<p>The existence of ODRL as an existing, well-supported W3C standard is a key ‘enabler’ for CDIF, based on the the stated <a class="reference internal" href="#..%5Cbackground%5Cprinciples.html#mainstream"><span class="xref myst">principle</span></a> committed to using existing, well-supported standards wherever possible. The first risk with ODRL is that it doesn’t cover all scenarios. The scenario-based discussion in following sections aim to tease out what can be done with ODRL immediately and what scenarios might need further extensions or new approaches. Our conclusion is that  ODRL and its extension/profiling capability is quite useful as is. The second risk is the barrier to adoption of ODRL. There is an urgent need for tooling to simplify how domain scientists and data curators use this mature W3C standard. The information model, ontology, and linked data implementation are beyond the capability of many scientists and infrastructure service providers who can benefit from standardised access policies at scale. This risk is both high and likely and currently has no mitigation.</p>
 </section>
 </section>
 
@@ -514,12 +518,12 @@ This recommendation acknowledges the importance of all those (and related) eleme
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../metadata/dcat.html"
+       href="../metadata/mapping.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Data Catalog Vocabulary (DCAT) vocabulary</p>
+        <p class="prev-next-title">Metadata mappings</p>
       </div>
     </a>
     <a class="right-next"
@@ -548,10 +552,8 @@ This recommendation acknowledges the importance of all those (and related) eleme
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-recommendation">High-level recommendation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-and-enablers-for-cdif-using-odrl">Risks and enablers for CDIF using ODRL</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-recommendation">High-level recommendation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-and-enablers-for-cdif-using-odrl">Risks and enablers for CDIF using ODRL</a></li>
 </ul>
   </nav></div>
 

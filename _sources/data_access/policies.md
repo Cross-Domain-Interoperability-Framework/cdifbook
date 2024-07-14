@@ -17,9 +17,15 @@ data, for example:
 When included in discovery metadata, such classifications drive useful functionality in portals or catalogues for filtering or faceting search results. They are not sufficient however to drive automatable access processes. Machine-actionable access policies are inherently more fine grained than such high level classifications and involve a number of top level entities (parties/actions/rules) over sequenced workflows (request/access/usage). It would not be practical to create a top-down classification system granular enough and with broad enough consensus to drive machine actionable access policies. Rather the recommendation here is to use a standardised and structured language for access policies so that these can be generated bottom-up and yet retain the appropriate level of interoperability.
 
 ## Access policy scenarios and recommendations
-This section analyses a spectrum of scenarios that identify typical drivers and needs for interoperability of
-data access policies:
+This section analyses a spectrum of scenarios that identify typical drivers and needs for interoperability of data access policies:
 1. Automating internal access processes
 2. Aggregating access policy metadata across a community
 3. Shared services for request and fulfilment
 4. Federated analysis over multiple sensitive data providers
+
+These scenarios build a set of typical requirements for the interoperability of access policy summarised in the figure below and detailed in the following sections. Each section starts to formulate recommendations for CDIF adherents to use ODRL and other standards to achieve their interoperability needs.
+
+![Data access scenarios](./figures/dataaccessscenarios.jpg)
+
+Figure. Data access scenarios
+

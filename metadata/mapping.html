@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data access policies &#8212; Cross Domain Interoperability Framework Handbook</title>
+    <title>Metadata mappings &#8212; Cross Domain Interoperability Framework Handbook</title>
   
   
   
@@ -57,10 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'data_access/policies';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'metadata/mapping';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Overview of ODRL" href="odrloverview.html" />
+    <link rel="next" title="Data Access Introduction" href="../data_access/intro.html" />
+    <link rel="prev" title="Data Catalog Vocabulary (DCAT) vocabulary" href="dcat.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -191,25 +192,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../background/principles.html">Design principles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Discovery</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../metadata/technicalexpressionmetadata.html">Technical expression of metadata</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../metadata/publishingmetadata.html">Publishing metadata</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../metadata/distributionapis.html">Queryable distribution interfaces (API)</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../metadata/recommendations.html">Metadata Recommendations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../metadata/contentmodel.html">Basic discovery metadata content model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../metadata/queryabledistributions.html">Queryable distributions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../metadata/schemaorgimplementation.html">schemaorgimplementation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../metadata/publication.html">Metadata publication</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="technicalexpressionmetadata.html">Technical expression of metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publishingmetadata.html">Publishing metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributionapis.html">Queryable distribution interfaces (API)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="contentmodel.html">Basic discovery metadata content model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queryabledistributions.html">Queryable distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemaorgimplementation.html">schemaorgimplementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publication.html">Metadata publication</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../metadata/dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Metadata mappings</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Access</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Data Access Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="odrloverview.html">Overview of ODRL</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data access policies</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data_access/intro.html">Data Access Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrloverview.html">Overview of ODRL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/policies.html">Data access policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlinternalpolicies.html">Representing internal access policies with ODRL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlaggregateaccessconditions.html">Aggregate Access conditions - Parties and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlsharedservices.html">Conventions for ODRL Parties and Actions</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlfederatedanalysis.html">odrlfederatedanalysis</a></li>
 </ul>
 
     </div>
@@ -281,7 +290,7 @@
       
       
       
-      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fdata_access/policies.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fmetadata/mapping.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -311,7 +320,7 @@
       
       
       
-      <li><a href="../_sources/data_access/policies.md" target="_blank"
+      <li><a href="../_sources/metadata/mapping.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -382,9 +391,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -395,21 +402,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data access policies</h1>
+    <h1>Metadata mappings</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-provider-vs-data-user-access-policies">Data provider vs. data user access policies</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-classifications">Access classifications</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-policy-scenarios-and-recommendations">Access policy scenarios and recommendations</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -419,38 +416,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-access-policies">
-<h1>Data access policies<a class="headerlink" href="#data-access-policies" title="Link to this heading">#</a></h1>
-<section id="data-provider-vs-data-user-access-policies">
-<h2>Data provider vs. data user access policies<a class="headerlink" href="#data-provider-vs-data-user-access-policies" title="Link to this heading">#</a></h2>
-<p>ODRL data access policies can be formulated or executed by either the data provider or the data user. For
-example, a data user may establish an ODRL policy that requires the data to conform to a certain standard as
-part of a machine readable request. Because of the audience and context of CDIF, this document starts from
-the perspective of the data policies of the data provider, since they fit in with the perspective of a metadata
-standard for interoperability being established for/by data providers.</p>
-</section>
-<section id="access-classifications">
-<h2>Access classifications<a class="headerlink" href="#access-classifications" title="Link to this heading">#</a></h2>
-<p>It is not uncommon for data providers (or communities thereof) to apply broad ‘access classifications’ to
-data, for example:
-● openAccess / restrictedAccess <a class="reference external" href="https://www.cessda.eu/">CESSDA</a>
-● Open / Safeguarded / Controlled <a class="reference external" href="https://ukdataservice.ac.uk/">UKDS</a>
-● ClosedAccess / EmbargoedAccess / RestrictedAccess / OpenAccess <a class="reference external" href="https://www.openaire.eu/">OpenAIRE</a></p>
-<p>When included in discovery metadata, such classifications drive useful functionality in portals or catalogues for filtering or faceting search results. They are not sufficient however to drive automatable access processes. Machine-actionable access policies are inherently more fine grained than such high level classifications and involve a number of top level entities (parties/actions/rules) over sequenced workflows (request/access/usage). It would not be practical to create a top-down classification system granular enough and with broad enough consensus to drive machine actionable access policies. Rather the recommendation here is to use a standardised and structured language for access policies so that these can be generated bottom-up and yet retain the appropriate level of interoperability.</p>
-</section>
-<section id="access-policy-scenarios-and-recommendations">
-<h2>Access policy scenarios and recommendations<a class="headerlink" href="#access-policy-scenarios-and-recommendations" title="Link to this heading">#</a></h2>
-<p>This section analyses a spectrum of scenarios that identify typical drivers and needs for interoperability of data access policies:</p>
-<ol class="arabic simple">
-<li><p>Automating internal access processes</p></li>
-<li><p>Aggregating access policy metadata across a community</p></li>
-<li><p>Shared services for request and fulfilment</p></li>
-<li><p>Federated analysis over multiple sensitive data providers</p></li>
-</ol>
-<p>These scenarios build a set of typical requirements for the interoperability of access policy summarised in the figure below and detailed in the following sections. Each section starts to formulate recommendations for CDIF adherents to use ODRL and other standards to achieve their interoperability needs.</p>
-<p><img alt="Data access scenarios" src="../_images/dataaccessscenarios.jpg" /></p>
-<p>Figure. Data access scenarios</p>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="metadata-mappings">
+<h1>Metadata mappings<a class="headerlink" href="#metadata-mappings" title="Link to this heading">#</a></h1>
+<p>Introductions to tables correlating metadata elements in differnt schema</p>
+<p>tbd</p>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -466,7 +437,7 @@ data, for example:
         },
         kernelOptions: {
             name: "python3",
-            path: "./data_access"
+            path: "./metadata"
         },
         predefinedOutput: true
     }
@@ -484,13 +455,22 @@ data, for example:
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="odrloverview.html"
+       href="dcat.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Overview of ODRL</p>
+        <p class="prev-next-title">Data Catalog Vocabulary (DCAT) vocabulary</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../data_access/intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Access Introduction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -498,23 +478,6 @@ data, for example:
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-provider-vs-data-user-access-policies">Data provider vs. data user access policies</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-classifications">Access classifications</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-policy-scenarios-and-recommendations">Access policy scenarios and recommendations</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

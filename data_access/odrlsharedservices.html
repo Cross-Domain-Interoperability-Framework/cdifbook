@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data access policies &#8212; Cross Domain Interoperability Framework Handbook</title>
+    <title>Conventions for ODRL Parties and Actions &#8212; Cross Domain Interoperability Framework Handbook</title>
   
   
   
@@ -57,10 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'data_access/policies';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data_access/odrlsharedservices';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Overview of ODRL" href="odrloverview.html" />
+    <link rel="next" title="&lt;no title&gt;" href="odrlfederatedanalysis.html" />
+    <link rel="prev" title="Aggregate Access conditions - Parties and Actions" href="odrlaggregateaccessconditions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -204,12 +205,19 @@
 <li class="toctree-l2"><a class="reference internal" href="../metadata/dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../metadata/mapping.html">Metadata mappings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Access</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Data Access Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="odrloverview.html">Overview of ODRL</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data access policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies.html">Data access policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odrlinternalpolicies.html">Representing internal access policies with ODRL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odrlaggregateaccessconditions.html">Aggregate Access conditions - Parties and Actions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Conventions for ODRL Parties and Actions</a></li>
+
 </ul>
 
     </div>
@@ -281,7 +289,7 @@
       
       
       
-      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fdata_access/policies.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fdata_access/odrlsharedservices.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -311,7 +319,7 @@
       
       
       
-      <li><a href="../_sources/data_access/policies.md" target="_blank"
+      <li><a href="../_sources/data_access/odrlsharedservices.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -395,7 +403,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data access policies</h1>
+    <h1>Conventions for ODRL Parties and Actions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -405,10 +413,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-provider-vs-data-user-access-policies">Data provider vs. data user access policies</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-classifications">Access classifications</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-policy-scenarios-and-recommendations">Access policy scenarios and recommendations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Conventions for ODRL Parties and Actions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-scenario">Workflow scenario:</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -419,38 +427,121 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-access-policies">
-<h1>Data access policies<a class="headerlink" href="#data-access-policies" title="Link to this heading">#</a></h1>
-<section id="data-provider-vs-data-user-access-policies">
-<h2>Data provider vs. data user access policies<a class="headerlink" href="#data-provider-vs-data-user-access-policies" title="Link to this heading">#</a></h2>
-<p>ODRL data access policies can be formulated or executed by either the data provider or the data user. For
-example, a data user may establish an ODRL policy that requires the data to conform to a certain standard as
-part of a machine readable request. Because of the audience and context of CDIF, this document starts from
-the perspective of the data policies of the data provider, since they fit in with the perspective of a metadata
-standard for interoperability being established for/by data providers.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="conventions-for-odrl-parties-and-actions">
+<h1>Conventions for ODRL Parties and Actions<a class="headerlink" href="#conventions-for-odrl-parties-and-actions" title="Link to this heading">#</a></h1>
+<p>Conventions for ODRL policies to express access conditions could support more granular groupings of datasets based on their common access features. Re-usable ODRL policies could be deployed across multiple repositories enabling a metadata harvesters to aggregate content about access and make access conditions transparent for users searching the catalogue. Given such conventions, a data clearing house can aggregate metadata from many repositories and broker access to resources in those repositores. The benefits of such a clearing house approach could include:</p>
+<ul class="simple">
+<li><p>Streamlining processes for data users</p></li>
+<li><p>Support for combined interdependent requests across multiple data providers for complex studies</p></li>
+<li><p>Efficiencies of resourcing and specialisation</p></li>
+<li><p>Natural combined reporting and tracking of usage and impact</p></li>
+</ul>
+<p>Standardised, machine-actionable data access policies necessary to deliver on two assumptions of a shared clearing house:</p>
+<ul class="simple">
+<li><p>that the cost of sharing the information about requests does not overwhelm the savings in staff and systems.</p></li>
+<li><p>That a central capability can action things and lighten the load of the network rather than just re-routing jobs for fulfilment back to the participating node for ‘local implementation’.</p></li>
+</ul>
+<p>This example outlines a very basic approach to representing policies that can be implemented with existing ODRL technology.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;permission&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">{</span>
+<span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/example_digital_object&quot;</span><span class="p">,</span>
+<span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">_Actions_</span><span class="p">,</span>
+<span class="s2">&quot;assignee&quot;</span><span class="p">:</span> <span class="p">{</span>
+	<span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;PartyCollection&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">_genericParty_</span><span class="p">,</span>
+	<span class="s2">&quot;refinement&quot;</span><span class="p">:</span> <span class="p">[</span>
+		<span class="p">{</span>
+			<span class="s2">&quot;leftOperand&quot;</span><span class="p">:</span> <span class="n">_constraintProperty_</span><span class="p">,</span>
+			<span class="s2">&quot;operator&quot;</span><span class="p">:</span> <span class="n">_constraintPredicate_</span><span class="p">,</span>
+			<span class="s2">&quot;rightOperand&quot;</span><span class="p">:</span> <span class="n">_constraint_value_</span>
+		<span class="p">}</span>
+	<span class="p">]</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Example ODRL Policy - template for re-usable ‘Parties’ and ‘Actions’</p>
+<p>This scheme uses a vocabulary of common, reusable Actions defined in the <a class="reference external" href="https://www.w3.org/TR/odrl-vocab/#actionsCommon">ODRL Core Vocabulary</a> to populate the ‘action’ element. Access policies typically define types of users (parties) and what actions they can, cannot or must perform. This depends on referencing a number of standard ODRL ‘Parties’ or ‘Actions’ by URI. Additional terms can be defined in ‘ODRL Profiles’ (outside of the scope of this document), an extension mechanism for the core model and vocabulary. The ODRL syntax is used to assert a generic Party in the ‘source’ element, and then refines it to a particular subset of parties with attributes in the ‘refinement’ section.  In practice, there is a finite number of ‘refinement’ permutations that could be pre-defined and assigned a persistent URI to be used as the ‘source’ key above alongside the dereferenced {leftOperand, operator, rightOperand} array.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;permission&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">{</span>
+<span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/example_digital_object&quot;</span><span class="p">,</span>
+<span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;http://cdif.org/odrl/1/download&quot;</span><span class="p">,</span>
+<span class="s2">&quot;assignee&quot;</span><span class="p">:</span> <span class="p">{</span>
+	<span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;PartyCollection&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;https://cessda.eu/partycollection:312&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;refinement&quot;</span><span class="p">:</span> <span class="p">[</span>
+		<span class="p">{</span>
+			<span class="s2">&quot;leftOperand&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.w3.org/ns/odrl/2/spatial&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;operator&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.w3.org/ns/odrl/2/eq&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;rightOperand&quot;</span><span class="p">:</span> <span class="s2">&quot;de&quot;</span>
+		<span class="p">}</span>
+	<span class="p">]</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Example ODRL Policy statement, concrete example. This policy asserts that users located in Germany have the ‘Download’ permission. The reusable ‘PartyCollection’ item <a class="reference external" href="https://cessda.eu/partycollection:312">https://cessda.eu/partycollection:312</a> (signifying users located in Germany) is re-used from an existing vocabulary used by multiple repositories.</p>
 </section>
-<section id="access-classifications">
-<h2>Access classifications<a class="headerlink" href="#access-classifications" title="Link to this heading">#</a></h2>
-<p>It is not uncommon for data providers (or communities thereof) to apply broad ‘access classifications’ to
-data, for example:
-● openAccess / restrictedAccess <a class="reference external" href="https://www.cessda.eu/">CESSDA</a>
-● Open / Safeguarded / Controlled <a class="reference external" href="https://ukdataservice.ac.uk/">UKDS</a>
-● ClosedAccess / EmbargoedAccess / RestrictedAccess / OpenAccess <a class="reference external" href="https://www.openaire.eu/">OpenAIRE</a></p>
-<p>When included in discovery metadata, such classifications drive useful functionality in portals or catalogues for filtering or faceting search results. They are not sufficient however to drive automatable access processes. Machine-actionable access policies are inherently more fine grained than such high level classifications and involve a number of top level entities (parties/actions/rules) over sequenced workflows (request/access/usage). It would not be practical to create a top-down classification system granular enough and with broad enough consensus to drive machine actionable access policies. Rather the recommendation here is to use a standardised and structured language for access policies so that these can be generated bottom-up and yet retain the appropriate level of interoperability.</p>
-</section>
-<section id="access-policy-scenarios-and-recommendations">
-<h2>Access policy scenarios and recommendations<a class="headerlink" href="#access-policy-scenarios-and-recommendations" title="Link to this heading">#</a></h2>
-<p>This section analyses a spectrum of scenarios that identify typical drivers and needs for interoperability of data access policies:</p>
-<ol class="arabic simple">
-<li><p>Automating internal access processes</p></li>
-<li><p>Aggregating access policy metadata across a community</p></li>
-<li><p>Shared services for request and fulfilment</p></li>
-<li><p>Federated analysis over multiple sensitive data providers</p></li>
-</ol>
-<p>These scenarios build a set of typical requirements for the interoperability of access policy summarised in the figure below and detailed in the following sections. Each section starts to formulate recommendations for CDIF adherents to use ODRL and other standards to achieve their interoperability needs.</p>
-<p><img alt="Data access scenarios" src="../_images/dataaccessscenarios.jpg" /></p>
-<p>Figure. Data access scenarios</p>
-</section>
+<section class="tex2jax_ignore mathjax_ignore" id="workflow-scenario">
+<h1>Workflow scenario:<a class="headerlink" href="#workflow-scenario" title="Link to this heading">#</a></h1>
+<p>The workflow outlined in the table below illustrates a message exchange initiated by a researcher requesting a dataset stored in a specific repository with a central clearing house mediating access on behalf of this and many other repositories. Note that here, the Broker (clearing house) is not acting as a portal for finding the data, but as a mediator of access to a resource known to be at an identified repository.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>step</strong></p></th>
+<th class="head"><p><strong>Message</strong></p></th>
+<th class="head"><p><strong>Message pseudo-description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Request CDIF Resource</p></td>
+<td><p>User locates dataset resource on repository catalogue with DOI <a class="reference external" href="https://dx.doi.org:12345">https://dx.doi.org:12345</a> and clicks on ‘Access Data’ button</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>CDIF ODRL Policy</p></td>
+<td><p>Repository posts new RequestFulfilment object to Brokerage API including location of CDIF record for <a class="reference external" href="https://dx.doi.org:12345">https://dx.doi.org:12345</a>, a JSON-LD artefact which encapsulates ODRL Policy #2b</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Request AgentProperties</p></td>
+<td><p>Brokerage parses ODRL Policy #2b and determines that the user must be located in Germany. This is a very reductive example but more complex real-world examples might be the collection of additional information through an online form managed by the broker.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Supply AgentProperties</p></td>
+<td><p>The user will supply any information requested by the broker.</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Verify AgentProperties</p></td>
+<td><p>The brokerage will perform the necessary validation and verification of any information supplied by the user. This might involve auxiliary processes, such as seeking third party approval.</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>ODRL Request</p></td>
+<td><p>Once all conditions outlined by the ODRL Policy have been met and satisfied by the broker, an ODRL Request will be sent to the repository on behalf of the user.<br>{ “&#64;context”: “<a class="reference external" href="http://www.w3.org/ns/odrl.jsonld">http://www.w3.org/ns/odrl.jsonld</a>”,<br>”&#64;type”:”Request”,<br>”uid”:”<a class="reference external" href="http://brokerage.com/odrlrequest/9a112bc6-d93d-4a59-8384-0ac65399ef94">http://brokerage.com/odrlrequest/9a112bc6-d93d-4a59-8384-0ac65399ef94</a>”, <br>”permission”: [<br> {“target”: “<a class="reference external" href="http://repository7987.org/dataset_6123">http://repository7987.org/dataset_6123</a>”,<br> “action”: “<a class="reference external" href="http://cdif.org/odrl/1/download">http://cdif.org/odrl/1/download</a>”, <br> “assignee”: “<a class="reference external" href="http://orciduser675765">http://orciduser675765</a>”}<br> ]}</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>ODRL Offer</p></td>
+<td><p>The repository will respond with an ODRL Offer to the broker.<br>{“&#64;context”: “<a class="reference external" href="http://www.w3.org/ns/odrl.jsonld">http://www.w3.org/ns/odrl.jsonld</a>”, <br>”&#64;type”: “Offer”,<br>”uid”:”<a class="reference external" href="http://brokerage.com/odrloffer/2f93930b-93f7-418f-a045-aa49d09faf2b">http://brokerage.com/odrloffer/2f93930b-93f7-418f-a045-aa49d09faf2b</a>”, <br>”permission”: [<br> {“target”: “<a class="reference external" href="http://repository7987.org/dataset_6123">http://repository7987.org/dataset_6123</a>”, <br> “action”: “<a class="reference external" href="http://cdif.org/odrl/1/download">http://cdif.org/odrl/1/download</a>”, <br> “assigner”: “<a class="reference external" href="http://repository7987.org">http://repository7987.org</a>”}<br> ]}</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>AccessToken and ODRL Agreement</p></td>
+<td><p>Assuming the broker accepts the offer on behalf of the user, an encrypted Access token is sent to the user and an ODRL Agreement is filed for audit purposes.<br>{<br>”&#64;context”: “<a class="reference external" href="http://www.w3.org/ns/odrl.jsonld">http://www.w3.org/ns/odrl.jsonld</a>”,<br>”&#64;type”: “Agreement”,<br>”uid”:”		<a class="reference external" href="http://example.com/odrlagreement/d91d4663-f9bd-4bd5-8a81-c331e19bf987">http://example.com/odrlagreement/d91d4663-f9bd-4bd5-8a81-c331e19bf987</a>”,<br>	“dcterms:references”:[<br> “<a class="reference external" href="http://brokerage.com/odrlrequest/9a112bc6-d93d-4a59-8384-0ac65399ef94">http://brokerage.com/odrlrequest/9a112bc6-d93d-4a59-8384-0ac65399ef94</a>”,<br>		 “<a class="reference external" href="http://brokerage.com/odrloffer/2f93930b-93f7-418f-a045-aa49d09faf2b">http://brokerage.com/odrloffer/2f93930b-93f7-418f-a045-aa49d09faf2b</a>”<br> ],<br>	“permission”: [<br>	 {“target”:”<a class="reference external" href="http://repository7987.org/dataset_6123">http://repository7987.org/dataset_6123</a>”,<br> “action”: “<a class="reference external" href="http://cdif.org/odrl/1/download">http://cdif.org/odrl/1/download</a>”,<br> “assigner”: “<a class="reference external" href="http://repository7987.org">http://repository7987.org</a>”,<br> “assignee”: “<a class="reference external" href="http://orciduser675765">http://orciduser675765</a>”}<br> ]}</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Present Access Token</p></td>
+<td><p>The user presents the token to the Repository</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Retrieve Resource</p></td>
+<td><p>The repository makes the file available for immediate download to the user.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This is over-engineered for a simple download where the only condition, as per ODRL Policy in the concrete example above, is that the researcher be based in Germany, However, in the wild, access policies are multi-step processes with complex criteria, often with asynchronous handoffs to third parties for approval. The framework above, while necessarily brief for the purposes of this document, illustrates how a more complex stateful negotiation process could be performed using ODRL as the basis for defining conditions,  executing those conditions through a centralised brokerage, and generating a rich set of accounting information for access requests and fulfilment across the supported repositories.</p>
+<p>The example here disambiguates prose representation of access policies by using URIs as references to (i) pre-defined process actors (ORDL ‘Parties’) and (ii) pre-defined procedural steps (ODRL ‘Actions’), framed in consistent syntactical way. These examples do not in themselves provide sufficient detail or semantics for automated implementation of complex rule-based workflows across multiple parties. To enable repeatable and consistent implementation of request fulfillments framed by ODRL policies, conventions to invoke machine-actionable workflows are needed, for example using <a class="reference external" href="https://www.commonwl.org/">Common Workflow Language (CWL)</a>, including downstream invocations such as creating on-demand secure analytics environments (Infrastructure-as-code or IaaC).</p>
+<p>A common language for expressing data access policies across the cooperative of data providers using the clearing house is a necessary but insufficient first step. A shared understanding of how policies interface with business processes is also required so that both data provider and the clearing house can be satisfied that request fulfilment was efficient, consistent and auditable.</p>
+<p>Taking CDIF to the next level of maturity in the access arena will mean committing to the creation of a CDIF ODRL Profile that extends the core ODRL ontology and vocabulary so that a widely applicable set of cross-domain Actions are available for re-use as well as being associated with unambiguous workflow implementations, expressed with additional classes and attributes in the CDIF ODRL Profile.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -484,13 +575,22 @@ data, for example:
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="odrloverview.html"
+       href="odrlaggregateaccessconditions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Overview of ODRL</p>
+        <p class="prev-next-title">Aggregate Access conditions - Parties and Actions</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="odrlfederatedanalysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -508,10 +608,10 @@ data, for example:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-provider-vs-data-user-access-policies">Data provider vs. data user access policies</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-classifications">Access classifications</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-policy-scenarios-and-recommendations">Access policy scenarios and recommendations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Conventions for ODRL Parties and Actions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-scenario">Workflow scenario:</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>
