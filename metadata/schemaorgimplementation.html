@@ -208,6 +208,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="mapping.html">Metadata mappings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="pidkernel.html">Mapping from CDIF metadata to RDA PID Kernel attributes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="signpostinglinkrel.html">Mapping from Signposting relations to CDIF metadata elements</a></li>
 </ul>
 </details></li>
@@ -510,152 +511,157 @@ document.write(`
 <td><p>“subjectOf”/”&#64;id”:{URI}</p></td>
 <td><p>The URI for the metadata record should be the &#64;id value for the ‘subjectOf’ element in the JSON instance document tree</p></td>
 </tr>
-<tr class="row-odd"><td><p>Title</p></td>
+<tr class="row-odd"><td><p>Resource identifier</p></td>
+<td><p>1</p></td>
+<td><p>“&#64;id”:{URI}</p></td>
+<td><p>The URI for the resource should be the &#64;id value for the root of the JSON instance document tree</p></td>
+</tr>
+<tr class="row-even"><td><p>Title</p></td>
 <td><p>1</p></td>
 <td><p>“name”:{string}</p></td>
 <td><p>A set of words that should uniquely identify the described resource for human use, in the scope of the metadata catalog containing this metadata record.</p></td>
 </tr>
-<tr class="row-even"><td><p>Distribution</p></td>
+<tr class="row-odd"><td><p>Distribution</p></td>
 <td><p>1</p></td>
 <td><p>“url”:{URL}</p></td>
 <td><p>If metadata is about a single digital object</p></td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
+<tr class="row-even"><td><p></p></td>
 <td><p></p></td>
 <td><p>“distribution”: <br>   { “&#64;type”: “DataDownload”, <br>    “contentURL”: {URL },…   }</p></td>
 <td><p>If the metadata is about an abstract, non-digital, or physical resource that has multiple distributions, with different URL, encodingFormat, conformsTo properties. Each distribution is considered a distinct digital object.</p></td>
 </tr>
-<tr class="row-even"><td><p>Rights</p></td>
+<tr class="row-odd"><td><p>Rights</p></td>
 <td><p>1..*</p></td>
 <td><p>“license”:{text or URI} <br> Or <br> “conditionsOfAccess”:{text or URI}</p></td>
 <td><p>URL to license document or text explanation of restrictions on use. There might be multiple links to documents specifying related security, privacy, usage, sharing, etc… concerns.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Metadata profile identifier</p></td>
+<tr class="row-even"><td><p>Metadata profile identifier</p></td>
 <td><p>1</p></td>
 <td><p>“subjectOf”/”encoding”/”dcterms:conformsTo”: {identifier} <br> or <br>  “schemaVersion”:{identifier}</p></td>
 <td><p>Use Dublin Core terms property. The value for Base CDIF metadata is ‘CDIF_basic_1.0’. Different profiles extending this must define unique identifier strings to use here. <em>QUESTION–Which to use dct:conformsTo or schema:schema:Version?</em></p></td>
 </tr>
-<tr class="row-even"><td><p>Metadata date</p></td>
+<tr class="row-odd"><td><p>Metadata date</p></td>
 <td><p>0..1</p></td>
 <td><p>“subjectOf”/”dateModified”:{Date or DateTime}</p></td>
 <td><p>Use ISO8601 format. The most recent update date for the metadata content. Harvesters use this to determine if they have already harvested and processed this record.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Metadata contact</p></td>
+<tr class="row-even"><td><p>Metadata contact</p></td>
 <td><p>0..1</p></td>
 <td><p>/ “subjectOf”/”maintainer”:{Person or Organization}</p></td>
 <td><p>Should include a name and contact point (institutional e-mail is best) for the agent responsible for metadata content. This is the contact point to report problems with metadata content. Person and Organization are Agent objects with various properties.</p></td>
 </tr>
-<tr class="row-even"><td><p>Resource type</p></td>
+<tr class="row-odd"><td><p>Resource type</p></td>
 <td><p>1</p></td>
 <td><p>“&#64;type”:{<a class="reference external" href="http://schema.org">schema.org</a> type}</p></td>
 <td><p>If the <a class="reference external" href="https://schema.org/docs/full.html">Schema.org resource types</a> are specific enough to scope the metadata record, use those.</p></td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
+<tr class="row-even"><td><p></p></td>
 <td><p>0..*</p></td>
 <td><p>“additionalType”: [{DefinedTerm or URI}, …]</p></td>
 <td><p>If a more specific resource type needs to be specified, add a text or URI value here that identifies the type. MUST be consistent with the &#64;type. To simplify parsing, always encode as an array.</p></td>
 </tr>
-<tr class="row-even"><td><p>Description</p></td>
+<tr class="row-odd"><td><p>Description</p></td>
 <td><p>0..1</p></td>
 <td><p>“description”: {string}</p></td>
 <td><p>Free text, with as much detail as is feasible</p></td>
 </tr>
-<tr class="row-odd"><td><p>Originators</p></td>
+<tr class="row-even"><td><p>Originators</p></td>
 <td><p>0..*</p></td>
 <td><p>“creator” : [{Person or Organization}, …]</p></td>
 <td><p>The value is a <a class="reference external" href="http://schema.org">schema.org</a> person or organization. To simplify parsing, always encode as an array. Use ORCID or other PID to describe person or organization where possible</p></td>
 </tr>
-<tr class="row-even"><td><p>Publication Date</p></td>
+<tr class="row-odd"><td><p>Publication Date</p></td>
 <td><p>0..1</p></td>
 <td><p>“datePublished” : {date time}</p></td>
 <td><p>Date on which the resource was made publicly accessible. Use ISO 8601 format.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Modification Date</p></td>
+<tr class="row-even"><td><p>Modification Date</p></td>
 <td><p>1</p></td>
 <td><p>“dateModified” : {date time}</p></td>
 <td><p>Date of most recent update to resource content. If Publication date is not provided, defaults to the Modification Date. Use ISO 8601 format.</p></td>
 </tr>
-<tr class="row-even"><td><p>GeographicExtent (named place)</p></td>
+<tr class="row-odd"><td><p>GeographicExtent (named place)</p></td>
 <td><p>0..*</p></td>
 <td><p>“spatialCoverage”: { “&#64;type”: “Place”,<br>”name”: {string} or {schema:DefinedTerm} }</p></td>
 <td><p>To specify location with place names; if the names are from a gazeteer, use the schema:DefinedTerm to provide a name, identifier, and inDefinedTermSet to fully document the concept.</p></td>
 </tr>
-<tr class="row-odd"><td><p>GeographicExtent (bounding box)</p></td>
+<tr class="row-even"><td><p>GeographicExtent (bounding box)</p></td>
 <td><p>0..1</p></td>
 <td><p>“spatialCoverage”: { <br>”&#64;type”: “Place”,<br> “geo”: {  “&#64;type”: “GeoShape”, <br> “box”: “39.3280    120.1633  40.445    123.7878”   } } }</p></td>
 <td><p>For bounding box specification of the spatial extent of resource content. See <a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#bounding-boxes">ESIP SOSO for details</a>. Recommend including only one bounding box; behavior of harvesting clients when multiple geometries are specified is unpredictable.</p></td>
 </tr>
-<tr class="row-even"><td><p>GeographicExtent (point location)</p></td>
+<tr class="row-odd"><td><p>GeographicExtent (point location)</p></td>
 <td><p>0..1</p></td>
 <td><p>“spatialCoverage”: {<br> “&#64;type”: “Place”, <br>”geo”: {  “&#64;type”:  “GeoCoordinates”,  <br> “latitude”: 39.3280,   <br>  “longitude”: 120.1633 } } }</p></td>
 <td><p>For a point location specification of the spatial extent of resource content. Recommend including only one point; behavior of harvesting clients when multiple geometries are specified is unpredictable.</p></td>
 </tr>
-<tr class="row-odd"><td><p>GeographicExtent (other serialization)</p></td>
+<tr class="row-even"><td><p>GeographicExtent (other serialization)</p></td>
 <td><p>0..*</p></td>
 <td><p>“geosparql:hasGeometry”: { <br> “&#64;type”: “sf#Point”, <br> “geosparql:asWKT”:  “&#64;type”:#wktLiteral”, <br>”&#64;value”:”POINT(-76  -18)”},<br> “Geosparql:crs”: {“&#64;id”:”CRS84”} }</p></td>
 <td><p>Optional geographic extent using other more interoperable geometries, e.g., GeoSPARQL, see <a class="reference external" href="https://book.oceaninfohub.org/thematics/spatial/README.html#simple-geosparql-wkt">Ocean InfoHub</a>. (Note URIs in example are truncated…)  Other geometry schemes might be specified in a specific domain profile, e.g. for atmospheric, subsurface data, or local coordinate systems.</p></td>
 </tr>
-<tr class="row-even"><td><p>Distribution Agent</p></td>
+<tr class="row-odd"><td><p>Distribution Agent</p></td>
 <td><p>0..*</p></td>
 <td><p>“provider”:{Person or Organization}</p></td>
 <td><p>Contact point for the provider of a distribution. For a simple digital object with a download URL, or a resource with multiple distributions all from the same provider.</p></td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
+<tr class="row-even"><td><p></p></td>
 <td><p></p></td>
 <td><p>“distribution”: [  {    “&#64;type”: “DataDownload”,”provider”:{Person or Organization}   }…]</p></td>
 <td><p>If there are multiple distributions with different providers, each distribution can have a separate provider</p></td>
 </tr>
-<tr class="row-even"><td><p>Variable measured</p></td>
+<tr class="row-odd"><td><p>Variable measured</p></td>
 <td><p>0..*</p></td>
 <td><p>“variableMeasured”:<br> [ { “&#64;type”:”PropertyValue”,<br>  “&#64;id”: “astm:var0011”,<br>   “propertyID”: [ “pato:PATO_0000025”,<br>   “astm:prop/0405” ],<br>   “name”: “hostMineral”, <br>  “description”: “….”   }….]</p></td>
 <td><p>Follow <a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables">ESIPfed Science on Schema.org recommendation</a>, see also discussion for representing more complex data structures in <a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Experimental.md#AdvancedVariableValueType">ESIPfed Experimental</a>. Variable must have a name and description, should have a propertyID with URI for the represented concept. The URI in the propertyID provides the semantic linkage for meaning of the variable.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Keyword</p></td>
+<tr class="row-even"><td><p>Keyword</p></td>
 <td><p>0..*</p></td>
 <td><p>“keywords”:<br>[    {string}, <br>  {“&#64;type”:”DefinedTerm”, <br> “name”: “OCEANS”, <br> “inDefinedTermSet”: “gcmd:sciencekeywords”, <br>  “identifier”: “gcmd:concept/916b….6167d”   },….     ]</p></td>
 <td><p>Implement with text for tags, and schema:DefinedTerm for keywords from a controlled vocabulary. The DefinedTerm approach is used to represent concepts.</p></td>
 </tr>
-<tr class="row-even"><td><p>Temporal coverage</p></td>
+<tr class="row-odd"><td><p>Temporal coverage</p></td>
 <td><p>0..1</p></td>
 <td><p>“temporalCoverage”: “2018-01-22”</p></td>
 <td><p>Calendar data or clock time instant use ISO8601 encoding</p></td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
+<tr class="row-even"><td><p></p></td>
 <td><p></p></td>
 <td><p>“temporalCoverage”: “2012-09-20/2016-01-22”</p></td>
 <td><p>Calendar data or clock time interval use ISO8601 encoding</p></td>
 </tr>
-<tr class="row-even"><td><p></p></td>
+<tr class="row-odd"><td><p></p></td>
 <td><p></p></td>
 <td><p>“temporalCoverage”: <br> [{ “&#64;type”:”time:ProperInterval”, <br> “time:intervalStartedBy”: “isc:LowerDevonian, <br>  “time:intervalFinishedBy”: “isc:LowerPermian”  }]</p></td>
 <td><p>Time ordinal era interval, use owl:time namespace, time: <a class="reference external" href="http://www.w3.org/2006/time#">http://www.w3.org/2006/time#</a>. This example uses <a class="reference external" href="http://resource.geosciml.org/classifier/ics/ischart/">International chronostratigraphic chart, isc</a>. See <a class="reference external" href="https://perio.do/en/">https://perio.do/en/</a> for identifiers for many other named time intervals.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Other related agents- simple contributor</p></td>
+<tr class="row-even"><td><p>Other related agents- simple contributor</p></td>
 <td><p>0..*</p></td>
 <td><p>“contributor”: [ {Person or Organization}, … ]</p></td>
 <td><p>Recognition for others who have contributed to the production of the resource but are not recognized as authors/creators.</p></td>
 </tr>
-<tr class="row-even"><td><p>related agent with role</p></td>
+<tr class="row-odd"><td><p>related agent with role</p></td>
 <td><p></p></td>
 <td><p>“contributor”: {“&#64;type”: “Role”, <br>  “roleName”: “Principal Investigator”,<br> “contributor”: {“&#64;type”: “Person”,<br>  	“&#64;id”: “<a class="reference external" href="https://orcid.org/">https://orcid.org/</a>…”,<br>  	“name”: “John Doe”,<br>  	“affiliation”: {“&#64;type”: “Organization”,<br>   “&#64;id”: “<a class="reference external" href="https://ror.org/">https://ror.org/</a>…”,<br>   “name”: “…”	},<br>  “contactPoint”: {“&#64;type”: “ContactPoint”,<br>	   	“email”: “<a class="reference external" href="mailto:john&#46;chodacki&#37;&#52;&#48;ucop&#46;edu">john<span>&#46;</span>chodacki<span>&#64;</span>ucop<span>&#46;</span>edu</a>”<br>	}  }   }</p></td>
 <td><p>To assign roles to contributors like editor, maintainer, publisher, point of contact, copyright holder  (e.g.  DataCite contributor types), use the rather convoluted <a class="reference external" href="http://blog.schema.org/2014/06/introducing-role.html">role construction defined by schema.org</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Related resources</p></td>
+<tr class="row-even"><td><p>Related resources</p></td>
 <td><p>0..*</p></td>
 <td><p>“relatedLink”: [{“&#64;type”:”LinkRole”, “linkRelationship”: “…”,<br>”target: {“&#64;type”: “EntryPoint”, <br> “encodingType”: “text/html”,<br>”name”: “…”,<br>”url”: “<a class="reference external" href="https://example.org/data/stations">https://example.org/data/stations</a>” } } ]</p></td>
 <td><p>Use <a class="reference external" href="http://schema.org">schema.org</a> relatedLink with a LinkRole value, and the link URL in a ‘target’ EntryPoint object. These properties expect WebPage and Action as their domain, so the <a class="reference external" href="https://validator.schema.org/">schema.org validator</a> will throw a warning (not an error). Related resource links are useful for evaluation and use of data, but because of the wide variety of relationship possibilities, difficult to use in general search scenarios. Use a soft-type implementation, with a link relationship type using a schema:DefinedTerm, and a resolvable identifier for the relationship target.</p></td>
 </tr>
-<tr class="row-even"><td><p>Funding</p></td>
+<tr class="row-odd"><td><p>Funding</p></td>
 <td><p>0..*</p></td>
 <td><p>“funding” :<br> { “&#64;id”: “URI for grant”, <br> “&#64;type”: “MonetaryGrant”,<br> “identifier”: “grant id”,  <br> “name”: “grant title”, <br> “funder”:<br> { “&#64;id”: “ror for org”, <br> “&#64;type”: “Organization”, <br>  “name”: “org name”,  <br> “identifier”: [    “other identifiers” ] } }</p></td>
 <td><p>Use <a class="reference external" href="http://schema.org">schema.org</a> encoding and <a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#funding">science on schema.org pattern</a>. Other organization properties can be included in the funder/Organization .</p></td>
 </tr>
-<tr class="row-odd"><td><p>Policies</p></td>
+<tr class="row-even"><td><p>Policies</p></td>
 <td><p>0..*</p></td>
 <td><p>“publishingPrinciples”: [  {“&#64;type”: “CreativeWork”}….  ]</p></td>
 <td><p>FDOF digitalObjectMutability, RDA digitalObjectPolicy, FDOF PersistencyPolicy. Policies related to maintenance, update, expected time to live.</p></td>
 </tr>
-<tr class="row-even"><td><p>Checksum</p></td>
+<tr class="row-odd"><td><p>Checksum</p></td>
 <td><p>0..1</p></td>
 <td><p>“spdx:checksum” or “distribution”: [ { “&#64;type”: “DataDownload”,    “spdx:checksum”: {URL },..    }…]</p></td>
 <td><p>A string value calculated from the content of the resource representation, used to test if content has been modified. No <a class="reference external" href="http://schema.org">schema.org</a> property, follow DCAT v3 adoption of <a class="reference external" href="https://spdx.org/rdf/terms/">Software Package Data Exchange (SPDX)</a> property; The <a class="reference external" href="https://spdx.org/rdf/spdx-terms-v2.1/classes/Checksum___-238837136.html">spdx Checksum object</a> has two properties: algorithm and checksumValue. If the resource is a single DigitalObject, use the first partter, if there are multiple distributions, the checksum is a property of each distribution/DataDownload.</p></td>

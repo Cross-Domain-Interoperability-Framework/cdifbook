@@ -58,6 +58,7 @@ The following table maps the metadata content items described in the [Metadata C
 | **CDIF content item**       | **Obl.** | **Schema.org implementation**   | **Scope note**                              |
 |----------- |-------------|-------------|-------------|
 | Metadata identifier         | 1        | "subjectOf"/"@id":{URI}    | The URI for the metadata record should be the \@id value for the 'subjectOf' element in the JSON instance document tree   |
+| Resource identifier         | 1        | "@id":{URI}    | The URI for the resource should be the @id value for the root of the JSON instance document tree   | 
 | Title      | 1        | "name":{string}     | A set of words that should uniquely identify the described resource for human use, in the scope of the metadata catalog containing this metadata record.     |
 | Distribution        | 1        | "url":{URL}       | If metadata is about a single digital object      |
 |             |          | "distribution": <br>   { \"@type\": \"DataDownload\", <br>    \"contentURL\": {URL },\...   }   | If the metadata is about an abstract, non-digital, or physical resource that has multiple distributions, with different URL, encodingFormat, conformsTo properties. Each distribution is considered a distinct digital object. |
