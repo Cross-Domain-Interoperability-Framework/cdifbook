@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Data Access Introduction" href="../data_access/intro.html" />
-    <link rel="prev" title="Metadata mappings" href="mapping.html" />
+    <link rel="prev" title="Mapping from CDIF metadata to RDA PID Kernel attributes" href="pidkernel.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -200,12 +200,15 @@
 <li class="toctree-l2"><a class="reference internal" href="contentmodel.html">Basic discovery metadata content model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="queryabledistributions.html">Queryable distributions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="schemaorgimplementation.html">Serialization of CDIF metadata</a></li>
+
+
 <li class="toctree-l2"><a class="reference internal" href="publication.html">Metadata publication</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="mapping.html">Metadata mappings</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pidkernel.html">Mapping from CDIF metadata to RDA PID Kernel attributes</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Mapping from Signposting relations to CDIF metadata elements</a></li>
 </ul>
 </details></li>
@@ -434,35 +437,35 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p>author</p></td>
-<td><p>/”about”/”creator”/”&#64;id”</p></td>
+<td><p>“creator”/”&#64;id”</p></td>
 <td><p>The target of the link is a URI for an author of the resource that is the origin of the link.</p></td>
 </tr>
 <tr class="row-odd"><td><p>cite-as</p></td>
-<td><p>/”about”/”&#64;id”</p></td>
+<td><p>“&#64;id”</p></td>
 <td><p>The target of the link is a persistent URI for the resource that is the origin of the link.</p></td>
 </tr>
 <tr class="row-even"><td><p>describedby</p></td>
-<td><p>/”about”/”subjectOf”/”&#64;id”</p></td>
+<td><p>“subjectOf”/”&#64;id”</p></td>
 <td><p>The target of the link provides metadata that describes the resource that is the origin of the link.</p></td>
 </tr>
 <tr class="row-odd"><td><p>describes</p></td>
-<td><p>/”about”/”&#64;id”</p></td>
+<td><p>“subjectOf”/”about”/”&#64;id”</p></td>
 <td><p>The origin of the link is a resource that provides metadata that describes the resource that is the target of the link. It is the inverse of the describedby relation type.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td><p>/”about”/”&#64;type”: {<a class="reference external" href="http://schema.org">schema.org</a> type}; use “additionalType” for more specific typing</p></td>
+<td><p>“&#64;type”: {<a class="reference external" href="http://schema.org">schema.org</a> type}; use “additionalType” for more specific typing</p></td>
 <td><p>The target of the link is the URI for a class of resources to which the resource that is the origin of the link belongs.</p></td>
 </tr>
 <tr class="row-odd"><td><p>license</p></td>
-<td><p>/”about”/”license”/”&#64;id”</p></td>
+<td><p>“license”/”&#64;id”</p></td>
 <td><p>The target of the link is the URI of a license that applies to the resource that is the origin of the link.</p></td>
 </tr>
 <tr class="row-even"><td><p>item</p></td>
-<td><p>/”about”/”relatedLink”/ /{“linkRelationship”: “hasPart”,<br>”target”: {<br>”url”:”<a class="reference external" href="http://someurl">http://someurl</a>…”, <br>”contentType”: “resource type of the item”}}</p></td>
+<td><p>“relatedLink”/ /{“linkRelationship”: “hasPart”,<br>”target”: {<br>”url”:”<a class="reference external" href="http://someurl">http://someurl</a>…”, <br>”contentType”: “resource type of the item”}}</p></td>
 <td><p>The origin of the link is a collection of resources and the target of the link is a resource that belongs to that collection. It is the inverse of the collection relation type. In CDIF, contentType and encodingType properties can provide details about the kind of linked collection item.</p></td>
 </tr>
 <tr class="row-odd"><td><p>collection</p></td>
-<td><p>/”about”/”relatedLink”/ / {“linkRelationship”: “IsPartOf”, <br>”target”: {<br> “url”:”http:someURL..”<br> “contentType”: “Collection”}}</p></td>
+<td><p>“relatedLink”/ / {“linkRelationship”: “IsPartOf”, <br>”target”: {<br> “url”:”http:someURL..”<br> “contentType”: “Collection”}}</p></td>
 <td><p>The origin of the link is a resource that belongs to a collection and the target of the link is the collection to which it belongs. It is the inverse of the item relation type. In CDIF, the target name and description (not in example to left) can provide additional information about collection.</p></td>
 </tr>
 </tbody>
@@ -501,12 +504,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="mapping.html"
+       href="pidkernel.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Metadata mappings</p>
+        <p class="prev-next-title">Mapping from CDIF metadata to RDA PID Kernel attributes</p>
       </div>
     </a>
     <a class="right-next"
