@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'data_access/policies';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Representing internal access policies with ODRL" href="odrlinternalpolicies.html" />
     <link rel="prev" title="Overview of ODRL" href="odrloverview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -204,12 +205,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../metadata/dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../metadata/mapping.html">Metadata mappings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Access</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Data Access Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="odrloverview.html">Overview of ODRL</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Data access policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odrlinternalpolicies.html">Representing internal access policies with ODRL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odrlaggregateaccessconditions.html">Aggregate Access conditions - Parties and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odrlsharedservices.html">Conventions for ODRL Parties and Actions</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="odrlfederatedanalysis.html">Federated analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odrlincdif.html">ODRL implementation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example metadata documents</a></li>
 </ul>
 
     </div>
@@ -423,16 +437,11 @@ document.write(`
 <h1>Data access policies<a class="headerlink" href="#data-access-policies" title="Link to this heading">#</a></h1>
 <section id="data-provider-vs-data-user-access-policies">
 <h2>Data provider vs. data user access policies<a class="headerlink" href="#data-provider-vs-data-user-access-policies" title="Link to this heading">#</a></h2>
-<p>ODRL data access policies can be formulated or executed by either the data provider or the data user. For
-example, a data user may establish an ODRL policy that requires the data to conform to a certain standard as
-part of a machine readable request. Because of the audience and context of CDIF, this document starts from
-the perspective of the data policies of the data provider, since they fit in with the perspective of a metadata
-standard for interoperability being established for/by data providers.</p>
+<p>ODRL data access policies can be formulated or executed by either the data provider or the data user. For example, a data user may establish an ODRL policy that requires the data to conform to a certain standard as part of a machine readable request. Because of the audience and context of CDIF, this document starts from the perspective of the data policies of the data provider, since they fit in with the perspective of a metadata standard for interoperability being established for/by data providers.</p>
 </section>
 <section id="access-classifications">
 <h2>Access classifications<a class="headerlink" href="#access-classifications" title="Link to this heading">#</a></h2>
-<p>It is not uncommon for data providers (or communities thereof) to apply broad ‘access classifications’ to
-data, for example:
+<p>It is not uncommon for data providers (or communities thereof) to apply broad ‘access classifications’ to data, for example:
 ● openAccess / restrictedAccess <a class="reference external" href="https://www.cessda.eu/">CESSDA</a>
 ● Open / Safeguarded / Controlled <a class="reference external" href="https://ukdataservice.ac.uk/">UKDS</a>
 ● ClosedAccess / EmbargoedAccess / RestrictedAccess / OpenAccess <a class="reference external" href="https://www.openaire.eu/">OpenAIRE</a></p>
@@ -440,14 +449,14 @@ data, for example:
 </section>
 <section id="access-policy-scenarios-and-recommendations">
 <h2>Access policy scenarios and recommendations<a class="headerlink" href="#access-policy-scenarios-and-recommendations" title="Link to this heading">#</a></h2>
-<p>This section analyses a spectrum of scenarios that identify typical drivers and needs for interoperability of data access policies:</p>
+<p>This section discusses several situations dealing with sensitive data for with access policies are necessary.</p>
 <ol class="arabic simple">
-<li><p>Automating internal access processes</p></li>
-<li><p>Aggregating access policy metadata across a community</p></li>
-<li><p>Shared services for request and fulfilment</p></li>
-<li><p>Federated analysis over multiple sensitive data providers</p></li>
+<li><p>A standalone repository holding sensitive personal data wishes to provide ‘secondary access’ to other research groups. <a class="reference internal" href="odrlinternalpolicies.html"><span class="std std-doc">Standalone repository</span></a></p></li>
+<li><p>A metadata aggregator wants to provide search clients with filters based on access policies <a class="reference internal" href="odrlaggregateaccessconditions.html"><span class="std std-doc">Metadata aggregator</span></a></p></li>
+<li><p>A central clearing house mediating access to data in federated repositories <a class="reference internal" href="odrlsharedservices.html"><span class="std std-doc">Mediated access</span></a></p></li>
+<li><p>Federated analysis over multiple sensitive data providers <a class="reference internal" href="odrlfederatedanalysis.html"><span class="std std-doc">Federated analytics</span></a></p></li>
 </ol>
-<p>These scenarios build a set of typical requirements for the interoperability of access policy summarised in the figure below and detailed in the following sections. Each section starts to formulate recommendations for CDIF adherents to use ODRL and other standards to achieve their interoperability needs.</p>
+<p>These scenarios build a set of typical requirements for the interoperability of access policy summarised in the figure below.</p>
 <p><img alt="Data access scenarios" src="../_images/dataaccessscenarios.jpg" /></p>
 <p>Figure. Data access scenarios</p>
 </section>
@@ -491,6 +500,15 @@ data, for example:
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Overview of ODRL</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="odrlinternalpolicies.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Representing internal access policies with ODRL</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
