@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction &#8212; Cross Domain Interoperability Framework Handbook</title>
+    <title>Mapping from CDIF metadata to RDA PID Kernel attributes &#8212; Cross Domain Interoperability Framework Handbook</title>
   
   
   
@@ -57,10 +57,9 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pidkernel';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Why CDIF?" href="background/whycdif.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -143,7 +142,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="introduction.html">
   
   
   
@@ -174,8 +173,8 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="introduction.html">
                     Introduction
                 </a>
             </li>
@@ -297,7 +296,7 @@
       
       
       
-      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fintroduction.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fpidkernel.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -327,7 +326,7 @@
       
       
       
-      <li><a href="_sources/introduction.md" target="_blank"
+      <li><a href="_sources/pidkernel.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -398,9 +397,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -411,24 +408,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction</h1>
+    <h1>Mapping from CDIF metadata to RDA PID Kernel attributes</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-cdif">What is CDIF</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#who-can-use-the-cdif">Who can use the CDIF?</a><ul class="visible nav section-nav flex-column">
-</ul>
-</li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -438,40 +422,87 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
-<p>Many important research questions demand a multi-disciplinary approach in which data and resources are used across domain and infrastructure boundaries. In such scenarios, domain-specific community standards fall short of the requirements for FAIR exchange of the critical metadata and other information needed. The Cross-Domain Interoperability Framework (CDIF) is designed to support FAIR implementation for these projects by establishing a ‘lingua franca’ for this information, based on existing standards and technology to support interoperability, in both human- and machine-actionable fashion. CDIF is a set of implementation recommendations, based on profiles of common, domain-neutral metadata standards which are aligned to work together to support core functions required by FAIR.</p>
-<p>The idea for CDIF first emerged from workshops and discussions at conferences prior to the WorldFAIR project, beginning in 2018. The WorldFAIR project provided an opportunity to advance that vision, through aset of 11 case studies across many domains, allowing the needs and practices around FAIR within such domains to be summarised in the form of FAIR Implementation Profiles (FIPs). Based on the FIPs and focused meetings, the requirements for CDIF were established. A group of 30 invited experts from different FAIR initiatives and standards bodies made up a Working Group and an Advisory Group to synthesise the findings from WorldFAIR and to produce the current CDIF draft.</p>
-<p>The framework is based on a set of five core profiles that address the most important functions for cross-domain FAIR implementation.</p>
-<ol class="arabic simple">
-<li><p>Discovery (patterns for metadata content, serialization and publication)</p></li>
-<li><p>Data access (documentation of access conditions and permitted use)</p></li>
-<li><p>Controlled vocabularies (practices for the publication of controlled vocabularies and semantic artefacts)</p></li>
-<li><p>Data integration (documentation of the structural and semantic aspects of data to make it integration-ready)</p></li>
-<li><p>Universals (description of ‘universal’ elements – time, geography, and units of measurement).</p></li>
-</ol>
-<p>Each of these profiles is supported by specific recommendations, including the set of metadata fields in specific standards to use, and the method of implementation to be employed for machine-level interoperability.</p>
-<p>CDIF is designed to leverage the work of other FAIR initiatives such as FAIR-Impact and the work in EOSC. It is designed to be implementable with existing tools, standards, and technologies but, as a set of recommended practices, must be maintained as FAIR implementations develop and evolution occurs in the technology sphere. CDIF leverages methodologies such as FIPs from the <a class="reference external" href="https://www.go-fair.org/how-to-go-fair/fair-implementation-profile/">GO FAIR Foundation</a>. Importantly, it aligns with efforts such as the <a class="reference external" href="https://op.europa.eu/en/publication-detail/-/publication/d787ea54-6a87-11eb-aeb5-01aa75ed71a1/language-en">EOSC Interoperability Framework</a>, and developments such as <a class="reference external" href="https://signposting.org/FAIR/">Signposting</a> and reference implementation of the <a class="reference external" href="https://fairdo.org/">FAIR Digital Object Framework</a>. Work on semantic mapping and in some other areas is informed by on-going developments in other fora such as <a class="reference external" href="https://www.rd-alliance.org/">RDA</a>. CDIF is designed to enable the practical implementation of FAIR by supporting these frameworks and approaches in cross-domain scenarios.</p>
-<p>In any given domain, the standards used should be to a considerable extent mappable to and from their corresponding CDIF profiles, reducing the volume of mappings needed to interoperate effectively for core FAIR functions in multi-disciplinary scenarios. Broadly speaking, FAIR demands an increase in the metadata provided by the disseminators of data, especially if we are to automate resource-intensive data integration tasks, which today are largely manual. In a cross-domain scenario, the sheer number of mappings needed is not supportable. CDIF provides a solution by changing a many-to-many dynamic into a many-to-one dynamic.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="what-is-cdif">
-<h1>What is CDIF<a class="headerlink" href="#what-is-cdif" title="Link to this heading">#</a></h1>
-<p><strong>CDIF is not intended to replace existing community standards</strong>, but to supplement them for communication across domain and infrastructure boundaries. It does not aim to replace the specific models needed within different domains, but it does aim to establish a foundation of common metadata which can support a core set of FAIR functionality. Real-world examples of large-scale standards-based exchange networks, such as the <a class="reference external" href="https://sdmx.org/">Statistical Data and Metadata Exchange</a> (SDMX) and the <a class="reference external" href="https://oceaninfohub.org/odis/">Ocean InfoHub</a> (ODIS) have been used as inspiration for the overall approach, to ensure its feasibility for practical implementation. This draft includes links to early prototypes for such data as the Sustainable Development Goal Indicators and some of their source data, showing how the mining of the native standard descriptions of the source, to produce its equivalent in CDIF, can support disaggregation and integration of that data with other sources.</p>
-<p>There is a wealth of research on how FAIR can be implemented, and investigations into this subject show no sign of abating. CDIF is not a research project, nor does it intend to outline the best possible solution to the challenges of FAIR implementation. Instead, it is first and foremost a practical exercise: how can we find a set of common standards and technology approaches that will enable us to implement FAIR for cross-domain scenarios using things which exist today? Standards are only useful if they are agreed and implemented, so CDIF tries to advocate those standards and technology already in common use. There are gaps in current practice that require additional information and standards, but these are minority cases. Web standards already exist for supporting most of the needed functions, but they are not always used in ways which are interoperable, requiring a common approach for at least some core aspects. The CDIF recommendations are based on practical considerations: we must agree on a body of practice, and whether it is the best possible solution is a secondary concern. More important is that it be implemented widely, so that FAIR exchange can become as easy as possible. Once laid, such a foundation can be perfected.</p>
-<p>To this end, CDIF identifies a set of common functions which are needed to implement FAIR: describing data for discovery and assessment, supporting access to data by describing the licensing and conditions of use, laying out the structure and semantics of data to support automated integration, and providing information regarding the provenance of data and resources. In each area, practical recommendations are made regarding what standard or standards should be used, and how they should be implemented. In those areas where there is no clear practice which can be recommended, or which require further investigation, this is noted. For the provision of basic discovery metadata, the description of licence conditions, the publication of controlled vocabularies, and the description of data to make it ‘integration ready’, specific steps are described which can be used to guide immediate implementation.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="who-can-use-the-cdif">
-<h1>Who can use the CDIF?<a class="headerlink" href="#who-can-use-the-cdif" title="Link to this heading">#</a></h1>
-<p>CDIF is aimed primarily at data infrastructures, i.e. those organisations which develop, maintain, and disseminate FAIR resources for reuse, often as centralised points of access within their communities or area(s) of interest. While data stewardship by research organisations is an important element of FAIR, not all research organisations perform this dissemination, instead relying on data archives or other dedicated repositories. FAIR reuse is most effective when authoritative producers, or those acting on their behalf, provide their data and metadata to others for reuse, so the authoritative versions of such resources are the ones which get reused. Such organisations are often motivated to be the point of dissemination, as it is their mission, and they bear the responsibility, both legal and reputational, for those resources. CDIF is a tool which they can use to better support this mission.</p>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="mapping-from-cdif-metadata-to-rda-pid-kernel-attributes">
+<h1>Mapping from CDIF metadata to RDA PID Kernel attributes<a class="headerlink" href="#mapping-from-cdif-metadata-to-rda-pid-kernel-attributes" title="Link to this heading">#</a></h1>
+<p>In the Fair Digital Object Framework (FDOF) specifies that a Digital Object idnetifier (PID) can be resolved to obtain a PID kernel record. For the content of the PID kernel record we are following the RDA Recommendation on PID Kernel Information (<a class="reference external" href="https://www.rd-alliance.org/system/files/RDA%20Recommendation%20on%20PID%20Kernel%20Information_final.pdf">Weigel et al, 2019</a> ). The implementation approach for supplying PID Kernel information records (See sections 3.1 and 3.2 in <a class="reference external" href="https://fairdigitalobjectframework.org/">https://fairdigitalobjectframework.org/</a>) associated with digital object identifiers is an architecture decision, not specified in this version of the CDIF framework. However, the information necessary to produce such metadata to implement the FDOF conventions is included in the CDIF metadata implementation, except for embedding of thumbnails or other data objects directly in the metadata digital object.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>FDO field</strong></p></th>
+<th class="head"><p><strong>CDIF <a class="reference external" href="http://schema.org">schema.org</a></strong></p></th>
+<th class="head"><p><strong>Scope Notes</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><font size="3">FDO Creator</font></p></td>
+<td><p>“creator” : [{Person or Organization}, …]</p></td>
+<td><p>Agent responsible for creating the FDO (and implicitly issuing the FDO PID) [NOTE– creator of content and identifier registration are not necessarily the same agent]</p></td>
+</tr>
+<tr class="row-odd"><td><p>FDO Responsible Organisation (Resource)</p></td>
+<td><p>“provider”:{Person or Organization}</p></td>
+<td><p>note that this can be another organisation than the PID issuer. If the agent is an organization, the value is taken from the ROR registry value domain (or other with namespace id). Implement as responsible part with an Agent (name, ID, contactInformation)</p></td>
+</tr>
+<tr class="row-even"><td><p>RDA checksum</p></td>
+<td><p>“spdx:checksum”:</p></td>
+<td><p>Checksum of object contents. Checksum format is determined via the attribute type referenced in a Kernel Information record. Called etag in <a class="reference external" href="https://docs.google.com/document/d/1QVUR6vlp6s6LxZndMslym9pmM90rFUR6__q3cuXSQf8/edit#heading=h.z337ya">PubCom-PR-PIDProfileAttributes-2.0</a>. The algorithm for checksum calculation should be defined in the definition of the object type, or described in the resource description in this metadata. spdx value is an object with ‘algorthm’ and ‘checksumValue’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FDOF digitalObject-Mutability</p></td>
+<td><p>/”about”/”publishingPrinciples”:</p></td>
+<td><p>This attribute indicates whether the included bit-sequence is mutable or immutable, and policies for when new version is created when some bits are changed.  Principles apply at the DigitalObject/Distribution level.</p></td>
+</tr>
+<tr class="row-even"><td><p>FDOF Persistency-Policy</p></td>
+<td><p>/”about”/”publishingPrinciples”:</p></td>
+<td><p>this attribute indicates what the intention of its creator is with respect to its life-time/maintenance; the value domain is a vocabulary like: {UNKNOWN, NONE, Years , or <a class="reference external" href="http://cor.esipfed.org/ont/earthcube/ELT">EarthCube ELT</a> } (note: seems only partly covered by RDA digitalObjectPolicy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RDA digitalObject-Policy</p></td>
+<td><p>/”about”/”publishingPrinciples”:</p></td>
+<td><p>Pointer to a policy object that documents changes to the object or its Kernel Information record, including object access and modification policies. A caller should be able to determine the expected future changes to the object from the policy, which are based on managed processes the object owner maintains.</p></td>
+</tr>
+<tr class="row-even"><td><p>FDOF Responsible-Organisation (Technical Management)</p></td>
+<td><p>/”about”/”maintainer” : [{Person or Organization}, …]</p></td>
+<td><p>after creation, the same or another organisation will be responsible for further management of the FDO. The Responsible Organisation equals the FDO Creator if available by default (mandatory attribute) [equate with Resource point of contact]</p></td>
+</tr>
+<tr class="row-odd"><td><p>FDOF rightsRecord</p></td>
+<td><p>/”about”//”license”:{text or URI}Or/”about”//”conditionsOfAccess”:{text or URI}</p></td>
+<td><p>This is a pointer to a resource that specifies access permissions. Include: FDOF licenceConditions: that links to one or more formal specifications about licences such as CC-x; FDOF transactionRecord: a resource that includes contractual information.</p></td>
+</tr>
+<tr class="row-even"><td><p>FDOF ScientificDomain</p></td>
+<td><p>/”about”/”keywords”:[{string} or schema:DefinedTerm]</p></td>
+<td><p>indicator of the scientific domain the FDO refers to. This ensures compliance with the FAIR principles, which are per definition applicable at the domain level. This attribute is required since different mandatory attributes may be required at the domain-level.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Profile</p></td>
+<td><p>/ “dcterms:conformsTo”: {identifier}</p></td>
+<td><p>The Kernel metadata profile is a schema that determines the attribute requirements for FDO metadata beyond the base requirements. In the FDO world, the kernel profile specifies Kernel information about the resource associated with an identifier. <a class="reference external" href="http://Schema.org">Schema.org</a> does not have a ‘conformTo’ property so follow DCAT v3 using the Dublin Core Terms property.</p></td>
+</tr>
+<tr class="row-even"><td><p>FDOF digitalObjectType</p></td>
+<td><p>/”about”/”&#64;type”:{<a class="reference external" href="http://schema.org">schema.org</a> type}</p></td>
+<td><p>The kind of resource associated with an identifier. The type implies a schema that dictates the format, information model, and profile conventions for the resource representation contained in the identified digital object. Use appropriate <a class="reference external" href="http://Schema.org">Schema.org</a> type for &#64;type property, the additional type should be from a controlled vocabulary.</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>/”about”/”additionalType”:[{schema:DefinedTerm or URI}, …]</p></td>
+<td><p>Expect to use a CDIF recommended vocabulary here</p></td>
+</tr>
+<tr class="row-even"><td><p>RDA dateCreated</p></td>
+<td><p>/”about”/”datePublished”: {date time}</p></td>
+<td><p>Date (and optional time) the Digital object was created</p></td>
+</tr>
+<tr class="row-odd"><td><p>RDA dateModified</p></td>
+<td><p>/”about”/”dateModified” : {date time}</p></td>
+<td><p>If the DO bit sequence is mutable, specify the last date/time of object modification. Must be consistent with etag and current version number.</p></td>
+</tr>
+<tr class="row-even"><td><p>RDA version</p></td>
+<td><p>/”about”/”version” : {string}</p></td>
+<td><p>If tracked, a version for the object, which must follow a total order. Mandatory for all objects with at least one predecessor version.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RDA digitalObjectLocation</p></td>
+<td><p>/”about”/”url”:{URL}</p></td>
+<td><p>If the FDO has a digital representation, it is mandatory that the PID record specifies the location where the FDO can be retrieved, either as an URL or a PID. This is URL in a metadata record for which the target resource is a digital object, or the contentURL or accessURL if the target resource is a non-digital object with one or more distribution representations. Since FDO PID identifies a digital object, there is only one distribution,so use the simple schema:url.</p></td>
+</tr>
+<tr class="row-even"><td><p>FDOF operationInfo</p></td>
+<td><p>Not implemented by CDIF v1.0</p></td>
+<td><p>Some communities want to include a payload information such as a thumbnail image in the case of DiSSCo’s Digital Enhanced Specimen FDO.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
 
@@ -505,41 +536,12 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="background/whycdif.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Why CDIF?</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-cdif">What is CDIF</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#who-can-use-the-cdif">Who can use the CDIF?</a><ul class="visible nav section-nav flex-column">
-</ul>
-</li>
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>

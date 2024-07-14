@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Metadata mappings &#8212; Cross Domain Interoperability Framework Handbook</title>
+    <title>Mapping from Signposting relations to CDIF metadata elements &#8212; Cross Domain Interoperability Framework Handbook</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'metadata/mapping';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'metadata/signpostinglinkrel';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Mapping from Signposting relations to CDIF metadata elements" href="signpostinglinkrel.html" />
-    <link rel="prev" title="Data Catalog Vocabulary (DCAT) vocabulary" href="dcat.html" />
+    <link rel="next" title="Data Access Introduction" href="../data_access/intro.html" />
+    <link rel="prev" title="Metadata mappings" href="mapping.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,8 +205,8 @@
 <li class="toctree-l2"><a class="reference internal" href="dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Metadata mappings</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="signpostinglinkrel.html">Mapping from Signposting relations to CDIF metadata elements</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="mapping.html">Metadata mappings</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Mapping from Signposting relations to CDIF metadata elements</a></li>
 </ul>
 </details></li>
 </ul>
@@ -296,7 +296,7 @@
       
       
       
-      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fmetadata/mapping.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fmetadata/signpostinglinkrel.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +326,7 @@
       
       
       
-      <li><a href="../_sources/metadata/mapping.md" target="_blank"
+      <li><a href="../_sources/metadata/signpostinglinkrel.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -408,7 +408,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Metadata mappings</h1>
+    <h1>Mapping from Signposting relations to CDIF metadata elements</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -422,11 +422,51 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="metadata-mappings">
-<h1>Metadata mappings<a class="headerlink" href="#metadata-mappings" title="Link to this heading">#</a></h1>
-<p>Introductions to tables correlating metadata elements in differnt schema</p>
-<p>tbd</p>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="mapping-from-signposting-relations-to-cdif-metadata-elements">
+<h1>Mapping from Signposting relations to CDIF metadata elements<a class="headerlink" href="#mapping-from-signposting-relations-to-cdif-metadata-elements" title="Link to this heading">#</a></h1>
+<p>The Signposting approach embeds links in HTML pages or in the HTTP header that is included in the response to HTTP GET or HEAD requests. These links provide some basic metadata information, as well as links to more complete metadata, possibly in various formats or <a class="reference external" href="https://signposting.org/FAIR/#level1">profiles</a>. Given an identifer that can be derferenced using a server that implements signposting, an agent can obtain some information about the resource(s) that can be accessed by dereferencing the identifier. If a provider has generated CDIF metadata records, they hae sufficient information to generate signposting links. If they can add HTML <link> elements in landing pages, or HTTP <link> elements in the server GET and HEAD responses, then implementing signposting is an easy win, providing value for some users. The table below show the mapping from CDIF metadata elements to the targets for signposting links with each REL types.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Signposting Relation Type</p></th>
+<th class="head"><p>CDIF <a class="reference external" href="http://schema.org">schema.org</a> element</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>author</p></td>
+<td><p>/”about”/”creator”/”&#64;id”</p></td>
+<td><p>The target of the link is a URI for an author of the resource that is the origin of the link.</p></td>
+</tr>
+<tr class="row-odd"><td><p>cite-as</p></td>
+<td><p>/”about”/”&#64;id”</p></td>
+<td><p>The target of the link is a persistent URI for the resource that is the origin of the link.</p></td>
+</tr>
+<tr class="row-even"><td><p>describedby</p></td>
+<td><p>/”about”/”subjectOf”/”&#64;id”</p></td>
+<td><p>The target of the link provides metadata that describes the resource that is the origin of the link.</p></td>
+</tr>
+<tr class="row-odd"><td><p>describes</p></td>
+<td><p>/”about”/”&#64;id”</p></td>
+<td><p>The origin of the link is a resource that provides metadata that describes the resource that is the target of the link. It is the inverse of the describedby relation type.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>/”about”/”&#64;type”: {<a class="reference external" href="http://schema.org">schema.org</a> type}; use “additionalType” for more specific typing</p></td>
+<td><p>The target of the link is the URI for a class of resources to which the resource that is the origin of the link belongs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>license</p></td>
+<td><p>/”about”/”license”/”&#64;id”</p></td>
+<td><p>The target of the link is the URI of a license that applies to the resource that is the origin of the link.</p></td>
+</tr>
+<tr class="row-even"><td><p>item</p></td>
+<td><p>/”about”/”relatedLink”/ /{“linkRelationship”: “hasPart”,<br>”target”: {<br>”url”:”<a class="reference external" href="http://someurl">http://someurl</a>…”, <br>”contentType”: “resource type of the item”}}</p></td>
+<td><p>The origin of the link is a collection of resources and the target of the link is a resource that belongs to that collection. It is the inverse of the collection relation type. In CDIF, contentType and encodingType properties can provide details about the kind of linked collection item.</p></td>
+</tr>
+<tr class="row-odd"><td><p>collection</p></td>
+<td><p>/”about”/”relatedLink”/ / {“linkRelationship”: “IsPartOf”, <br>”target”: {<br> “url”:”http:someURL..”<br> “contentType”: “Collection”}}</p></td>
+<td><p>The origin of the link is a resource that belongs to a collection and the target of the link is the collection to which it belongs. It is the inverse of the item relation type. In CDIF, the target name and description (not in example to left) can provide additional information about collection.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
 
@@ -461,20 +501,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="dcat.html"
+       href="mapping.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Data Catalog Vocabulary (DCAT) vocabulary</p>
+        <p class="prev-next-title">Metadata mappings</p>
       </div>
     </a>
     <a class="right-next"
-       href="signpostinglinkrel.html"
+       href="../data_access/intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Mapping from Signposting relations to CDIF metadata elements</p>
+        <p class="prev-next-title">Data Access Introduction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
