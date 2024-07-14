@@ -7,14 +7,49 @@ parts:
   - caption: Introduction
     numbered: False
     chapters:
-    - file: futuretopics
-    - file: summaryofprofiles
-  - caption: Background
-    numbered: False
-    chapters:
     - file: background/whycdif
     - file: background/history
-  - caption: Getting Started
+    - file: background/structure
+    - file: background/summaryofprofiles
+    - file: background/futuretopics
+    
+  - caption: Principles
     numbered: False
     chapters:
-      - file: background/structure.md
+    - file: background/principles
+  
+  - caption: Discovery
+    numbered: False
+    chapters:
+    - file: metadata/technicalexpressionmetadata  
+    - file: metadata/publishingmetadata
+    - file: metadata/distributionapis
+    - file: metadata/recommendations
+      sections: 
+      - file: metadata/contentmodel
+      - file: metadata/queryabledistributions
+      - file: metadata/schemaorgimplementation
+      - file: metadata/publication
+      - file: metadata/dcat
+    - file: metadata/mapping
+      sections: 
+      - file: metadata/pidkernel
+      - file: metadata/signpostinglinkrel
+
+  - caption: Data Access
+    numbered: False
+    chapters:
+    - file: data_access/intro
+    - file: data_access/odrloverview
+    - file: data_access/policies
+    - file: data_access/odrlinternalpolicies
+    - file: data_access/odrlaggregateaccessconditions
+    - file: data_access/odrlsharedservices
+    - file: data_access/odrlfederatedanalysis
+    - file: data_access/odrlincdif
+
+  - caption: Examples
+    numbered: False
+    chapters:
+    - file: examples/index.md
+    

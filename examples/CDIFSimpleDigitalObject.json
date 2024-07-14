@@ -1,0 +1,29 @@
+{
+    "@context": [
+        "https://schema.org",
+        {
+            "dct": "http://purl.org/dc/terms/",
+            "ex": "https://example.com/99152/"
+        }
+    ],
+    "@id": "ex:URIforTheMetadata",
+    "@type": "DigitalDocument",
+    "dateModified": "2017-05-23",
+    "provider": {
+        "@type": "Organization",
+        "name": "Joe's photo studio",
+        "email": "metadata@joesphotostudio.org"
+    },
+    "dct:conformsTo": "ex:cdif-metadataSpec",
+    "about": {
+        "@id": "ex:URIforDescribedResource",
+        "@type": "ImageObject",
+        "title": "Picture of analytical setup",
+        "description": "Description of what's in the picture, where and why taken",
+        "license": "https://joesphotostudio.org/license.txt",
+        "creator": "nil:unknown",
+        "datePublished": "2012-07-18",
+        "encodingFormat": "image/tif",
+        "url": "https://repository.org/images/2423757.tif"
+    }
+}

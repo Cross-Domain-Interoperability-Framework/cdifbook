@@ -1,0 +1,24 @@
+{
+    "@context": [
+        "https://schema.org",
+        {"dct": "http://purl.org/dc/terms/"}
+    ],
+    "@id": "ark:/99152/URIforTheDigitalObject",
+    "@type": "DigitalDocument",
+    "encoding": {
+        "@type": "MediaObject"
+    },
+    "url": "https://example.org/locatortoGETtheDigitalObject",
+    "publishingPrinciples": [
+        {
+            "@type": "CreativeWork"
+        }
+    ],
+    "dateModified": "2010-02-03",
+    "subjectOf": {
+        "@id": "metadata:ark:/99152/URIforTheDigitalObjectMetadata",
+        "@type": "DigitalDocument",
+        "dateModified": "2014-02-23",
+        "encoding": {"@type": "MediaObject"}
+    }
+}

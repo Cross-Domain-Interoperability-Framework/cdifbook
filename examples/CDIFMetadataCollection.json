@@ -1,0 +1,99 @@
+{
+    "@context": [
+        "https://schema.org",
+        {
+            "dcterms": "http://purl.org/dc/terms/",
+            "ex": "https://example.com/99152/"
+        }
+    ],
+    "@type": ["ItemList"],
+    "@id": "https://example.org/id/graph/X",
+    "name": "Example CDIF Metadata collection",
+    "description": "this is a JSON file containing a collection of CDIF 1.0 conformant JSON-LD records. The structure uses the schema.org ItemList type. Each item in the list is type schema:ListItem",
+    "author": "Creator of the list",
+    "itemListOrder": "https://schema.org/ItemListUnordered",
+    "numberOfItems": 2,
+    "itemListElement": [
+        {
+            "@id": "ID_for_this_metadata_record1",
+            "@type": "DigitalDocument",
+            "dct:conformsTo": "https://example.org/cdif-metadataSpec",
+            "about": {
+                "@id": "https://example.org/id/XYZ",
+                "@type": "ImageObject",
+                "additionalType": {
+                    "@type": "DefinedTerm",
+                    "inDefinedTermSet": "https://example.org/resourceType",
+                    "name": "Georeferenced Map Image"
+                },
+                "name": "Name or title of the document",
+                "description": "Description of the map to aid in searching. Map is a non-digital resource with many possible representations, this metadata record is a bout a particular digital object that contains an image of a particular map",
+                "url": "https://www.sample-data-repository.org/creativework/map.pdf",
+                "subjectOf": {"@id": "ID_for_this_metadata_record1"}
+            }
+        },
+        {
+            "@type": "DigitalDocument",
+            "@id": "metadata:10.5878/tnzz-m331",
+            "dct:conformsTo": "https://example.org/cdif-metadataSpec",
+            "about": {
+                "@type": "Dataset",
+                "@id": "https://doi.org/10.5878/tnzz-m331",
+                "identifier": "https://doi.org/10.5878/tnzz-m331",
+                "version": "4",
+                "name": "Dataset for SOU 2023:18 The Wind's Value - Compensation, Incentives and Planning for a Continued Sustainable Wind Power Development",
+                "description": "The study is a Governmental ....",
+                "datePublished": "2023-06-21T11:37:06Z",
+                "dateModified": "2023-06-21T11:37:06Z",
+                "temporalCoverage": "2020/2022",
+                "publisher": {
+                    "@type": "Organization",
+                    "@id": "https://snd.gu.se",
+                    "name": "Swedish National Data Service"
+                },
+                "distribution": [
+                    {
+                        "@type": "DataDownload",
+                        "name": "ID 006 - Vero, Beskattning av vind- och solkraftverk Norge.pdf",
+                        "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+006+-+Vero%2C+Beskattning+av+vind-+och+solkraftverk+Norge.pdf",
+                        "contentSize": 356791,
+                        "encodingFormat": "application/pdf",
+                        "isAccessibleForFree": true
+                    },
+                    {
+                        "@type": "DataDownload",
+                        "name": "ID 042 - Nye regler om stigning i grundskylden p...pdf",
+                        "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+042+-+Nye+regler+om+stigning+i+grundskylden+p...pdf",
+                        "contentSize": 739978,
+                        "encodingFormat": "application/pdf",
+                        "isAccessibleForFree": true
+                    }
+                ],
+                "subjectOf": {"@id": "metadata:10.5878/tnzz-m331"}
+            }
+        },
+        {
+            "@id": "ex:URIforTheMetadata",
+            "@type": "DigitalDocument",
+            "dateModified": "2017-05-23",
+            "provider": {
+                "@type": "Organization",
+                "name": "Joe's photo studio",
+                "email": "metadata@joesphotostudio.org"
+            },
+            "dct:conformsTo": "ex:cdif-metadataSpec",
+            "about": {
+                "@id": "ex:URIforDescribedResource",
+                "@type": "ImageObject",
+                "title": "Picture of analytical setup",
+                "description": "Description of what's in the picture, where and why taken",
+                "license": "https://joesphotostudio.org/license.txt",
+                "creator": "nil:unknown",
+                "datePublished": "2012-07-18",
+                "encodingFormat": "image/tif",
+                "url": "https://repository.org/images/2423757.tif",
+                "subjectOf": {"@id": "ex:URIforTheMetadata"}
+            }
+        }
+    ]
+}
