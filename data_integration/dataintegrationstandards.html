@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Integration &#8212; Cross Domain Interoperability Framework Handbook</title>
+    <title>Standards for data Description &#8212; Cross Domain Interoperability Framework Handbook</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'data_integration/dataintegrationintro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data_integration/dataintegrationstandards';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Standards for data Description" href="dataintegrationstandards.html" />
-    <link rel="prev" title="ODRL implementation" href="../data_access/odrlincdif.html" />
+    <link rel="next" title="Data Description for Integration" href="datadescriptionforintegration.html" />
+    <link rel="prev" title="Data Integration" href="dataintegrationintro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -229,8 +229,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Integration</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataintegrationstandards.html">Standards for data Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataintegrationintro.html">Data Integration</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Standards for data Description</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datadescriptionforintegration.html">Data Description for Integration</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Controlled Vocabularies</span></p>
@@ -313,7 +313,7 @@
       
       
       
-      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fdata_integration/dataintegrationintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fdata_integration/dataintegrationstandards.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -343,7 +343,7 @@
       
       
       
-      <li><a href="../_sources/data_integration/dataintegrationintro.md" target="_blank"
+      <li><a href="../_sources/data_integration/dataintegrationstandards.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,7 +425,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Integration</h1>
+    <h1>Standards for data Description</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -439,12 +439,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-integration">
-<h1>Data Integration<a class="headerlink" href="#data-integration" title="Link to this heading">#</a></h1>
-<p>Data integration is a task performed on multiple datasets to produce a single unified data set that can be used in analysis.  In a FAIR scenario, the user of the data is not a known quantity, and they make the decisions about how to integrate the data they are working with. In some cases a data integration is performed to present harmonised data to users. In either case, the fashion in which the data have been integrated from various sources needs to be described, and the process steps recorded. This might include a detailed description of the processing and transformations performed, along with information about the methods, etc, and this crosses into what is typically considered ‘provenance’ metadata. In this initial profile, we do not attempt to specify approaches for this more-complete description.</p>
-<p>This discussion is focused on data that can be represented in tabular formats with simple literal values. While this does not cover all the data we wish to describe, it represents a significant portion of it. Much of the data made available for reuse is expressed in CSV or similar, text-based formats, and these provide the initial focus for describing data, intended as a useful starting point. In future, this coverage will be expanded.</p>
-<p>The general intention is that domain specific metadata can be mapped into an ‘integration-ready’ metadata scheme for exchange across domain and infrastructure boundaries, and that this mapping can be done with an acceptable degree of effort, in some cases automated completely. This integration-ready metadata needs to provide a description of the data types, controlled vocabularies which provide the semantics, and codes used individual fields in the data, possibly supplemented with separate expressions of mapping between controlled vocabularies used. Given this granular description of the data, it is possible to describe the mappings used to merge data sets to enable automation of data integration functions and reduce the high cost of ‘data wrangling’. While it is likely that data integration will always require some attention and input from the researcher, many of the necessary tasks are routine and can be automated if sufficient information is known about the data themselves. CDIF attempts to provide a sufficient level of metadata to support such automation.</p>
-<p>Some examples of how these transformations can be achieved are provided. A further section explains how the production of integrated data sets can be described, although CDIF does not provide recommendations at this point for doing so.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="standards-for-data-description">
+<h1>Standards for data Description<a class="headerlink" href="#standards-for-data-description" title="Link to this heading">#</a></h1>
+<p>Many domain-specific standards have excellent descriptions of the data used within their domains, and some of these separate the semantic aspects of data description from the structural ones . <a class="reference external" href="https://csvw.org/">CSV on the Web</a> is one candidate, as is the <a class="reference external" href="https://www.w3.org/TR/tabular-data-model/">W3C’s Model for Tabular Data and Metadata on the Web</a>. <a class="reference external" href="https://framework.frictionlessdata.io/docs/guides/describing-data.html">Frictionless Data</a> provides a similar lightweight description of data. More metadata-rich models also exist, such as the <a class="reference external" href="https://sdmx.org/">SDMX</a> Information Model and the <a class="reference external" href="https://www.w3.org/TR/vocab-data-cube/">RDF DataCube Vocabulary</a> which is based on it, but these are largely limited to describing multi-dimensional data. Although the <a class="reference external" href="https://ddialliance.org/Specification/DDI-Codebook/2.5/">DDI Codebook</a> and <a class="reference external" href="https://ddialliance.org/Specification/DDI-Lifecycle/3.3/">DDI Lifecycle</a> specifications are very close to the CDIF requirements, they are also inherently bound to their intended use for describing social, behavioural, and economic (SBE) data. Only the related <a class="reference external" href="https://ddialliance.org/Specification/ddi-cdi">DDI Cross-Domain Integration (DDI-CDI) specification</a> meets all of these requirements, largely because it was designed specifically to describe cross-domain data for the purposes of integration.</p>
+<p>CSV on the Web is designed to add metadata to CSV tables, which is a use case not dissimilar to the one we address in CDIF. The problems arise when we consider the flexibility of the CSV format itself: there are no limitations in CSV regarding the logical organisation of the contents of the table: is each row a unit being observed, and each column a characteristic of that unit? Or are the columns instead the units? This logical certainty is required. Although CSV on the Web allows us to add richness to the meanings of columns and rows of a table, it is in this sense too flexible to make a good foundation for the scenario addressed by CDIF. We can know what concepts are in play, and how rows and columns are organised, but we cannot understand how the presentation of the data — the table organisation — is logically structured. What roles do the concepts play? While this could perhaps be reverse-engineered, it is easier to explicitly state how the concepts logically relate, and how these in turn are presented in a tabular form. A similar critique can be applied to Frictionless Data’s data description, and to the Model for Tabular Data and Metadata on the Web. These specifications fail to cover all the needed logical relationships, being restricted to tabular descriptions that combine logical and presentational aspects of the data.</p>
+<p>SDMX and the RDF DataCube Vocabulary have a different issue. They have stronger formal models for how concepts intersect with data structure, and do not combine the presentational and logical aspects of data description in the same way, but they are limited because they insist on a multi-dimensional description of data sets. While SDMX 3.0 has introduced a ‘microdata’ description feature, this is still new, and is not yet the version adopted by most implementations, nor is it the version that is the basis for the RDF DataCube Vocabulary.</p>
+<p>SDMX demands that the metadata description be provided using a model that might not be supported by disseminator’s systems. Many data repositories do not manipulate data as multi-dimensional cubes, and lack the information needed to describe their data in this fashion. Further, SDMX uses a very disciplined cube definition: all data has regular dimensionality. Many systems based on multi-dimensional models have irregular dimensionality and ‘sub-cubes’, which are not permitted in SDMX. Given that SDMX is an exchange model for official statistics, this disciplined approach is very reasonable, but is not appropriate for CDIF, where existing data stores must be described according to metadata that already exists.</p>
+<p>Both DDI Codebook and DDI Lifecycle are excellent models in terms of being generic-but-concept-rich data descriptions, but they lack the range of support needed for CDIF. In the SBE realm, data is overwhelmingly stored and processed as ‘wide’ data files: unit record data, where each record is a set of measurements or values about a single unit, one per row.</p>
+<p>The DDI Cross-Domain Integration specification was developed exactly because it is increasingly common for other types of data to be combined in research projects with this traditional form of SBE data. Four different data structure types are identified: wide, long, multi-dimensional, and key-value (the kind of data commonly found in ‘big data’ systems). Because they are described in a single model, intended to support transformations between these different structural types, the needed separation of logical and presentational aspects of the data was a necessity. DDI-CDI might seem to be a complex model be experience has shown that attempts to produce simpler models based on existing W3C specifications produce equal complexity,  effectively new specifications in and of themselves. The framework recommends DDI-CDI specification for data description as the right approach for CDIF.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -478,20 +480,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../data_access/odrlincdif.html"
+       href="dataintegrationintro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ODRL implementation</p>
+        <p class="prev-next-title">Data Integration</p>
       </div>
     </a>
     <a class="right-next"
-       href="dataintegrationstandards.html"
+       href="datadescriptionforintegration.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Standards for data Description</p>
+        <p class="prev-next-title">Data Description for Integration</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
