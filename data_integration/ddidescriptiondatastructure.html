@@ -439,6 +439,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-data-structures">Wide Data Structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#long-data-structures">Long Data Structures</a></li>
 </ul>
             </nav>
         </div>
@@ -460,9 +461,29 @@ document.write(`
 <p><img alt="Wide data structures" src="../_images/widedatastructures.jpg" /></p>
 <p>Figure. Wide data structures.</p>
 <p>Measure Components hold the observed or measured values in our data. Identifier Components hold specific identifiers assigned to the cases in our data: each record is about a single ‘case’, and these are sometimes assigned identifiers to distinguish them. As in the example provided below, this could be a tax-payer ID for a person, for example, or might be a randomly assigned number in the case where the cases have been anonymised to protect their identities.</p>
-<p><img alt="Wide data example" src="../_images/widedataexample.jpg" /></p>
-<p>Figure. Example wide data. TaxpayerID is an identifier component, <br>Taxes Paid is the measure component, <br>and Year is an attribute component.</p>
-<p>It is sometimes the case that an identifier Component is sufficient to disambiguate all the records in the data set: Identifier indicating the row/case, and the variable telling you which value in that record. Often, however, there will be additional fields which are needed (like a timestamp, in the case where the same case was measured/observed on more than one occasion). Attribute Components contain additional information about the measurements/observations which are applicable to each case. Typical Attribute Components are time stamps, geographical coordinates, statuses, or other data related to the context of the measurement or observation. The Primary Key is the set of Components needed to uniquely identify each record in the data set. It is not typically the case that the Measure Components form part of the Primary Key.</p>
+<div text-align: center;>![Wide data example](./figures/widedataexample.jpg)
+<br>
+Figure. Example wide data. TaxpayerID is an identifier component, <br>Taxes Paid is the measure component, <br>and Year is an attribute component.</div>
+<p>It is sometimes the case that an identifier Component is sufficient to disambiguate all the records in the data set: Identifier indicating the row/case, and the variable telling you which value in that record. Often, however, there will be additional fields which are needed (like a timestamp, if the same case was measured/observed on more than one occasion). Attribute Components contain additional information about the measurements/observations which are applicable to each case. Typical Attribute Components are time stamps, geographical coordinates, statuses, or other data related to the context of the measurement or observation. The Primary Key is the set of Components needed to uniquely identify each record in the data set. It is not typically the case that the Measure Components form part of the Primary Key.</p>
+</section>
+<section id="long-data-structures">
+<h2>Long Data Structures<a class="headerlink" href="#long-data-structures" title="Link to this heading">#</a></h2>
+<p>If a Measure Component in a data set cannot be clearly associated with a single variable, but relies on the value of another variable to indicate which variable it measures, then you have a Long Data Set, and not a Wide one.   Long Data Sets use additional Components, as they have a more complex relationship to logical variables. An example is useful illustrate the difference between Wide and Long Data Sets.</p>
+<div text-align: center;>![Long data example](./figures/longdatasetexample.jpg)
+<br>
+Figure. Long dataset example.</div>
+<p>To describe a Long Data Structure define the logical variables so that each variable has a clear definition, containing a single type of measurement. In this example, the logical variables are Patient ID, Pulse, Weight, Temperature.  These become Instance Variables in the metadata.   The actual columns in the table are considered Presentational Variables, these are Test, Reading, and UoM.</p>
+<p>In the example table above, the presentation consists of an Identifier Component (<em>Patient ID</em>), a column giving us the test performed (<em>Test</em>), a column with a measurement (<em>Reading</em>), and a column with a unit of measure for the reading (<em>UoM</em>). The <em>UoM</em> column is an Attribute Component: each entry provides a value that represents a Unit of Measure, and we can easily describe a ‘Unit of Measure’ variable. The <em>Reading</em> column is more problematic: each cell contains a measurement, but they are different types of measures. In order to understand the measurement, you have to consult the <em>Test</em> column, which tells you whether it is a pulse, a temperature, or a weight. <em>This dependency is the characteristic feature of Long Data Sets</em>.</p>
+<p><em>Test</em> is a Descriptor Variable (cdi:DescriptorVariable), and <em>Reading</em> becomes a Reference Variable (cdi:ReferenceVariable). A Reference Variable can present measurement values from several logical Instance Variables. The Descriptor and Reference variables together are refered to as a Variable Descriptor Component (cdi:VariableDescriptorComponent) defined by a Descriptor Variable (<em>Test</em>), and a Variable Value Component (cdi:VariableValueComponent), which is defined by a Reference Variable (<em>Reading</em>).</p>
+<p>The resulting metadata will have descriptions of both the logical (<em>Patient ID</em>, Pulse, Weight, Temperature) and presentational (<em>Test</em>, <em>Reading</em>, <em>UoM</em>) variables. The Components in my Long Data Structure would reference the presented variables: <em>Patient ID</em> (an Identifier Component), <em>Test</em> (a VariableDescriptorComponent), and <em>Reading</em> (a VariableValueComponent) but the logical variables in turn would all be referenced from the VariableDescriptorComponent and associated classes, as described below.</p>
+<p>VariableDescriptorComponents have a refersTo association with a VariableValueComponent; in this example, <em>Test</em> will associate itself with <em>Reading</em> in this way.</p>
+<p>Descriptor Variables will always take their values from a Descriptor Value Domain (cdi:DescriptorValueDomain). This domain is a set of codes that identify logical Instance Variables. The code in the Descriptor Component indicates which Instance Variable the value provided in the corresponding Reference Variable should be associated with. Thus, in our example above, when the <em>Test</em> column has a value of ‘Temp’, we know that the value in the <em>Reading</em> field is a measurement of temperature, associated with the temperature logical variable.</p>
+<p>The Primary key in a long data structure is assembled from the presentational variables. In the example above, it is a compound key consisting of <em>Patient ID</em> and <em>Test</em>.</p>
+<p>A Reference Variable has a range that includes all possible values of the variables for which it can hold measures. Thus, Reference Variables are often declared as generic types such as XSD string. The specific types of any value can be determined from the description of the associated Instance Variable (the logical variable) specified by the Descriptor Variable.  Figure 17 shows how these presentational classes are connected.</p>
+<div text-align: center;>![Long data structure](./figures/longdatastructure.jpg)
+<br>
+Figure. Long data structures - presentational elements.</div>
+<p>The point of having this additional structural metadata for a Long Data Structure is that by providing logical Instance Variables, we are able to reassemble the values in the data set according to other structural arrangements (typically Wide or Dimensional), and to do so programmatically. Although we could have described the example table as a Wide Data Set, the actual variables in the data could not then be re-arranged or re-used: they would be specific to the structure of the data set they appeared in.</p>
 </section>
 </section>
 
@@ -531,6 +552,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-data-structures">Wide Data Structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#long-data-structures">Long Data Structures</a></li>
 </ul>
   </nav></div>
 

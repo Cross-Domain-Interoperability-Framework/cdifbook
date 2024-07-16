@@ -217,13 +217,28 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../data_access/intro.html">Data Access Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_access/odrloverview.html">Overview of ODRL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_access/policies.html">Data access policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlinternalpolicies.html">Representing internal access policies with ODRL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlaggregateaccessconditions.html">Aggregate Access conditions - Parties and Actions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlsharedservices.html">Conventions for ODRL Parties and Actions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_access/policies.html">Data access policies</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data_access/odrlinternalpolicies.html">Representing internal access policies with ODRL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_access/odrlaggregateaccessconditions.html">Aggregate Access conditions - Parties and Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_access/odrlsharedservices.html">Conventions for ODRL Parties and Actions</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../data_access/odrlfederatedanalysis.html">Federated analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_access/odrlfederatedanalysis.html">Federated analytics</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_access/odrlincdif.html">ODRL implementation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Integration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data_integration/dataintegrationintro.html">Data Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_integration/dataintegrationstandards.html">Standards for data Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_integration/datadescriptionforintegration.html">Data Description for Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_integration/ddidescriptiondatastructure.html">DDI-CDI description of Data Structure</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Controlled Vocabularies</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../controlled_vocabularies/vocabintro.html">Controlled Vocabularies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controlled_vocabularies/cdifskosprofile.html">CDIF SKOS profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controlled_vocabularies/statisticalclassification.html">Statistical Classification</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="nav bd-sidenav">
@@ -459,7 +474,7 @@ document.write(`
         <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;ex:URIforTheMetadata&quot;</span><span class="p">,</span>
         <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;DigitalDocument&quot;</span><span class="p">,</span>
         <span class="s2">&quot;dateModified&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-05-23&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;this metadata document&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;metadata about documentation for ex:URIforDescribedResource&quot;</span><span class="p">,</span>
         <span class="s2">&quot;encoding&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;MediaObject&quot;</span><span class="p">,</span>
     	    <span class="s2">&quot;dcterms:conformsTo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;@id&quot;</span><span class="p">:</span><span class="s2">&quot;ex:cdif-metadataSpec&quot;</span><span class="p">}</span>
@@ -472,7 +487,8 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="p">}</span>
 </pre></div>
 </div>
-<p>Including the schema:description with the string “this metadata document” will allow disambiguating different usages of the subjectOf property.  Including the ‘about’ property with the back link to ex:URIforDescribedResource is useful but could be calculated with inverse of the subjectOf property.  The ex namespace in the example above is only included so the example is valid; actual metadata would likely have its own namespace for resource and metadata URIs. The distinct identifier for the metadata record allows statements to be made about the metadata separately from statements about the resource it describes. Note that the &#64;type for the metadata node (root node) is ‘DigitalDocument’. This is a <a class="reference external" href="http://schema.org">schema.org</a> type that corresponds broadly to the concept of DigitalObject as used by the Fair Digital Object (FDO) community (<a class="reference external" href="https://fairdigitalobjectframework.org/">Bonino et al., 2022</a> ), recognizing that the metadata record is a digital object.</p>
+<p>The ex:URIforDescribedResource is tricky. It can be viewed as identifying a thing in the world. If that thing is a digital object, one might reasonably expect that dereferencing the URI on the web would get that digital object.  If the URI identifies a non-digital object, then dereferencing on the web is expected to get some useful representation of that thing (HTTP range-14). In the JSON-LD world, the expectation is that dereferencing the &#64;id would result in the json object in which it is declared. For a non-digital object, this JSON object might be the default representation for that object.</p>
+<p>Including the schema:description with the string “metadata about documentation for ex:URIforDescribedResource” will allow disambiguating different usages of the subjectOf property.  Including the ‘about’ property with the back link to ex:URIforDescribedResource is useful but could be calculated with inverse of the subjectOf property.  The ex namespace in the example above is only included so the example is valid; actual metadata would likely have its own namespace for resource and metadata URIs. The distinct identifier for the metadata record allows statements to be made about the metadata separately from statements about the resource it describes. Note that the &#64;type for the metadata node (root node) is ‘DigitalDocument’. This is a <a class="reference external" href="http://schema.org">schema.org</a> type that corresponds broadly to the concept of DigitalObject as used by the Fair Digital Object (FDO) community (<a class="reference external" href="https://fairdigitalobjectframework.org/">Bonino et al., 2022</a> ), recognizing that the metadata record is a digital object.</p>
 <p>JSON keys prefixed with ‘&#64;’ are keywords defined in the <a class="reference external" href="https://www.w3.org/TR/json-ld11/#keywords">JSON-LD specification</a> (see table below)</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>

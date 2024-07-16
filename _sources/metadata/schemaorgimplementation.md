@@ -25,7 +25,7 @@ To include this information in CDIF metadata, the recommendation is the followin
         "@id": "ex:URIforTheMetadata",
         "@type": "DigitalDocument",
         "dateModified": "2017-05-23",
-        "description":"this metadata document",
+        "description":"metadata about documentation for ex:URIforDescribedResource",
         "encoding": {
             "@type": "MediaObject",
     	    "dcterms:conformsTo": {"@id":"ex:cdif-metadataSpec"}
@@ -38,7 +38,9 @@ To include this information in CDIF metadata, the recommendation is the followin
    }
 ```
 
-Including the schema:description with the string "this metadata document" will allow disambiguating different usages of the subjectOf property.  Including the 'about' property with the back link to ex:URIforDescribedResource is useful but could be calculated with inverse of the subjectOf property.  The ex namespace in the example above is only included so the example is valid; actual metadata would likely have its own namespace for resource and metadata URIs. The distinct identifier for the metadata record allows statements to be made about the metadata separately from statements about the resource it describes. Note that the @type for the metadata node (root node) is 'DigitalDocument'. This is a schema.org type that corresponds broadly to the concept of DigitalObject as used by the Fair Digital Object (FDO) community ([Bonino et al., 2022](https://fairdigitalobjectframework.org/) ), recognizing that the metadata record is a digital object.
+The ex:URIforDescribedResource is tricky. It can be viewed as identifying a thing in the world. If that thing is a digital object, one might reasonably expect that dereferencing the URI on the web would get that digital object.  If the URI identifies a non-digital object, then dereferencing on the web is expected to get some useful representation of that thing (HTTP range-14). In the JSON-LD world, the expectation is that dereferencing the @id would result in the json object in which it is declared. For a non-digital object, this JSON object might be the default representation for that object. 
+
+Including the schema:description with the string "metadata about documentation for ex:URIforDescribedResource" will allow disambiguating different usages of the subjectOf property.  Including the 'about' property with the back link to ex:URIforDescribedResource is useful but could be calculated with inverse of the subjectOf property.  The ex namespace in the example above is only included so the example is valid; actual metadata would likely have its own namespace for resource and metadata URIs. The distinct identifier for the metadata record allows statements to be made about the metadata separately from statements about the resource it describes. Note that the @type for the metadata node (root node) is 'DigitalDocument'. This is a schema.org type that corresponds broadly to the concept of DigitalObject as used by the Fair Digital Object (FDO) community ([Bonino et al., 2022](https://fairdigitalobjectframework.org/) ), recognizing that the metadata record is a digital object.
 
 
 JSON keys prefixed with '@' are keywords defined in the [JSON-LD specification]( https://www.w3.org/TR/json-ld11/#keywords) (see table below)
