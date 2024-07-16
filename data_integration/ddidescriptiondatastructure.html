@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Description for Integration &#8212; Cross Domain Interoperability Framework Handbook</title>
+    <title>DDI-CDI description of Data Structure &#8212; Cross Domain Interoperability Framework Handbook</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'data_integration/datadescriptionforintegration';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data_integration/ddidescriptiondatastructure';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Controlled Vocabularies" href="../controlled_vocabularies/vocabintro.html" />
-    <link rel="prev" title="Standards for data Description" href="dataintegrationstandards.html" />
+    <link rel="prev" title="Data Description for Integration" href="datadescriptionforintegration.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -231,7 +231,8 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="dataintegrationintro.html">Data Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataintegrationstandards.html">Standards for data Description</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Description for Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datadescriptionforintegration.html">Data Description for Integration</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">DDI-CDI description of Data Structure</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Controlled Vocabularies</span></p>
 <ul class="nav bd-sidenav">
@@ -313,7 +314,7 @@
       
       
       
-      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fdata_integration/datadescriptionforintegration.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fdata_integration/ddidescriptiondatastructure.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -343,7 +344,7 @@
       
       
       
-      <li><a href="../_sources/data_integration/datadescriptionforintegration.md" target="_blank"
+      <li><a href="../_sources/data_integration/ddidescriptiondatastructure.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -414,7 +415,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -425,11 +428,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Description for Integration</h1>
+    <h1>DDI-CDI description of Data Structure</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-data-structures">Wide Data Structures</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -439,18 +450,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-description-for-integration">
-<h1>Data Description for Integration<a class="headerlink" href="#data-description-for-integration" title="Link to this heading">#</a></h1>
-<p>A data provider is expected to describe the data as they manage and present it, along with information about its logical contents. The user can then re-structure the data as needed for their own use, and do so programmatically. Sufficient metadata must be available to support this programmatic restructuring, without losing any of the information about the data - especially its links to semantic definitions.</p>
-<p>The concept definitions that specify semantics must be separated from the structural description of data for a useful cross-domain data description scheme, along with an indication of where the semantics for both the field and the values come from.</p>
-<p>CDIF recommends a subset of the classes in the DDI-CDI specification for data description.  For a static set of data there are four steps. For a service, where the structure and physical format of the data will depend on the service, the last two steps are not required.</p>
-<p>The process for providing such detailed descriptions of data can be broken down into a series of steps:</p>
-<ol class="arabic simple">
-<li><p><strong>Describe the Data Set or Service</strong>: Identify the logical variables in the data, where each ‘variable’ measures a single characteristic of a single unit type, using a consistent set of values. The possible values must be enumerated or otherwise described in a detailed fashion. Representations must be able to identify domain-agnostic semantic descriptions for each possible value, and the variable definitions themselves must similarly be independent of any domain specificity.</p></li>
-<li><p><strong>Describe the Variables</strong>: Indicate how the logical variables fit into the structure of the file, by specifying also any ‘presentational’ variables used for structuring the data serialization in a file. Relationship between presentation and logical variables must be specified. The complete set of variables can then be described as a ‘logical record’.</p></li>
-<li><p><strong>Describe the Data Structure</strong>: Including the fields used to identify a record (the ‘primary key’).</p></li>
-<li><p><strong>Describe the Physical Format of the Data</strong>: Describe the encoding of all variables physically present in the file, and how they are sequenced and stored for programmatic retrieval.</p></li>
-</ol>
+  <section class="tex2jax_ignore mathjax_ignore" id="ddi-cdi-description-of-data-structure">
+<h1>DDI-CDI description of Data Structure<a class="headerlink" href="#ddi-cdi-description-of-data-structure" title="Link to this heading">#</a></h1>
+<p>A Data Set has a fixed structure. A data set might be the result of querying services, with the Data Structure generated when the query is executed along with the resulting data. There are three types of Data Set: Wide, Long, and Dimensional. The descriptions of these are very similar, differing mainly in the way they identify specific data cells. Variables are described separately from the Data Structure, because variables can be re-used across different structures. For instance, a ‘Nation’ variable represented with a two-character ISO Country Code might be reused across several different data sets, for example SDG Indicators and the Minimum Set of Gender Indicators.</p>
+<p>The role of a variable within a specific Data Structure is represented by the cdi:Component class. There are several specific types of Components: identifiers, measures, attributes, and so on. These are described as appropriate for each of the three types of data structure.</p>
+<section id="wide-data-structures">
+<h2>Wide Data Structures<a class="headerlink" href="#wide-data-structures" title="Link to this heading">#</a></h2>
+<p>Most data sets can be described as Wide Data Sets in DDI-CDI – these are those cases where each row in a tabular view of the data is a record, and each column is a single variable. To describe a Wide Data Structure, each variable (here we use Instance Variables, acting in their capacity as Represented Variables) is assigned as defining a specific type of Component. In Wide Data Structures, the only Component classes we need are Identifier Components (cdi:IdentifierComponent), Measure Components (cdi:MeasureComponent), and Attribute Components (cdi:AttributeComponent). The diagram below shows how these and other classes are related.</p>
+<p><img alt="Wide data structures" src="../_images/widedatastructures.jpg" /></p>
+<p>Figure. Wide data structures.</p>
+<p>Measure Components hold the observed or measured values in our data. Identifier Components hold specific identifiers assigned to the cases in our data: each record is about a single ‘case’, and these are sometimes assigned identifiers to distinguish them. As in the example provided below, this could be a tax-payer ID for a person, for example, or might be a randomly assigned number in the case where the cases have been anonymised to protect their identities.</p>
+<p><img alt="Wide data example" src="../_images/widedataexample.jpg" /></p>
+<p>Figure. Example wide data. TaxpayerID is an identifier component, <br>Taxes Paid is the measure component, <br>and Year is an attribute component.</p>
+<p>It is sometimes the case that an identifier Component is sufficient to disambiguate all the records in the data set: Identifier indicating the row/case, and the variable telling you which value in that record. Often, however, there will be additional fields which are needed (like a timestamp, in the case where the same case was measured/observed on more than one occasion). Attribute Components contain additional information about the measurements/observations which are applicable to each case. Typical Attribute Components are time stamps, geographical coordinates, statuses, or other data related to the context of the measurement or observation. The Primary Key is the set of Components needed to uniquely identify each record in the data set. It is not typically the case that the Measure Components form part of the Primary Key.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -484,12 +497,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="dataintegrationstandards.html"
+       href="datadescriptionforintegration.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Standards for data Description</p>
+        <p class="prev-next-title">Data Description for Integration</p>
       </div>
     </a>
     <a class="right-next"
@@ -507,6 +520,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-data-structures">Wide Data Structures</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
