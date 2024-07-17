@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'data_integration/datadescriptionforintegration';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Controlled Vocabularies" href="../controlled_vocabularies/vocabintro.html" />
+    <link rel="next" title="DDI-CDI description of Data Structure" href="ddidescriptiondatastructure.html" />
     <link rel="prev" title="Standards for data Description" href="dataintegrationstandards.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -232,12 +232,21 @@
 <li class="toctree-l1"><a class="reference internal" href="dataintegrationintro.html">Data Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataintegrationstandards.html">Standards for data Description</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Description for Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ddidescriptiondatastructure.html">DDI-CDI description of Data Structure</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Controlled Vocabularies</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../controlled_vocabularies/vocabintro.html">Controlled Vocabularies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../controlled_vocabularies/cdifskosprofile.html">CDIF SKOS profile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../controlled_vocabularies/statisticalclassification.html">Statistical Classification</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Universals- Time, Geography, and Units of Measurement</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../universals/univintro.html">Universals: Time, Geography, and Units of Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../universals/univgeography.html">Geography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../universals/univtime.html">Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../universals/univuom.html">Units of measurement</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="nav bd-sidenav">
@@ -441,6 +450,16 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-description-for-integration">
 <h1>Data Description for Integration<a class="headerlink" href="#data-description-for-integration" title="Link to this heading">#</a></h1>
+<p>This version of the CDIF recommendations does not contain a full profile for the description of data integration, but this topic has received a lot of attention from the working group. An exploration into different data integration scenarios has been conducted, notably an effort to integrate data from ILO, the World Health Organization (WHO), and the SDG Indicators, with a goal of publishing this data into Google Data Commons and the knowledge graph model used there. This work is on-going, but it has demonstrated the set of metadata needed to fully describe a data integration.</p>
+<p>This set of metadata requirements can be summarised as follows, based on the assumption that there is access to the data being integrated:</p>
+<ol class="arabic simple">
+<li><p>Detailed data description (variable-level)</p></li>
+<li><p>Structural metadata of the data sets</p></li>
+<li><p>Enumerated values (codelists and classifications)</p></li>
+<li><p>Mappings between sets of enumerated values</p></li>
+<li><p>Processing description, indicating how mappings were implemented in transformations, and what other operations were performed for data integration</p></li>
+</ol>
+<p>While this seems like a daunting set of information, the exploratory work has shown that if the metadata are available in a sufficiently detailed form, then the actual integration itself is straightforward.</p>
 <p>A data provider is expected to describe the data as they manage and present it, along with information about its logical contents. The user can then re-structure the data as needed for their own use, and do so programmatically. Sufficient metadata must be available to support this programmatic restructuring, without losing any of the information about the data - especially its links to semantic definitions.</p>
 <p>The concept definitions that specify semantics must be separated from the structural description of data for a useful cross-domain data description scheme, along with an indication of where the semantics for both the field and the values come from.</p>
 <p>CDIF recommends a subset of the classes in the DDI-CDI specification for data description.  For a static set of data there are four steps. For a service, where the structure and physical format of the data will depend on the service, the last two steps are not required.</p>
@@ -493,11 +512,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../controlled_vocabularies/vocabintro.html"
+       href="ddidescriptiondatastructure.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Controlled Vocabularies</p>
+        <p class="prev-next-title">DDI-CDI description of Data Structure</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
