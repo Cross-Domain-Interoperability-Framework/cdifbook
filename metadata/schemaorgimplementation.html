@@ -233,12 +233,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../data_integration/dataintegrationstandards.html">Standards for data Description</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_integration/datadescriptionforintegration.html">Data Description for Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_integration/ddidescriptiondatastructure.html">DDI-CDI description of Data Structure</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Controlled Vocabularies</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../controlled_vocabularies/vocabintro.html">Controlled Vocabularies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../controlled_vocabularies/cdifskosprofile.html">CDIF SKOS profile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../controlled_vocabularies/statisticalclassification.html">Statistical Classification</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Universals- Time, Geography, and Units of Measurement</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../universals/univintro.html">Universals: Time, Geography, and Units of Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../universals/univgeography.html">Geography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../universals/univtime.html">Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../universals/univuom.html">Units of measurement</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="nav bd-sidenav">
@@ -455,40 +463,79 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="serialization-of-cdif-metadata">
 <h1>Serialization of CDIF metadata<a class="headerlink" href="#serialization-of-cdif-metadata" title="Link to this heading">#</a></h1>
-<p>JSON-LD has been chosen as the recommended serialization format for CDIF metadata following our principle to use existing mainstream technology. The JSON format is widely used for data serialization and popular with developers. JSON-LD adds additional syntax for the representation of linked data, compatible with existing JSON implementations so that integration with existing applications is relatively frictionless. Many metadata providers are using the <a class="reference external" href="http://schema.org">schema.org</a>[^32] vocabularies with JSON-LD serialization for metadata publication and interchange. Use of this format provides a low barrier to entry for data providers.</p>
+<p>JSON-LD has been chosen as the recommended serialization format for CDIF metadata following our principle to use existing mainstream technology. The JSON format is widely used for data serialization and popular with developers. JSON-LD adds additional syntax for the representation of linked data, compatible with existing JSON implementations so that integration with existing applications is relatively frictionless. Many metadata providers are using the <a class="reference external" href="https://schema.org/">schema.org</a> vocabulary with JSON-LD serialization for metadata publication and interchange. Use of this format provides a low barrier to entry for data providers.</p>
 <p>The JSON syntax is defined by the <a class="reference external" href="https://www.ecma-international.org/publications-and-standards/standards/ecma-404/">ECMA JSON specification</a>, and JSON-LD is specified in the <a class="reference external" href="https://www.w3.org/TR/json-ld11/">JSON-LD 1.1 recommendation</a> from the World Wide Web Consortium (W3C). This serialization is designed for linked data applications that will translate the JSON into a set of {subject, predicate, object} triples that can be loaded into an RDF database for processing. The JSON-LD context binds JSON keys to URIs for more precise semantics, and the use of URIs to identify entities and property values in the metadata will maximize the linkage with resources on the wider web to build an ever-expanding global knowledge graph.</p>
-<p>A metadata record has two parts; one part is about the metadata record itself, the other part is the content about the resource that the metadata documents. The part about the record specifies the identifier for the metadata record, agents with responsibility for the record, when it was last updated, what specification or profiles the metadata serialization conforms to, and other optional properties of the metadata that are deemed useful. The metadata about the resource has properties about the resource like title, description, responsible parties, spatial or temporal extent (as outlined in the <a class="reference internal" href="contentmodel.html"><span class="std std-doc">Metadata Content Requirements</span></a> section).</p>
+<p>The metadata about the resource has properties about the resource like title, description, responsible parties, spatial or temporal extent (as outlined in the <a class="reference internal" href="contentmodel.html"><span class="std std-doc">Metadata Content Requirements</span></a> section).</p>
+<p>In a harvesting/federated catalog system some metadata about the metadata is important to keep track of where metadata came from, what format/profile it uses (harvesters need this to process), and update dates <a class="reference internal" href="contentmodel.html"><span class="std std-doc">see Metadata Content Requirements</span></a>. Unambiguous expression of this information requires makeing statements about a metadata record distinct from the thing in the world that the metadata describes (See Github issues <a class="reference external" href="https://github.com/Cross-Domain-Interoperability-Framework/Discovery/issues/13">1</a>,<a class="reference external" href="https://github.com/schemaorg/schemaorg/issues/3569">2</a> ). In an RDF framework, this requires a distinct identifier for the metadata record object that will serve as the subject for these triples.</p>
 <p><a class="reference external" href="http://Schema.org">Schema.org</a> includes several properties that can be used to embed information about the metadata record in the resource metadata: <a class="reference external" href="https://schema.org/sdDatePublished"><strong>sdDatePublished</strong></a>, <a class="reference external" href="https://schema.org/sdLicense"><strong>sdLicense</strong></a>, <a class="reference external" href="https://schema.org/sdPublisher"><strong>sdPublisher</strong></a>, but lacks a way to provide an identifier for the metadata record distinct from the resource it describes, to specify other agents responsible for the metadata except the publisher, or to assert specification or profile conformance for the metadata record itself.</p>
-<p>To include this information in CDIF metadata, the recommendation is the following pattern, using schema:subjectOf property to provide an &#64;id for the metadata record, and assert properties useful for metadata management in a distributed, federated catalog system.   The pattern is like this:</p>
+<p>In the RDF serialization, <a class="reference external" href="http://Schema.org">Schema.org</a> metadata records are <a class="reference external" href="https://www.w3.org/TR/json-ld/#node-objects">JSON-LD node objects</a>, and include an “&#64;id” keyword with a value that identifies the node.  This identifier can be interpreted to represent a thing in the world that the metadata record is about, or to represent the metadata record (a JSON object). Here is a short example record (other ‘&#64;’ properties are explained below):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>   <span class="s2">&quot;@context&quot;</span><span class="p">:</span> <span class="s2">&quot;https://schema.org&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;ex:URIforResource&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unique title for the resource&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Description of the resource&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;dateModified&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-05-23&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When this JSON-LD is converted to RDF triples (e.g. using the <a class="reference external" href="https://json-ld.org/playground/">JSON-LD playground</a> ), this results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">ex</span><span class="p">:</span><span class="n">URIforResource</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">schema</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">description</span><span class="o">&gt;</span> <span class="s2">&quot;Description of the resource&quot;</span> <span class="o">.</span>
+<span class="o">&lt;</span><span class="n">ex</span><span class="p">:</span><span class="n">URIforResource</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">schema</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">name</span><span class="o">&gt;</span> <span class="s2">&quot;unique title for the resource&quot;</span> <span class="o">.</span>
+<span class="o">&lt;</span><span class="n">ex</span><span class="p">:</span><span class="n">URIforResource</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">schema</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">dateModified</span><span class="o">&gt;</span> <span class="s2">&quot;2017-05-23&quot;</span><span class="o">^^&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">schema</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Date</span><span class="o">&gt;</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>The interpretation of the first two sets of triples would be that they are statements about the thing in the world that the metadata record is about.  The third triple is ambiguous– was the metadata content modified, or the described resource in the world?  There does not seem to be any recognized best practice or consensus for dealing with this issue, so CDIF defines these conventions.</p>
+<p>Use the <a class="reference external" href="http://schema.org">schema.org</a> identifier property to identify a thing in the world that is the subject of the JSON-LD node.  The identified thing might be physical, imaginary, abstract, or a digital object.  The JSON-LD &#64;id property identifies a node in a graph, and can be interpreted in different ways; as a URI it is expected to dereference to produce the same JSON-LD object in which it is defined. Given this convention, when the metadata record is processed, the processor should use the schema:identifier as subject of triples about the subject of the metadata record to avoid ambiguity.  In addition, this convention would suggest that the &#64;id property should generally be interpreted to identify the JSON object that is the representation of the node in the knowledge graph.</p>
+<p>Statements about the metadata record as a distinct entity should be made using a separate identified node object. This node object can be embedded in the metadata record about the resource in the world (Example 1 below), or published as a separate node (Example 2 below).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>   <span class="s2">&quot;@context&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;https://schema.org&quot;</span><span class="p">,</span>
         <span class="p">{</span><span class="s2">&quot;dcterms&quot;</span><span class="p">:</span> <span class="s2">&quot;http://purl.org/dc/terms/&quot;</span><span class="p">,</span>
          <span class="s2">&quot;ex&quot;</span><span class="p">:</span><span class="s2">&quot;https://example.com/99152/&quot;</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;ex:URIforDescribedResource&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;ex:URIforNode1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;appropriate schema.org type&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;identifier&quot;</span><span class="p">:</span><span class="s2">&quot;ex:URIforDescribedResource&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unique title for the resource&quot;</span><span class="p">,</span>
     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Description of the resource&quot;</span><span class="p">,</span>
     <span class="s2">&quot;subjectOf&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;ex:URIforTheMetadata&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;ex:URIforNode2&quot;</span><span class="p">,</span>
         <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;DigitalDocument&quot;</span><span class="p">,</span>
         <span class="s2">&quot;dateModified&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-05-23&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;identifier&quot;</span><span class="p">:</span><span class="s2">&quot;ex:URIforNode1&quot;</span><span class="p">,</span>
         <span class="s2">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;metadata about documentation for ex:URIforDescribedResource&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;encoding&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;MediaObject&quot;</span><span class="p">,</span>
-    	    <span class="s2">&quot;dcterms:conformsTo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;@id&quot;</span><span class="p">:</span><span class="s2">&quot;ex:cdif-metadataSpec&quot;</span><span class="p">}</span>
-          <span class="p">},</span>
-        <span class="s2">&quot;about&quot;</span><span class="p">:{</span><span class="s2">&quot;@id&quot;</span><span class="p">:</span><span class="s2">&quot;ex:URIforDescribedResource&quot;</span><span class="p">}</span>
-	<span class="p">}</span>
+    	<span class="s2">&quot;dcterms:conformsTo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;@id&quot;</span><span class="p">:</span><span class="s2">&quot;ex:cdif-metadataSpec&quot;</span><span class="p">}</span>
+	<span class="p">}</span>        
+   <span class="p">}</span>
 </pre></div>
 </div>
-<p>….. other metadata content omitted</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="p">}</span>
+<p>Example 1.  Metadata about the metadata embedded.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;@context&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;https://schema.org&quot;</span><span class="p">,</span>
+        <span class="p">{</span><span class="s2">&quot;ex&quot;</span><span class="p">:</span> <span class="s2">&quot;https://example.com/99152/&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;@graph&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;ex:URIforNode1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;ex:URIforDescribedResource&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unique title for the resource&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Description of the resource&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;ex:URIforNode2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;DigitalDocument&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dateModified&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-05-23&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;ex:URIforNode1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;metadata about documentation for ex:URIforDescribedResource&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dcterms:conformsTo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;ex:cdif-metadataSpec&quot;</span><span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>The ex:URIforDescribedResource is tricky. It can be viewed as identifying a thing in the world. If that thing is a digital object, one might reasonably expect that dereferencing the URI on the web would get that digital object.  If the URI identifies a non-digital object, then dereferencing on the web is expected to get some useful representation of that thing (HTTP range-14). In the JSON-LD world, the expectation is that dereferencing the &#64;id would result in the json object in which it is declared. For a non-digital object, this JSON object might be the default representation for that object.</p>
-<p>Including the schema:description with the string “metadata about documentation for ex:URIforDescribedResource” will allow disambiguating different usages of the subjectOf property.  Including the ‘about’ property with the back link to ex:URIforDescribedResource is useful but could be calculated with inverse of the subjectOf property.  The ex namespace in the example above is only included so the example is valid; actual metadata would likely have its own namespace for resource and metadata URIs. The distinct identifier for the metadata record allows statements to be made about the metadata separately from statements about the resource it describes. Note that the &#64;type for the metadata node (root node) is ‘DigitalDocument’. This is a <a class="reference external" href="http://schema.org">schema.org</a> type that corresponds broadly to the concept of DigitalObject as used by the Fair Digital Object (FDO) community (<a class="reference external" href="https://fairdigitalobjectframework.org/">Bonino et al., 2022</a> ), recognizing that the metadata record is a digital object.</p>
+<p>Example 2. Metadata about metadata as a separate graph node.</p>
+<p>Including the schema:description with the string “metadata about documentation for ex:URIforDescribedResource” will allow disambiguating different usages of the subjectOf property.  The ex namespace in the example above is only included so the example is valid; actual metadata would likely have its own namespace for resource and metadata URIs. The distinct identifier for the metadata record (ex:URIforNode1) allows statements to be made about the metadata separately from statements about the resource it describes. Note that the &#64;type for the metadata node (root node) is ‘DigitalDocument’. This is a <a class="reference external" href="http://schema.org">schema.org</a> type that corresponds broadly to the concept of DigitalObject as used by the Fair Digital Object (FDO) community (<a class="reference external" href="https://fairdigitalobjectframework.org/">Bonino et al., 2022</a> ), recognizing that the metadata record is a digital object.</p>
 <p>JSON keys prefixed with ‘&#64;’ are keywords defined in the <a class="reference external" href="https://www.w3.org/TR/json-ld11/#keywords">JSON-LD specification</a> (see table below)</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>

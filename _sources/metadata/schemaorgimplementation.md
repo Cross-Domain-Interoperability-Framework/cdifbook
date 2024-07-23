@@ -1,14 +1,38 @@
 # Serialization of CDIF metadata 
 
-JSON-LD has been chosen as the recommended serialization format for CDIF metadata following our principle to use existing mainstream technology. The JSON format is widely used for data serialization and popular with developers. JSON-LD adds additional syntax for the representation of linked data, compatible with existing JSON implementations so that integration with existing applications is relatively frictionless. Many metadata providers are using the schema.org[^32] vocabularies with JSON-LD serialization for metadata publication and interchange. Use of this format provides a low barrier to entry for data providers.
+JSON-LD has been chosen as the recommended serialization format for CDIF metadata following our principle to use existing mainstream technology. The JSON format is widely used for data serialization and popular with developers. JSON-LD adds additional syntax for the representation of linked data, compatible with existing JSON implementations so that integration with existing applications is relatively frictionless. Many metadata providers are using the [schema.org](https://schema.org/) vocabulary with JSON-LD serialization for metadata publication and interchange. Use of this format provides a low barrier to entry for data providers.
 
 The JSON syntax is defined by the [ECMA JSON specification](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/), and JSON-LD is specified in the [JSON-LD 1.1 recommendation](https://www.w3.org/TR/json-ld11/) from the World Wide Web Consortium (W3C). This serialization is designed for linked data applications that will translate the JSON into a set of {subject, predicate, object} triples that can be loaded into an RDF database for processing. The JSON-LD context binds JSON keys to URIs for more precise semantics, and the use of URIs to identify entities and property values in the metadata will maximize the linkage with resources on the wider web to build an ever-expanding global knowledge graph.
 
-A metadata record has two parts; one part is about the metadata record itself, the other part is the content about the resource that the metadata documents. The part about the record specifies the identifier for the metadata record, agents with responsibility for the record, when it was last updated, what specification or profiles the metadata serialization conforms to, and other optional properties of the metadata that are deemed useful. The metadata about the resource has properties about the resource like title, description, responsible parties, spatial or temporal extent (as outlined in the [Metadata Content Requirements](./contentmodel.md) section).
+The metadata about the resource has properties about the resource like title, description, responsible parties, spatial or temporal extent (as outlined in the [Metadata Content Requirements](./contentmodel.md) section).
+
+In a harvesting/federated catalog system some metadata about the metadata is important to keep track of where metadata came from, what format/profile it uses (harvesters need this to process), and update dates [see Metadata Content Requirements](./contentmodel.md). Unambiguous expression of this information requires makeing statements about a metadata record distinct from the thing in the world that the metadata describes (See Github issues [1](https://github.com/Cross-Domain-Interoperability-Framework/Discovery/issues/13),[2](https://github.com/schemaorg/schemaorg/issues/3569) ). In an RDF framework, this requires a distinct identifier for the metadata record object that will serve as the subject for these triples.
 
 Schema.org includes several properties that can be used to embed information about the metadata record in the resource metadata: [**sdDatePublished**](https://schema.org/sdDatePublished), [**sdLicense**](https://schema.org/sdLicense), [**sdPublisher**](https://schema.org/sdPublisher), but lacks a way to provide an identifier for the metadata record distinct from the resource it describes, to specify other agents responsible for the metadata except the publisher, or to assert specification or profile conformance for the metadata record itself.
 
-To include this information in CDIF metadata, the recommendation is the following pattern, using schema:subjectOf property to provide an @id for the metadata record, and assert properties useful for metadata management in a distributed, federated catalog system.   The pattern is like this:
+In the RDF serialization, Schema.org metadata records are [JSON-LD node objects](https://www.w3.org/TR/json-ld/#node-objects), and include an "@id" keyword with a value that identifies the node.  This identifier can be interpreted to represent a thing in the world that the metadata record is about, or to represent the metadata record (a JSON object). Here is a short example record (other '@' properties are explained below):
+
+```
+{   "@context": "https://schema.org",
+    "@id": "ex:URIforResource",
+    "name": "unique title for the resource",
+    "description": "Description of the resource",
+	"dateModified": "2017-05-23"
+}
+```
+
+When this JSON-LD is converted to RDF triples (e.g. using the [JSON-LD playground](https://json-ld.org/playground/) ), this results:
+
+```
+<ex:URIforResource> <http://schema.org/description> "Description of the resource" .
+<ex:URIforResource> <http://schema.org/name> "unique title for the resource" .
+<ex:URIforResource> <http://schema.org/dateModified> "2017-05-23"^^<http://schema.org/Date> .
+```
+The interpretation of the first two sets of triples would be that they are statements about the thing in the world that the metadata record is about.  The third triple is ambiguous-- was the metadata content modified, or the described resource in the world?  There does not seem to be any recognized best practice or consensus for dealing with this issue, so CDIF defines these conventions. 
+
+Use the schema.org identifier property to identify a thing in the world that is the subject of the JSON-LD node.  The identified thing might be physical, imaginary, abstract, or a digital object.  The JSON-LD @id property identifies a node in a graph, and can be interpreted in different ways; as a URI it is expected to dereference to produce the same JSON-LD object in which it is defined. Given this convention, when the metadata record is processed, the processor should use the schema:identifier as subject of triples about the subject of the metadata record to avoid ambiguity.  In addition, this convention would suggest that the @id property should generally be interpreted to identify the JSON object that is the representation of the node in the knowledge graph. 
+
+Statements about the metadata record as a distinct entity should be made using a separate identified node object. This node object can be embedded in the metadata record about the resource in the world (Example 1 below), or published as a separate node (Example 2 below). 
 
 ```
 {   "@context": [
@@ -17,30 +41,52 @@ To include this information in CDIF metadata, the recommendation is the followin
          "ex":"https://example.com/99152/"
         }
     ],
-    "@id": "ex:URIforDescribedResource",
+    "@id": "ex:URIforNode1",
     "@type": "appropriate schema.org type",
+	"identifier":"ex:URIforDescribedResource",
     "name": "unique title for the resource",
     "description": "Description of the resource",
     "subjectOf": {
-        "@id": "ex:URIforTheMetadata",
+        "@id": "ex:URIforNode2",
         "@type": "DigitalDocument",
         "dateModified": "2017-05-23",
+		"identifier":"ex:URIforNode1",
         "description":"metadata about documentation for ex:URIforDescribedResource",
-        "encoding": {
-            "@type": "MediaObject",
-    	    "dcterms:conformsTo": {"@id":"ex:cdif-metadataSpec"}
-          },
-        "about":{"@id":"ex:URIforDescribedResource"}
-	}
-```
- ..... other metadata content omitted
-```          
+    	"dcterms:conformsTo": {"@id":"ex:cdif-metadataSpec"}
+	}        
    }
 ```
+Example 1.  Metadata about the metadata embedded.
 
-The ex:URIforDescribedResource is tricky. It can be viewed as identifying a thing in the world. If that thing is a digital object, one might reasonably expect that dereferencing the URI on the web would get that digital object.  If the URI identifies a non-digital object, then dereferencing on the web is expected to get some useful representation of that thing (HTTP range-14). In the JSON-LD world, the expectation is that dereferencing the @id would result in the json object in which it is declared. For a non-digital object, this JSON object might be the default representation for that object. 
+```
+{
+    "@context": [
+        "https://schema.org",
+        {"ex": "https://example.com/99152/"}
+    ],
+    "@graph": [
+        {
+            "@id": "ex:URIforNode1",
+            "@type": "Dataset",
+            "identifier": "ex:URIforDescribedResource",
+            "name": "unique title for the resource",
+            "description": "Description of the resource"
+        },
+        {
+            "@id": "ex:URIforNode2",
+            "@type": "DigitalDocument",
+            "dateModified": "2017-05-23",
+            "identifier": "ex:URIforNode1",
+            "description": "metadata about documentation for ex:URIforDescribedResource",
+            "dcterms:conformsTo": {"@id": "ex:cdif-metadataSpec"}
+        }
+    ]
+}
+```
 
-Including the schema:description with the string "metadata about documentation for ex:URIforDescribedResource" will allow disambiguating different usages of the subjectOf property.  Including the 'about' property with the back link to ex:URIforDescribedResource is useful but could be calculated with inverse of the subjectOf property.  The ex namespace in the example above is only included so the example is valid; actual metadata would likely have its own namespace for resource and metadata URIs. The distinct identifier for the metadata record allows statements to be made about the metadata separately from statements about the resource it describes. Note that the @type for the metadata node (root node) is 'DigitalDocument'. This is a schema.org type that corresponds broadly to the concept of DigitalObject as used by the Fair Digital Object (FDO) community ([Bonino et al., 2022](https://fairdigitalobjectframework.org/) ), recognizing that the metadata record is a digital object.
+Example 2. Metadata about metadata as a separate graph node.
+
+Including the schema:description with the string "metadata about documentation for ex:URIforDescribedResource" will allow disambiguating different usages of the subjectOf property.  The ex namespace in the example above is only included so the example is valid; actual metadata would likely have its own namespace for resource and metadata URIs. The distinct identifier for the metadata record (ex:URIforNode1) allows statements to be made about the metadata separately from statements about the resource it describes. Note that the @type for the metadata node (root node) is 'DigitalDocument'. This is a schema.org type that corresponds broadly to the concept of DigitalObject as used by the Fair Digital Object (FDO) community ([Bonino et al., 2022](https://fairdigitalobjectframework.org/) ), recognizing that the metadata record is a digital object.
 
 
 JSON keys prefixed with '@' are keywords defined in the [JSON-LD specification]( https://www.w3.org/TR/json-ld11/#keywords) (see table below)
