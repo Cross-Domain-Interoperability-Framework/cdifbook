@@ -7,7 +7,7 @@ This section describes workflows recommended for a metadata publisher to make th
 Figure. Decision graph to determine where metadata is located, from the resource publisher's perspective. Steps are numbers and referenced in text.
 
 ## Option 1. Embedded in HTML
-Starting at the top (1) in the above figure, if there are HTML landing pages that describe the resources of interest, and the metadata publisher has the necessary authority to update the content of these pages, then CDIF metadata serialised as JSON-LD (see Appendix 1) should be embedded in an HTML <script> element in the &lt;head&gt> section of each landing page (3). The script should have the following type and profile attributes: 
+Starting at the top (1) in the above figure, if there are HTML landing pages that describe the resources of interest, and the metadata publisher has the necessary authority to update the content of these pages, then CDIF metadata serialised as JSON-LD (see Appendix 1) should be embedded in an HTML &lt;script&gt; element in the &lt;head&gt; section of each landing page (3). The script should have the following type and profile attributes: 
 
 <p style="text-align: center;">type="application/ld+json" profile="CDIF1.0"</p>
 
@@ -32,7 +32,7 @@ Figure. Basic harvesting pattern: sitemap with locations that contain HTML docum
 
 If resources do not have landing pages, or the landing pages cannot be modified, harvesters must be provided with links to the metadata records to index. The basic approach for this next level of service is similar, but the harvester cannot assume that the metadata is embedded in the content accessed from the sitemap url/loc. The sitemap url/locs must either get the metadata document directly, or it might get the resource content directly. In the second case, a URL to get the metadata must be included in the HTTP response header. Because the basic sitemap only provides a URL, the harvester will need to check which of these options is being used. The approach using standard Web architecture is to inspect the HTTP response header. If the returned document is a CDIF metadata document, the header will have a content-type parameter with the value "*application/ld+json; profile='CDIF1.0'*" or *profile='CDIF-list-1.0'* if the document is an itemList with multiple metadata records. The harvester should get the content at the sitemap url/loc and use that. If the content-type has a different value, then the header should have link element with *rel='describedby'*, *type='application/ld+json'*, and *profile='CDIF1.0'* or *profile='CDIF-list-1.0'*. In this case, the harvester will GET the content at the link href and use that. Inclusion of the describedby link in the HTTP header is the pattern used by Signposting.
 
-Other [Signposting links](.metadata/signpostinglinkrel) could be inserted into the HTTP response headers (or HTTP landing pages if they exist) if Web site administrators allow. This can provide additional value for clients implementing signposting.
+Other [Signposting links](./signpostinglinkrel.md) could be inserted into the HTTP response headers (or HTTP landing pages if they exist) if Web site administrators allow. This can provide additional value for clients implementing signposting.
 
 ![Harvesting pattern for locations that do not have embedded metadata scripts](./figures/harvestnoembeddedscript.jpg)
 

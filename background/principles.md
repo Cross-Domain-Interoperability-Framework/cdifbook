@@ -9,6 +9,7 @@ In this section, we set out the principles that have guided the development of t
 ### Pragmatism
 CDIF is not just a set of theoretical standards and guidelines, but a recommended approach that can realistically be implemented, taking into account the capabilities and limitations of (meta)data producers and consumers. This implies considering the known time limitations, resources, and technical capabilities of those expected to implement it. The framework must balance between flexibility and rigid requirements, providing helpful guidance and a systematic approach, with room for adaptation to new situations and requirements, but within clearly defined bounds to preserve interoperability.
 
+(mainstream)=
 ### Mainstream
 Technology and standards recommended by CDIF should build on existing systems and the legacy investment of (meta)data providers and consumers. User familiarity with recommended implementations is desirable, and these should be widely recognised and in line with current production systems. There will always be new standards and technology, and CDIF will need to keep pace with these on an implementation level, but the goal should always be to employ existing technology, rather than to try to anticipate what practice will be in the future. Use existing Web architecture51 whenever possible. For example:
 - HTTP methods (POST, GET, PUT, PATCH, and DELETE) to operate on resources;

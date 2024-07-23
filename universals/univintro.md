@@ -1,0 +1,12 @@
+# Universals: Time, Geography, and Units of Measurement
+
+Some information that is not domain-specific is commonly required to describe and understand resources. The use of common patterns and encodings for this information helps cross-domain interoperability. We can think of the term ‘universals’ as that metadata covering properties that are inherent in many different kinds of measurements, across many different disciplines and domains. Often, these are important in describing aspects of data which are key to the integration of data from different sources.
+
+As a general principle, for any value in a CDIF metadata description it should be clear what value space it is taken from (i.e. scale, reference-system, or vocabulary), and this should be traceable to a suitable definition and authority. Where possible CDIF shall recommend a default approach for universals, as well as a small number of variants to accommodate commonly encountered applications.
+
+We provide recommendations for three specific universals: space, time, and units-of-measurement (UOM). Note that practice for universals varies across disciplines according to their different requirements. For spatial data in particular, a single representation is not possible.
+
+UOM are in some cases complex, and there is on-going discussion about how best to represent the more complex cases. In CDIF, we do not address the description of quantities at this level - we would defer to work in groups such as CODATA’s [Digital Representation of Units of Measure (DRUM) group](https://codata.org/initiatives/task-groups/drum/). This topic will be addressed more completely in future by CDIF as more clarity emerges.
+
+## General pattern for implementation of universals
+The representation of universals is always implemented in some frame of reference: (value, reference-system [, time ]). The (optional) ‘time’ value is to allow for reference-systems subject to change, where the interpretation of the value may depend on a particular version of the reference-system. In some cases, the structure of data might provide these values in an explicit way which does not require the use of patterned text (e.g., there are separate fields for each piece of the information.) When available, these should be utilised in preference to patterned text. Fields in data might contain values defined by the data schema to use a particular reference system, or each value field might be paired with a field that assigns the reference system for that value.

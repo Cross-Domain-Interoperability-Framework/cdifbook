@@ -42,11 +42,35 @@ parts:
     - file: data_access/intro
     - file: data_access/odrloverview
     - file: data_access/policies
-    - file: data_access/odrlinternalpolicies
-    - file: data_access/odrlaggregateaccessconditions
-    - file: data_access/odrlsharedservices
-    - file: data_access/odrlfederatedanalysis
+      sections:
+        - file: data_access/odrlinternalpolicies
+        - file: data_access/odrlaggregateaccessconditions
+        - file: data_access/odrlsharedservices
+        - file: data_access/odrlfederatedanalysis
     - file: data_access/odrlincdif
+
+  - caption: Data Integration
+    numbered: False
+    chapters:
+    - file: data_integration/dataintegrationintro.md
+    - file: data_integration/dataintegrationstandards.md
+    - file: data_integration/datadescriptionforintegration.md
+    - file: data_integration/ddidescriptiondatastructure.md
+
+  - caption: Controlled Vocabularies
+    numbered: False
+    chapters:
+    - file: controlled_vocabularies/vocabintro.md
+    - file: controlled_vocabularies/cdifskosprofile.md
+    - file: controlled_vocabularies/statisticalclassification.md
+
+  - caption: Universals- Time, Geography, and Units of Measurement
+    numbered: False
+    chapters:
+    - file: universals/univintro.md
+    - file: universals/univgeography.md
+    - file: universals/univtime.md
+    - file: universals/univuom.md
 
   - caption: Examples
     numbered: False
