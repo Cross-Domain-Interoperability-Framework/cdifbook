@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Catalog Vocabulary (DCAT) vocabulary &#8212; Cross Domain Interoperability Framework Handbook</title>
+    <title>table &#8212; Cross Domain Interoperability Framework Handbook</title>
   
   
   
@@ -57,11 +57,9 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'metadata/dcat';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'metadata/DCATtable';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Metadata mappings" href="mapping.html" />
-    <link rel="prev" title="Metadata publication" href="publication.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -123,6 +121,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -192,11 +192,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../background/principles.html">Design principles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Discovery</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="technicalexpressionmetadata.html">Technical expression of metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishingmetadata.html">Publishing metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="distributionapis.html">Queryable distribution interfaces (API)</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="contentmodel.html">Basic discovery metadata content model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="queryabledistributions.html">Queryable distributions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="schemaorgimplementation.html">Serialization of CDIF metadata</a></li>
@@ -204,7 +204,7 @@
 
 <li class="toctree-l2"><a class="reference internal" href="publication.html">Metadata publication</a></li>
 
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
 
 </ul>
 </details></li>
@@ -323,7 +323,7 @@
       
       
       
-      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fmetadata/dcat.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new?title=Issue%20on%20page%20%2Fmetadata/DCATtable.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -353,7 +353,7 @@
       
       
       
-      <li><a href="../_sources/metadata/dcat.md" target="_blank"
+      <li><a href="../_sources/metadata/DCATtable.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -424,9 +424,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -437,21 +435,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Catalog Vocabulary (DCAT) vocabulary</h1>
+    <h1>table</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-metadata-content-items">Implementation of metadata content items</a></li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -461,18 +449,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-catalog-vocabulary-dcat-vocabulary">
-<h1>Data Catalog Vocabulary (DCAT) vocabulary<a class="headerlink" href="#data-catalog-vocabulary-dcat-vocabulary" title="Link to this heading">#</a></h1>
-<p><a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/">DCAT</a> is an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web. DCAT enables a publisher to describe datasets and data services in a catalog using a standard model and vocabulary that facilitates the consumption and aggregation of metadata from multiple catalogs.  The current DCAT version 3 has been developed by the <a class="reference external" href="https://www.w3.org/2017/dxwg/wiki/Main_Page">Dataset eXchange Working Group (DXWG)</a> of the World Wide Web Consortium (W3C). DCAT has become very common in some areas: <a class="reference external" href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/">DCAT-AP</a> and <a class="reference external" href="https://joinup.ec.europa.eu/collection/semic-support-centre/solution/geodcat-application-profile-data-portals-europe">GeoDCAT</a> have gained significant traction in Europe. <a class="reference external" href="https://doi-do.github.io/dcat-us/">DCAT-US</a> promises to gain similar traction.</p>
-<p>The scope of <a class="reference external" href="https://schema.org/">Schema.org</a> is much broader than DCAT, and includes any business activity on the Web. DCAT is designed for describing data and thus has some features that are specifically useful for CDIF’s purposes. There are several different mappings between <a class="reference external" href="http://Schema.org">Schema.org</a> and DCAT available, and some may be more appropriate than others for any particular implementation. CDIF recommends the mapping from the W3C DXWG group. The mapping in the context of DCAT version 2 is at
-<a class="reference external" href="https://ec-jrc.github.io/dcat-ap-to-schema-org/">https://ec-jrc.github.io/dcat-ap-to-schema-org/</a> or <a class="reference external" href="https://www.w3.org/TR/vocab-dcat-2/#dcat-sdo">https://www.w3.org/TR/vocab-dcat-2/#dcat-sdo</a></p>
-<p><a class="reference external" href="https://w3c.github.io/dxwg/dcat/rdf/dcat-schema.ttl">https://w3c.github.io/dxwg/dcat/rdf/dcat-schema.ttl</a> is a mapping between DCAT2 and SDO 3.4. axiomatized using the predicates rdfs:subClassOf, rdfs:subPropertyOf, owl:equivalentClass, owl:equivalentProperty, skos:closeMatch, and using the annotation properties sdo:domainIncludes and sdo:rangeIncludes to match <a class="reference external" href="https://schema.org/">Schema.org</a> semantics.</p>
-<p>There is an update for the mapping in the <a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/#dcat-sdo">DCAT version 3 documentation</a></p>
-<p>DCAT metadata is typically serialized using the <a class="reference external" href="https://www.w3.org/TR/turtle/">Turtle format</a>, so the implementation guideline here are based on that format.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="implementation-of-metadata-content-items">
-<h1>Implementation of metadata content items<a class="headerlink" href="#implementation-of-metadata-content-items" title="Link to this heading">#</a></h1>
-<p>The following table maps the metadata content items described in the <a class="reference internal" href="contentmodel.html"><span class="std std-doc">Metadata Content Requirements</span></a> section to the RDF terms defined by the DCAT specification for use in metadata serialization. The ‘Obl.’ column specifies the cardinality obligation for the property; ‘1’ means one value required; 1..* means at least one value is required; 0..* means the property is optional and more that one value can be provided.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="table">
+<h1>table<a class="headerlink" href="#table" title="Link to this heading">#</a></h1>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>CDIF content item</strong></p></th>
@@ -702,47 +680,12 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="publication.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Metadata publication</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="mapping.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Metadata mappings</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-metadata-content-items">Implementation of metadata content items</a></li>
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>
