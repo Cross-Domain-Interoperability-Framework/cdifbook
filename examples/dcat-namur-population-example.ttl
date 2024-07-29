@@ -1,0 +1,86 @@
+# baseURI: https://dcat.example.org/basic-example/testing1
+# imports: http://purl.org/dc/elements/1.1/
+# imports: https://www.w3.org/ns/dcat.ttl
+# imports: https://www.w3.org/ns/legacy_adms
+
+@prefix adms: <https://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix euvoc: <http://publications.europa.eu/resource/authority/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix w3cgeo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.europa.eu/88u/dataset/https-www-odwb-be-explore-dataset-namur-population-ages->
+  rdf:type dcat:Dataset ;
+  dcterms:identifier "https://www.odwb.be/explore/dataset/namur-population-ages/" ;
+  dcterms:title "Namur Population structure by five-year age groups"@en ;
+  dcterms:description "Namur Population Breakdown of the male and female population in the municipality of Namur, by 1 years from 0 to over 100 years. Data from the previous day to 18. Specific functionality: find the number of people in the municipality of Namur between 2 ages and consult the daily age pyramids."@en ;
+  dcterms:creator <https://org.belgif.be/id/CbeRegisteredEntity/0207362739> ;
+  dcterms:contributor <https://org.belgif.be/id/CbeRegisteredEntity/0207362739> ;
+  dcterms:issued "2020-04-28T08:20:40Z"^^xsd:dateTime ;
+  dcterms:modified "2020-04-28T08:20:40Z"^^xsd:dateTime ;
+  dcterms:publisher <https://org.belgif.be/id/CbeRegisteredEntity/0207362739> ;
+  dcterms:language <http://publications.europa.eu/resource/authority/language/FRA> ;
+  dcterms:subject <https://www.odwb.be/explore/?refine.theme=Administration+et+Services+publics> ;
+  dcat:keyword "Age"@fr ;
+  dcat:keyword "Femme"@fr ;
+  dcat:keyword "Homme"@fr ;
+  dcat:keyword "Namur"@fr ;
+  dcat:keyword "Population"@fr ;
+  dcat:keyword "Pyramide des Ã¢ges"@fr ;
+  dcat:keyword "Statistique"@fr ;
+  dcat:landingPage <https://www.odwb.be/explore/dataset/namur-population-ages/information/> ;
+  dcat:theme <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
+  dcat:theme <http://publications.europa.eu/resource/authority/data-theme/SOCI> ;
+  dcterms:spatial <https://sws.geonames.org/3337387/> ;
+
+  dcat:contactPoint [
+      rdf:type vcard:Kind ;
+      vcard:fn "Ville de Namur" ;
+      vcard:hasEmail <mailto:opendata@ville.namur.be> ;
+    ] ;
+  dcat:distribution [
+      rdf:type dcat:Distribution ;
+      rdf:type foaf:Document ;
+      dcterms:description "Namur Population structure by five-year age groups (jsonl)"@en-t-fr-t0-mtec ;
+      dcterms:format <http://publications.europa.eu/resource/authority/file-type/JSON> ;
+      dcterms:identifier "https://www.odwb.be/api/explore/v2.1/catalog/datasets/namur-population-ages/exports/jsonl" ;
+      dcterms:issued "2020-04-28T08:20:40Z"^^xsd:dateTime ;
+      dcterms:language <http://publications.europa.eu/resource/authority/language/FRA> ;
+      dcterms:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+      dcterms:modified "2020-04-28T08:20:40Z"^^xsd:dateTime ;
+      dcterms:title "Namur-population-ages.jsonl"@en-t-fr-t0-mtec ;
+      dcat:accessURL <https://www.odwb.be/explore/dataset/namur-population-ages/information/> ;
+      dcat:downloadURL <https://www.odwb.be/api/explore/v2.1/catalog/datasets/namur-population-ages/exports/jsonl> ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/application/json> ;
+    ] ;
+  dcat:distribution [
+      rdf:type dcat:Distribution ;
+      rdf:type foaf:Document ;
+      dcterms:description "Namur Population structure by five-year age groups (n3)"@en-t-fr-t0-mtec ;
+      dcterms:format <http://publications.europa.eu/resource/authority/file-type/N3> ;
+      dcterms:identifier "https://www.odwb.be/api/explore/v2.1/catalog/datasets/namur-population-ages/exports/n3" ;
+      dcterms:issued "2020-04-28T08:20:40Z"^^xsd:dateTime ;
+      dcterms:language <http://publications.europa.eu/resource/authority/language/FRA> ;
+      dcterms:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+      dcterms:modified "2020-04-28T08:20:40Z"^^xsd:dateTime ;
+      dcterms:title "Namur-population-ages.n3"@en-t-fr-t0-mtec ;
+      dcat:accessURL <https://www.odwb.be/explore/dataset/namur-population-ages/information/> ;
+      dcat:downloadURL <https://www.odwb.be/api/explore/v2.1/catalog/datasets/namur-population-ages/exports/n3> ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/text/n3> ;
+    ] ;
+.
+<https://dcat.example.org/basic-example/testing1>
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.org/dc/elements/1.1/> ;
+  owl:imports <https://www.w3.org/ns/dcat.ttl> ;
+  owl:imports <https://www.w3.org/ns/legacy_adms> ;
+.
