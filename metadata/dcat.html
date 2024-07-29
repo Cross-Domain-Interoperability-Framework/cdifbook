@@ -515,7 +515,7 @@ document.write(`
 <tr class="row-even"><td><p>Rights</p></td>
 <td><p>1..*</p></td>
 <td><p></p></td>
-<td><p><a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/#license-rights">DCAT uses several properties</a> to convey information about access or usage limitations: dcterms:accessRights, dcterms:license and dcterms:rights, which all apply to any dcat:Resource or dcat:Distribution. ‘dcterms:license’ is used to associate a resource with a statement that is explicitly declared as a ‘license’. ‘dcterms:accessRights’ when the resource is associated with a statement denoting only access rights. ‘dcterms:rights for other cases,   associating statements not concerning licensing conditions or access rights (e.g., copyright statements).  CDIF requires that at least one of these rights properties is populated.</p></td>
+<td><p><a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/#license-rights">DCAT uses several properties</a> to convey information about access or usage limitations: dcterms:accessRights, dcterms:license and dcterms:rights, which all apply to any dcat:Resource or dcat:Distribution. ‘dcterms:license’ is used to associate a resource with a statement that is explicitly declared as a ‘license’. ‘dcterms:accessRights’ when the resource is associated with a statement denoting only access rights. ‘dcterms:rights for other cases,   associating statements not concerning licensing conditions or access rights (e.g., copyright statements).  CDIF requires that at least one of these rights properties is populated, either at the dcat:Resource level, applying to all distributions, or with a rights property on each dcat:Distribution.</p></td>
 </tr>
 <tr class="row-odd"><td><p></p></td>
 <td><p></p></td>
@@ -645,7 +645,7 @@ document.write(`
 <tr class="row-even"><td><p>Related agent with role</p></td>
 <td><p></p></td>
 <td><p>a dcat:Resource, prov:Entity; <br>  prov:qualifiedAttribution [<br>        a prov:Attribution ;<br>        prov:agent &lt;agent URI&gt; ;<br>        dcat:hadRole &lt;role URI&gt;<br>  ];</p></td>
-<td><p>To assign roles to contributors like editor, maintainer, publisher.  Note <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> roles relate to activities, not entities. Therefore, DCAT defines a new property dcat:hadRole  to attach a role to the association-class prov:Attribution between and entity and an agent.</p></td>
+<td><p>To assign roles to contributors like editor, maintainer, publisher.  Note <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> roles relate to activities, not entities. Therefore, DCAT defines a new property dcat:hadRole  to attach a role to the association-class prov:Attribution between and entity and an agent. <a class="reference external" href="https://id.loc.gov/vocabulary/relators.html">MRC relators</a> provide many relationships between resources and agents.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Related resources</p></td>
 <td><p>0..*</p></td>
@@ -655,7 +655,7 @@ document.write(`
 <tr class="row-even"><td><p></p></td>
 <td><p>0..*</p></td>
 <td><p>a dcat:Resource;<br>   dcat:qualifiedRelation [<br>    a dcat:Relationship ;<br>    dcterms:relation &lt;target resource URI&gt; ;<br>    dcat:hadRole &lt;relationship type URI&gt;<br>  ];</p></td>
-<td><p>Representation of relationship that are not hard typed by dcterms or dcat, e.g. alternate, canonical, original, preview, stereo-mate, working-copy-of. Some of these roles are enumerated in the DS_AssociationTypeCodes values from <a class="reference external" href="https://standards.iso.org/iso/19115/resources/Codelists/gml/DS_AssociationTypeCode.xml">ISO-19115-1</a>, the IANA Registry of Link Relations <a class="reference external" href="https://www.iana.org/assignments/link-relations/">IANA-RELATIONS</a>, in the <a class="reference external" href="https://schema.datacite.org/meta/kernel-4.5/include/datacite-relationType-v4.xsd">DataCite</a> metadata schema, and included within the <a class="reference external" href="https://id.loc.gov/vocabulary/relators.html">MARC relators</a>.  Ideally a resolvable URI is available for the relationship role.</p></td>
+<td><p>Representation of relationship that are not hard typed by dcterms or dcat, e.g. alternate, canonical, original, preview, stereo-mate, working-copy-of. Some of these roles are enumerated in the DS_AssociationTypeCodes values from <a class="reference external" href="https://standards.iso.org/iso/19115/resources/Codelists/gml/DS_AssociationTypeCode.xml">ISO-19115-1</a>, the IANA Registry of Link Relations <a class="reference external" href="https://www.iana.org/assignments/link-relations/">IANA-RELATIONS</a>, in the <a class="reference external" href="https://schema.datacite.org/meta/kernel-4.5/include/datacite-relationType-v4.xsd">DataCite</a> metadata schema, and included within the <a class="reference external" href="https://id.loc.gov/vocabulary/relationship.html">MARC relationships</a>.  Ideally a resolvable URI is available for the relationship role.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Funding</p></td>
 <td><p>0..*</p></td>
