@@ -492,23 +492,23 @@ document.write(`
 </tr>
 <tr class="row-even"><td><p>Rights</p></td>
 <td><p>1..*</p></td>
-<td><p>a dcat:Resource; <br>    dcterms:accessRights  “literal rights statement” ;<br>OR<br>a dcat:Resource; <br>    dcterms:accessRights  &lt;Rights statement URI&gt;;</p></td>
-<td><p>A statement or link to a statement associated with a resource denoting access rights, applicable to any distribution of the resource. Access rights can also be expressed as code lists / taxonomies. Examples include the access rights code list <a class="reference external" href="https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/access-right">EUV-AR</a> used in <a class="reference external" href="https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe">DCAT-AP</a> and the <a class="reference external" href="http://purl.org/eprint/accessRights/">Eprints Access Rights Vocabulary Encoding Scheme</a>.</p></td>
+<td><p></p></td>
+<td><p><a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/#license-rights">DCAT uses several properties</a> to convey information about access or usage limitations: dcterms:accessRights, dcterms:license and dcterms:rights, which all apply to any dcat:Resource or dcat:Distribution. ‘dcterms:license’ is used to associate a resource with a statement that is explicitly declared as a ‘license’. ‘dcterms:accessRights’ when the resource is associated with a statement denoting only access rights. ‘dcterms:rights for other cases,   associating statements not concerning licensing conditions or access rights (e.g., copyright statements).  CDIF requires that at least one of these rights properties is populated.</p></td>
 </tr>
 <tr class="row-odd"><td><p></p></td>
 <td><p></p></td>
-<td><p>a  dcat:Dataset;<br>   dcat:distribution [<br>      a  dcat:Distribution; <br>           dcterms:accessRights “literal rights statement”<br>   OR   &lt;URI for rights statement&gt; ];</p></td>
-<td><p>A statement or link to a statement associated with a resource denoting access rights, applicable to a particular distribution. See above for details.</p></td>
+<td><p>a dcat:Resource OR dcat:Distribution; <br>    dcterms:accessRights [ <br>  	rdf:type dcterms:RightsStatement ;<br>   	rdfs:comment “literal rights statement”&#64;en];  <br>   OR &lt;Rights statement URI&gt;;</p></td>
+<td><p>A statement or link to a statement associated with a resource or a specific resource distribution, denoting access rights, applicable to any distribution of the resource. Access rights can also be expressed as code lists / taxonomies. Examples include the access rights code list <a class="reference external" href="https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/access-right">EUV-AR</a> used in <a class="reference external" href="https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe">DCAT-AP</a> and the <a class="reference external" href="http://purl.org/eprint/accessRights/">Eprints Access Rights Vocabulary Encoding Scheme</a>.</p></td>
 </tr>
 <tr class="row-even"><td><p></p></td>
 <td><p></p></td>
-<td><p>a  dcat:Resource OR dcat:Dataset; <br>   dcat:distribution [<br>      a  dcat:Distribution;<br>      dcterms:license “literal license statement”<br>    OR               &lt;URI to statement  resource&gt;  ];</p></td>
+<td><p>a  dcat:Resource OR dcat:Distribution; <br>        dcterms:license [ <br>  	rdf:type dcterms:LicenseDocument ;<br>   	rdfs:comment “literal license statement or identifier”&#64;en];  <br>   OR &lt;License URI&gt;;</p></td>
 <td><p>link to a statement associated with a resource that is explicitly declared as a ‘license’. Can be applied at the dcat:Resource or dcat:Distribution level. For interoperability, it is recommended to use canonical IRIs of well-known licenses such as those defined by Creative Commons.</p></td>
 </tr>
 <tr class="row-odd"><td><p></p></td>
 <td><p></p></td>
-<td><p>a  dcat:Resource OR a dcat:Dataset;<br>  dcat:distribution [<br>    a  dcat:Distribution;<br>    dcterms:rights “string literal statement” ];</p></td>
-<td><p>link to a statement associated with a resource for other types of rights statements, i.e. those that are not covered by dcterms:license and dcterms:accessRights, such as copyright statements. NOTE– odrl:hasPolicy property is available at the dcat:Resource or dcat:Distribution level if a formal ORDL rules statement is available.</p></td>
+<td><p>a dcat:Resource OR dcat:Distribution; <br>    dcterms:rights  [ <br>  	rdf:type dcterms:RightsStatement ;<br>   	rdfs:comment “literal rights statement”&#64;en];  <br>   OR &lt;Rights statement URI&gt;;</p></td>
+<td><p>link to a statement associated with a resource for other types of rights statements, i.e. those that are not covered by dcterms:license and dcterms:accessRights, such as copyright statements. NOTE– odrl:hasPolicy property is available at the dcat:Resource or dcat:Distribution level if a formal ORDL rules statement is available (see <a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/#ex-odrl-policy">example</a>.</p></td>
 </tr>
 <tr class="row-even"><td><p>Metadata profile identifier</p></td>
 <td><p>1</p></td>
@@ -522,8 +522,8 @@ document.write(`
 </tr>
 <tr class="row-even"><td><p>Metadata contact</p></td>
 <td><p>0..1</p></td>
-<td><p>a dcat:CatalogRecord ;<br>  foaf:primaryTopic &lt;ex:dataset1URI&gt; ;<br>  dcterms:created [ <br>     a  vcard:Kind;<br>      …other vcard properties ];</p></td>
-<td><p>Not in DCAT. Add a dcterms:created property on CatalogRecord, based on open-world RDF.  The vcard:Kind must be an individual or organization.</p></td>
+<td><p>a dcat:CatalogRecord ;<br>  foaf:primaryTopic &lt;ex:dataset1URI&gt; ;<br>  dcat:contactPoint [ <br>     a  vcard:Kind;<br>      v:hasEmail &lt;mailto:name&#64;email.org&gt; ;<br>     v:fn “full Name”; <br>     rdfs:label “Full Name”];</p></td>
+<td><p>Not in DCAT CatalogRecord. Add a dcat:contactPoint property on CatalogRecord, based on open-world RDF.  The vcard:Kind must be an individual or organization. Including rdfs:label is optional, but recommended for interoperability.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Resource type</p></td>
 <td><p>1..*</p></td>
@@ -610,37 +610,42 @@ document.write(`
 <td><p>a dcat:Dataset; <br>  dcterms:temporal [<br>   a dcterms:PeriodOfTime , <br>     time:ProperInterval ;<br>    time:hasBeginning [   a time:Instant ;<br>      time:inTimePosition [  a time:TimePosition ;<br>             time:hasTRS &lt;gsmla:ma&gt; ;<br>             time:numericPosition “541.0”^^xsd:decimal <br>   ]  ] ;<br>    time:hasEnd [ a time:Instant ;<br>      time:inTimePosition [   a time:TimePosition ;<br>          time:hasTRS &lt;gsmla:ma&gt; ;<br>   time:numericPosition “251.9”^^xsd:decimal  <br>]   ] ];</p></td>
 <td><p>Temporal coverage for a geologic dataset, with interval bounds specified with numericPositions in millions of years before present.  Namespace abbreviation: gsmla: <a class="reference external" href="http://resource.geosciml.org/classifier/cgi/geologicage/">http://resource.geosciml.org/classifier/cgi/geologicage/</a></p></td>
 </tr>
-<tr class="row-even"><td><p>Other related agents- simple contributor</p></td>
+<tr class="row-even"><td><p>Related agent - point of contact</p></td>
+<td><p></p></td>
+<td><p>a dcat:Resource; <br>  dcat:contactPoint [<br>     a  v:Kind ;<br>  	v:hasEmail <a class="reference external" href="mailto:email&#37;&#52;&#48;email&#46;org">mailto:email<span>&#64;</span>email<span>&#46;</span>org</a> ;<br>   v:fn “Full Name” .] ;</p></td>
+<td><p>DCAT defines a contact point property on any dcat:Resourc for this specific role.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Other related agents- simple contributor</p></td>
 <td><p>0..*</p></td>
 <td><p></p></td>
 <td><p>DCAT does not have a contributor property, use related agent with role.</p></td>
 </tr>
-<tr class="row-odd"><td><p>related agent with role</p></td>
+<tr class="row-even"><td><p>Related agent with role</p></td>
 <td><p></p></td>
 <td><p>a dcat:Resource, prov:Entity; <br>  prov:qualifiedAttribution [<br>        a prov:Attribution ;<br>        prov:agent &lt;agent URI&gt; ;<br>        dcat:hadRole &lt;role URI&gt;<br>  ];</p></td>
 <td><p>To assign roles to contributors like editor, maintainer, publisher.  Note <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> roles relate to activities, not entities. Therefore, DCAT defines a new property dcat:hadRole  to attach a role to the association-class prov:Attribution between and entity and an agent.</p></td>
 </tr>
-<tr class="row-even"><td><p>Related resources</p></td>
+<tr class="row-odd"><td><p>Related resources</p></td>
 <td><p>0..*</p></td>
-<td><p>a dcat:Resource;<br>   dcterms:relation (or one of its subProperties) &lt;target resource URI&gt;</p></td>
-<td><p>dcterms:relation is used if the nature of the relationship between a cataloged resource and related resources is not known. More specific sub-properties of relation (dcterms:hasPart, dcterms:isPartOf, dcterms:conformsTo, dcterms:isFormatOf, dcterms:hasFormat, dcterms:isVersionOf, dcterms:hasVersion (and its sub-property dcat:hasVersion ), dcterms:replaces, dcterms:isReplacedBy, dcterms:references, dcterms:isReferencedBy, dcterms:requires, dcterms:isRequiredBy)  SHOULD be used if the nature of the relationship of the link is known.  These dcterms relation types will have to be mapped to linkRelationship values in <a class="reference external" href="http://schema.org">schema.org</a> to map between the schema.</p></td>
+<td><p>a dcat:Resource;<br>   &lt;dcterms:relation or subProperty&gt; <br>     &lt;target resource URI&gt;</p></td>
+<td><p>dcterms:relation is used if the nature of the relationship between a cataloged resource and related resources is not known. More specific sub-properties of relation (dcterms:hasPart, dcterms:isPartOf, dcterms:conformsTo, dcterms:isFormatOf, dcterms:hasFormat, dcterms:isVersionOf, dcterms:hasVersion (and its sub-property dcat:hasVersion ), dcterms:replaces, dcterms:isReplacedBy, dcterms:references, dcterms:isReferencedBy, dcterms:requires, dcterms:isRequiredBy)  SHOULD be used if the nature of the relationship of the link is known.  These dcterms relation types will have to be mapped to linkRelationship values in <a class="reference external" href="http://schema.org">schema.org</a> to map between the schema. Note that the target of the relation should be a resolvable URI.</p></td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
+<tr class="row-even"><td><p></p></td>
 <td><p>0..*</p></td>
 <td><p>a dcat:Resource;<br>   dcat:qualifiedRelation [<br>    a dcat:Relationship ;<br>    dcterms:relation &lt;target resource URI&gt; ;<br>    dcat:hadRole &lt;relationship type URI&gt;<br>  ];</p></td>
 <td><p>Representation of relationship that are not hard typed by dcterms or dcat, e.g. alternate, canonical, original, preview, stereo-mate, working-copy-of. Some of these roles are enumerated in the DS_AssociationTypeCodes values from <a class="reference external" href="https://standards.iso.org/iso/19115/resources/Codelists/gml/DS_AssociationTypeCode.xml">ISO-19115-1</a>, the IANA Registry of Link Relations <a class="reference external" href="https://www.iana.org/assignments/link-relations/">IANA-RELATIONS</a>, in the <a class="reference external" href="https://schema.datacite.org/meta/kernel-4.5/include/datacite-relationType-v4.xsd">DataCite</a> metadata schema, and included within the <a class="reference external" href="https://id.loc.gov/vocabulary/relators.html">MARC relators</a>.  Ideally a resolvable URI is available for the relationship role.</p></td>
 </tr>
-<tr class="row-even"><td><p>Funding</p></td>
+<tr class="row-odd"><td><p>Funding</p></td>
 <td><p>0..*</p></td>
 <td><p>a dcat:Resource, prov:Entity;<br>  prov:qualifiedAttribution [<br>     a prov:Attribution ;<br>      prov:agent &lt;agent URI&gt; ;<br>      dcat:hadRole &lt;role URI&gt;<br>];</p></td>
 <td><p>To assign roles to a funding instrument.  Note <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> roles relate to activities, not entities. Therefore, DCAT defines a new property dcat:hadRole  to attach a role to the association-class prov:Attribution between and entity and an agent.  In this case the prov:agent should be a funding instrument (e.g. identified grant) under the auspices of a funding agency, and role should indicate that the agent is the provider of funding to create the resource</p></td>
 </tr>
-<tr class="row-odd"><td><p>Policies</p></td>
+<tr class="row-even"><td><p>Policies</p></td>
 <td><p>0..*</p></td>
 <td><p>a dcat:Resource OR dcat:Distribution<br>  odrl:hasPolicy [a odrl:Policy; ….];</p></td>
 <td><p>DCAT provides a property odrl:hasPolich that has an ordl:Policy object as its targert, for both Resources, and individual distributions.  More work is necessay to determ how policies like    FDOF digitalObjectMutability, RDA digitalObjectPolicy, FDOF PersistencyPolicy can (or should) be expressed as ODRL policies and if there’s a better implemention of these.  <br>An ODRL Policy MUST have one uid property value to identify the Policy, AND at least one permission, prohibition, or obligation property values of type Rule. (See the <a class="reference external" href="https://www.w3.org/TR/odrl-model">ODRL model</a> Permission, Prohibition, and Obligation sections for more details.)</p></td>
 </tr>
-<tr class="row-even"><td><p>Checksum</p></td>
+<tr class="row-odd"><td><p>Checksum</p></td>
 <td><p>0..1</p></td>
 <td><p>a dcat:Distribution;<br>   spdx:checksum [<br>     a spdx:Checksum;<br>     spdx:algorithm &lt;algorithm URI&gt;;<br>     spdx:checksumValue   “nnnn”^^xsd:hexBinary ];</p></td>
 <td><p>A string value calculated from the content of the resource representation, used to test if content has been modified. Use Software Package Data Exchange (SPDX) property; The <a class="reference external" href="https://spdx.org/rdf/spdx-terms-v2.3/#d4e2091">spdx Checksum</a> object has two properties: algorithm and checksumValue. The checksum is a property of each distribution/Distribution</p></td>

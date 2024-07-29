@@ -31,8 +31,10 @@ When this JSON-LD is converted to RDF triples (e.g. using the [JSON-LD playgroun
 The interpretation of the first two sets of triples would be that they are statements about the thing in the world that the metadata record is about.  The third triple is ambiguous-- was the metadata content modified, or the described resource in the world?  There does not seem to be any recognized best practice or consensus for dealing with this issue, so CDIF defines these conventions. 
 
 Use the schema.org identifier property to identify a thing in the world that is the subject of the JSON-LD node.  The identified thing might be physical, imaginary, abstract, or a digital object.  The JSON-LD @id property identifies a node in a graph, and can be interpreted in different ways; as a URI it is expected to dereference to produce the same JSON-LD object in which it is defined. Given this convention, when the metadata record is processed, the processor should use the schema:identifier as subject of triples about the subject of the metadata record to avoid ambiguity.  In addition, this convention would suggest that if a schema:identifier property is present, the @id property should be interpreted to identify the JSON object that is the representation of the node in the knowledge graph. 
+
 **NOTE-- these recommendations are under discussion** 
 see [Github issue](https://github.com/Cross-Domain-Interoperability-Framework/Discovery/issues/13)
+
 
 Statements about the metadata record as a distinct entity should be made using a separate identified node object. This node object can be embedded in the metadata record about the resource in the world (Example 1 below), or published as a separate node (Example 2 below). Note that this second approach is like the [DCAT CatalogRecord](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog_Record). 
 
