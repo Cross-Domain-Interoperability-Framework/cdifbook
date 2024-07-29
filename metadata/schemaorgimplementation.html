@@ -596,7 +596,7 @@ see <a class="reference external" href="https://github.com/Cross-Domain-Interope
 <tr class="row-even"><td><p></p></td>
 <td><p></p></td>
 <td><p>“distribution”: <br>   { “&#64;type”: “DataDownload”, <br>    “contentURL”: {URL },…   }</p></td>
-<td><p>If the metadata is about an abstract, non-digital, or physical resource that has multiple distributions, with different URL, encodingFormat, conformsTo properties. Each distribution is considered a distinct digital object.</p></td>
+<td><p>If the metadata is about an abstract, non-digital, or physical resource that has multiple distributions, with different URL, encodingFormat, conformsTo properties. Each distribution is considered a distinct digital object. The dataDownload MUST include the contentURL, and SHOULD include encodingFormat, dcterms:conformsTo to specify the media type and specification or profile documenting the specific serialization conventions for the download content.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Rights</p></td>
 <td><p>1..*</p></td>
@@ -605,8 +605,8 @@ see <a class="reference external" href="https://github.com/Cross-Domain-Interope
 </tr>
 <tr class="row-even"><td><p>Metadata profile identifier</p></td>
 <td><p>1</p></td>
-<td><p>“subjectOf”/”encoding”/”dcterms:conformsTo”: {identifier} <br> or <br>  “schemaVersion”:{identifier}</p></td>
-<td><p>Use Dublin Core terms property. The value for Base CDIF metadata is ‘CDIF_basic_1.0’. Different profiles extending this must define unique identifier strings to use here. <em>QUESTION–Which to use dct:conformsTo or schema:schema:Version?</em></p></td>
+<td><p>“subjectOf”/”encoding”/”dcterms:conformsTo”: {identifier}</p></td>
+<td><p>Use Dublin Core terms property. The value for Base CDIF metadata is ‘CDIF_basic_1.0’ [tbd; this should be a PID]. Different profiles extending this must define unique identifier strings to use here. Note that the <a class="reference external" href="http://schema.org">schema.org</a> schemaVersion is used to indicate the version of the <a class="reference external" href="http://schema.org">schema.org</a> vocabulary, but in general this is not needed for CDIF.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Metadata date</p></td>
 <td><p>0..1</p></td>

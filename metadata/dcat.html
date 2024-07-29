@@ -505,12 +505,12 @@ document.write(`
 <tr class="row-even"><td><p></p></td>
 <td><p></p></td>
 <td><p>a dcat:Dataset; <br>    dcat:distribution [<br>        a dcat:Distribution;<br>            dcat:downloadURL  “literal URL string” ];</p></td>
-<td><p>URL for web location that will get a representation of the described resource. Other properties in the dcat:Distribution object are expected to provide information about the format, rights, etc. for the particular representation of the resource.</p></td>
+<td><p>URL for web location that will get a representation of the described resource. downloadURL is required. The Distribution object SHOULD include dcat:mediaType to specify the media type for the actual resource representation; if the distribution content is compressed or packaged, dcat:compressFormat or dcat:packageFormat SHOULD be specified as well. dcterms:conformsTo can be used to identify a specification that defines the full syntax and semantics for the resource content. Other properties in the dcat:Distribution object can be used to provide information about content size, rights, policies, etc. for the particular representation of the resource.</p></td>
 </tr>
 <tr class="row-odd"><td><p></p></td>
 <td><p></p></td>
 <td><p>a  dcat:Dataset;<br>    dcat:distribution [<br>       a dcat:Distribution;<br>       dcat:accessURL  “literal URL string”];</p></td>
-<td><p>URL for a web location that provides information about how to get the resource.  The accessURL might be the same as the landing page, but different distributions might offer different web applications (with different accessURLs) for different access methods or communities.</p></td>
+<td><p>URL for a web location that provides information about how to get the resource.  The accessURL might be the same as the landing page, but different distributions might offer different web applications (with different accessURLs) for different access methods or communities. The target of the URL MUST be a web page that can be displayed in standard web browsers.</p></td>
 </tr>
 <tr class="row-even"><td><p>Rights</p></td>
 <td><p>1..*</p></td>
@@ -559,8 +559,8 @@ document.write(`
 </tr>
 <tr class="row-odd"><td><p>Originators</p></td>
 <td><p>0..*</p></td>
-<td><p>a dcat:Resource;<br>    dcterms:creator [ <br>    a  vcard:Kind;<br>      …other vcard properties ]</p></td>
-<td><p>The value is a vcard individual or or organization.  Use ORCID or other PID to describe person or organization where possible.  [Consider using sdo:Person or sdo:Organization?]</p></td>
+<td><p>a dcat:Resource;<br>    dcterms:creator [ <br>    a  foaf:Agent;<br>      foaf:name “name of agent”;<br> foaf:mbox &lt;mailto:email&#64;email.org&gt;; <br> sdo:identifier &lt;agent URI &gt;;  ]</p></td>
+<td><p>The value is foaf:Agent, or foaf:Person or foaf:Organization (subclasses of foaf:Agent. foaf:name is required. The foaf spec provides properties for a name and e-mail address. DCAT examples use the <a class="reference external" href="https://semiceu.github.io/ADMS/releases/2.00/">adms:identifier</a>, but since CDIF used <a class="reference external" href="http://schema.org">schema.org</a>, the <a class="reference external" href="http://schema.org">schema.org</a> identifier property is recommended. Value should be a PID. Use ORCID to identify person or ROR to identify organization if possible.</p></td>
 </tr>
 <tr class="row-even"><td><p>Publication Date</p></td>
 <td><p>0..1</p></td>
@@ -634,8 +634,8 @@ document.write(`
 </tr>
 <tr class="row-even"><td><p>Related agent - point of contact</p></td>
 <td><p></p></td>
-<td><p>a dcat:Resource; <br>  dcat:contactPoint [<br>     a  v:Kind ;<br>  	v:hasEmail <a class="reference external" href="mailto:email&#37;&#52;&#48;email&#46;org">mailto:email<span>&#64;</span>email<span>&#46;</span>org</a> ;<br>   v:fn “Full Name” .] ;</p></td>
-<td><p>DCAT defines a contact point property on any dcat:Resource for this specific role.</p></td>
+<td><p>a dcat:Resource; <br>  dcat:contactPoint [<br>     a  vcard:Kind ;<br>  	vcard:hasEmail <a class="reference external" href="mailto:email&#37;&#52;&#48;email&#46;org">mailto:email<span>&#64;</span>email<span>&#46;</span>org</a> ;<br>   vcard:fn “Full Name” .] ;</p></td>
+<td><p>DCAT defines a  property on any dcat:Resource for the ‘point of contact’ role. Use Individual or Organization subclass of vcard:Kind.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Other related agents- simple contributor</p></td>
 <td><p>0..*</p></td>
