@@ -1,0 +1,119 @@
+# baseURI: https://data.csiro.au/tsdataset/
+# imports: http://purl.org/dc/terms/
+# imports: http://www.w3.org/2006/vcard/ns
+# imports: http://www.w3.org/ns/dcat
+
+@prefix : <https://data.csiro.au/tsdataset/> .
+@prefix ardcvoc: <http://purl.org/au-research/vocabulary/anzsrc-for/2008/> .
+@prefix dap: <https://data.csiro.au/dataset/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix proj: <http://www.w3.org/ns/project#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix v: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dap:d33937
+  rdf:type dcat:Dataset ;
+  dcterms:accessRights [
+      rdf:type dcterms:RightsStatement ;
+      rdfs:comment "The metadata and files are available to the public."@en ;
+    ] ;
+  dcterms:description "Representation of the RDF graph representing the International [Chrono]stratigraphic Chart, 2017-2 version. Distributions includes serialization of the graph using Turtle, N3, RDF+XML, and JSON-LD. The Geological Timescale Model is aligned with the W3C OWL-Time ontology https://www.w3.org/TR/owl-time/ for the temporal topology, with OGC GeoSPARQL http://www.opengeospatial.org/standards/geosparql for location data, and with the W3C SOSA/SSN ontology for samples. The content of the vocabulary matches the 2017-02 International Chronostratigraphic Chart."@en ;
+  dcterms:identifier "https://doi.org/10.25919/5b4d2b83cbf2d" ;
+  dcterms:issued "2018-07-07"^^xsd:date ;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:publisher <https://ror.org/03qn8fb07> ;
+  dcterms:rights [
+      rdf:type dcterms:RightsStatement ;
+      rdfs:comment "All Rights (including copyright) CSIRO 2018."@en ;
+    ] ;
+  dcterms:title "RDF representation of 2017 edition of International Chronostratigraphic Chart (Geologic Timescale)"@en ;
+  dcat:contactPoint [
+      rdf:type v:Individual ;
+      sdo:identifier <https://orcid.org/0000-0002-3884-3420> ;
+      v:fn "Simon J. D. Cox" ;
+    ] ;
+  dcat:distribution [
+      rdf:type dcat:Distribution ;
+      dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+      dcterms:title "JSON-LD serialization of the ICS 2017-2 geologic time scale RDF graph"@en ;
+      dcat:accessURL <https://data.csiro.au/dap/landingpage?pid=csiro:33937> ;
+      dcat:byteSize 698039 ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/application/ld+json> ;
+    ] ;
+  dcat:distribution [
+      rdf:type dcat:Distribution ;
+      dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+      dcterms:title "N-Triples serialization of the ICS 2017-2 geologic time scale RDF graph"@en ;
+      dcat:accessURL <https://data.csiro.au/dap/landingpage?pid=csiro:33937> ;
+      dcat:byteSize 2047874 ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/application/n-triples> ;
+    ] ;
+  dcat:distribution [
+      rdf:type dcat:Distribution ;
+      dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+      dcterms:title "RDF+XML serialization of the ICS 2017-2 geologic time scale RDF graph"@en ;
+      dcat:accessURL <https://data.csiro.au/dap/landingpage?pid=csiro:33937> ;
+      dcat:byteSize 1600569 ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/application/rdf+xml> ;
+    ] ;
+  dcat:distribution [
+      rdf:type dcat:Distribution ;
+      dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+      dcterms:title "Turtle serialization of the ICS 2017-2 geologic time scale RDF graph"@en ;
+      dcat:accessURL <https://data.csiro.au/dap/landingpage?pid=csiro:33937> ;
+      dcat:byteSize 531703 ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ;
+    ] ;
+  dcat:keyword "GeoSPARQL" ;
+  dcat:keyword "OWL" ;
+  dcat:keyword "OWL-Time" ;
+  dcat:keyword "RDF" ;
+  dcat:keyword "geologic timescale"@en ;
+  dcat:keyword "reference system"@en ;
+  dcat:keyword "stratigraphy"@en ;
+  dcat:keyword "vocabulary"@en ;
+  dcat:landingPage <https://data.csiro.au/dap/landingpage?pid=csiro:33937> ;
+  dcat:qualifiedRelation [
+      rdf:type dcat:Relationship ;
+      dcterms:relation <http://resource.geosciml.org/classifier/ics/ischart/> ;
+      dcterms:title "OWL ontology defining the boundaries and intervals in the geologic time scale" ;
+      dcat:hadRole <http://id.loc.gov/vocabulary/relationship/datasource> ;
+    ] ;
+  dcat:qualifiedRelation [
+      rdf:type dcat:Relationship ;
+      dcterms:relation <https://stratigraphy.org/ICSchart/ChronostratChart2017-02.jpg> ;
+      dcterms:title "Visualization of the Chronostratigrahpic Chart 2017-02, JPEG format" ;
+      dcat:hadRole <http://id.loc.gov/vocabulary/relationship/relatedexpression> ;
+    ] ;
+  dcat:qualifiedRelation [
+      rdf:type dcat:Relationship ;
+      dcterms:relation <https://stratigraphy.org/ICSchart/ChronostratChart2017-02.pdf> ;
+      dcterms:title "Visualization of the Chronostratigrahpic Chart 2017-02, Adobe Acrobat format" ;
+      dcat:hadRole <http://id.loc.gov/vocabulary/relationship/relatedexpression> ;
+    ] ;
+  dcat:qualifiedRelation [
+      rdf:type dcat:Relationship ;
+      dcterms:relation <https://stratigraphy.org/gssps/> ;
+      dcterms:title "Summary of Global Stratigraphic Sections and Points that define the time scale" ;
+      dcat:hadRole <http://id.loc.gov/vocabulary/relationship/datasource> ;
+    ] ;
+  dcat:theme ardcvoc:040311 ;
+  dcat:theme <http://purl.org/au-research/vocabulary/anzsrc-for/2008/08050> ;
+  dcat:theme <http://purl.org/au-research/vocabulary/anzsrc-for/2008/080607> ;
+  dcat:theme <http://purl.org/au-research/vocabulary/anzsrc-for/2008/080612> ;
+.
+:
+  rdf:type owl:Ontology ;
+  owl:imports dcterms: ;
+  owl:imports <http://www.w3.org/2006/vcard/ns> ;
+  owl:imports <http://www.w3.org/ns/dcat> ;
+.

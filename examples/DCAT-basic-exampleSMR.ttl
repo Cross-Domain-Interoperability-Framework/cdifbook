@@ -1,73 +1,74 @@
 # baseURI: https://dcat.example.org/basic-example/testing
-# imports: http://purl.org/dc/elements/1.1/
 # imports: http://purl.org/dc/terms/
+# imports: http://www.w3.org/2006/vcard/ns
 # imports: https://www.w3.org/ns/dcat.ttl
 # imports: https://www.w3.org/ns/legacy_adms
 
-@prefix adms: <https://www.w3.org/ns/adms#> .
+
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ex: <https://dcat.example.org/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
-@prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix time: <http://www.w3.org/2006/time#> .
-@prefix w3cgeo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix v: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://dcat.example.org/basic-example/testing>
   rdf:type owl:Ontology ;
-  owl:imports <http://purl.org/dc/elements/1.1/> ;
   owl:imports dcterms: ;
+  owl:imports <http://www.w3.org/2006/vcard/ns> ;
   owl:imports <https://www.w3.org/ns/dcat.ttl> ;
   owl:imports <https://www.w3.org/ns/legacy_adms> ;
 .
-ex:catalog
-  rdf:type dcat:Catalog ;
-  dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
-  dcterms:publisher ex:transparency-office ;
-  dcterms:title "Imaginary Catalog"@en ;
-  rdfs:label "Imaginary Catalog"@en ;
-  dcat:dataset ex:dataset-001 ;
-  dcat:dataset ex:dataset-002 ;
-  dcat:dataset ex:dataset-003 ;
-  foaf:homepage <http://dcat.example.org/catalog> ;
-.
 ex:dataset-001
   rdf:type dcat:Dataset ;
-  dcterms:accrualPeriodicity <http://purl.org/linked-data/sdmx/2009/code#freq-W> ;
-  dcterms:creator ex:finance-employee-001 ;
+  dcterms:creator [
+      rdf:type foaf:Person ;
+      sdo:identifier ex:PoelenJorritHID ;
+      foaf:name "Jorrit H. Poelen" ;
+    ] ;
+  dcterms:identifier "https://doi.org/10.4725/08/random"^^xsd:anyURI ;
   dcterms:issued "2011-12-05"^^xsd:date ;
   dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
   dcterms:modified "2011-12-15"^^xsd:date ;
-  dcterms:publisher ex:finance-ministry ;
+  dcterms:publisher <https://ror.org/054dc7e40> ;
+  dcterms:rights [
+      rdf:type dcterms:RightsStatement ;
+      rdfs:comment "no restrictions"@en ;
+    ] ;
   dcterms:spatial <http://sws.geonames.org/6695072/> ;
   dcterms:temporal [
       rdf:type dcterms:PeriodOfTime ;
       dcat:endDate "2011-09-30"^^xsd:date ;
       dcat:startDate "2011-07-01"^^xsd:date ;
     ] ;
-  dcterms:title "Imaginary dataset"@en ;
+  dcterms:title "Example dataset"@en ;
+  dcterms:type sdo:Dataset ;
   dcat:contactPoint <http://dcat.example.org/transparency-office/contact> ;
-  dcat:distribution ex:dataset-001-csv ;
+  dcat:distribution [
+      rdf:type dcat:Distribution ;
+      dcterms:title "CSV distribution of imaginary dataset 001"@en ;
+      dcat:byteSize "5120"^^xsd:decimal ;
+      dcat:downloadURL <http://dcat.example.org/files/001.csv> ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
+    ] ;
   dcat:keyword "accountability"@en ;
   dcat:keyword "payments"@en ;
   dcat:keyword "transparency"@en ;
-  dcat:spatialResolutionInMeters 30.0 ;
-  dcat:temporalResolution "P1D"^^xsd:duration ;
 .
-ex:dataset-001-csv
-  rdf:type dcat:Distribution ;
-  dcterms:title "CSV distribution of imaginary dataset 001"@en ;
-  dcat:byteSize "5120"^^xsd:decimal ;
-  dcat:downloadURL <http://dcat.example.org/files/001.csv> ;
-  dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
-.
-ex:transparency-office
-  rdf:type foaf:Organization ;
-  rdfs:label "Transparency Office"@en ;
+ex:record-001
+  rdf:type dcat:CatalogRecord ;
+  dcterms:conformsTo <ex:cdif_DCAT_profile_uri> ;
+  dcterms:modified "2024-07-28"^^xsd:date ;
+  dcat:contactPoint [
+      rdf:type v:Individual ;
+      rdfs:label "Metadata Curator" ;
+      v:fn "Metadata Curator" ;
+      v:hasEmail <mailto:testmetadata@gmail.com> ;
+    ] ;
+  foaf:primaryTopic ex:dataset-001 ;
 .
