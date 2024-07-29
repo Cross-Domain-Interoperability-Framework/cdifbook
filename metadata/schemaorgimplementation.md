@@ -32,6 +32,7 @@ The interpretation of the first two sets of triples would be that they are state
 
 Use the schema.org identifier property to identify a thing in the world that is the subject of the JSON-LD node.  The identified thing might be physical, imaginary, abstract, or a digital object.  The JSON-LD @id property identifies a node in a graph, and can be interpreted in different ways; as a URI it is expected to dereference to produce the same JSON-LD object in which it is defined. Given this convention, when the metadata record is processed, the processor should use the schema:identifier as subject of triples about the subject of the metadata record to avoid ambiguity.  In addition, this convention would suggest that if a schema:identifier property is present, the @id property should be interpreted to identify the JSON object that is the representation of the node in the knowledge graph. 
 
+
 **NOTE-- these recommendations are under discussion** 
 see [Github issue](https://github.com/Cross-Domain-Interoperability-Framework/Discovery/issues/13)
 
@@ -99,7 +100,7 @@ Note that the @type for the metadata node (root node) is 'DigitalDocument'. This
 JSON keys prefixed with '@' are keywords defined in the [JSON-LD specification]( https://www.w3.org/TR/json-ld11/#keywords) (see table below)
 
  | Keyword  |   Description|
- |----------- |-------------|
+ |-----------|-------------|
  | \@context |  The value of the context is an object that specifies set of rules for interpreting the JSON-LD document. The rules can be specified inline in, or via a URI that identifies a context object containing a set of rules. |
 |  \@id    |    A string that identifies the subject of the assertions in the JSON object that contains the \@id key.|
 |  \@type   |   An identifier for the definition of the structure of the JSON object that contains the \@type key. The type determines what keys or values should be expected in the JSON object that contains the key. Values are types defined in the schema.org vocabulary. In the CDIF framework (and for compatibility with FDOF FDOF digitalObjectType), the schema:additionalType property should be used (see implementation table below) |
@@ -113,12 +114,12 @@ The following table maps the metadata content items described in the [Metadata C
 | **CDIF content item**       | **Obl.** | **Schema.org implementation**   | **Scope note**                              |
 |----------- |-------------|-------------|-------------|
 | Metadata identifier         | 1        | "subjectOf"/"@id":{URI}    | The URI for the metadata record should be the \@id value for the 'subjectOf' element in the JSON instance document tree   |
-| Resource identifier         | 1        | "@id":{URI}    | The URI for the resource should be the @id value for the root of the JSON instance document tree   | 
+| Resource identifier         | 1        | "@id":{URI}    | The URI for the resource should be the \@id value for the root of the JSON instance document tree   | 
 | Title      | 1        | "name":{string}     | A set of words that should uniquely identify the described resource for human use, in the scope of the metadata catalog containing this metadata record.     |
 | Distribution        | 1        | "url":{URL}       | If metadata is about a single digital object      |
-|             |          | "distribution": <br>   { \"@type\": \"DataDownload\", <br>    \"contentURL\": {URL },\...   }   | If the metadata is about an abstract, non-digital, or physical resource that has multiple distributions, with different URL, encodingFormat, conformsTo properties. Each distribution is considered a distinct digital object. |
+|             |          | "distribution": <br>   { \"@type\": \"DataDownload\", <br>    \"contentURL\": {URL },\...   }   | If the metadata is about an abstract, non-digital, or physical resource that has multiple distributions, with different URL, encodingFormat, conformsTo properties. Each distribution is considered a distinct digital object. The dataDownload MUST include the contentURL, and SHOULD include encodingFormat, dcterms:conformsTo to specify the media type and specification or profile documenting the specific serialization conventions for the download content. |
 | Rights                      | 1..\*    | "license":{text or URI} <br> Or <br> "conditionsOfAccess":{text or URI}    | URL to license document or text explanation of restrictions on use. There might be multiple links to documents specifying related security, privacy, usage, sharing, etc\... concerns.    |
-| Metadata profile identifier | 1        | "subjectOf"/"encoding"/"dcterms:conformsTo": {identifier} <br> or <br>  "schemaVersion":{identifier}          | Use Dublin Core terms property. The value for Base CDIF metadata is 'CDIF_basic_1.0'. Different profiles extending this must define unique identifier strings to use here. *QUESTION--Which to use dct:conformsTo or schema:schema:Version?*  |
+| Metadata profile identifier | 1        | "subjectOf"/"encoding"/"dcterms:conformsTo": {identifier}    | Use Dublin Core terms property. The value for Base CDIF metadata is 'CDIF_basic_1.0' [tbd; this should be a PID]. Different profiles extending this must define unique identifier strings to use here. Note that the schema.org schemaVersion is used to indicate the version of the schema.org vocabulary, but in general this is not needed for CDIF.  |
 | Metadata date               | 0..1     | "subjectOf"/"dateModified":{Date or DateTime}     | Use ISO8601 format. The most recent update date for the metadata content. Harvesters use this to determine if they have already harvested and processed this record.   |
 | Metadata contact            | 0..1     | / "subjectOf"/"maintainer":{Person or Organization}   | Should include a name and contact point (institutional e-mail is best) for the agent responsible for metadata content. This is the contact point to report problems with metadata content. Person and Organization are Agent objects with various properties.   |
 | Resource type               | 1        | "@type":{schema.org type}      | If the [Schema.org resource types](https://schema.org/docs/full.html) are specific enough to scope the metadata record, use those.   |
