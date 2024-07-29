@@ -592,16 +592,6 @@ document.write(`
 <td><p>a dcat:Dataset;<br>  dcterms:spatial [<br>    a dcterms:Location ;<br>    locn:geometry  {see <a class="reference external" href="https://semiceu.github.io/Core-Location-Vocabulary/releases/2.1.0/#Resource.geometry">Location Vocabulary</a>}  ];</p></td>
 <td><p>Optional geographic extent using other serialization for location. Other geometry schemes might be specified in a specific domain profile, e.g. for atmospheric, subsurface data, or local coordinate systems. These will likely not be interoperable across domains.</p></td>
 </tr>
-<tr class="row-even"><td><p>Distribution Agent</p></td>
-<td><p>0..*</p></td>
-<td><p>a dcat:Resource, prov:Entity; <br>  prov:qualifiedAttribution [<br>     a prov:Attribution ;<br>      prov:agent &lt;agent URI&gt; ;<br>    dcat:hadRole &lt;distributor role URI&gt;<br>  ];</p></td>
-<td><p>To assign an agent to a distributor role.  Note <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> roles relate to activities, not entities. Therefore, DCAT defines a new property dcat:hadRole  to attach a role to the association-class prov:Attribution between and entity and an agent.  Note that distributor agents can not be associated with individual distributions in DCAT, only to dcat:Resource or subclass of dcat:resource.</p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p></p></td>
-<td><p>a dcat:Dataset; <br>  dcat:distribution [<br>   a dcatDistribution;<br>   sdo:provider [<br>    a sdo:Person OR sdo:Organization] <br>];</p></td>
-<td><p>If there are multiple distributions with different providers, each distribution can have a separate provider. dcat:Distribution does not have pointOfContact or prov:qualifiedAttribution.</p></td>
-</tr>
 <tr class="row-even"><td><p>Variable measured</p></td>
 <td><p>0..*</p></td>
 <td><p>a dcat:Dataset; <br>  sdo:variableMeasured [ <br>   a sdo:PropertyValue; <br>   propertyID &lt;pato:PATO_0000025&gt;, &lt;astm:prop/0405&gt;; <br>   sdo:name “hostMineral”;<br>   sdo:description “….”; ….]”</p></td>
@@ -634,18 +624,28 @@ document.write(`
 </tr>
 <tr class="row-even"><td><p>Related agent - point of contact</p></td>
 <td><p></p></td>
-<td><p>a dcat:Resource; <br>  dcat:contactPoint [<br>     a  vcard:Kind ;<br>  	vcard:hasEmail <a class="reference external" href="mailto:email&#37;&#52;&#48;email&#46;org">mailto:email<span>&#64;</span>email<span>&#46;</span>org</a> ;<br>   vcard:fn “Full Name” .] ;</p></td>
+<td><p>a dcat:Resource; <br>  dcat:contactPoint [<br>     a  vcard:Kind ;<br>  	vcard:hasEmail &lt;mailto:email&#64;email.org&gt; ;<br>   vcard:fn “Full Name” .] ;</p></td>
 <td><p>DCAT defines a  property on any dcat:Resource for the ‘point of contact’ role. Use Individual or Organization subclass of vcard:Kind.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Other related agents- simple contributor</p></td>
-<td><p>0..*</p></td>
+<tr class="row-odd"><td><p>Related agent - publisher</p></td>
 <td><p></p></td>
-<td><p>DCAT does not have a contributor property, use related agent with role.</p></td>
+<td><p>a dcat:Resource; <br>  dcat:publisher [<br>     a  foaf:Agent ;<br>  	foaf:mbox &lt;mailto:email&#64;email.org&gt; ;<br>   foaf:name “Full Name” .] ;</p></td>
+<td><p>DCAT defines a  property on any dcat:Resource for the ‘publisher’ role. Use Person or Organization subclass of foaf:Agent.</p></td>
 </tr>
 <tr class="row-even"><td><p>Related agent with role</p></td>
 <td><p></p></td>
 <td><p>a dcat:Resource, prov:Entity; <br>  prov:qualifiedAttribution [<br>        a prov:Attribution ;<br>        prov:agent &lt;agent URI&gt; ;<br>        dcat:hadRole &lt;role URI&gt;<br>  ];</p></td>
-<td><p>To assign roles to contributors like editor, maintainer, publisher.  Note <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> roles relate to activities, not entities. Therefore, DCAT defines a new property dcat:hadRole  to attach a role to the association-class prov:Attribution between and entity and an agent. <a class="reference external" href="https://id.loc.gov/vocabulary/relators.html">MRC relators</a> provide many relationships between resources and agents.</p></td>
+<td><p>To assign roles to contributors like editor, maintainer, compiler, rightsOwner, etc..  Note <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> roles relate to activities, not entities. Therefore, DCAT defines a new property dcat:hadRole  to attach a role to the association-class prov:Attribution between and entity and an agent. <a class="reference external" href="https://id.loc.gov/vocabulary/relators.html">MARC relators</a> provide many relationships between resources and agents.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Related agent - distributor</p></td>
+<td><p>0..*</p></td>
+<td><p>a dcat:Resource, prov:Entity; <br>  prov:qualifiedAttribution [<br>     a prov:Attribution ;<br>      prov:agent &lt;agent URI&gt; ;<br>    dcat:hadRole &lt;distributor role URI&gt;<br>  ];</p></td>
+<td><p>To assign an agent to a distributor role.  Note <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> roles relate to activities, not entities. Therefore, DCAT defines a new property dcat:hadRole  to attach a role to the association-class prov:Attribution between and entity and an agent.  Note that in DCAT prov:qualifiedAttribution can only be used with dcat:Resource or subclass of dcat:resource, not with individual distributions. CDIF recommendation for the role uri is ‘<a class="reference external" href="http://id.loc.gov/vocabulary/relators/dst">http://id.loc.gov/vocabulary/relators/dst</a>’.</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>a dcat:Dataset; <br>  dcat:distribution [<br>   a dcat:Distribution;<br>   sdo:provider [<br>    a sdo:Person OR sdo:Organization] <br>];</p></td>
+<td><p>If there are multiple distributions with different providers, each distribution can have a separate provider. dcat:Distribution does not have pointOfContact or prov:qualifiedAttribution.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Related resources</p></td>
 <td><p>0..*</p></td>
