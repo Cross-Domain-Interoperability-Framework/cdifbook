@@ -1,4 +1,4 @@
-# Why CDIF?
+# Why CDIF Matters
 
 CDIF is designed to address the question of what standards should be used, and how should they be implemented, which arises almost immediately in the implementation of systems in accordance with the [FAIR Data Principles (Wilkinson et al., 2016)](https://doi.org/10.1038/sdata.2016.18). The FAIR principles require that data and metadata be described according to common standards and made available through common protocols and mechanisms, but as principles, they do not specify which standards and protocols. Within the context of a specific domain or infrastructure, established practice can provide some guidance, and implementers use the standards and protocols that are common within that domain or infrastructure. 
 

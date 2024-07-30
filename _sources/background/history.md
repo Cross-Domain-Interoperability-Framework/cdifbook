@@ -1,4 +1,4 @@
-# How was the CDIF developed?
+# How was CDIF Developed?
 
 The idea for CDIF came initially from a series of workshops held at Schloss Dagstuhl in Wadern, Germany,
 starting in 2018. The focus was on the alignment of standards from different domains, and the events were
