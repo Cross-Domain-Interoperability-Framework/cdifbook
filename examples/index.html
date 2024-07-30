@@ -423,7 +423,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -439,6 +441,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schema-org-json-ld-implementation">Schema.org JSON-LD implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dcat-turtle-implementation">DCAT, Turtle implementation</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -450,9 +461,19 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="example-metadata-documents">
 <h1>Example metadata documents<a class="headerlink" href="#example-metadata-documents" title="Link to this heading">#</a></h1>
-<p><a class="reference download internal" download="" href="../_downloads/d8118c70d2df8bf695661d5f12006b5b/CDIFMetadataCollection.json"><span class="xref download myst">metadata collection, schema.org json-ld</span></a></p>
-<p><a class="reference download internal" download="" href="../_downloads/96e7883e971dfcda37ccfc0cc4e21043/CDIFMinimalDigitalObject.json"><span class="xref download myst">Minimal digital object, schema.org json-ld</span></a></p>
-<p><a class="reference download internal" download="" href="../_downloads/5681f936c68d9ce2750f029bc6a3c2b6/CDIFSimpleDigitalObject.json"><span class="xref download myst">Simple digital object, , schema.org json-ld</span></a></p>
+<section id="schema-org-json-ld-implementation">
+<h2><a class="reference external" href="http://Schema.org">Schema.org</a> JSON-LD implementation<a class="headerlink" href="#schema-org-json-ld-implementation" title="Link to this heading">#</a></h2>
+<p><a class="reference download internal" download="" href="../_downloads/d8118c70d2df8bf695661d5f12006b5b/CDIFMetadataCollection.json"><span class="xref download myst">metadata collection</span></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/96e7883e971dfcda37ccfc0cc4e21043/CDIFMinimalDigitalObject.json"><span class="xref download myst">Minimal digital object</span></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/5681f936c68d9ce2750f029bc6a3c2b6/CDIFSimpleDigitalObject.json"><span class="xref download myst">Simple digital object</span></a></p>
+</section>
+<section id="dcat-turtle-implementation">
+<h2>DCAT, Turtle implementation<a class="headerlink" href="#dcat-turtle-implementation" title="Link to this heading">#</a></h2>
+<p><a class="reference download internal" download="" href="../_downloads/f0a634ced5b4d1f731f616a097399310/DCAT-namur-population-example.ttl"><span class="xref download myst">Namur Population age distribution</span></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/267f2dffc8b3e721c07fd458bd3795cd/DCAT-d33937-ISCtimeScale2017.ttl"><span class="xref download myst">ICS Geologic Time scale, 2017-02</span></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/e2d52a2427aadab6007bdd60beefe531/DCAT-basic-exampleSMR.ttl"><span class="xref download myst">Test example</span></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/d743aaaebab1cfa7924f221a8f17584f/DCAT-atnf-P366-2003SEPT.ttl"><span class="xref download myst">Parkes pulsar survey</span></a></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -509,6 +530,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schema-org-json-ld-implementation">Schema.org JSON-LD implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dcat-turtle-implementation">DCAT, Turtle implementation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
