@@ -1,0 +1,5 @@
+# Discovery
+
+The Internet and World Wide Web constitute an immense body of data, information, and knowledge accessible to anyone with a computer that can interact with the system. The Web can be thought of as a library containing a large fraction of the written, recorded, and graphic works of humanity, or as a database containing an almost unimaginable spectrum of data from scientific research, historical records, government records, sensor networks, etc.
+
+The challenge with this mountain of resources is to find particular nuggets useful to answer questions and solve problems. Addressing this problem requires, _first_, understanding what kinds of things the World Wide Web offers, referred to as '**resources**' in this discussion. _Second_, how are these resources described and documented such that they are useful? _Third_, how can descriptions of resources be made available on the Web to guide users to find and use the resources? 

@@ -4,76 +4,68 @@
 format: jb-book
 root: introduction
 parts:
-  - caption: Introduction
+  - caption: Overview
     numbered: False
     chapters:
     - file: background/whycdif
     - file: background/history
     - file: background/structure
-    - file: background/summaryofprofiles
-    - file: background/futuretopics
-    
-  - caption: Principles
-    numbered: False
-    chapters:
     - file: background/principles
+    - file: background/maintenance
   
-  - caption: Discovery
+  - caption: Core Profiles/Recommendations
     numbered: False
     chapters:
-    - file: metadata/technicalexpressionmetadata  
-    - file: metadata/publishingmetadata
-    - file: metadata/distributionapis
-    - file: metadata/recommendations
-      sections: 
-      - file: metadata/contentmodel
+    - file: metadata/technicalexpressionmetadata
+      sections:
+      - file: metadata/distributionapis
       - file: metadata/queryabledistributions
-      - file: metadata/schemaorgimplementation
-      - file: metadata/publication
-      - file: metadata/dcat
+    - file: metadata/discovery
+      sections:
+      - file: metadata/contentmodel
+      - file: metadata/publishingmetadata
+      - file: metadata/recommendations
+    - file: data_access/intro
+      sections:
+      - file: data_access/odrloverview
+      - file: data_access/policies
+      - file: data_access/odrlinternalpolicies
+      - file: data_access/odrlaggregateaccessconditions
+      - file: data_access/odrlsharedservices
+      - file: data_access/odrlfederatedanalysis
+      - file: data_access/odrlincdif
+    - file: controlled_vocabularies/vocabintro.md
+      sections:
+      - file: controlled_vocabularies/cdifskosprofile.md
+      - file: controlled_vocabularies/statisticalclassification.md
+    - file: data_integration/dataintegrationintro.md
+      sections:
+      - file: data_integration/dataintegrationstandards.md
+      - file: data_integration/datadescriptionforintegration.md
+      - file: data_integration/ddidescriptiondatastructure.md
+    - file: universals/univintro.md
+      sections:
+      - file: universals/univgeography.md
+      - file: universals/univtime.md
+      - file: universals/univuom.md
+    
+  - caption: Open Topics, Future Profiles
+    numbered: False
+    chapters:
+    - file: future/provenance.md
+    - file: future/context.md
+    - file: future/perspectives-ai.md
+    - file: future/packaging.md
+    - file: future/additionaldataformats.md
+
+  - caption: Implementation Resources
+    numbered: False
+    chapters:
+    - file: metadata/schemaorgimplementation
+    - file: metadata/dcat
+    - file: metadata/publication
+    - file: examples/index.md
     - file: metadata/mapping
       sections: 
       - file: metadata/pidkernel
-      - file: metadata/signpostinglinkrel
-
-  - caption: Data Access
-    numbered: False
-    chapters:
-    - file: data_access/intro
-    - file: data_access/odrloverview
-    - file: data_access/policies
-      sections:
-        - file: data_access/odrlinternalpolicies
-        - file: data_access/odrlaggregateaccessconditions
-        - file: data_access/odrlsharedservices
-        - file: data_access/odrlfederatedanalysis
-    - file: data_access/odrlincdif
-
-  - caption: Data Integration
-    numbered: False
-    chapters:
-    - file: data_integration/dataintegrationintro.md
-    - file: data_integration/dataintegrationstandards.md
-    - file: data_integration/datadescriptionforintegration.md
-    - file: data_integration/ddidescriptiondatastructure.md
-
-  - caption: Controlled Vocabularies
-    numbered: False
-    chapters:
-    - file: controlled_vocabularies/vocabintro.md
-    - file: controlled_vocabularies/cdifskosprofile.md
-    - file: controlled_vocabularies/statisticalclassification.md
-
-  - caption: Universals- Time, Geography, and Units of Measurement
-    numbered: False
-    chapters:
-    - file: universals/univintro.md
-    - file: universals/univgeography.md
-    - file: universals/univtime.md
-    - file: universals/univuom.md
-
-  - caption: Examples
-    numbered: False
-    chapters:
-    - file: examples/index.md
-    
+      - file: metadata/signpostinglinkrel    
