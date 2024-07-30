@@ -111,7 +111,7 @@ dap:d33937
   dcat:theme <http://purl.org/au-research/vocabulary/anzsrc-for/2008/080607> ;
   dcat:theme <http://purl.org/au-research/vocabulary/anzsrc-for/2008/080612> ;
 .
-:
+
   rdf:type owl:Ontology ;
   owl:imports dcterms: ;
   owl:imports <http://www.w3.org/2006/vcard/ns> ;
