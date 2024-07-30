@@ -1,7 +1,7 @@
 # Example metadata documents
 
-CDIFMetadataCollection.json
+[metadata collection, schema.org json-ld](./CDIFMetadataCollection.json)
 
-CDIFMinimalDigitalObject.json
+[Minimal digital object, schema.org json-ld](./CDIFMinimalDigitalObject.json)
 
-CDIFSimpleDigitalObject.json
+[Simple digital object, , schema.org json-ld](./CDIFSimpleDigitalObject.json)
