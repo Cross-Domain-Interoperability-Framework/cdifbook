@@ -1,0 +1,98 @@
+{
+    "@context": {
+        "adms": "http://www.w3.org/ns/adms#",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "schema": "http://schema.org/",
+        "vcard": "http://www.w3.org/2006/vcard/ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@graph": [
+        {
+            "@id": "http://nobelprize.org/datarecords/dcat#dr1",
+            "@type": "dcat:CatalogRecord",
+            "dcterms:title": "Linked Nobel prizes",
+            "dcterms:modified": "2014-09-25",
+            "foaf:primaryTopic": {"@id": "http://nobelprize.org/datasets/dcat#ds1"},
+            "dcat:inCatalog":{"@id":"http://nobelprize.org/datasets/dcat#catalog"},
+            "description":"downloaded from https://raw.githubusercontent.com/SEMICeu/dcat-ap_validator/master/pages/samples/sample-json-ld.jsonld and edited by SMR 2024-07-31"
+        },
+        {
+            "@id": "http://nobelprize.org/datasets/dcat#ds1",
+            "@type": "dcat:Dataset",
+            "dcat:contactPoint": {
+                "@type": "vcard:Organization",
+                "vcard:fn": "The Nobel Foundation",
+                "vcard:hasAddress": {
+                    "@type": "vcard:Address",
+                    "vcard:country-name": "Sweden",
+                    "vcard:locality": "Stockholm",
+                    "vcard:postal-code": "11436",
+                    "vcard:street-address": "Sturegatan 14"
+                },
+                "vcard:hasRelated": {
+                    "@id": "https://www.nobelprize.org/contact",
+                    "@type":"vcard"Contact"},
+                "vcard:hasTelephone": {
+                    "@type": [
+                        "vcard:Work",
+                        "vcard:Voice"
+                    ],
+                    "vcard:hasValue": {"@id": "tel:+46(0)86630920"}
+                }
+            },
+            "dcat:distribution": {
+                "@id": "http://nobelprize.org/datasets/dcat#dist1",
+                "@type": "dcat:Distribution",
+                "dcat:accessURL": {"@id": "http://data.nobelprize.org/"},
+                "dcterms:description": {
+                    "@language": "en",
+                    "@value": "Provides search and browse web interface with links to download RDF in Turtle, RDF/XML, JSON-LD, RDF/JSON formats, and links to specifications for linked data representations."
+                },
+                "dcat:mediaType":[                
+                {"@id":"https://www.iana.org/assignments/media-types/application/rdf+xml"},
+                {"@id":"https://www.iana.org/assignments/media-types/application/ld+json"},
+                {"@id":"https://www.iana.org/assignments/media-types/text/turtle"},
+                {"@id":"https://www.iana.org/assignments/media-types/application/json"}
+                ]
+                "dcterms:conformsTo": {"@id": "https://data.nobelprize.org/specification/"},
+                "dcterms:license": {"@id": "http://creativecommons.org/licenses/by-nc/3.0/"},
+                "dcterms:title": {
+                    "@language": "en",
+                    "@value": "Search nobel prizes, laureats and motivations"
+                }
+            },
+            "dcat:keyword": [
+                "Nobel prize",
+                "science",
+                "prize"
+            ],
+            "dcat:landingPage": {"@id": "http://data.nobelprize.org/"},
+            "dcat:theme": {"@id": "http://eurovoc.europa.eu/100142"},
+            "dcterms:accrualPeriodicity": {"@id": "http://purl.org/cld/freq/daily"},
+            "dcterms:description": "This dataset contains Nobel prizes, Nobel laureates and information about related media resources. ",
+            "dcterms:modified": "2024",
+            "dcterms:language": {"@id": "http://id.loc.gov/vocabulary/iso639-1/en"},
+            "dcterms:publisher": {
+                "@id": "https://ror.org/0343nmw38",
+                "@type": "foaf:Organization",
+                "foaf:name": "The Nobel Foundation"
+            },
+            "dcterms:temporal": {
+                "@id": "http://data.nobelprize.org/period",
+                "@type": "dcterms:PeriodOfTime",
+                "schema:endDate": {
+                    "@type": "xsd:date",
+                    "@value": "2023-01-05"
+                },
+                "schema:startDate": {
+                    "@type": "xsd:date",
+                    "@value": "1905-03-01"
+                }
+            },
+ }
+    ]
+}

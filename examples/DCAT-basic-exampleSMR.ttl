@@ -26,6 +26,7 @@
 .
 ex:dataset-001
   rdf:type dcat:Dataset ;
+  dcterms:title "Example dataset"@en ;
   dcterms:creator [
       rdf:type foaf:Person ;
       sdo:identifier ex:PoelenJorritHID ;
@@ -46,13 +47,10 @@ ex:dataset-001
       dcat:endDate "2011-09-30"^^xsd:date ;
       dcat:startDate "2011-07-01"^^xsd:date ;
     ] ;
-  dcterms:title "Example dataset"@en ;
-  dcterms:type sdo:Dataset ;
   dcat:contactPoint <http://dcat.example.org/transparency-office/contact> ;
   dcat:distribution [
       rdf:type dcat:Distribution ;
       dcterms:title "CSV distribution of imaginary dataset 001"@en ;
-      dcat:byteSize "5120"^^xsd:decimal ;
       dcat:downloadURL <http://dcat.example.org/files/001.csv> ;
       dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
     ] ;
