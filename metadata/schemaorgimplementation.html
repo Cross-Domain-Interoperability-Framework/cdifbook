@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -244,6 +244,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Schema.org implementation of CDIF metadata</a></li>
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="publication.html">Metadata publication</a></li>
@@ -451,6 +452,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Schema.org implementation of CDIF metadata</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-metadata-content-items">Implementation of metadata content items</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#service-based-distribution">Service-based distribution</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-patterns">Implementation patterns</a></li>
 </ul>
 
@@ -732,8 +734,45 @@ see <a class="reference external" href="https://github.com/Cross-Domain-Interope
 </tr>
 <tr class="row-odd"><td><p>Checksum</p></td>
 <td><p>0..1</p></td>
-<td><p>“spdx:checksum” or “distribution”: [ { “&#64;type”: “DataDownload”,    “spdx:checksum”: {URL },..    }…]</p></td>
-<td><p>A string value calculated from the content of the resource representation, used to test if content has been modified. No <a class="reference external" href="http://schema.org">schema.org</a> property, follow DCAT v3 adoption of <a class="reference external" href="https://spdx.org/rdf/terms/">Software Package Data Exchange (SPDX)</a> property; The <a class="reference external" href="https://spdx.org/rdf/spdx-terms-v2.1/classes/Checksum___-238837136.html">spdx Checksum object</a> has two properties: algorithm and checksumValue. If the resource is a single DigitalObject, use the first partter, if there are multiple distributions, the checksum is a property of each distribution/DataDownload.</p></td>
+<td><p>“distribution”: [ { “&#64;type”: “DataDownload”,    “spdx:checksum”: {<br>  “spdx:algorithm”:”string”,<br>   “spdx:checksumValue”:”string” },..    }…]</p></td>
+<td><p>A string value calculated from the content of the resource representation, used to test if content has been modified. No <a class="reference external" href="http://schema.org">schema.org</a> property, follow DCAT v3 adoption of <a class="reference external" href="https://spdx.org/rdf/terms/">Software Package Data Exchange (SPDX)</a> property; The <a class="reference external" href="https://spdx.org/rdf/spdx-terms-v2.1/classes/Checksum___-238837136.html">spdx Checksum object</a> has two properties: algorithm and checksumValue. The checksum is a property of each distribution/DataDownload.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="service-based-distribution">
+<h1>Service-based distribution<a class="headerlink" href="#service-based-distribution" title="Link to this heading">#</a></h1>
+<p>An API builds on a basic communication protocol (e.g. HTTP) by defining functionality and formatting to enable providing the specific data a user requires. This might involve filtering, subsetting, or various transformations for e.g. schema mapping, aggregating or anonymizing data. The focus here is on Web APIs that provide data using a URL for the endpoint location (the server that implements the data access protocol), with parameters to specify the particular data requested. The query parameters might be appended to this base URL as part of the URL, or provided as a message with the request.  The implementation is based on the <a class="reference external" href="http://schema.org">schema.org</a> Action patterns, and the WebAPI is added as as a type for the value of sdo:distribution, analogous to dcat:accessService/dcat:DataService.</p>
+<p>Implementation of metadata to describe a service-based (API) distribution:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>CDIF content item</strong></p></th>
+<th class="head"><p><strong>Obl.</strong></p></th>
+<th class="head"><p><strong><a class="reference external" href="http://Schema.org">Schema.org</a> implementation</strong></p></th>
+<th class="head"><p><strong>Scope note</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Service type</p></td>
+<td><p>1</p></td>
+<td><p>“distribution”/”WebAPI”/<br>”serviceType”: “string”</p></td>
+<td><p>specify the kind of service. Ideally this should be a resolvable identifier. Currently there is no widely adopted registry for serviceType identifiers, in large part because services might be defined at different levels of granularity, and classifications might focus on function, data formats, thematic content, security, or other aspects of the service definition. For interoperability, there must be an external arrangement between data providers and consumers on the strings that will be used to specify service types.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Service description document</p></td>
+<td><p>0..1</p></td>
+<td><p>“distribution”/”WebAPI”/”documentation”: “string” OR CreativeWork</p></td>
+<td><p>document that provides a machine-actionable description of a service instance. Examples include OpenAPI documents, OGC Capabilities documents. Software designed to utilise a particular service type will typically include functionality to parse such a description document and engage with the service endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p>Endpoint URL</p></td>
+<td><p>1</p></td>
+<td><p>“distribution”/”WebAPI”/<br>”potentialAction”//”target”//<br>”urlTemplate”</p></td>
+<td><p>Web location to invoke service; if there are parameters on the URL, the URL temple construct enables description of the parameters</p></td>
+</tr>
+<tr class="row-odd"><td><p>Access constraints</p></td>
+<td><p>1</p></td>
+<td><p>“distribution”/”WebAPI”/”termsOfService”:<br>”string” OR CreativeWork</p></td>
+<td><p>Description of access privileges required to use the API, e.g. registration, licensing, payments. Note that access constraints applying to any distribution of the resource should be specified in the access constraints for the resource description as a whole.</p></td>
 </tr>
 </tbody>
 </table>
@@ -815,6 +854,7 @@ see <a class="reference external" href="https://github.com/Cross-Domain-Interope
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Schema.org implementation of CDIF metadata</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-metadata-content-items">Implementation of metadata content items</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#service-based-distribution">Service-based distribution</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-patterns">Implementation patterns</a></li>
 </ul>
 

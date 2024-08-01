@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -242,6 +242,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Implementation Resources</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="schemaorgimplementation.html">Schema.org implementation of CDIF metadata</a></li>
+
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
@@ -551,8 +552,8 @@ document.write(`
 </tr>
 <tr class="row-odd"><td><p>Resource type</p></td>
 <td><p>1..*</p></td>
-<td><p>a dcat:Resource;<br>   dcterms:type  &lt;uri for resource type&gt;;</p></td>
-<td><p>The nature or genre of the resource. The value SHOULD be taken from a well governed and broadly recognised controlled vocabulary. Use of <a class="reference external" href="http://Schema.org">Schema.org</a> types will promote interoperability. Multiple types can be specified.</p></td>
+<td><p>rdf:type {DCAT class};<br>   dcterms:type  &lt;uri for resource type&gt;;</p></td>
+<td><p>The nature or genre of the resource. The rdf:type Must be a DCAT class; currently Resource, Dataset, DatasetSeries, and DataCatalog are applicable for CDIF.  A more sepecific type can be assigned using dcterms:type; the value SHOULD be taken from a well governed and broadly recognised controlled vocabulary. Use of <a class="reference external" href="http://Schema.org">Schema.org</a> types will promote interoperability. Multiple types can be specified.</p></td>
 </tr>
 <tr class="row-even"><td><p>Description</p></td>
 <td><p>0..1</p></td>
@@ -616,7 +617,7 @@ document.write(`
 </tr>
 <tr class="row-even"><td><p></p></td>
 <td><p></p></td>
-<td><p>a dcat:Dataset; <br>  dcterms:temporal [ <br>    a dcterms:PeriodOfTime ,<br>&amp;nbsp&amp;nbsp time:ProperInterval ;<br>      time:intervalStartedBy<br>   &lt;isc:LowerDevonian&gt;;<br>      time:intervalFinishedBy<br>   &lt;isc:LowerPermian&gt;];</p></td>
+<td><p>a dcat:Dataset; <br>  dcterms:temporal [ <br>    a dcterms:PeriodOfTime ,<br>   time:ProperInterval ;<br>      time:intervalStartedBy<br>   &lt;isc:LowerDevonian&gt;;<br>      time:intervalFinishedBy<br>   &lt;isc:LowerPermian&gt;];</p></td>
 <td><p>Time ordinal era interval, use owl:time namespace, time: <a class="reference external" href="http://www.w3.org/2006/time#">http://www.w3.org/2006/time#</a>. This example uses International chronostratigraphic chart <a class="reference external" href="https://stratigraphy.org/chart">ISC</a>. See <a class="reference external" href="https://perio.do/en/">https://perio.do/en/</a> for identifiers for many other named time intervals.</p></td>
 </tr>
 <tr class="row-odd"><td><p></p></td>
