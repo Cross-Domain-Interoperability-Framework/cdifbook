@@ -1,0 +1,158 @@
+{
+    "@context": [
+        "https://schema.org/",
+        {
+            "dcterms": "http://purl.org/dc/terms/",
+            "geosparql": "http://www.opengis.net/ont/geosparql#",
+            "spdx": "http://spdx.org/rdf/terms#",
+            "ex": "https://example.org/"
+        }
+    ],
+    "@type": ["ItemList"],
+    "@id": "https://example.org/id/graph/X",
+    "name": "Example CDIF Metadata collection",
+    "description": "this is a JSON file containing a collection of CDIF 1.0 conformant JSON-LD records. The structure uses the schema.org ItemList type. ",
+    "itemListOrder": "https://schema.org/ItemListUnordered",
+    "numberOfItems": 3,
+    "itemListElement": [
+        {
+            "@id": "ex:URIforTheDataset",
+            "@type": ["Dataset"],
+            "name": "Minimal dataset metadata",
+            "description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
+            "url": "ex:locatortoGETlandingPage",
+            "publishingPrinciples": [
+                {
+                    "@type": "CreativeWork",
+                    "url": "https://cdif.org/resources/policy/264"
+                }
+            ],
+            "dateModified": "2010-02-03",
+            "distribution": [
+                {
+                    "@type": "DataDownload",
+                    "contentUrl": "https://example.org/locatorForDataset"
+                }
+            ],
+            "subjectOf": {
+                "@id": "ex:metadata/URIforTheDigitalObjectMetadata",
+                "@type": "DigitalDocument",
+                "about": {
+                    "@type": "DigitalDocument",
+                    "url": "ex:URIforTheDataset"
+                },
+                "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
+                "sdDatePublished": "2014-02-23"
+            }
+        },
+        {
+            "@type": ["Dataset"],
+            "@id": "https://doi.org/10.5878/tnzz-m331",
+            "identifier": "https://doi.org/10.5878/tnzz-m331",
+            "version": "4",
+            "name": "Dataset for SOU 2023:18 The Wind's Value - Compensation, Incentives and Planning for a Continued Sustainable Wind Power Development",
+            "description": "The study is a Governmental ....",
+            "datePublished": "2023-06-21T11:37:06Z",
+            "dateModified": "2023-06-21T11:37:06Z",
+            "temporalCoverage": "2020/2022",
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://snd.gu.se",
+                "name": "Swedish National Data Service"
+            },
+            "distribution": [
+                {
+                    "@type": "DataDownload",
+                    "name": "ID 006 - Vero, Beskattning av vind- och solkraftverk Norge.pdf",
+                    "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+006+-+Vero%2C+Beskattning+av+vind-+och+solkraftverk+Norge.pdf",
+                    "contentSize": 356791,
+                    "encodingFormat": ["application/pdf"],
+                    "isAccessibleForFree": true
+                },
+                {
+                    "@type": "DataDownload",
+                    "name": "ID 042 - Nye regler om stigning i grundskylden p...pdf",
+                    "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+042+-+Nye+regler+om+stigning+i+grundskylden+p...pdf",
+                    "contentSize": 739978,
+                    "encodingFormat": ["application/pdf"],
+                    "isAccessibleForFree": true
+                }
+            ],
+            "subjectOf": {
+                "@id": "metadata:10.5878/tnzz-m331",
+                "@type": "DigitalDocument",
+                "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
+            }
+        },
+        {
+            "@context": [
+                "https://schema.org/",
+                {
+                    "dcterms": "http://purl.org/dc/terms/",
+                    "geosparql": "http://www.opengis.net/ont/geosparql#",
+                    "spdx": "http://spdx.org/rdf/terms#",
+                    "ex": "https://example.org/"
+                }
+            ],
+            "@id": "ex:URIforDescribedResource",
+            "@type": ["Dataset"],
+            "additionalType": ["multispectral high resolution micro image"],
+            "name": "Sample yx200, polished surface",
+            "description": "Description of what's in the image, where and why taken",
+            "license": ["https://microimagerylab.org/license.txt"],
+            "creator": {
+                "@list": [
+                    {
+                        "@type": "Person",
+                        "name": "first author",
+                        "identifier": "https://orcid.org/0000-0035-2922-7653"
+                    },
+                    {
+                        "@type": "Person",
+                        "name": "second author",
+                        "identifier": "https://orcid.org/0000-0045-8022-7412"
+                    }
+                ]
+            },
+            "contributor": [
+                {
+                    "@type": "Role",
+                    "roleName": "Laboratory Technician",
+                    "contributor": {
+                        "@type": "Person",
+                        "name": "Patricia Goodtech",
+                        "identifier": "https://orcid.org/0000-0015-6022-7302"
+                    }
+                },
+                {
+                    "@type": "Role",
+                    "roleName": "Image processor",
+                    "contributor": {
+                        "@type": "Person",
+                        "name": "Alejandra Miserando",
+                        "identifier": "https://orcid.org/0000-0005-8521-7511"
+                    }
+                }
+            ],
+            "datePublished": "2012-07-18",
+            "distribution": [
+                {
+                    "@type": "DataDownload",
+                    "encodingFormat": ["image/tif"],
+                    "contentUrl": "https://repository.org/images/2423757.tif"
+                }
+            ],
+            "subjectOf": {
+                "@id": "ex:URIforTheMetadata",
+                "@type": "DigitalDocument",
+                "sdDatePublished": "2017-05-23",
+                "maintainer": {
+                    "@type": "Organization",
+                    "name": "J. Tally microimagery lab",
+                    "email": "metadata@microimagerylab.org"
+                },
+                "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
+            }
+        }
+    ]
+}

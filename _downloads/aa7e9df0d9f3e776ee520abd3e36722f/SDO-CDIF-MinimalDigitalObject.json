@@ -1,0 +1,22 @@
+{
+    "@context": [
+        "https://schema.org/",
+        {
+            "dcterms": "http://purl.org/dc/terms/",
+            "geosparql": "http://www.opengis.net/ont/geosparql#",
+            "spdx": "http://spdx.org/rdf/terms#",
+            "id": "@id",
+            "type": "@type"
+        }
+    ],
+    "@id": "ark:/99152/URIforTheDigitalObject",
+    "@type": ["Dataset"],
+    "name": "Minimal dataset metadata",
+    "description": "example minimal documentation that will validate with CDIF schema.org JSON schema. Either a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
+    "distribution": [
+        {
+            "@type": "DataDownload",
+            "contentUrl": "https://example.org/locatorForDataset"
+        }
+    ]
+}

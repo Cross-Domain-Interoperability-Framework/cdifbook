@@ -1,0 +1,72 @@
+# baseURI: https://dcat.example.org/basic-example/testing
+# imports: http://purl.org/dc/terms/
+# imports: http://www.w3.org/2006/vcard/ns
+# imports: https://www.w3.org/ns/dcat.ttl
+# imports: https://www.w3.org/ns/legacy_adms
+
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://dcat.example.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix v: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://dcat.example.org/basic-example/testing>
+  rdf:type owl:Ontology ;
+  owl:imports dcterms: ;
+  owl:imports <http://www.w3.org/2006/vcard/ns> ;
+  owl:imports <https://www.w3.org/ns/dcat.ttl> ;
+  owl:imports <https://www.w3.org/ns/legacy_adms> ;
+.
+ex:dataset-001
+  rdf:type dcat:Dataset ;
+  dcterms:title "Example dataset"@en ;
+  dcterms:creator [
+      rdf:type foaf:Person ;
+      sdo:identifier ex:PoelenJorritHID ;
+      foaf:name "Jorrit H. Poelen" ;
+    ] ;
+  dcterms:identifier "https://doi.org/10.4725/08/random"^^xsd:anyURI ;
+  dcterms:issued "2011-12-05"^^xsd:date ;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
+  dcterms:modified "2011-12-15"^^xsd:date ;
+  dcterms:publisher <https://ror.org/054dc7e40> ;
+  dcterms:rights [
+      rdf:type dcterms:RightsStatement ;
+      rdfs:comment "no restrictions"@en ;
+    ] ;
+  dcterms:spatial <http://sws.geonames.org/6695072/> ;
+  dcterms:temporal [
+      rdf:type dcterms:PeriodOfTime ;
+      dcat:endDate "2011-09-30"^^xsd:date ;
+      dcat:startDate "2011-07-01"^^xsd:date ;
+    ] ;
+  dcat:contactPoint <http://dcat.example.org/transparency-office/contact> ;
+  dcat:distribution [
+      rdf:type dcat:Distribution ;
+      dcterms:title "CSV distribution of imaginary dataset 001"@en ;
+      dcat:downloadURL <http://dcat.example.org/files/001.csv> ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
+    ] ;
+  dcat:keyword "accountability"@en ;
+  dcat:keyword "payments"@en ;
+  dcat:keyword "transparency"@en ;
+.
+ex:record-001
+  rdf:type dcat:CatalogRecord ;
+  dcterms:conformsTo <ex:cdif_DCAT_profile_uri> ;
+  dcterms:modified "2024-07-28"^^xsd:date ;
+  dcat:contactPoint [
+      rdf:type v:Individual ;
+      rdfs:label "Metadata Curator" ;
+      v:fn "Metadata Curator" ;
+      v:hasEmail <mailto:testmetadata@gmail.com> ;
+    ] ;
+  foaf:primaryTopic ex:dataset-001 ;
+.
