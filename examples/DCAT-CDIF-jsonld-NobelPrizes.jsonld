@@ -43,7 +43,8 @@
                     ],
                     "vcard:hasValue": {"@id": "tel:+46(0)86630920"}
                 }
-            },
+            }
+		},
             "dcat:distribution": {
                 "@id": "http://nobelprize.org/datasets/dcat#dist1",
                 "@type": "dcat:Distribution",
