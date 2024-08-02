@@ -1,0 +1,48 @@
+{
+    "@context": [
+        "https://schema.org/",
+        {
+            "dcterms": "http://purl.org/dc/terms/",
+            "geosparql": "http://www.opengis.net/ont/geosparql#",
+            "spdx": "http://spdx.org/rdf/terms#",
+            "ex": "https://example.org/"
+        }
+    ],
+    "@type": ["Dataset"],
+    "@id": "https://doi.org/10.5878/tnzz-m331",
+    "identifier": "https://doi.org/10.5878/tnzz-m331",
+    "version": "4",
+    "name": "Dataset for SOU 2023:18 The Wind's Value - Compensation, Incentives and Planning for a Continued Sustainable Wind Power Development",
+    "description": "The study is a Governmental ....",
+    "datePublished": "2023-06-21T11:37:06Z",
+    "dateModified": "2023-06-21T11:37:06Z",
+    "temporalCoverage": "2020/2022",
+    "publisher": {
+        "@type": "Organization",
+        "@id": "https://snd.gu.se",
+        "name": "Swedish National Data Service"
+    },
+    "distribution": [
+        {
+            "@type": "DataDownload",
+            "name": "ID 006 - Vero, Beskattning av vind- och solkraftverk Norge.pdf",
+            "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+006+-+Vero%2C+Beskattning+av+vind-+och+solkraftverk+Norge.pdf",
+            "contentSize": 356791,
+            "encodingFormat": ["application/pdf"],
+            "isAccessibleForFree": true
+        },
+        {
+            "@type": "DataDownload",
+            "name": "ID 042 - Nye regler om stigning i grundskylden p...pdf",
+            "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+042+-+Nye+regler+om+stigning+i+grundskylden+p...pdf",
+            "contentSize": 739978,
+            "encodingFormat": ["application/pdf"],
+            "isAccessibleForFree": true
+        }
+    ],
+    "subjectOf": {
+        "@id": "metadata:10.5878/tnzz-m331",
+        "@type": "DigitalDocument",
+        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
+    }
+}
