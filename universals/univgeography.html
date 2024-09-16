@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -181,6 +181,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../background/checklistForImplementation.html">Checklist to implement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../background/whycdif.html">Why CDIF Matters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../background/history.html">How was CDIF Developed?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../background/structure.html">The structure of CDIF</a></li>
@@ -242,6 +243,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Implementation Resources</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../metadata/schemaorgimplementation.html">Schema.org implementation of CDIF metadata</a></li>
+
 
 
 <li class="toctree-l1"><a class="reference internal" href="../metadata/dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
@@ -530,7 +532,8 @@ document.write(`
 <p>With unfamiliar data, it is always worth checking both sign and coordinate order before doing any other data manipulations.</p>
 <section id="coordinate-reference-system">
 <h4>Coordinate reference system<a class="headerlink" href="#coordinate-reference-system" title="Link to this heading">#</a></h4>
-<p>The most commonly used coordinate reference system (CRS) for geographic coordinates is <a class="reference external" href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;amp;action=wgs84">WGS 84</a>. This is the default system used by GPS receivers, and most Web-mapping applications, so if the CRS is not explicit it can generally be assumed to be WGS 84. This is also the default for the common geometry representations, such as <a class="reference external" href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON</a> and the <a class="reference external" href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry">Well Known Text Representation of Geometry (WKT)</a>.</p>
+<p>It is essential to supply a coordinate reference system (usually by reference) with any set of coordinates; without this, they are easily misinterpretated and the errors can be in kiometres on the ground.</p>
+<p>The most commonly used coordinate reference system (CRS) for geographic coordinates is <a class="reference external" href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;amp;action=wgs84">WGS 84</a>. This is the default system used by GPS receivers, and most Web-mapping applications, so if the CRS is not explicit it can generally be assumed to be WGS 84. This is also the default for the common geometry representations, such as <a class="reference external" href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON</a> and the <a class="reference external" href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry">Well Known Text Representation of Geometry (WKT)</a>. However, it should be noted that WGS 84 as a satellite based system is ignorant of change in the surface of the earth (e.g. tectonic drift) so if the data relates to phenomena on or near the surface of the earth, either provide a time stamp with the coordinates or use a terrestrial reference frame, e.g. ETRS-89 (EPSG::4258) for the European tectonic plate.</p>
 <p>The definition of a CRS involves several pieces of information, including the axis directions and measurement units, the origin location where the value is (0,0), as well as the ellipsoid that is used to approximate the shape of the earth. Some CRS are three-dimensional, including elevation. The de facto authority for definitions of coordinate reference systems is <a class="reference external" href="https://epsg.org">EPSG</a>. Properly speaking, EPSG now refers to a set of products maintained by the International Association of Oil and Gas Producers (IOGP)’s Geoinformatics Committee. These products originated with the European Petroleum Survey Group (EPSG), which merged with the IOGP in 2005. They maintain a registry with a Web API at <a class="reference external" href="https://apps.epsg.org/api/swagger/ui/index">https://apps.epsg.org/api/swagger/ui/index</a>. The EPSG is used by many mapping software systems, and other Web copies are available (e.g. <a class="reference external" href="https://epsg.io">https://epsg.io</a>). WGS 84 is denoted EPSG:4326 and the full definition can be found at <a class="reference external" href="https://apps.epsg.org/api/v1/CoordRefSystem/4326/export/?format=wkt">https://apps.epsg.org/api/v1/CoordRefSystem/4326/export/?format=wkt</a>.</p>
 <p>Some jurisdictions have legal requirements to use other coordinate reference systems for some applications for official purposes. For example, the British National Grid is standard in the UK, in which the coordinates are given in metres, and the origin is fixed so that all locations within the UK have positive coordinate values. The British National Grid is denoted EPSG:27700 and the full definition is found at <a class="reference external" href="https://epsg.org/crs_27700/OSGB36-British-National-Grid.html">https://epsg.org/crs_27700/OSGB36-British-National-Grid.html</a> or <a class="reference external" href="https://epsg.io/27700">https://epsg.io/27700</a>.</p>
 </section>

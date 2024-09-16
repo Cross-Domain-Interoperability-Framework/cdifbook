@@ -29,3 +29,36 @@ To this end, CDIF identifies a set of common functions which are needed to imple
 # Who can use the CDIF?
 
 CDIF is aimed primarily at data infrastructures, i.e. those organisations which develop, maintain, and disseminate FAIR resources for reuse, often as centralised points of access within their communities or area(s) of interest. While data stewardship by research organisations is an important element of FAIR, not all research organisations perform this dissemination, instead relying on data archives or other dedicated repositories. FAIR reuse is most effective when authoritative producers, or those acting on their behalf, provide their data and metadata to others for reuse, so the authoritative versions of such resources are the ones which get reused. Such organisations are often motivated to be the point of dissemination, as it is their mission, and they bear the responsibility, both legal and reputational, for those resources. CDIF is a tool which they can use to better support this mission.
+
+
+# The CDIF workgroup
+
+The History section describes the development of this specification.  Many people have contributed and we'd like acknowledge their time and effort. 
+
+
+
+# How to contribute 
+
+The CDIF Working Group meets virtually every two weeks and collaborates online.  The focus of work will be on developing the new profiles, as well as renewing the existing profiles based on feedback.
+
+The CDIF Advisory Group meets 2-4 times a year, as required and receives profile documentation to review.
+
+To apply to join the WG or AG, please [use this form](https://docs.google.com/forms/d/e/1FAIpQLSfC6BoxSnAZOMWZ65pNTiljnsBXjfv80NgEeALPcY5DPaESHA/viewform) and specify which group you wish to join!
+
+If you simply want to keep up to date with developments, [please register to join the CDIF community list](https://bit.ly/cdif-community-list).
+
+To find out more about CDIF, please consult the [presentations and recording from our last webinar](https://codata.org/the-cross-domain-interoperability-framework-cdif-practical-guidelines-for-fair-interoperability-webinar-25-july/), or the CDIF report [https://doi.org/10.5281/zenodo.11236871](https://doi.org/10.5281/zenodo.11236871).  Project development is online in Github in the [Cross-Domain Interoperability Framework organization](https://github.com/Cross-Domain-Interoperability-Framework)
+
+A major goal of CDIF is to streamline workflow from needing particular data to having the data you need accessible to the software you're writing or using in the environment where you work. If you have experience or ideas for how this can be achieved, please get in touch!
+
+Some work items we need help with:
+
+* Example CDIF JSON-LD metadata with detailed information for data integration. Data integration information using CDI-DDI vocabulary to describe more complex datasets, with objects, relationships, sentinel values, and controlled vocabularies.  
+
+* Example CDIF JSON-LD Metadata for Data Access, examples using ODRL to document various workflows and requirements to obtain permission for data access or necessary aggregation to de-personalize data.
+
+* Example Metadata describing gridded data or time series using NetCDF or HDF.
+
+* SHACL rules to validate CDIF JSON-LD
+
+* Use cases and example for describing data for use by AI system e.g. for training data. Use of Croissant.

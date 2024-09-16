@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'introduction';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Why CDIF Matters" href="background/whycdif.html" />
+    <link rel="next" title="Checklist to implement" href="background/checklistForImplementation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,6 +182,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="background/checklistForImplementation.html">Checklist to implement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="background/whycdif.html">Why CDIF Matters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="background/history.html">How was CDIF Developed?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="background/structure.html">The structure of CDIF</a></li>
@@ -453,7 +454,9 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introducing CDIF</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-cdif">What is CDIF</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#who-can-use-the-cdif">Who can use the CDIF?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#who-can-use-the-cdif">Who can use the CDIF?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cdif-workgroup">The CDIF workgroup</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-contribute">How to contribute</a><ul class="visible nav section-nav flex-column">
 </ul>
 </li>
 </ul>
@@ -493,6 +496,27 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="who-can-use-the-cdif">
 <h1>Who can use the CDIF?<a class="headerlink" href="#who-can-use-the-cdif" title="Link to this heading">#</a></h1>
 <p>CDIF is aimed primarily at data infrastructures, i.e. those organisations which develop, maintain, and disseminate FAIR resources for reuse, often as centralised points of access within their communities or area(s) of interest. While data stewardship by research organisations is an important element of FAIR, not all research organisations perform this dissemination, instead relying on data archives or other dedicated repositories. FAIR reuse is most effective when authoritative producers, or those acting on their behalf, provide their data and metadata to others for reuse, so the authoritative versions of such resources are the ones which get reused. Such organisations are often motivated to be the point of dissemination, as it is their mission, and they bear the responsibility, both legal and reputational, for those resources. CDIF is a tool which they can use to better support this mission.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-cdif-workgroup">
+<h1>The CDIF workgroup<a class="headerlink" href="#the-cdif-workgroup" title="Link to this heading">#</a></h1>
+<p>The History section describes the development of this specification.  Many people have contributed and we’d like acknowledge their time and effort.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="how-to-contribute">
+<h1>How to contribute<a class="headerlink" href="#how-to-contribute" title="Link to this heading">#</a></h1>
+<p>The CDIF Working Group meets virtually every two weeks and collaborates online.  The focus of work will be on developing the new profiles, as well as renewing the existing profiles based on feedback.</p>
+<p>The CDIF Advisory Group meets 2-4 times a year, as required and receives profile documentation to review.</p>
+<p>To apply to join the WG or AG, please <a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLSfC6BoxSnAZOMWZ65pNTiljnsBXjfv80NgEeALPcY5DPaESHA/viewform">use this form</a> and specify which group you wish to join!</p>
+<p>If you simply want to keep up to date with developments, <a class="reference external" href="https://bit.ly/cdif-community-list">please register to join the CDIF community list</a>.</p>
+<p>To find out more about CDIF, please consult the <a class="reference external" href="https://codata.org/the-cross-domain-interoperability-framework-cdif-practical-guidelines-for-fair-interoperability-webinar-25-july/">presentations and recording from our last webinar</a>, or the CDIF report <a class="reference external" href="https://doi.org/10.5281/zenodo.11236871">https://doi.org/10.5281/zenodo.11236871</a>.  Project development is online in Github in the <a class="reference external" href="https://github.com/Cross-Domain-Interoperability-Framework">Cross-Domain Interoperability Framework organization</a></p>
+<p>A major goal of CDIF is to streamline workflow from needing particular data to having the data you need accessible to the software you’re writing or using in the environment where you work. If you have experience or ideas for how this can be achieved, please get in touch!</p>
+<p>Some work items we need help with:</p>
+<ul class="simple">
+<li><p>Example CDIF JSON-LD metadata with detailed information for data integration. Data integration information using CDI-DDI vocabulary to describe more complex datasets, with objects, relationships, sentinel values, and controlled vocabularies.</p></li>
+<li><p>Example CDIF JSON-LD Metadata for Data Access, examples using ODRL to document various workflows and requirements to obtain permission for data access or necessary aggregation to de-personalize data.</p></li>
+<li><p>Example Metadata describing gridded data or time series using NetCDF or HDF.</p></li>
+<li><p>SHACL rules to validate CDIF JSON-LD</p></li>
+<li><p>Use cases and example for describing data for use by AI system e.g. for training data. Use of Croissant.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -534,11 +558,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="background/whycdif.html"
+       href="background/checklistForImplementation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Why CDIF Matters</p>
+        <p class="prev-next-title">Checklist to implement</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -560,7 +584,9 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introducing CDIF</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-cdif">What is CDIF</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#who-can-use-the-cdif">Who can use the CDIF?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#who-can-use-the-cdif">Who can use the CDIF?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cdif-workgroup">The CDIF workgroup</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-contribute">How to contribute</a><ul class="visible nav section-nav flex-column">
 </ul>
 </li>
 </ul>
