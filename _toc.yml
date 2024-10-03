@@ -7,6 +7,7 @@ parts:
   - caption: Overview
     numbered: False
     chapters:
+    - file: background/checklistForImplementation
     - file: background/whycdif
     - file: background/history
     - file: background/structure
