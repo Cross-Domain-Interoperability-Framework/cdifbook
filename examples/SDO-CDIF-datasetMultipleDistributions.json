@@ -70,7 +70,11 @@
             "name": "metadata creator-editor-steward name",
             "description": "person responsible for the metadata"
         },
-        "sdDatePublished": "2014-02-23",
+        "about": {
+            "@type": "DigitalDocument",
+            "url":"ex:URIforDescribedResource"
+            },
+        "dateModified": "2014-02-23",
         "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
     }
 }

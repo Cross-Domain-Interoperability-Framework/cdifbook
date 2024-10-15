@@ -21,11 +21,12 @@ parts:
       sections:
       - file: metadata/distributionapis
       - file: metadata/queryabledistributions
+      - file: metadata/publishingmetadata
     - file: metadata/discovery
       sections:
-      - file: metadata/contentmodel
-      - file: metadata/publishingmetadata
       - file: metadata/recommendations
+      - file: metadata/contentmodel
+      - file: metadata/publication
     - file: data_access/intro
       sections:
       - file: data_access/odrloverview
@@ -64,7 +65,6 @@ parts:
     chapters:
     - file: metadata/schemaorgimplementation
     - file: metadata/dcat
-    - file: metadata/publication
     - file: examples/index.md
     - file: metadata/mapping
       sections: 

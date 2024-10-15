@@ -42,7 +42,7 @@
                     "url": "ex:URIforTheDataset"
                 },
                 "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
-                "sdDatePublished": "2014-02-23"
+                "dateModified": "2014-02-23"
             }
         },
         {
@@ -81,7 +81,11 @@
             "subjectOf": {
                 "@id": "metadata:10.5878/tnzz-m331",
                 "@type": "DigitalDocument",
-                "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
+                "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
+                "about": {
+                    "@type": "DigitalDocument",
+                    "url": "https://doi.org/10.5878/tnzz-m331"
+                }
             }
         },
         {
@@ -145,13 +149,17 @@
             "subjectOf": {
                 "@id": "ex:URIforTheMetadata",
                 "@type": "DigitalDocument",
-                "sdDatePublished": "2017-05-23",
+                "dateModified": "2017-05-23",
                 "maintainer": {
                     "@type": "Organization",
                     "name": "J. Tally microimagery lab",
                     "email": "metadata@microimagerylab.org"
                 },
-                "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
+                "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
+                "about": {
+                    "@type": "DigitalDocument",
+                    "url": "ex:URIforDescribedResource"
+                }
             }
         }
     ]

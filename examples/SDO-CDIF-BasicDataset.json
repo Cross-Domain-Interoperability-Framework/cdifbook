@@ -27,13 +27,13 @@
         }
     ],
     "subjectOf": {
-        "@id": "ex:metadata/URIforTheDigitalObjectMetadata",
+        "@id": "ex:URIforTheDigitalObjectMetadata",
         "@type": "DigitalDocument",
         "about": {
             "@type": "DigitalDocument",
             "url": "ex:URIforTheDataset"
         },
         "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
-        "sdDatePublished": "2014-02-23"
+        "dateModified": "2014-02-23"
     }
 }
