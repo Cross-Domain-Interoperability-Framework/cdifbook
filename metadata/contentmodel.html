@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'metadata/contentmodel';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Publishing metadata" href="publishingmetadata.html" />
-    <link rel="prev" title="Discovery" href="discovery.html" />
+    <link rel="next" title="Metadata publication" href="publication.html" />
+    <link rel="prev" title="Metadata Recommendations" href="recommendations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,12 +194,14 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="technicalexpressionmetadata.html">Technical expression of metadata</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="distributionapis.html">Queryable distribution interfaces (API)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="queryabledistributions.html">Queryable distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishingmetadata.html">Publishing metadata</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="discovery.html">Discovery</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Basic discovery metadata content model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publishingmetadata.html">Publishing metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Basic discovery metadata content model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publication.html">Metadata publication</a></li>
+
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../data_access/intro.html">Data Access Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -247,8 +249,6 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="publication.html">Metadata publication</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example metadata documents</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="mapping.html">Metadata mappings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -485,10 +485,11 @@ document.write(`
 <h2>Required, but nilable<a class="headerlink" href="#required-but-nilable" title="Link to this heading">#</a></h2>
 <p>These are content elements for which every resource should have useful information, but for which the information may not be available. A corresponding field should be included in each metadata record, but may have value ‘nil:missing’, ‘nil:unknown’ or similar nil value. Use ‘nil:notapplicable’ for Temporal Coverage, Geographic Extent or Statistical Variable when these are not applicable to the described resource.</p>
 <ul class="simple">
-<li><p><strong>Description</strong> (1 entry): Inform the reader about the resource’s content, context, provenance, and any other information deemed useful for future cross-domain usage. - Originators (1 to many entries): One or more parties (person or organisation) that have a role related to the origin of the resource, e.g., author or editor. Each party has a name (label), identifier, and optional contact information.</p></li>
+<li><p><strong>Description</strong> (1 entry): Inform the reader about the resource’s content, context, provenance, and any other information deemed useful for future cross-domain usage.</p></li>
+<li><p><strong>Originators</strong> (1 to many entries): One or more parties (person or organisation) that have a role related to the origin of the resource, e.g., author or editor. Each party has a name (label), identifier, and optional contact information.</p></li>
 <li><p><strong>Modified Date</strong> (1 entry): Date (not temporal extent) when the most recent changes to the resource were completed. Use a “year” or <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 date and time</a> format. Alternative date formatting must be machine-readable and consistent across all datasets.</p></li>
 <li><p><strong>Distribution Agent</strong> (1 entry):The party (person or organisation) to contact about accessing the resource. Each party has a name (label), identifier, and optional contact information. If there are multiple distribution options with different contact points, the Distribution Agent should be specified as part of the Distribution Object.</p></li>
-<li><p><strong>Statistical Variable</strong> (1 to many entries): Only applicable to datasets, otherwise nil:{reason}. A complete description of a dataset should include a list of the fields in the data, with each field mapped to a variable that is represented by the content of that field.  Variable definitions should minimally specify the property represented by name. Identification of the property represented with a resolvable URI is strongly recommended. Variable descriptions should include documentation for how units of measure and reference systems for values are specified (see <a class="reference internal" href="../universals/univintro.html"><span class="std std-doc">Universals</span></a> ). Details of data structure and schema more closely related to interoperability, data integration, and usage than to data discovery are discussed in <a class="reference internal" href="tbd.html"><span class="doc std std-doc">tbd</span></a>. Describing Data to Make it “Integration-Ready”.</p></li>
+<li><p><strong>Variable</strong> (0 to many entries): Only applicable to datasets. The metadata about a dataset should include a list of variables that the dataset contains. Variable metadata should minimally specify the name of the variable as it appears in the dataset. That name should be, ideally, qualified by a controlled vocabulary or other semantic resource (e.g. represented by a resolvable URI), or minimally some descriptive text. Variable metadata should include as much content as needed for users to understand the type of the variable (e.g. measured, statistically derived, or simulated), its units, and any relevant reference systems for its values (see <a class="reference internal" href="../universals/univintro.html"><span class="std std-doc">Universals</span></a> ). Details of data structure and schema more closely related to interoperability, data integration, and usage than to data discovery are discussed in <a class="reference internal" href="tbd.html"><span class="doc std std-doc">tbd</span></a>. Describing Data to Make it “Integration-Ready”.</p></li>
 <li><p><strong>Temporal Coverage</strong> (1 entry). The time interval represented by or the subject of the described resource. This could be the time interval when data were collected, or an archaeological or geological time interval that is the subject of the resource. Need to account for clock time, calendar time (Gregorian, Julian, Hebrew, Islamic, Chinese, Mayan…), cyclical time (summer, first quarter, mating season, new moon, pay day) and for named time ordinal eras (Jurassic, Younger Dryas, Early Minoan I, Late Stone Age). See <a class="reference external" href="https://www.w3.org/TR/owl-time/">OWL Time</a>.</p></li>
 <li><p><strong>Geographic Extent</strong> - horizontal (if applicable, 1 entry, minimum bounding rectangle or point): In order to support cross-domain searches based on geospatial location, location coordinates must be given in decimal degrees using the WGS 8486 datum. There are various other systems for describing location (see <a class="reference internal" href="../universals/univgeography.html"><span class="std std-doc">Space</span></a> ); these can be provided as alternate location descriptions, recognizing that they might be meaningful to some metadata harvesting agents. Some resources may not be usefully described by a WGS 84 extent, in which case indicate nil:notapplicable; this would include extraterrestrial resources.</p>
 <ul>
@@ -520,6 +521,8 @@ document.write(`
 <li><p><strong>Other related agents</strong> (0 to many entries): Recognition for others who have contributed to the production of the resource but are not recognized as authors/creators. Includes a variety of roles like maintainer, publisher, point of contact, copyright holder, contributor (see e.g. <a class="reference external" href="https://datacite-metadata-schema.readthedocs.io/en/4.5_draft/properties/recommended_optional/property_contributor.html#a-contributortype">DataCite contributor types</a>, <a class="reference external" href="https://wiki.esipfed.org/ISO_19115_and_19115-2_CodeList_Dictionaries#CI_RoleCode">ISO19115-1 role code</a> )</p></li>
 <li><p><strong>Related resources</strong> (0 to many entries): Links to related data, publications, annotation, data sources, software used, etc. Links have at least a label, relationship type, and resolvable target resource identifier.</p></li>
 <li><p><strong>Version</strong> (0 or 1): If the resource is versioned, specify the label for this version. Version labels should follow a scheme that allows alphanumeric sorting reflecting the order of version release.</p></li>
+<li><p><strong>Provenance</strong> (0..many): For discovery, provide information about datasets that were used in the creation of the described resource and specify sensors, platforms, software, algorithms etc. used to aquire information contained in the resource.  Details about workflows, activity sequences, association of sensors etc. with specific variables, individuals associate with particular activities in workflow etc. require used of cdif prov extension <a class="reference internal" href="tbd.html"><span class="doc std std-doc">tbd</span></a>.</p></li>
+<li><p><strong>Quality</strong> (0..many) Provide statements about the quality of information in the described resource,  information about quality policies or certificates that apply to the resource, and results of quality measures with information about the measurement protocol/procedure used. In all cases the focus should be on information useful for initial assessment by potential users.</p></li>
 </ul>
 </section>
 </section>
@@ -555,20 +558,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="discovery.html"
+       href="recommendations.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Discovery</p>
+        <p class="prev-next-title">Metadata Recommendations</p>
       </div>
     </a>
     <a class="right-next"
-       href="publishingmetadata.html"
+       href="publication.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Publishing metadata</p>
+        <p class="prev-next-title">Metadata publication</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

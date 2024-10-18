@@ -55,7 +55,11 @@
     "subjectOf": {
         "@id": "ex:URIforTheMetadata",
         "@type": "DigitalDocument",
-        "sdDatePublished": "2017-05-23",
+        "dateModified": "2017-05-23",
+        "about": {
+            "@type": "DigitalDocument",
+            "url": "ex:URIforDescribedResource"
+        },
         "maintainer": {
             "@type": "Organization",
             "name": "J. Tally microimagery lab",
