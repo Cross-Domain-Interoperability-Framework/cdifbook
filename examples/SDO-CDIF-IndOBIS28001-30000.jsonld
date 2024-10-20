@@ -9,7 +9,7 @@
         }
     ],
     "@type": ["Dataset"],
-    "@id": "https://obis.org/dataset/71c18dbe-72a9-42af-8108-4f2799e1c270",
+    "@id": "https://obis.org/node/71c18dbe-72a9-42af-8108-4f2799e1c270",
     "name": "IndOBIS Dataset (28001-30000)",
     "description": "A literature based dataset comprises distribution records of marine organisms reported from the Indian Ocean region gathered as part of the MLR Programme- Integrated Taxonomic Information System (ITIS).",
     "url": "https://obis.org/dataset/71c18dbe-72a9-42af-8108-4f2799e1c270",
@@ -58,10 +58,11 @@
     ],
     "subjectOf": {
         "@type": "DigitalDocument",
-        "@id": "ex:metadata/obis.org/dataset/71c18dbe-72a9-42af-8108-4f2799e1c270",
+        "@id": "ex:metadata/71c18dbe-72a9-42af-8108-4f2799e1c270",
+        "identifier":"https://obis.org/metadata/71c18dbe-72a9-42af-8108-4f2799e1c270",
         "description": "information about metadata record.  JSONLD metadata harvested from OceanInfohub, https://api.search.oceaninfohub.org/source?id=https%3A%2F%2Fobis.org%2Fdataset%2F71c18dbe-72a9-42af-8108-4f2799e1c270&_gl=1*4zln2q*_ga*MTkzMTMzNjY4Ny4xNzIwODE4MzI1*_ga_MQDK6BB0YQ*MTcyMjU1MTY2Ni41LjEuMTcyMjU1MTgzMS4wLjAuMA..*_ga_QJ5XJMZFXW*MTcyMjU1MTY3Mi40LjEuMTcyMjU1MTgzMS4wLjAuMA.",
         "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
-        "sdDatePublished": "2024-08-01",
+        "dateModified": "2024-08-01",
         "maintainer": {
             "@id": "https://catalogue.odis.org/view/343",
             "@type": "Organization",
