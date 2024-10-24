@@ -1,0 +1,78 @@
+{
+    "@context": [
+        "https://schema.org/",
+        {
+            "dcterms": "http://purl.org/dc/terms/",
+            "geosparql": "http://www.opengis.net/ont/geosparql#",
+            "spdx": "http://spdx.org/rdf/terms#",
+            "ex": "https://example.org/"
+        }
+    ],
+    "@id": "ex:URIforNode2246",
+    "@type": ["Dataset"],
+    "identifier": "ex:URIforTheDataset",
+    "name": "Minimal dataset metadata",
+    "description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
+    "url": "ex:locatortoGETlandingPage",
+    "publishingPrinciples": [
+        {
+            "@type": "CreativeWork",
+            "url": "https://cdif.org/resources/policy/264"
+        }
+    ],
+    "dateModified": "2010-02-03",
+    "distribution": [
+        {
+            "@type": "DataDownload",
+            "contentUrl": "https://example.org/locatorForDataset"
+        }
+    ],
+    "temporalCoverage": [
+        {
+            "@type": "time:ProperInterval",
+            "time:hasBeginning": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:nominalPosition": 345,
+                    "time:hasTRS": "http://www.opengis.net/def/crs/OGC/0/ChronometricGeologicTime"
+                }
+            },
+            "time:hasEnd": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:nominalPosition": 298,
+                    "time:hasTRS": "http://www.opengis.net/def/crs/OGC/0/ChronometricGeologicTime"
+                }
+            }
+        },
+        {
+            "@type": "time:Instant",
+            "time:inTimePosition": {
+                "@type": "time:TimePosition",
+                "time:nominalPosition": 26.2,
+                "time:hasTRS": "http://www.opengis.net/def/crs/OGC/0/ChronometricGeologicTime"
+            }
+        }
+    ],
+    "prov:wasGeneratedBy": {
+        "@type": "prov:Activity",
+        "prov:used": [
+            "http://vocab.nerc.ac.uk/collection/L05/current/134/",
+            "http://vocab.nerc.ac.uk/collection/B76/current/B7600031/"
+        ]
+    },
+    "prov:wasDerivedFrom": [
+        "http://doi.org/10.547/347848",
+        "http://doi.org/10.3578/h5ls",
+        "http://doi.org/10.547/93578"
+    ],
+    "subjectOf": {
+        "@id": "ex:URIforTheDigitalObjectMetadata",
+        "@type": "DigitalDocument",
+        "identifier": "ex:URIforNode2246",
+        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
+        "dateModified": "2014-02-23"
+    }
+}

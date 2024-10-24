@@ -8,8 +8,9 @@
             "ex": "https://example.org/"
         }
     ],
-    "@id": "ex:URIforTheDataset",
+    "@id": "ex:URIforNode2246",
     "@type": ["Dataset"],
+    "identifier":"ex:URIforTheDataset",
     "name": "Minimal dataset metadata",
     "description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
     "url": "ex:locatortoGETlandingPage",
@@ -29,10 +30,7 @@
     "subjectOf": {
         "@id": "ex:URIforTheDigitalObjectMetadata",
         "@type": "DigitalDocument",
-        "about": {
-            "@type": "DigitalDocument",
-            "url": "ex:URIforTheDataset"
-        },
+        "identifier":"ex:URIforNode2246",
         "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
         "dateModified": "2014-02-23"
     }

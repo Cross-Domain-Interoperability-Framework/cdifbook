@@ -1,95 +1,13 @@
-# Schema.org implementation of CDIF metadata 
-
-JSON-LD has been chosen as the recommended serialization format for CDIF metadata following our principle to use existing mainstream technology. The JSON format is widely used for data serialization and popular with developers. JSON-LD adds additional syntax for the representation of linked data, compatible with existing JSON implementations so that integration with existing applications is relatively frictionless. Many metadata providers are using the [schema.org](https://schema.org/) vocabulary with JSON-LD serialization for metadata publication and interchange. Use of this format provides a low barrier to entry for data providers.
-
-The JSON syntax is defined by the [ECMA JSON specification](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/), and JSON-LD is specified in the [JSON-LD 1.1 recommendation](https://www.w3.org/TR/json-ld11/) from the World Wide Web Consortium (W3C). This serialization is designed for linked data applications that will translate the JSON into a set of {subject, predicate, object} triples that can be loaded into an RDF database for processing. The JSON-LD context binds JSON keys to URIs for more precise semantics, and the use of URIs to identify entities and property values in the metadata will maximize the linkage with resources on the wider web to build an ever-expanding global knowledge graph.
-
-The metadata about the resource has properties about the resource like title, description, responsible parties, spatial or temporal extent (as outlined in the [Metadata Content Requirements](./contentmodel.md) section).
-
-In a harvesting/federated catalog system some metadata about the metadata is useful to keep track of where metadata came from, what format/profile it uses (harvesters need this to process), and update dates [see Metadata Content Requirements](./contentmodel.md). Unambiguous expression of this information requires making statements about a metadata record distinct from the thing in the world that the metadata describes. In an RDF framework, this requires a distinct identifier for the metadata record object that will serve as the subject for these triples.
-
-Schema.org includes several properties that can be used to embed information about the metadata record in the resource metadata: [**sdDatePublished**](https://schema.org/sdDatePublished), [**sdLicense**](https://schema.org/sdLicense), [**sdPublisher**](https://schema.org/sdPublisher), but lacks a way to provide an identifier for the metadata record distinct from the resource it describes, to specify other agents responsible for the metadata except the publisher, or to assert specification or profile conformance for the metadata record itself.
-
-In the RDF serialization, Schema.org metadata records are [JSON-LD node objects](https://www.w3.org/TR/json-ld/#node-objects), and include an "@id" keyword with a value that identifies the node, analogous to a primary key in a relational database.  This identifier can be interpreted to represent a thing in the world that the metadata record (the 'node') is about, or to represent the metadata record (a JSON object) itself. 
-
-To avoid this ambiguity, CDIF adopts the convention that the schema.org identifier property is used to identify a thing in the world that is the subject of the JSON-LD node.  The identified thing might be physical, imaginary, abstract, or a digital object.  The JSON-LD @id property identifies a node in a graph, which is an abstract object. As a URI the @id URI is expected to dereference to produce a JSON-LD object containing the properties that are attached to the graph node. Given this convention, when the metadata record is processed, the processor should use the schema:identifier as subject of triples about the subject of the metadata record to avoid ambiguity.  In addition, this convention would suggest that if a schema:identifier property is present, the @id property should be interpreted to identify the JSON object that is the representation of the node in the knowledge graph. 
-
-Statements about the metadata record (the JSON object) as a distinct entity should be made using a separate identified node object. This node object can be embedded in the metadata record about the resource in the world (Example 1 below), or published as a separate node (Example 2 below). Note that this second approach is like the [DCAT CatalogRecord](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog_Record). 
-
-```
-{   "@context": [
-        "https://schema.org",
-        {"dcterms": "http://purl.org/dc/terms/",
-         "ex":"https://example.com/99152/"
-        }
-    ],
-    "@id": "ex:URIforNode1",
-    "@type": "appropriate schema.org type",
-	"identifier":"ex:URIforDescribedResource",
-    "name": "unique title for the resource",
-    "description": "Description of the resource",
-    "subjectOf": {
-        "@id": "ex:URIforNode2",
-        "@type": "DigitalDocument",
-        "dateModified": "2017-05-23",
-		"identifier":"ex:URIforNode1",
-        "description":"metadata about documentation for ex:URIforDescribedResource",
-    	"dcterms:conformsTo": {"@id":"CDIF_basic_1.0"}
-	}        
-   }
-```
-Example 1.  Metadata about the metadata embedded.
-
-```
-{
-    "@context": [
-        "https://schema.org",
-        {"ex": "https://example.com/99152/"}
-    ],
-    "@graph": [
-        {
-            "@id": "ex:URIforNode1",
-            "@type": "Dataset",
-            "identifier": "ex:URIforDescribedResource",
-            "name": "unique title for the resource",
-            "description": "Description of the resource"
-        },
-        {
-            "@id": "ex:URIforNode2",
-            "@type": "DigitalDocument",
-            "dateModified": "2017-05-23",
-            "identifier": "ex:URIforNode1",
-            "description": "metadata about documentation for ex:URIforDescribedResource",
-            "dcterms:conformsTo": {"@id": "CDIF_basic_1.0"}
-        }
-    ]
-}
-```
-
-Example 2. Metadata about metadata as a separate graph node.
-
-The ex namespace in the example above is only included so the example is valid; actual metadata would likely have its own namespace for resource and metadata URIs. The distinct identifier for the metadata record (ex:URIforNode1) allows statements to be made about the metadata separately from statements about the resource it describes. 
-
-Note that the @type for the metadata node (root node) is 'DigitalDocument'. This is a schema.org type that corresponds broadly to the concept of DigitalObject as used by the Fair Digital Object (FDO) community ([Bonino et al., 2022](https://fairdigitalobjectframework.org/) ), recognizing that the metadata record is a digital object. 
-
-JSON keys prefixed with '@' are keywords defined in the [JSON-LD specification]( https://www.w3.org/TR/json-ld11/#keywords) (see table below)
-
- | Keyword  |   Description|
- |-----------|-------------|
- | \@context |  The value of the context is an object that specifies set of rules for interpreting the JSON-LD document. The rules can be specified inline in, or via a URI that identifies a context object containing a set of rules. |
-|  \@id    |    A string that identifies the subject of the assertions in the JSON object that contains the \@id key.|
-|  \@type   |   An identifier for the definition of the structure of the JSON object that contains the \@type key. The type determines what keys or values should be expected in the JSON object that contains the key. Values are types defined in the schema.org vocabulary. In the CDIF framework (and for compatibility with FDOF FDOF digitalObjectType), the schema:additionalType property should be used (see implementation table below) |
- 
-
 # Implementation of metadata content items
 
 The following table maps the metadata content items described in the [Metadata Content Requirements](./contentmodel.md) section to the schema.org JSON-LD keys to use in metadata serialization. Some example metadata documents follow. The \'Obl.\' column specifies the cardinality obligation for the property; \'1\' means one value required; 1..\* means at least one value is required; 0..\* means the property is optional and more that one value can be provided. Properties with path from "subjectOf" describe the metadata.
 
+
 <table>
   <tr>
-    <th><b>CDIF content<br>item</b></th>
+    <th><b>CDIF content item</b></th>
     <th><b>Obl.</b></th>
-    <th><b>Schema.org<br> implementation</b></th>
+    <th><b>Schema.org implementation</b></th>
     <th><b>Scope note</b></th>
   </tr>
   <tr>
@@ -118,8 +36,8 @@ The following table maps the metadata content items described in the [Metadata C
   </tr>
   <tr>
     <td></td>
-    <td>"distribution": <br> { "@type": "DataDownload", <br> "contentUrl": {URL },\... }</td>
-    <td>If the metadata is about an abstract, non-digital, or physical resource that has multiple distributions, with different URL, encodingFormat, conformsTo properties. Each distribution is considered a distinct digital object. The dataDownload MUST include the contentUrl, and SHOULD include encodingFormat, dcterms:conformsTo to specify the media type and specification or profile documenting the specific serialization conventions for the download content.</td>
+    <td>"distribution": <br> { "@type": "DataDownload", <br> "contentURL": {URL },\... }</td>
+    <td>If the metadata is about an abstract, non-digital, or physical resource that has multiple distributions, with different URL, encodingFormat, conformsTo properties. Each distribution is considered a distinct digital object. The dataDownload MUST include the contentURL, and SHOULD include encodingFormat, dcterms:conformsTo to specify the media type and specification or profile documenting the specific serialization conventions for the download content.</td>
   </tr>
   <tr>
     <td>Rights</td>
@@ -297,7 +215,7 @@ The following table maps the metadata content items described in the [Metadata C
 <td>A string value calculated from the content of the resource representation, used to test if content has been modified. No schema.org property, follow DCAT v3 adoption of [Software Package Data Exchange (SPDX)](https://spdx.org/rdf/terms/) property; The [spdx Checksum object](https://spdx.org/rdf/spdx-terms-v2.1/classes/Checksum___-238837136.html) has two properties: algorithm and checksumValue. The checksum is a property of each distribution/DataDownload. </td></tr>
 <tr >
 <td colspan="4"><b>Provenance for discovery</b> is limited to documenting technology used in the creation of the dataset and documening other datasets (datasets) that were inputs to the content of the described resource.</td></tr>
-<tr><td>Provenance (instruments, software etc.) </td><td>|0..* </td><td>   "prov:wasGeneratedBy": {
+<tr><td>Provenance (instruments, software etc.) </td><td>0..* </td><td>   "prov:wasGeneratedBy": {
         "@type": "prov:Activity",
         "prov:used": [
             "nerc:collection/L05/current/134",
@@ -322,28 +240,3 @@ The following table maps the metadata content items described in the [Metadata C
 </td><td>Quality assesment or measument conducted using procedure or protocol specified by the dqv:isMeasurementOf property, with result value specified in the dqv:value property. The result might be numeric, a categorical term, or a link to a document describing the quality assessment.</td>
 </tr>
         </table>
-
-
-# Service-based distribution
-
-An API builds on a basic communication protocol (e.g. HTTP) by defining functionality and formatting to enable providing the specific data a user requires. This might involve filtering, subsetting, or various transformations for e.g. schema mapping, aggregating or anonymizing data. The focus here is on Web APIs that provide data using a URL for the endpoint location (the server that implements the data access protocol), with parameters to specify the particular data requested. The query parameters might be appended to this base URL as part of the URL, or provided as a message with the request.  The implementation is based on the schema.org Action patterns, and the WebAPI is added as as a type for the value of sdo:distribution, analogous to dcat:accessService/dcat:DataService. 
-
-Implementation of metadata to describe a service-based (API) distribution:
-
-| **CDIF content item**       | **Obl.** | **Schema.org implementation**   | **Scope note**                              |
-|----------- |-------------|-------------|-------------|
-| Service type | 1 | "distribution"/"WebAPI"/<br>"serviceType": "string"| specify the kind of service. Ideally this should be a resolvable identifier. Currently there is no widely adopted registry for serviceType identifiers, in large part because services might be defined at different levels of granularity, and classifications might focus on function, data formats, thematic content, security, or other aspects of the service definition. For interoperability, there must be an external arrangement between data providers and consumers on the strings that will be used to specify service types.  |
-| Service description document | 0..1 | "distribution"/"WebAPI"/"documentation": "string" OR CreativeWork | document that provides a machine-actionable description of a service instance. Examples include OpenAPI documents, OGC Capabilities documents. Software designed to utilise a particular service type will typically include functionality to parse such a description document and engage with the service endpoint. |
-| Endpoint URL | 1 | "distribution"/"WebAPI"/<br>"potentialAction"//"target"//<br>"urlTemplate" | Web location to invoke service; if there are parameters on the URL, the URL temple construct enables description of the parameters |
-| Access constraints | 1 | "distribution"/"WebAPI"/"termsOfService":<br>"string" OR CreativeWork | Description of access privileges required to use the API, e.g. registration, licensing, payments. Note that access constraints applying to any distribution of the resource should be specified in the access constraints for the resource description as a whole. |
-
-
-# Implementation patterns
-
--   DefinedTerm. {label, schemename, conceptURI, schemeURI}. This is a pattern used for property values that are concepts defined in a controlled vocabulary, ontology, or similar semantic artefact. Values have a label, which is a string that will be meaningful to a human user, a 'schemename', which is a label that similarly identifies the source semantic resource in which the concept is defined, the conceptURI is a globally unique,resolvable identifier forthe concept value; schemeURI is a globally unique identifier for the semantic resource in which the concept is defined.
-
--   Identifier. Identifiers can be inserted as simple string literals. If the identifier can be provided as a string literal that is resolvable and for which the identifier scheme is evident, that all that is required. If the identifier scheme is not well known, or the address of a separate resolve must be used to resolve the identifier, use the schema.org PropertyValue to provide additional information. The propertyID specifies the identifier scheme. CDIF recommends using scheme identifiers from [https://registry.identifiers.org/registry/](https://registry.identifiers.org/registry/). The sdo:value provides the identifier as a string value. If the identifier can be resolved on the web, the sdo:url provides a resolvable URL. 
-
--   Agent. This pattern is for specifying an Agent in the PROV sense: An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent\'s activity. Agents can be persons, organizations, or software-defined actors. Agents have a name for human recognition, a type (Person, Organization), an identifier, contactPoint and affiliation. Machine agent contact points should be the accessible human who operations the environment running the machine agent. This pattern is used for hard-typed roles in the CDIF implementation- creator, maintainer, contributor, provider. Other roles can be documented using the [schema.org role pattern](http://blog.schema.org/2014/06/introducing-role.html) in the sdo:contributor property. 
-
--   DistributionObject {contentUrl, encodingFormat, dcterm:conformsTo, distributionAgent }. This pattern specifies information for implementing machine access to a DigitalObject. Includes a URL (contentUrl) for the web location at which the DigitalObject can be accessed, the specifications or profiles to which the serialization and content of the object conform using the Dublin Core conformsTo property, the format of the digital object content (sdo:encodingFormat), and the  the Agent responsible for the distribution platform (provider). This agent is the contact point if there are problems accessing the distributed digitalObject.

@@ -9,7 +9,7 @@
         }
     ],
     "@type": ["Dataset"],
-    "@id": "https://doi.org/10.5878/tnzz-m331",
+    "@id": "https://metadata.org/10.5878/tnzz-m331",
     "identifier": "https://doi.org/10.5878/tnzz-m331",
     "version": "4",
     "name": "Dataset for SOU 2023:18 The Wind's Value - Compensation, Incentives and Planning for a Continued Sustainable Wind Power Development",
@@ -43,6 +43,7 @@
     "subjectOf": {
         "@id": "metadata:10.5878/tnzz-m331",
         "@type": "DigitalDocument",
+        "identifier":"https://metadata.org/10.5878/tnzz-m331",
         "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
     }
 }
