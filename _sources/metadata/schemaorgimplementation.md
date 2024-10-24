@@ -85,14 +85,14 @@ JSON keys prefixed with '@' are keywords defined in the [JSON-LD specification](
 
 The following table maps the metadata content items described in the [Metadata Content Requirements](./contentmodel.md) section to the schema.org JSON-LD keys to use in metadata serialization. Some example metadata documents follow. The \'Obl.\' column specifies the cardinality obligation for the property; \'1\' means one value required; 1..\* means at least one value is required; 0..\* means the property is optional and more that one value can be provided. Properties with path from "subjectOf" describe the metadata.
 
-<table>
+<table class="table">
   <tr>
     <th><b>CDIF content<br>item</b></th>
     <th><b>Obl.</b></th>
     <th><b>Schema.org<br> implementation</b></th>
     <th><b>Scope note</b></th>
   </tr>
-  <tr>
+  <tr >
     <td>Metadata identifier</td>
     <td>1</td>
     <td>"subjectOf"/"@id":{URI} or "@id":{uri} in node with "identifier":"@id" of the node containing the resource description</td>
