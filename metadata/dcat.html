@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'metadata/dcat';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Metadata publication" href="publication.html" />
+    <link rel="next" title="Example metadata documents" href="../examples/index.html" />
     <link rel="prev" title="Schema.org implementation of CDIF metadata" href="schemaorgimplementation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -181,6 +181,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../background/checklistForImplementation.html">Checklist to implement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../background/whycdif.html">Why CDIF Matters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../background/history.html">How was CDIF Developed?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../background/structure.html">The structure of CDIF</a></li>
@@ -193,12 +194,14 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="technicalexpressionmetadata.html">Technical expression of metadata</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="distributionapis.html">Queryable distribution interfaces (API)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="queryabledistributions.html">Queryable distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishingmetadata.html">Publishing metadata</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="discovery.html">Discovery</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="contentmodel.html">Basic discovery metadata content model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publishingmetadata.html">Publishing metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recommendations.html">Metadata Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentmodel.html">Basic discovery metadata content model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publication.html">Metadata publication</a></li>
+
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../data_access/intro.html">Data Access Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -246,8 +249,6 @@
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="publication.html">Metadata publication</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example metadata documents</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="mapping.html">Metadata mappings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -493,7 +494,7 @@ document.write(`
 <tr class="row-odd"><td><p>Resource identifier</p></td>
 <td><p>1</p></td>
 <td><p>ex:dataset1URI a dcat:Resource; <br>  dcterms:identifier  “string literal”;</p></td>
-<td><p>The dcat:Resource (or subclass of dcat:Resource) dcterms:identifier is the identifer for the thing in world that is the subject of the DCAT record.   The DCAT record is a representation of that thing as a digital object, and the subject of the ‘&lt;uri&gt; a  dcat:Resource’ triple typically identifies the same thing, but that URI might dereference to GET a different representation for the thing in the world.  OPEN DATA Wallonia-Brussels uses the dcterms:identifier with a string value for the URI that accesses a web page displaying data. The subject of the &lt;uri&gt; a  dcat:Resource’ triple is like the JSON-LD &#64;id value, which identifies a graph node that can be interpreted either as the thing in the world the graph node is about, or the JSON-LD (or other RDF serialization) object that is the web representation of that thing.</p></td>
+<td><p>The dcterm:identifier is the identifer for the thing in world that is the subject of the DCAT record. The DCAT record is a representation of that thing as a digital object, and the subject of the ‘&lt;uri&gt; a  dcat:Resource’ triple typically identifies the same thing; that URI might dereference to GET a different representation for the thing in the world.  The subject of the &lt;uri&gt; a  dcat:Resource’ triple is like the JSON-LD &#64;id value, which identifies a graph node that can be interpreted either as the thing in the world the graph node is about, or the JSON-LD (or other RDF serialization) object that is the web representation of that thing.</p></td>
 </tr>
 <tr class="row-even"><td><p>Title</p></td>
 <td><p>1</p></td>
@@ -508,7 +509,7 @@ document.write(`
 <tr class="row-even"><td><p></p></td>
 <td><p></p></td>
 <td><p>a dcat:Dataset; <br>    dcat:distribution [<br>        a dcat:Distribution;<br>            dcat:downloadURL  “literal URL string” ];</p></td>
-<td><p>URL for web location that will get a representation of the described resource. downloadURL is required. The Distribution object SHOULD include dcat:mediaType to specify the media type for the actual resource representation; if the distribution content is compressed or packaged, dcat:compressFormat or dcat:packageFormat SHOULD be specified as well. dcterms:conformsTo can be used to identify a specification that defines the full syntax and semantics for the resource content. Other properties in the dcat:Distribution object can be used to provide information about content size, rights, policies, etc. for the particular representation of the resource.</p></td>
+<td><p>URL for web location that will get a representation of the described resource. downloadURL is <strong>required</strong>. The Distribution object SHOULD include dcat:mediaType to specify the media type for the actual resource representation; if the distribution content is compressed or packaged, dcat:compressFormat or dcat:packageFormat SHOULD be specified as well. dcterm:conformsTo can be used to identify a specification that defines the full syntax and semantics for the resource content. Other properties in the dcat:Distribution object can be used to provide information about content size, rights, policies, etc. for the particular representation of the resource.</p></td>
 </tr>
 <tr class="row-odd"><td><p></p></td>
 <td><p></p></td>
@@ -533,7 +534,7 @@ document.write(`
 <tr class="row-odd"><td><p></p></td>
 <td><p></p></td>
 <td><p>a dcat:Resource OR dcat:Distribution; <br>    dcterms:rights  [ <br>  	rdf:type dcterms:RightsStatement ;<br>   	rdfs:comment “literal rights statement”&#64;en];  <br>   OR &lt;Rights statement URI&gt;;</p></td>
-<td><p>link to a statement associated with a resource for other types of rights statements, i.e. those that are not covered by dcterms:license and dcterms:accessRights, such as copyright statements. NOTE– odrl:hasPolicy property is available at the dcat:Resource or dcat:Distribution level if a formal ORDL rules statement is available (see <a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/#ex-odrl-policy">example</a>.</p></td>
+<td><p>link to a statement associated with a resource for other types of rights statements, i.e. those that are not covered by dcterms:license and dcterms:accessRights, such as copyright statements. NOTE– odrl:hasPolicy property is available at the dcat:Resource or dcat:Distribution level if a formal ORDL rules statement is available (see <a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/#ex-odrl-policy">example</a> ).</p></td>
 </tr>
 <tr class="row-even"><td><p>Metadata profile identifier</p></td>
 <td><p>1</p></td>
@@ -595,85 +596,105 @@ document.write(`
 <td><p>a dcat:Dataset;<br>  dcterms:spatial [<br>    a dcterms:Location ;<br>    locn:geometry  {see <a class="reference external" href="https://semiceu.github.io/Core-Location-Vocabulary/releases/2.1.0/#Resource.geometry">Location Vocabulary</a>}  ];</p></td>
 <td><p>Optional geographic extent using other serialization for location. Other geometry schemes might be specified in a specific domain profile, e.g. for atmospheric, subsurface data, or local coordinate systems. These will likely not be interoperable across domains.</p></td>
 </tr>
-<tr class="row-even"><td><p>Variable measured</p></td>
+<tr class="row-even"><td><p>Variable (PopertyValue)</p></td>
 <td><p>0..*</p></td>
 <td><p>a dcat:Dataset; <br>  sdo:variableMeasured [ <br>   a sdo:PropertyValue; <br>   propertyID &lt;pato:PATO_0000025&gt;, &lt;astm:prop/0405&gt;; <br>   sdo:name “hostMineral”;<br>   sdo:description “….”; ….]”</p></td>
 <td><p>Follow <a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables">ESIPfed Science on Schema.org recommendation</a>, see also discussion for representing more complex data structures in <a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Experimental.md#AdvancedVariableValueType">ESIPfed Experimental</a> and the <a class="reference external" href="https://cross-domain-interoperability-framework.github.io/cdifbook/data_integration/ddidescriptiondatastructure.html">Data Integration module of CDIF</a>. Variable must have a name and description, should have a propertyID with URI for the represented concept. The URI in the propertyID provides the semantic linkage for meaning of the variable. dcat does not have properties to specify variables/properties quantified in a cataloged resource.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Keyword</p></td>
+<tr class="row-odd"><td><p>Variable (Statistical Variable)</p></td>
+<td><p>0..*</p></td>
+<td><p>a dcat:Dataset; <br>  sdo:variableMeasured [ <br>   a sdo:StatisticalVariable; <br>   sdo:measuredProperty <br> a sdo:Property; \ <br> sdo:identifier &lt;<a class="reference external" href="https://properties.org/id/305978%5C">https://properties.org/id/305978\</a>&gt;; sdo:name “Average age”;</p></td>
+<td><p>Statistical variable offers properties useful for describing social science statistical variables like populationType and statType. Use of StatisticalVariable is preferred for variables with values calculated from some aggregation process.</p></td>
+</tr>
+<tr class="row-even"><td><p>Keyword</p></td>
 <td><p>0..*</p></td>
 <td><p>a dcat:Resource; <br>  dcat:keyword “string literal”;</p></td>
 <td><p>Implement with text for tags, free text words useful for indexing the resource.</p></td>
 </tr>
-<tr class="row-even"><td><p></p></td>
+<tr class="row-odd"><td><p></p></td>
 <td><p></p></td>
 <td><p>a dcat:Resource; <br>  dcat:theme &lt;uri&gt;  <br>OR  <br>a dcat:Resource; <br>  dcat:theme [ <br>    &lt;concept URI&gt;  a skos:Concept;<br>    skos:prefLabel “term”&#64;languageCode]</p></td>
 <td><p>A main category of the resource. A resource can have multiple themes.  Expectation is that the set of themes used to categorize  resources are organized in a structured vocabulary describing all the categories and their relations in the catalog, e.g.  skos:ConceptScheme, skos:Collection, owl:Ontology. Note dcat:theme in dcat OWL is an object property, the type of the object is not specified. In the example to the left the theme object is typed ‘skos:Concept’, but could be other type.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Temporal coverage</p></td>
+<tr class="row-even"><td><p>Temporal coverage</p></td>
 <td><p>0..1</p></td>
 <td><p>a dcat:Dataset; <br>  dcterms:temporal<br>   [ a dcterms:PeriodOfTime ;<br>      dcat:startDate<br>  “2016-03-04”^^xsd:date ;<br> dcat:endDate<br>   “2018-08-05”^^xsd:date ;<br>   ];</p></td>
 <td><p>Calendar data or clock time interval.  rdfs:Literal encoded using the relevant ISO 8601 Date and Time compliant string <a class="reference external" href="https://www.w3.org/TR/NOTE-datetime">DATETIME</a> and typed using the appropriate XML Schema datatype <a class="reference external" href="https://www.w3.org/TR/xmlschema11-2/">XMLSCHEMA11-2</a>, i.e. xsd:gYear, xsd:gYearMonth, xsd:date, or xsd:dateTime.  The range of dcterms:temporal is expected to be PeriodOfTime; to specify a time instant the start and end should be the same.  [tbd: add note on other temporal options offered by DCAT]</p></td>
 </tr>
-<tr class="row-even"><td><p></p></td>
+<tr class="row-odd"><td><p></p></td>
 <td><p></p></td>
 <td><p>a dcat:Dataset; <br>  dcterms:temporal [ <br>    a dcterms:PeriodOfTime ,<br>   time:ProperInterval ;<br>      time:intervalStartedBy<br>   &lt;isc:LowerDevonian&gt;;<br>      time:intervalFinishedBy<br>   &lt;isc:LowerPermian&gt;];</p></td>
 <td><p>Time ordinal era interval, use owl:time namespace, time: <a class="reference external" href="http://www.w3.org/2006/time#">http://www.w3.org/2006/time#</a>. This example uses International chronostratigraphic chart <a class="reference external" href="https://stratigraphy.org/chart">ISC</a>. See <a class="reference external" href="https://perio.do/en/">https://perio.do/en/</a> for identifiers for many other named time intervals.</p></td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
+<tr class="row-even"><td><p></p></td>
 <td><p></p></td>
 <td><p>a dcat:Dataset; <br>  dcterms:temporal [<br>   a dcterms:PeriodOfTime , <br>     time:ProperInterval ;<br>    time:hasBeginning [   a time:Instant ;<br>      time:inTimePosition [  a time:TimePosition ;<br>             time:hasTRS &lt;gsmla:ma&gt; ;<br>             time:numericPosition “541.0”^^xsd:decimal <br>   ]  ] ;<br>    time:hasEnd [ a time:Instant ;<br>      time:inTimePosition [   a time:TimePosition ;<br>          time:hasTRS &lt;gsmla:ma&gt; ;<br>   time:numericPosition “251.9”^^xsd:decimal  <br>]   ] ];</p></td>
 <td><p>Temporal coverage for a geologic dataset, with interval bounds specified with numericPositions in millions of years before present.  Namespace abbreviation: gsmla: <a class="reference external" href="http://resource.geosciml.org/classifier/cgi/geologicage/">http://resource.geosciml.org/classifier/cgi/geologicage/</a></p></td>
 </tr>
-<tr class="row-even"><td><p>Related agent - point of contact</p></td>
+<tr class="row-odd"><td><p>Related agent - point of contact</p></td>
 <td><p></p></td>
 <td><p>a dcat:Resource; <br>  dcat:contactPoint [<br>     a  vcard:Kind ;<br>  	vcard:hasEmail &lt;mailto:email&#64;email.org&gt; ;<br>   vcard:fn “Full Name” .] ;</p></td>
 <td><p>DCAT defines a  property on any dcat:Resource for the ‘point of contact’ role. Use Individual or Organization subclass of vcard:Kind.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Related agent - publisher</p></td>
+<tr class="row-even"><td><p>Related agent - publisher</p></td>
 <td><p></p></td>
 <td><p>a dcat:Resource; <br>  dcat:publisher [<br>     a  foaf:Agent ;<br>  	foaf:mbox &lt;mailto:email&#64;email.org&gt; ;<br>   foaf:name “Full Name” .] ;</p></td>
 <td><p>DCAT defines a  property on any dcat:Resource for the ‘publisher’ role. Use Person or Organization subclass of foaf:Agent.</p></td>
 </tr>
-<tr class="row-even"><td><p>Related agent with role</p></td>
+<tr class="row-odd"><td><p>Related agent with role</p></td>
 <td><p></p></td>
 <td><p>a dcat:Resource, prov:Entity; <br>  prov:qualifiedAttribution [<br>        a prov:Attribution ;<br>        prov:agent &lt;agent URI&gt; ;<br>        dcat:hadRole &lt;role URI&gt;<br>  ];</p></td>
 <td><p>To assign roles to contributors like editor, maintainer, compiler, rightsOwner, etc..  Note <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> roles relate to activities, not entities. Therefore, DCAT defines a new property dcat:hadRole  to attach a role to the association-class prov:Attribution between and entity and an agent. <a class="reference external" href="https://id.loc.gov/vocabulary/relators.html">MARC relators</a> provide many relationships between resources and agents.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Related agent - distributor</p></td>
+<tr class="row-even"><td><p>Related agent - distributor</p></td>
 <td><p>0..*</p></td>
 <td><p>a dcat:Resource, prov:Entity; <br>  prov:qualifiedAttribution [<br>     a prov:Attribution ;<br>      prov:agent &lt;agent URI&gt; ;<br>    dcat:hadRole &lt;distributor role URI&gt;<br>  ];</p></td>
 <td><p>To assign an agent to a distributor role.  Note <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> roles relate to activities, not entities. Therefore, DCAT defines a new property dcat:hadRole  to attach a role to the association-class prov:Attribution between and entity and an agent.  Note that in DCAT prov:qualifiedAttribution can only be used with dcat:Resource or subclass of dcat:resource, not with individual distributions. CDIF recommendation for the role uri is ‘<a class="reference external" href="http://id.loc.gov/vocabulary/relators/dst">http://id.loc.gov/vocabulary/relators/dst</a>’.</p></td>
 </tr>
-<tr class="row-even"><td><p></p></td>
+<tr class="row-odd"><td><p></p></td>
 <td><p></p></td>
 <td><p>a dcat:Dataset; <br>  dcat:distribution [<br>   a dcat:Distribution;<br>   sdo:provider [<br>    a sdo:Person OR sdo:Organization] <br>];</p></td>
 <td><p>If there are multiple distributions with different providers, each distribution can have a separate provider. dcat:Distribution does not have pointOfContact or prov:qualifiedAttribution.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Related resources</p></td>
+<tr class="row-even"><td><p>Related resources</p></td>
 <td><p>0..*</p></td>
 <td><p>a dcat:Resource;<br>   &lt;dcterms:relation or subProperty&gt; <br>     &lt;target resource URI&gt;</p></td>
 <td><p>dcterms:relation is used if the nature of the relationship between a cataloged resource and related resources is not known. More specific sub-properties of relation (dcterms:hasPart, dcterms:isPartOf, dcterms:conformsTo, dcterms:isFormatOf, dcterms:hasFormat, dcterms:isVersionOf, dcterms:hasVersion (and its sub-property dcat:hasVersion ), dcterms:replaces, dcterms:isReplacedBy, dcterms:references, dcterms:isReferencedBy, dcterms:requires, dcterms:isRequiredBy)  SHOULD be used if the nature of the relationship of the link is known.  These dcterms relation types will have to be mapped to linkRelationship values in <a class="reference external" href="http://schema.org">schema.org</a> to map between the schema. Note that the target of the relation should be a resolvable URI.</p></td>
 </tr>
-<tr class="row-even"><td><p></p></td>
+<tr class="row-odd"><td><p></p></td>
 <td><p>0..*</p></td>
 <td><p>a dcat:Resource;<br>   dcat:qualifiedRelation [<br>    a dcat:Relationship ;<br>    dcterms:relation &lt;target resource URI&gt; ;<br>    dcat:hadRole &lt;relationship type URI&gt;<br>  ];</p></td>
 <td><p>Representation of relationship that are not hard typed by dcterms or dcat, e.g. alternate, canonical, original, preview, stereo-mate, working-copy-of. Some of these roles are enumerated in the DS_AssociationTypeCodes values from <a class="reference external" href="https://standards.iso.org/iso/19115/resources/Codelists/gml/DS_AssociationTypeCode.xml">ISO-19115-1</a>, the IANA Registry of Link Relations <a class="reference external" href="https://www.iana.org/assignments/link-relations/">IANA-RELATIONS</a>, in the <a class="reference external" href="https://schema.datacite.org/meta/kernel-4.5/include/datacite-relationType-v4.xsd">DataCite</a> metadata schema, and included within the <a class="reference external" href="https://id.loc.gov/vocabulary/relationship.html">MARC relationships</a>.  Ideally a resolvable URI is available for the relationship role.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Funding</p></td>
+<tr class="row-even"><td><p>Funding</p></td>
 <td><p>0..*</p></td>
 <td><p>a dcat:Resource, prov:Entity;<br>  prov:qualifiedAttribution [<br>     a prov:Attribution ;<br>      prov:agent &lt;agent URI&gt; ;<br>      dcat:hadRole &lt;role URI&gt;<br>];</p></td>
 <td><p>To assign roles to a funding instrument.  Note <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> roles relate to activities, not entities. Therefore, DCAT defines a new property dcat:hadRole  to attach a role to the association-class prov:Attribution between and entity and an agent.  In this case the prov:agent should be a funding instrument (e.g. identified grant) under the auspices of a funding agency, and role should indicate that the agent is the provider of funding to create the resource</p></td>
 </tr>
-<tr class="row-even"><td><p>Policies</p></td>
+<tr class="row-odd"><td><p>Policies</p></td>
 <td><p>0..*</p></td>
 <td><p>a dcat:Resource OR dcat:Distribution<br>  odrl:hasPolicy [a odrl:Policy; ….];</p></td>
 <td><p>DCAT provides a property odrl:hasPolich that has an ordl:Policy object as its targert, for both Resources, and individual distributions.  More work is necessay to determ how policies like    FDOF digitalObjectMutability, RDA digitalObjectPolicy, FDOF PersistencyPolicy can (or should) be expressed as ODRL policies and if there’s a better implemention of these.  <br>An ODRL Policy MUST have one uid property value to identify the Policy, AND at least one permission, prohibition, or obligation property values of type Rule. (See the <a class="reference external" href="https://www.w3.org/TR/odrl-model">ODRL model</a> Permission, Prohibition, and Obligation sections for more details.)</p></td>
 </tr>
-<tr class="row-odd"><td><p>Checksum</p></td>
+<tr class="row-even"><td><p>Checksum</p></td>
 <td><p>0..1</p></td>
 <td><p>a dcat:Distribution;<br>   spdx:checksum [<br>     a spdx:Checksum;<br>     spdx:algorithm &lt;algorithm URI&gt;;<br>     spdx:checksumValue   “nnnn”^^xsd:hexBinary ];</p></td>
 <td><p>A string value calculated from the content of the resource representation, used to test if content has been modified. Use Software Package Data Exchange (SPDX) property; The <a class="reference external" href="https://spdx.org/rdf/spdx-terms-v2.3/#d4e2091">spdx Checksum</a> object has two properties: algorithm and checksumValue. The checksum is a property of each distribution/Distribution</p></td>
+</tr>
+<tr class="row-odd"><td><p>Provenance (instruments, software etc.)</p></td>
+<td><p>0..*</p></td>
+<td><p>prov:wasGeneratedBy <br> a prov:Activity;<br>  prov:used <br>      &lt;nerc:collection/L05/current/134&gt;,   &lt;nerc:collection/B76/current/B7600031&gt; ] }</p></td>
+<td><p>Identify sensors, instruments, platforms, software, algorithms etc. used in the creation of the described resource</p></td>
+</tr>
+<tr class="row-even"><td><p>Provenance (input datasets)</p></td>
+<td><p>0..*</p></td>
+<td><p>prov:wasDerivedFrom <br> &lt;<a class="reference external" href="http://doi.org/10.547/347848%5C">http://doi.org/10.547/347848\</a>&gt;,        &lt;<a class="reference external" href="http://doi.org/10.3578/h5ls%5C">http://doi.org/10.3578/h5ls\</a>&gt;, &lt;<a class="reference external" href="http://doi.org/10.547/93578%5C">http://doi.org/10.547/93578\</a>&gt;</p></td>
+<td><p>Identify datasets used  in the creation of the described resource</p></td>
+</tr>
+<tr class="row-odd"><td><p>Quality measure</p></td>
+<td><p>0..*</p></td>
+<td><p>“dqv:hasQualityMeasurement <br>    a dqv:QualityMeasurement; <br>   dqv:isMeasurementOf      &lt;nerc:collection/L27/current/ARGO_QC&gt;;   dqv:value  “good”;</p></td>
+<td><p>Quality assesment or measument conducted using procedure or protocol specified by the dqv:isMeasurementOf property, with result value specified in the dqv:value property. The result might be numeric, a categorical term, or a link to a document describing the quality assessment.</p></td>
 </tr>
 </tbody>
 </table>
@@ -720,11 +741,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="publication.html"
+       href="../examples/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Metadata publication</p>
+        <p class="prev-next-title">Example metadata documents</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
