@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -181,6 +181,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../background/checklistForImplementation.html">Checklist to implement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../background/whycdif.html">Why CDIF Matters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../background/history.html">How was CDIF Developed?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../background/structure.html">The structure of CDIF</a></li>
@@ -193,12 +194,14 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../metadata/technicalexpressionmetadata.html">Technical expression of metadata</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../metadata/distributionapis.html">Queryable distribution interfaces (API)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata/queryabledistributions.html">Queryable distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/publishingmetadata.html">Publishing metadata</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../metadata/discovery.html">Discovery</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../metadata/contentmodel.html">Basic discovery metadata content model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../metadata/publishingmetadata.html">Publishing metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata/recommendations.html">Metadata Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/contentmodel.html">Basic discovery metadata content model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/publication.html">Metadata publication</a></li>
+
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../data_access/intro.html">Data Access Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -244,9 +247,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../metadata/schemaorgimplementation.html">Schema.org implementation of CDIF metadata</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="../metadata/dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../metadata/publication.html">Metadata publication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metadata/dcat.html">Data Catalog Vocabulary (DCAT) vocabulary</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example metadata documents</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../metadata/mapping.html">Metadata mappings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -509,7 +511,7 @@ Figure. Long data structures - presentational elements.
 Figure. Multidimensional data structure.
 <br></p>
 <p>The exception to this is if a ‘cell’ has more than one Measure Component, in which case the set of Measure Components requires further disambiguation. This can be specified by qualifying the Primary Key values with the Measure Component/Variable. It is recommended that only a single Measure Component be used;  cells should, if possible, hold simple values such as a string/code, a date-time, or a number. In some cases — notably in the DataCube Vocabulary from W3C and the SDMX specifications on which it is based — the dimensions in a key are ordered. In DDI-CDI, specifying an order is done using the Component Position (cdi:ComponentPosition) class.</p>
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/datacubeexample.jpg"><img alt="Long data structure" class="bg-primary mb-1 align-center" src="../_images/datacubeexample.jpg" style="width: 400px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="data_integration/figures/datacubeexample.jpg"><img alt="Long data structure" class="bg-primary mb-1 align-center" src="data_integration/figures/datacubeexample.jpg" style="width: 400px;" /></a>
 <p>Figure. Example Dimensional Data: Education Level of Belgian Residents
 <br>
 The table above provides a simple example of a Dimensional Data Set, and how its structure can be described. In this example, the first four columns act as dimensions for addressing the value given in the last column. There would be five Instance Variables described: Year, Degree, Province, Age, and Percent. The representations of these variables would be enumerated using SKOS Concept Schemes except for Year, which would be an XSD gYear, and the Percent variable, which would have a numeric type. Year, Degree, Province, and Age would all be used to define Dimension Components, which could be indexed using instances of the Component Position class, assigning them a ranking from 1 to 4 (ordered low-to-high). Taken together, these four Dimension Components would form the Primary Key. Percent would be a Measure Component.</p>
