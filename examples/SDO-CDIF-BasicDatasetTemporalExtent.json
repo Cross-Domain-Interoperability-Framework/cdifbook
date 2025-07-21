@@ -1,33 +1,35 @@
 {
-    "@context": [
-        "https://schema.org/",
+    "@context": 
         {
+            "schema":"https://schema.org/", 
             "dcterms": "http://purl.org/dc/terms/",
             "geosparql": "http://www.opengis.net/ont/geosparql#",
             "spdx": "http://spdx.org/rdf/terms#",
-            "ex": "https://example.org/"
-        }
-    ],
+            "ex": "https://example.org/",
+        "time": "http://www.w3.org/2006/time#"
+        },
     "@id": "ex:URIforNode2246",
-    "@type": ["Dataset"],
-    "identifier": "ex:URIforTheDataset",
-    "name": "Minimal dataset metadata",
-    "description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
-    "url": "ex:locatortoGETlandingPage",
-    "publishingPrinciples": [
+    "@type": ["schema:Dataset"],
+    "schema:identifier": "ex:URIforTheDataset",
+    "schema:name": "Minimal dataset metadata",
+    "schema:description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
+    "schema:url": "https://example.org/locatortoGETlandingPage",
+    "schema:license":{"@id":"https://creativecommons.org/publicdomain/zero/1.0/"},
+    "schema:publishingPrinciples": [
         {
-            "@type": "CreativeWork",
-            "url": "https://cdif.org/resources/policy/264"
+            "@type": "schema:CreativeWork",
+            "schema:name":"big book of publishing policies",
+            "schema:url": "https://cdif.org/resources/policy/264"
         }
     ],
-    "dateModified": "2010-02-03",
-    "distribution": [
+    "schema:dateModified": "2010-02-03",
+    "schema:distribution": [
         {
-            "@type": "DataDownload",
-            "contentUrl": "https://example.org/locatorForDataset"
+            "@type": "schema:DataDownload",
+            "schema:contentUrl": "https://example.org/locatorForDataset"
         }
     ],
-    "temporalCoverage": [
+    "schema:temporalCoverage": [
         {
             "@type": "time:ProperInterval",
             "time:hasBeginning": {
@@ -68,11 +70,11 @@
         "http://doi.org/10.3578/h5ls",
         "http://doi.org/10.547/93578"
     ],
-    "subjectOf": {
+    "schema:subjectOf": {
         "@id": "ex:URIforTheDigitalObjectMetadata",
-        "@type": "DigitalDocument",
-        "identifier": "ex:URIforNode2246",
+        "@type": "schema:DigitalDocument",
+        "schema:identifier": "ex:URIforNode2246",
         "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
-        "dateModified": "2014-02-23"
+        "schema:dateModified": "2014-02-23"
     }
 }

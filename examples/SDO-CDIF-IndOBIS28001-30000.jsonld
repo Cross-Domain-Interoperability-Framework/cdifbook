@@ -1,78 +1,76 @@
 {
-    "@context": [
-        "https://schema.org/",
-        {
-            "dcterms": "http://purl.org/dc/terms/",
-            "geosparql": "http://www.opengis.net/ont/geosparql#",
-            "spdx": "http://spdx.org/rdf/terms#",
-            "ex": "https://example.org/"
-        }
-    ],
-    "@type": ["Dataset"],
+    "@context": {
+        "schema": "https://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "ex": "https://example.org/"
+    },
+    "@type": ["schema:Dataset"],
     "@id": "https://obis.org/node/71c18dbe-72a9-42af-8108-4f2799e1c270",
-    "name": "IndOBIS Dataset (28001-30000)",
-    "description": "A literature based dataset comprises distribution records of marine organisms reported from the Indian Ocean region gathered as part of the MLR Programme- Integrated Taxonomic Information System (ITIS).",
-    "url": "https://obis.org/dataset/71c18dbe-72a9-42af-8108-4f2799e1c270",
-    "identifier": ["https://obis.org/dataset/71c18dbe-72a9-42af-8108-4f2799e1c270"],
-    "license": ["This work is licensed under a  Creative Commons Attribution (CC-BY) 4.0 License"],
-    "citation": "Indian Ocean Biodiversity Information System (IndOBIS)- Distribution records of marine organisms from the Indian Ocean.",
-    "version": "2022-01-04T09:33:31.000Z",
-    "keywords": ["Occurrence"],
-    "variableMeasured": [],
-    "temporalCoverage": "1758/2004",
-    "distribution": [
+    "schema:name": "IndOBIS Dataset (28001-30000)",
+    "schema:description": "A literature based dataset comprises distribution records of marine organisms reported from the Indian Ocean region gathered as part of the MLR Programme- Integrated Taxonomic Information System (ITIS).",
+    "schema:url": "https://obis.org/dataset/71c18dbe-72a9-42af-8108-4f2799e1c270",
+    "schema:identifier": ["https://obis.org/dataset/71c18dbe-72a9-42af-8108-4f2799e1c270"],
+    "schema:license": ["This work is licensed under a  Creative Commons Attribution (CC-BY) 4.0 License"],
+    "schema:citation": "Indian Ocean Biodiversity Information System (IndOBIS)- Distribution records of marine organisms from the Indian Ocean.",
+    "schema:version": "2022-01-04T09:33:31.000Z",
+    "schema:keywords": ["Occurrence"],
+    "schema:variableMeasured": [],
+    "schema:temporalCoverage": "1758/2004",
+    "schema:distribution": [
         {
-            "@type": "DataDownload",
-            "contentUrl": "http://ipt.iobis.org/indobis/archive.do?r=indobisdataset-28001-30000",
-            "encodingFormat": ["application/zip"]
+            "@type": "schema:DataDownload",
+            "schema:contentUrl": "http://ipt.iobis.org/indobis/archive.do?r=indobisdataset-28001-30000",
+            "schema:encodingFormat": ["application/zip"]
         }
     ],
-    "spatialCoverage": {
-        "@type": "Place",
-        "description":"lat and long coordinates reversted (long, lat) in OIS metadata, switch from polygon to box",
-        "geo": {
-            "@type": "GeoShape",
-            "box": "-33.8667 25.6333 29.00 115.85"
+    "schema:spatialCoverage": {
+        "@type": "schema:Place",
+        "schema:description": "lat and long coordinates reversted (long, lat) in OIS metadata, switch from polygon to box",
+        "schema:geo": {
+            "@type": "schema:GeoShape",
+            "schema:box": "-33.8667 25.6333 29.00 115.85"
         },
-        "additionalProperty": {
-            "@type": "PropertyValue",
-            "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
-            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+        "schema:additionalProperty": {
+            "@type": "schema:PropertyValue",
+            "schema:propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+            "schema:value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
         }
     },
-    "provider": [
+    "schema:provider": [
         {
             "@id": "https://oceanexpert.org/institution/7503",
-            "@type": "Organization",
-            "legalName": "CSIR - National Institute of Oceanography, Goa",
-            "name": "CSIR - National Institute of Oceanography, Goa",
-            "url": "https://oceanexpert.org/institution/7503"
+            "@type": "schema:Organization",
+            "schema:legalName": "CSIR - National Institute of Oceanography, Goa",
+            "schema:name": "CSIR - National Institute of Oceanography, Goa",
+            "schema:url": "https://oceanexpert.org/institution/7503"
         },
         {
             "@id": "https://oceanexpert.org/institution/11420",
-            "@type": "Organization",
-            "legalName": "Centre for Marine Living Resources & Ecology, Ministry of Earth Sciences, Government of India",
-            "name": "Centre for Marine Living Resources & Ecology, Ministry of Earth Sciences, Government of India",
-            "url": "https://oceanexpert.org/institution/11420"
+            "@type": "schema:Organization",
+            "schema:legalName": "Centre for Marine Living Resources & Ecology, Ministry of Earth Sciences, Government of India",
+            "schema:name": "Centre for Marine Living Resources & Ecology, Ministry of Earth Sciences, Government of India",
+            "schema:url": "https://oceanexpert.org/institution/11420"
         }
     ],
-    "subjectOf": {
-        "@type": "DigitalDocument",
+    "schema:subjectOf": {
+        "@type": "schema:DigitalDocument",
         "@id": "ex:metadata/71c18dbe-72a9-42af-8108-4f2799e1c270",
-        "identifier":"https://obis.org/metadata/71c18dbe-72a9-42af-8108-4f2799e1c270",
-        "description": "information about metadata record.  JSONLD metadata harvested from OceanInfohub, https://api.search.oceaninfohub.org/source?id=https%3A%2F%2Fobis.org%2Fdataset%2F71c18dbe-72a9-42af-8108-4f2799e1c270&_gl=1*4zln2q*_ga*MTkzMTMzNjY4Ny4xNzIwODE4MzI1*_ga_MQDK6BB0YQ*MTcyMjU1MTY2Ni41LjEuMTcyMjU1MTgzMS4wLjAuMA..*_ga_QJ5XJMZFXW*MTcyMjU1MTY3Mi40LjEuMTcyMjU1MTgzMS4wLjAuMA.",
+        "schema:identifier": "https://obis.org/metadata/71c18dbe-72a9-42af-8108-4f2799e1c270",
+        "schema:description": "information about metadata record.  JSONLD metadata harvested from OceanInfohub, https://api.search.oceaninfohub.org/source?id=https%3A%2F%2Fobis.org%2Fdataset%2F71c18dbe-72a9-42af-8108-4f2799e1c270&_gl=1*4zln2q*_ga*MTkzMTMzNjY4Ny4xNzIwODE4MzI1*_ga_MQDK6BB0YQ*MTcyMjU1MTY2Ni41LjEuMTcyMjU1MTgzMS4wLjAuMA..*_ga_QJ5XJMZFXW*MTcyMjU1MTY3Mi40LjEuMTcyMjU1MTgzMS4wLjAuMA.",
         "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
-        "dateModified": "2024-08-01",
-        "maintainer": {
+        "schema:dateModified": "2024-08-01",
+        "schema:maintainer": {
             "@id": "https://catalogue.odis.org/view/343",
-            "@type": "Organization",
-            "name": "Ocean Biodiversity Information System",
-            "url": "https://obis.org"
+            "@type": "schema:Organization",
+            "schema:name": "Ocean Biodiversity Information System",
+            "schema:url": "https://obis.org"
         },
-        "includedInDataCatalog": {
+        "schema:includedInDataCatalog": {
             "@id": "https://obis.org",
             "@type": "DataCatalog",
-            "url": "https://obis.org"
+            "schema:url": "https://obis.org"
         }
     }
 }

@@ -1,80 +1,81 @@
 {
-    "@context": [
-        "https://schema.org/",
-        {
+    "@context": {
+        "schema":"https://schema.org/",
             "dcterms": "http://purl.org/dc/terms/",
             "geosparql": "http://www.opengis.net/ont/geosparql#",
             "spdx": "http://spdx.org/rdf/terms#",
             "ex": "https://example.org/"
-        }
-    ],
+        },
     "@id": "ex:URIforTheDataset",
-    "@type": ["Dataset"],
-    "name": "Tabular dataset metadata",
-    "description": "example documentation that will validate with CDIF schema.org JSON schema. includes both multiple distributions.",
-    "identifier": {
-        "@type": "PropertyValue",
-        "description": "this is redundant with @id, but makes identification of the described dataset explicit",
-        "propertyID": "https://registry.identifiers.org/registry/ark",
-        "value": "ark:/99152/63v4yo3eeqepj0",
-        "url": "https://n2t.net/ark:/99152/63v4yo3eeqepj0"
+    "@type": ["schema:Dataset"],
+    "schema:name": "Tabular dataset metadata",
+    "schema:description": "example documentation that will validate with CDIF schema.org JSON schema. includes both multiple distributions.",
+    "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:description": "this is redundant with @id, but makes identification of the described dataset explicit",
+        "schema:scheme": "https://registry.identifiers.org/registry/ark",
+        "schema:value": "ark:/99152/63v4yo3eeqepj0",
+        "schema:url": "https://n2t.net/ark:/99152/63v4yo3eeqepj0"
     },
-    "publishingPrinciples": [
+    "schema:publishingPrinciples": [
         {
-            "@type": "CreativeWork",
-            "url": "https://example.org/id/policy",
-            "name": "Digital Object Policy",
-            "description": "policies used in management of the described resource..."
+            "@type": "schema:CreativeWork",
+            "schema:url": "https://example.org/id/policy",
+            "schema:name": "Digital Object Policy",
+            "schema:description": "policies used in management of the described resource..."
         }
     ],
-    "distribution": [
+    "schema:distribution": [
         {
-            "@type":"DataDownload",
-            "contentUrl": "https://example.org/datasets/1234567890.csv",
-            "description": "A comma delimited text distribution of the data following csv on the web W3C conventions (a digitalObject...). We do not consider the URL that locates this particular digitalObject as the identifier for the object, so this DataDownload is a blank node. ",
+            "@type":"schema:DataDownload",
+            "schema:contentUrl": "https://example.org/datasets/1234567890.csv",
+            "schema:description": "A comma delimited text distribution of the data following csv on the web W3C conventions (a digitalObject...). We do not consider the URL that locates this particular digitalObject as the identifier for the object, so this DataDownload is a blank node. ",
             "spdx:checksum": {
+                "@type": "spdx:Checksum",
                 "spdx:algorithm": "spdx:checksumAlgorithm_md5",
                 "spdx:checksumValue": "0BAA1B8"
             },
-            "contentSize": "12345 kb",
-            "encodingFormat": ["text/csv (base mime type)"],
+            "schema:contentSize": "12345 kb",
+            "schema:encodingFormat": ["text/csv (base mime type)"],
             "dcterms:conformsTo": [
                 "https://example.org/dataonthewebcsvprofile",
                 "https://fdof.org/fdofprofile"
             ]
         },
         {
-            "@type":"DataDownload",
-            "contentUrl": "https://example.org/datasets/1234567890.rdb",
-            "description": "A comma delimited text distribution of the data using USGS RDB conventions (a digitalObject...). We do not consider the URL that locates this particular digitalObject as the identifier for the object, so this DataDownload is a blank node. ",
+            "@type":"schema:DataDownload",
+            "schema:contentUrl": "https://example.org/datasets/1234567890.rdb",
+            "schema:description": "A comma delimited text distribution of the data using USGS RDB conventions (a digitalObject...). We do not consider the URL that locates this particular digitalObject as the identifier for the object, so this DataDownload is a blank node. ",
             "spdx:checksum": {
+                "@type": "spdx:Checksum",
                 "spdx:algorithm": "spdx:checksumAlgorithm_md5",
                 "spdx:checksumValue": "0F119B7"
             },
-            "contentSize": "11256 kb",
-            "encodingFormat": ["text/csv (base mime type)"],
+            "schema:contentSize": "11256 kb",
+            "schema:encodingFormat": ["text/csv (base mime type)"],
             "dcterms:conformsTo": [
                 "https://example.org/usgsRDBprofile",
                 "https://fdof.org/fdofprofile"
             ]
         }
     ],
-    "dateModified": "2010-02-03",
-    "subjectOf": {
-        "@id": "metadata:ark:/99152/URIforTheMetadataRecord",
-        "@type": "DigitalDocument",
-        "description": "information about this metadata record",
-        "maintainer": {
+    "schema:conditionsOfAccess":"these are the applicable conditions for accessing the resource",
+    "schema:dateModified": "2010-02-03",
+    "schema:subjectOf": {
+        "@id": "ark:/99152/URIforTheMetadataRecord",
+        "@type": "schema:DigitalDocument",
+        "schema:description": "information about this metadata record",
+        "schema:maintainer": {
             "@type": "Person",
             "@id": "https://orcid.org/identifierForMetadataProducer",
-            "name": "metadata creator-editor-steward name",
-            "description": "person responsible for the metadata"
+            "schema:name": "metadata creator-editor-steward name",
+            "schema:description": "person responsible for the metadata"
         },
-        "about": {
+        "schema:about": {
             "@type": "DigitalDocument",
-            "url":"ex:URIforDescribedResource"
+            "schema:url":"ex:URIforTheDataset"
             },
-        "dateModified": "2014-02-23",
+        "schema:dateModified": "2014-02-23",
         "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
     }
 }

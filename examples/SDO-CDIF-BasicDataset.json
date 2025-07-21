@@ -1,37 +1,37 @@
 {
-    "@context": [
-        "https://schema.org/",
-        {
-            "dcterms": "http://purl.org/dc/terms/",
-            "geosparql": "http://www.opengis.net/ont/geosparql#",
-            "spdx": "http://spdx.org/rdf/terms#",
-            "ex": "https://example.org/"
-        }
-    ],
+    "@context": {
+        "schema": "https://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "ex": "https://example.org/"
+    },
     "@id": "ex:URIforNode2246",
-    "@type": ["Dataset"],
-    "identifier":"ex:URIforTheDataset",
-    "name": "Minimal dataset metadata",
-    "description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
-    "url": "ex:locatortoGETlandingPage",
-    "publishingPrinciples": [
+    "@type": ["schema:Dataset"],
+    "schema:identifier": "ex:URIforTheDataset",
+    "schema:name": "Minimal dataset metadata",
+    "schema:description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
+    "schema:url": "https://example.org/locatortoGETlandingPage",
+    "schema:publishingPrinciples": [
         {
-            "@type": "CreativeWork",
-            "url": "https://cdif.org/resources/policy/264"
+            "@type": "schema:CreativeWork",
+            "schema:name":"the big example.org policy document",
+            "schema:url": "https://cdif.org/resources/policy/264"
         }
     ],
-    "dateModified": "2010-02-03",
-    "distribution": [
+    "schema:conditionsOfAccess":"these are the applicable conditions for accessing the resource",
+    "schema:dateModified": "2010-02-03",
+    "schema:distribution": [
         {
-            "@type": "DataDownload",
-            "contentUrl": "https://example.org/locatorForDataset"
+            "@type": "schema:DataDownload",
+            "schema:contentUrl": "https://example.org/locatorForDataset"
         }
     ],
-    "subjectOf": {
+    "schema:subjectOf": {
         "@id": "ex:URIforTheDigitalObjectMetadata",
-        "@type": "DigitalDocument",
-        "identifier":"ex:URIforNode2246",
-        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
-        "dateModified": "2014-02-23"
+        "@type": "schema:DigitalDocument",
+        "schema:identifier": "ex:URIforNode2246",
+        "dcterms:conformsTo": {"@id":"ex:cdif_SDO_profile_uri"},
+        "schema:dateModified": "2014-02-23"
     }
 }

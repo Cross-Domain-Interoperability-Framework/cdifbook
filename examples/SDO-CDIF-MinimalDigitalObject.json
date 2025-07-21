@@ -1,22 +1,30 @@
 {
-    "@context": [
-        "https://schema.org/",
+    "@context": {
+        "schema": "https://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#"
+    },
+    "@id": "ark:/99152/URIforTheDigitalObject",
+    "@type": ["schema:Dataset"],
+    "schema:name": "Minimal dataset metadata",
+    "schema:description": "example minimal documentation that will validate with CDIF schema.org JSON schema. Either a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
+    "schema:identifier": "https:doi.org/10.35467/2357838",
+    "schema:license": ["https://microimagerylab.org/license.txt"],
+    "schema:distribution": [
         {
-            "dcterms": "http://purl.org/dc/terms/",
-            "geosparql": "http://www.opengis.net/ont/geosparql#",
-            "spdx": "http://spdx.org/rdf/terms#",
-            "id": "@id",
-            "type": "@type"
+            "@type": "schema:DataDownload",
+            "schema:contentUrl": "https://example.org/locatorForDataset"
         }
     ],
-    "@id": "ark:/99152/URIforTheDigitalObject",
-    "@type": ["Dataset"],
-    "name": "Minimal dataset metadata",
-    "description": "example minimal documentation that will validate with CDIF schema.org JSON schema. Either a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
-    "distribution": [
-        {
-            "@type": "DataDownload",
-            "contentUrl": "https://example.org/locatorForDataset"
-        }
-    ]
+    "schema:subjectOf": {
+        "@id": "ex:URIforTheMetadata",
+        "@type": "schema:DigitalDocument",
+        "schema:dateModified": "2017-05-23",
+        "schema:about": {
+            "@type": "schema:DigitalDocument",
+            "schema:url": "ex:URIforDescribedResource"
+        },
+        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
+    }
 }

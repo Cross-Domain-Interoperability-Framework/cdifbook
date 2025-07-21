@@ -1,49 +1,48 @@
 {
-    "@context": [
-        "https://schema.org/",
-        {
+    "@context": {
+    "schema":"https://schema.org/",
             "dcterms": "http://purl.org/dc/terms/",
             "geosparql": "http://www.opengis.net/ont/geosparql#",
             "spdx": "http://spdx.org/rdf/terms#",
             "ex": "https://example.org/"
-        }
-    ],
-    "@type": ["Dataset"],
+        },
+    "@type": ["schema:Dataset"],
     "@id": "https://metadata.org/10.5878/tnzz-m331",
-    "identifier": "https://doi.org/10.5878/tnzz-m331",
-    "version": "4",
-    "name": "Dataset for SOU 2023:18 The Wind's Value - Compensation, Incentives and Planning for a Continued Sustainable Wind Power Development",
-    "description": "The study is a Governmental ....",
-    "datePublished": "2023-06-21T11:37:06Z",
-    "dateModified": "2023-06-21T11:37:06Z",
-    "temporalCoverage": "2020/2022",
-    "publisher": {
-        "@type": "Organization",
+    "schema:identifier": "https://doi.org/10.5878/tnzz-m331",
+    "schema:version": "4",
+    "schema:name": "Dataset for SOU 2023:18 The Wind's Value - Compensation, Incentives and Planning for a Continued Sustainable Wind Power Development",
+    "schema:description": "The study is a Governmental ....",
+    "schema:datePublished": "2023-06-21T11:37:06Z",
+    "schema:dateModified": "2023-06-21T11:37:06Z",
+    "schema:temporalCoverage": "2020/2022",
+    "schema:publisher": {
+        "@type": "schema:Organization",
         "@id": "https://snd.gu.se",
-        "name": "Swedish National Data Service"
+        "schema:name": "Swedish National Data Service"
     },
-    "distribution": [
+    "schema:license": ["Request for Acknowledgement: If you use these data in publications or presentations, please acknowledge the GTMBA Project Office of NOAA/PMEL. Also, we would appreciate receiving a preprint and/or reprint of publications utilizing the data for inclusion in our bibliography. Relevant publications should be sent to: GTMBA Project Office, NOAA/Pacific Marine Environmental Laboratory, 7600 Sand Point Way NE, Seattle, WA 98115\n\nThe data may be used and redistributed for free but is not intended\nfor legal use, since it may contain inaccuracies. Neither the data\nContributor, ERD, NOAA, nor the United States Government, nor any\nof their employees or contractors, makes any warranty, express or\nimplied, including warranties of merchantability and fitness for a\nparticular purpose, or assumes any legal liability for the accuracy,\ncompleteness, or usefulness, of this information."],
+    "schema:distribution": [
         {
-            "@type": "DataDownload",
-            "name": "ID 006 - Vero, Beskattning av vind- och solkraftverk Norge.pdf",
-            "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+006+-+Vero%2C+Beskattning+av+vind-+och+solkraftverk+Norge.pdf",
-            "contentSize": 356791,
-            "encodingFormat": ["application/pdf"],
-            "isAccessibleForFree": true
+            "@type": "schema:DataDownload",
+            "schema:name": "ID 006 - Vero, Beskattning av vind- och solkraftverk Norge.pdf",
+            "schema:contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+006+-+Vero%2C+Beskattning+av+vind-+och+solkraftverk+Norge.pdf",
+            "schema:contentSize": 356791,
+            "schema:encodingFormat": ["application/pdf"],
+            "schema:isAccessibleForFree": true
         },
         {
-            "@type": "DataDownload",
-            "name": "ID 042 - Nye regler om stigning i grundskylden p...pdf",
-            "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+042+-+Nye+regler+om+stigning+i+grundskylden+p...pdf",
-            "contentSize": 739978,
-            "encodingFormat": ["application/pdf"],
-            "isAccessibleForFree": true
+            "@type": "schema:DataDownload",
+            "schema:name": "ID 042 - Nye regler om stigning i grundskylden p...pdf",
+            "schema:contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+042+-+Nye+regler+om+stigning+i+grundskylden+p...pdf",
+            "schema:contentSize": 739978,
+            "schema:encodingFormat": ["application/pdf"],
+            "schema:isAccessibleForFree": true
         }
     ],
-    "subjectOf": {
+    "schema:subjectOf": {
         "@id": "metadata:10.5878/tnzz-m331",
-        "@type": "DigitalDocument",
-        "identifier":"https://metadata.org/10.5878/tnzz-m331",
+        "@type": "schema:DigitalDocument",
+        "schema:identifier":"https://metadata.org/10.5878/tnzz-m331",
         "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
     }
 }

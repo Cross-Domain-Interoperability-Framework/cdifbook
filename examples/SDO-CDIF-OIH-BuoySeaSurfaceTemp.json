@@ -1,20 +1,18 @@
 {
-    "@context": [
-        "https://schema.org/",
-        {
-            "dcterms": "http://purl.org/dc/terms/",
-            "geosparql": "http://www.opengis.net/ont/geosparql#",
-            "spdx": "http://spdx.org/rdf/terms#",
-            "ex": "https://example.org/"
-        }
-    ],
+    "@context": {
+        "schema": "https://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "ex": "https://example.org/"
+    },
     "@id": "ex:osmc.noaa.gov/erddap/tabledap/pmelTaoDySst",
-    "@type": ["Dataset"],
-    "name": "TAO/TRITON, RAMA, and PIRATA Buoys, Daily, 1977-present, Sea Surface Temperature",
-    "headline": "pmelTaoDySst",
-    "description": "This dataset has daily Sea Surface Temperature (SST) data from the\nTAO/TRITON (Pacific Ocean, https://www.pmel.noaa.gov/gtmba/ ),\nRAMA (Indian Ocean, https://www.pmel.noaa.gov/gtmba/pmel-theme/indian-ocean-rama ), and\nPIRATA (Atlantic Ocean, https://www.pmel.noaa.gov/gtmba/pirata/ )\narrays of moored buoys which transmit oceanographic and meteorological data to shore in real-time via the Argos satellite system.  These buoys are major components of the CLIVAR climate analysis project and the GOOS, GCOS, and GEOSS observing systems.  Daily averages are computed starting at 00:00Z and are assigned an observation 'time' of 12:00Z.  For more information, see\nhttps://www.pmel.noaa.gov/gtmba/mission .\ncdm_data_type=TimeSeries\ncdm_timeseries_variables=array, station, wmo_platform_code, longitude, latitude, depth\nConventions=COARDS, CF-1.6, ACDD-1.3, NCCSV-1.2\nData_Source=Global Tropical Moored Buoy Array Project Office/NOAA/PMEL\ndefaultGraphQuery=longitude,latitude,T_25&time>=now-7days\nEasternmost_Easting=357.0\nfeatureType=TimeSeries\nFile_info=Contact: Dai.C.McClurg@noaa.gov\ngeospatial_lat_max=21.0\ngeospatial_lat_min=-25.0\ngeospatial_lat_units=degrees_north\ngeospatial_lon_max=357.0\ngeospatial_lon_min=0.0\ngeospatial_lon_units=degrees_east\ngeospatial_vertical_max=15.0\ngeospatial_vertical_min=1.0\ngeospatial_vertical_positive=down\ngeospatial_vertical_units=m\nhistory=This dataset has data from the TAO/TRITON, RAMA, and PIRATA projects.\nThis dataset is a product of the TAO Project Office at NOAA/PMEL.\n2024-03-03 Bob Simons at NOAA/NMFS/SWFSC/ERD (bob.simons@noaa.gov) fully refreshed ERD's copy of this dataset by downloading all of the .cdf files from the PMEL TAO FTP site.  Since then, the dataset has been partially refreshed everyday by downloading and merging the latest version of the last 25 days worth of data.\ninfoUrl=https://www.pmel.noaa.gov/gtmba/mission\ninstitution=NOAA PMEL, TAO/TRITON, RAMA, PIRATA\nkeywords_vocabulary=GCMD Science Keywords\nNorthernmost_Northing=21.0\nproject=TAO/TRITON, RAMA, PIRATA\nRequest_for_acknowledgement=If you use these data in publications or presentations, please acknowledge the GTMBA Project Office of NOAA/PMEL. Also, we would appreciate receiving a preprint and/or reprint of publications utilizing the data for inclusion in our bibliography. Relevant publications should be sent to: GTMBA Project Office, NOAA/Pacific Marine Environmental Laboratory, 7600 Sand Point Way NE, Seattle, WA 98115\nsourceUrl=(local files)\nSouthernmost_Northing=-25.0\nstandard_name_vocabulary=CF Standard Name Table v70\nsubsetVariables=array, station, wmo_platform_code, longitude, latitude, depth\ntestOutOfDate=now-3days\ntime_coverage_end=2023-02-14T12:00:00Z\ntime_coverage_start=1977-11-03T12:00:00Z\nWesternmost_Easting=0.0",
-    "url": "https://osmc.noaa.gov/erddap/tabledap/pmelTaoDySst.html",
-    "keywords": [
+    "@type": ["schema:Dataset"],
+    "schema:name": "TAO/TRITON, RAMA, and PIRATA Buoys, Daily, 1977-present, Sea Surface Temperature",
+    "schema:headline": "pmelTaoDySst",
+    "schema:description": "This dataset has daily Sea Surface Temperature (SST) data from the\nTAO/TRITON (Pacific Ocean, https://www.pmel.noaa.gov/gtmba/ ),\nRAMA (Indian Ocean, https://www.pmel.noaa.gov/gtmba/pmel-theme/indian-ocean-rama ), and\nPIRATA (Atlantic Ocean, https://www.pmel.noaa.gov/gtmba/pirata/ )\narrays of moored buoys which transmit oceanographic and meteorological data to shore in real-time via the Argos satellite system.  These buoys are major components of the CLIVAR climate analysis project and the GOOS, GCOS, and GEOSS observing systems.  Daily averages are computed starting at 00:00Z and are assigned an observation 'time' of 12:00Z.  For more information, see\nhttps://www.pmel.noaa.gov/gtmba/mission .\ncdm_data_type=TimeSeries\ncdm_timeseries_variables=array, station, wmo_platform_code, longitude, latitude, depth\nConventions=COARDS, CF-1.6, ACDD-1.3, NCCSV-1.2\nData_Source=Global Tropical Moored Buoy Array Project Office/NOAA/PMEL\ndefaultGraphQuery=longitude,latitude,T_25&time>=now-7days\nEasternmost_Easting=357.0\nfeatureType=TimeSeries\nFile_info=Contact: Dai.C.McClurg@noaa.gov\ngeospatial_lat_max=21.0\ngeospatial_lat_min=-25.0\ngeospatial_lat_units=degrees_north\ngeospatial_lon_max=357.0\ngeospatial_lon_min=0.0\ngeospatial_lon_units=degrees_east\ngeospatial_vertical_max=15.0\ngeospatial_vertical_min=1.0\ngeospatial_vertical_positive=down\ngeospatial_vertical_units=m\nhistory=This dataset has data from the TAO/TRITON, RAMA, and PIRATA projects.\nThis dataset is a product of the TAO Project Office at NOAA/PMEL.\n2024-03-03 Bob Simons at NOAA/NMFS/SWFSC/ERD (bob.simons@noaa.gov) fully refreshed ERD's copy of this dataset by downloading all of the .cdf files from the PMEL TAO FTP site.  Since then, the dataset has been partially refreshed everyday by downloading and merging the latest version of the last 25 days worth of data.\ninfoUrl=https://www.pmel.noaa.gov/gtmba/mission\ninstitution=NOAA PMEL, TAO/TRITON, RAMA, PIRATA\nkeywords_vocabulary=GCMD Science Keywords\nNorthernmost_Northing=21.0\nproject=TAO/TRITON, RAMA, PIRATA\nRequest_for_acknowledgement=If you use these data in publications or presentations, please acknowledge the GTMBA Project Office of NOAA/PMEL. Also, we would appreciate receiving a preprint and/or reprint of publications utilizing the data for inclusion in our bibliography. Relevant publications should be sent to: GTMBA Project Office, NOAA/Pacific Marine Environmental Laboratory, 7600 Sand Point Way NE, Seattle, WA 98115\nsourceUrl=(local files)\nSouthernmost_Northing=-25.0\nstandard_name_vocabulary=CF Standard Name Table v70\nsubsetVariables=array, station, wmo_platform_code, longitude, latitude, depth\ntestOutOfDate=now-3days\ntime_coverage_end=2023-02-14T12:00:00Z\ntime_coverage_start=1977-11-03T12:00:00Z\nWesternmost_Easting=0.0",
+    "schema:url": "https://osmc.noaa.gov/erddap/tabledap/pmelTaoDySst.html",
+    "schema:keywords": [
         "buoys",
         "centered",
         "daily",
@@ -38,345 +36,346 @@
         "time",
         "triton"
     ],
-    "license": ["Request for Acknowledgement: If you use these data in publications or presentations, please acknowledge the GTMBA Project Office of NOAA/PMEL. Also, we would appreciate receiving a preprint and/or reprint of publications utilizing the data for inclusion in our bibliography. Relevant publications should be sent to: GTMBA Project Office, NOAA/Pacific Marine Environmental Laboratory, 7600 Sand Point Way NE, Seattle, WA 98115\n\nThe data may be used and redistributed for free but is not intended\nfor legal use, since it may contain inaccuracies. Neither the data\nContributor, ERD, NOAA, nor the United States Government, nor any\nof their employees or contractors, makes any warranty, express or\nimplied, including warranties of merchantability and fitness for a\nparticular purpose, or assumes any legal liability for the accuracy,\ncompleteness, or usefulness, of this information."],
-    "variableMeasured": [
+    "schema:license": ["Request for Acknowledgement: If you use these data in publications or presentations, please acknowledge the GTMBA Project Office of NOAA/PMEL. Also, we would appreciate receiving a preprint and/or reprint of publications utilizing the data for inclusion in our bibliography. Relevant publications should be sent to: GTMBA Project Office, NOAA/Pacific Marine Environmental Laboratory, 7600 Sand Point Way NE, Seattle, WA 98115\n\nThe data may be used and redistributed for free but is not intended\nfor legal use, since it may contain inaccuracies. Neither the data\nContributor, ERD, NOAA, nor the United States Government, nor any\nof their employees or contractors, makes any warranty, express or\nimplied, including warranties of merchantability and fitness for a\nparticular purpose, or assumes any legal liability for the accuracy,\ncompleteness, or usefulness, of this information."],
+    "schema:variableMeasured": [
         {
-            "@type": "PropertyValue",
-            "name": "array",
-            "alternateName": "Array",
-            "description": "Array identifier",
-            "propertyID": ["ioos_category:Identifier"]
+            "@type": "schema:PropertyValue",
+            "schema:name": "array",
+            "schema:alternateName": "Array",
+            "schema:description": "Array identifier",
+            "schema:propertyID": ["ioos_category:Identifier"]
         },
         {
-            "@type": "PropertyValue",
-            "name": "station",
-            "alternateName": "Station",
-            "description": "Station identifier",
-            "propertyID": ["ioos_category:Identifier"],
-            "valueReference": [
+            "@type": "schema:PropertyValue",
+            "schema:name": "station",
+            "schema:alternateName": "Station",
+            "schema:description": "Station identifier",
+            "schema:propertyID": ["ioos_category:Identifier"],
+            "schema:valueReference": [
                 {
-                    "@type": "PropertyValue",
-                    "name": "cf_role",
-                    "value": "timeseries_id"
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "cf_role",
+                    "schema:value": "timeseries_id"
                 }
             ]
         },
         {
-            "@type": "PropertyValue",
-            "name": "wmo_platform_code",
-            "alternateName": "WMO Platform Code",
-            "description": "WMO Platform platform identifier (how is this different from station?",
-            "propertyID": ["ioos_category:Identifier"],
-            "valueReference": [
+            "@type": "schema:PropertyValue",
+            "schema:name": "wmo_platform_code",
+            "schema:alternateName": "WMO Platform Code",
+            "schema:description": "WMO Platform platform identifier (how is this different from station?",
+            "schema:propertyID": ["ioos_category:Identifier"],
+            "schema:valueReference": [
                 {
                     "@type": "PropertyValue",
-                    "name": "missing_value",
-                    "value": 2147483647
+                    "schema:name": "missing_value",
+                    "schema:value": 2147483647
                 }
             ],
-            "maxValue": 56055,
-            "minValue": 13001
+            "schema:maxValue": 56055,
+            "schema:minValue": 13001
         },
         {
-            "@type": "PropertyValue",
-            "name": "longitude",
-            "alternateName": "Nominal Longitude",
-            "description": "Nominal Longitude of station position",
-            "propertyID": [
+            "@type": "schema:PropertyValue",
+            "schema:name": "longitude",
+            "schema:alternateName": "Nominal Longitude",
+            "schema:description": "Nominal Longitude of station position",
+            "schema:propertyID": [
                 "longitude",
                 "CoordinateAxisType:Lon",
                 "ioos_category:Location"
             ],
-            "valueReference": [
+            "schema:valueReference": [
                 {
-                    "@type": "PropertyValue",
-                    "name": "epic_code",
-                    "value": 502
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "epic_code",
+                    "schema:value": 502
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "missing_value",
-                    "value": 1e+35
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "missing_value",
+                    "schema:value": 1e+35
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "type",
-                    "value": "EVEN"
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "type",
+                    "schema:value": "EVEN"
                 }
             ],
-            "maxValue": 357,
-            "minValue": 0,
-            "unitText": "degrees_east"
+            "schema:maxValue": 357,
+            "schema:minValue": 0,
+            "schema:unitText": "degrees_east"
         },
         {
-            "@type": "PropertyValue",
-            "name": "latitude",
-            "alternateName": "Nominal Latitude",
-            "description": "Nominal Latitude",
-            "propertyID": [
+            "@type": "schema:PropertyValue",
+            "schema:name": "latitude",
+            "schema:alternateName": "Nominal Latitude",
+            "schema:description": "Nominal Latitude",
+            "schema:propertyID": [
                 "latitude",
                 "CoordinateAxisType:Lat",
                 "ioos_category:Location"
             ],
-            "valueReference": [
+            "schema:valueReference": [
                 {
-                    "@type": "PropertyValue",
-                    "name": "epic_code",
-                    "value": 500
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "epic_code",
+                    "schema:value": 500
                 },
                 {
-                    "@type": "PropertyValue",
+                    "@type": "schema:PropertyValue",
                     "name": "missing_value",
                     "value": 1e+35
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "type",
-                    "value": "EVEN"
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "type",
+                    "schema:value": "EVEN"
                 }
             ],
-            "maxValue": 21,
-            "minValue": -25,
-            "unitText": "degrees_north"
+            "schema:maxValue": 21,
+            "schema:minValue": -25,
+            "schema:unitText": "degrees_north"
         },
         {
-            "@type": "PropertyValue",
-            "name": "time",
-            "alternateName": [
+            "@type": "schema:PropertyValue",
+            "schema:name": "time",
+            "schema:alternateName": [
                 "Centered Time",
                 "T",
                 "time"
             ],
-            "description": "Centered Time, range is from 1977-11-03 to 2023-02-14",
-            "propertyID": [
+            "schema:description": "Centered Time, range is from 1977-11-03 to 2023-02-14",
+            "schema:propertyID": [
                 "ioos_category:Time",
                 "CoordinateAxisType:Time",
                 "observation time"
             ],
-            "valueReference": [
+            "schema:valueReference": [
                 {
-                    "@type": "PropertyValue",
-                    "name": "long_name",
-                    "value": "Centered Time"
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "long_name",
+                    "schema:value": "Centered Time"
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "point_spacing",
-                    "value": "even"
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "point_spacing",
+                    "schema:value": "even"
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "time_origin",
-                    "value": "01-JAN-1970 00:00:00"
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "time_origin",
+                    "schema:value": "01-JAN-1970 00:00:00"
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "type",
-                    "value": "EVEN"
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "type",
+                    "schema:value": "EVEN"
                 }
             ]
         },
         {
-            "@type": "PropertyValue",
-            "name": "depth",
-            "alternateName": "Depth",
-            "description": "Depth",
-            "valueReference": [
+            "@type": "schema:PropertyValue",
+            "schema:name": "depth",
+            "schema:alternateName": "Depth",
+            "schema:description": "Depth",
+            "schema:valueReference": [
                 {
-                    "@type": "PropertyValue",
-                    "name": "epic_code",
-                    "value": 3
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "epic_code",
+                    "schema:value": 3
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "missing_value",
-                    "value": 1e+35
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "missing_value",
+                    "schema:value": 1e+35
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "positive",
-                    "value": "down"
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "positive",
+                    "schema:value": "down"
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "type",
-                    "value": "EVEN"
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "type",
+                    "schema:value": "EVEN"
                 }
             ],
-            "maxValue": 15,
-            "minValue": 1,
-            "propertyID": [
+            "schema:maxValue": 15,
+            "schema:minValue": 1,
+            "schema:propertyID": [
                 "ioos_category:Location",
                 "depth"
             ],
-            "unitText": "m"
+            "schema:unitText": "m"
         },
         {
-            "@type": "PropertyValue",
-            "name": "T_25",
-            "alternateName": "Sea Surface Temperature",
-            "description": "Sea Surface Temperature",
-            "valueReference": [
+            "@type": "schema:PropertyValue",
+            "schema:name": "T_25",
+            "schema:alternateName": "Sea Surface Temperature",
+            "schema:description": "Sea Surface Temperature",
+            "schema:valueReference": [
                 {
-                    "@type": "PropertyValue",
-                    "name": "_FillValue",
-                    "value": 1e+35
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "_FillValue",
+                    "schema:value": 1e+35
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "colorBarMaximum",
-                    "value": 32
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "colorBarMaximum",
+                    "schema:value": 32
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "colorBarMinimum",
-                    "value": 0
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "colorBarMinimum",
+                    "schema:value": 0
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "epic_code",
-                    "value": 25
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "epic_code",
+                    "schema:value": 25
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "missing_value",
-                    "value": 1e+35
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "missing_value",
+                    "schema:value": 1e+35
                 }
             ],
-            "maxValue": 35.4621,
-            "minValue": 17.12,
-            "propertyID": [
+            "schema:maxValue": 35.4621,
+            "schema:minValue": 17.12,
+            "schema:propertyID": [
                 "temp",
                 "sea_surface_temperature",
                 "ioos_category:Temperature"
             ],
-            "unitText": "degree_C"
+            "schema:unitText": "degree_C"
         },
         {
-            "@type": "PropertyValue",
-            "name": "QT_5025",
-            "alternateName": [
+            "@type": "schema:PropertyValue",
+            "schema:name": "QT_5025",
+            "schema:alternateName": [
                 "Sea Surface Temperature Quality",
                 "qt",
                 "QT"
             ],
-            "description": "Quality: 0=missing data, 1=highest, 2=standard, 3=lower, 4=questionable, 5=bad, -9=contact Dai.C.McClurg@noaa.gov.  To get probably valid data only, request QT_5025>=1 and QT_5025<=3.",
-            "propertyID": ["ioos_category:Quality"],
-            "valueReference": [
+            "schema:description": "Quality: 0=missing data, 1=highest, 2=standard, 3=lower, 4=questionable, 5=bad, -9=contact Dai.C.McClurg@noaa.gov.  To get probably valid data only, request QT_5025>=1 and QT_5025<=3.",
+            "schema:propertyID": ["ioos_category:Quality"],
+            "schema:valueReference": [
                 {
-                    "@type": "PropertyValue",
-                    "name": "_FillValue",
-                    "value": 1e+35
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "_FillValue",
+                    "schema:value": 1e+35
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "colorBarContinuous",
-                    "value": "false"
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "colorBarContinuous",
+                    "schema:value": "false"
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "colorBarMaximum",
-                    "value": 6
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "colorBarMaximum",
+                    "schema:value": 6
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "colorBarMinimum",
-                    "value": 0
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "colorBarMinimum",
+                    "schema:value": 0
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "epic_code",
-                    "value": 5025
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "epic_code",
+                    "schema:value": 5025
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "missing_value",
-                    "value": 1e+35
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "missing_value",
+                    "schema:value": 1e+35
                 }
             ],
-            "maxValue": 5,
-            "minValue": 0
+            "schema:maxValue": 5,
+            "schema:minValue": 0
         },
         {
-            "@type": "PropertyValue",
-            "name": "ST_6025",
-            "alternateName": [
+            "@type": "schema:PropertyValue",
+            "schema:name": "ST_6025",
+            "schema:alternateName": [
                 "Sea Surface Temperature Source",
                 "st",
                 "ST"
             ],
-            "description": "Source Codes:n0 = No Sensor, No Data;  n1 = Real Time (Telemetered Mode);  n2 = Derived from Real Time;  n3 = Temporally Interpolated from Real Timen; 4 = Source Code Inactive at Present;  n5 = Recovered from Instrument RAM (Delayed Mode);   n6 = Derived from RAM;   n7 = Temporally Interpolated from RAM",
-            "propertyID": ["ioos_category:Other"],
-            "valueReference": [
+            "schema:description": "Source Codes:n0 = No Sensor, No Data;  n1 = Real Time (Telemetered Mode);  n2 = Derived from Real Time;  n3 = Temporally Interpolated from Real Timen; 4 = Source Code Inactive at Present;  n5 = Recovered from Instrument RAM (Delayed Mode);   n6 = Derived from RAM;   n7 = Temporally Interpolated from RAM",
+            "schema:propertyID": ["ioos_category:Other"],
+            "schema:valueReference": [
                 {
-                    "@type": "PropertyValue",
-                    "name": "_FillValue",
-                    "value": 1e+35
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "_FillValue",
+                    "schema:value": 1e+35
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "colorBarContinuous",
-                    "value": "false"
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "colorBarContinuous",
+                    "schema:value": "false"
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "colorBarMaximum",
-                    "value": 8
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "colorBarMaximum",
+                    "schema:value": 8
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "colorBarMinimum",
-                    "value": 0
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "colorBarMinimum",
+                    "schema:value": 0
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "epic_code",
-                    "value": 6025
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "epic_code",
+                    "schema:value": 6025
                 },
                 {
-                    "@type": "PropertyValue",
-                    "name": "missing_value",
-                    "value": 1e+35
+                    "@type": "schema:PropertyValue",
+                    "schema:name": "missing_value",
+                    "schema:value": 1e+35
                 }
             ],
-            "maxValue": 6,
-            "minValue": 0
+            "schema:maxValue": 6,
+            "schema:minValue": 0
         }
     ],
-    "creator": {
-        "@type": "Organization",
-        "name": "GTMBA Project Office/NOAA/PMEL",
-        "email": "Dai.C.McClurg@noaa.gov",
-        "identifier": "https://www.pmel.noaa.gov/gtmba/mission"
+    "schema:creator": {
+        "@type": "schema:Organization",
+        "schema:name": "GTMBA Project Office/NOAA/PMEL",
+        "schema:email": "Dai.C.McClurg@noaa.gov",
+        "schema:identifier": "https://www.pmel.noaa.gov/gtmba/mission"
     },
-    "identifier": {
-        "@type": "PropertyValue",
-        "description": "this is an identifier local to the osmc.noaa tabledap server",
-        "propertyID": "https://osmc.noaa.gov/erddap/tabledap",
-        "value": "pmelTaoDySst"
+    "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:description": "this is an identifier local to the osmc.noaa tabledap server",
+        "schema:scheme": "https://osmc.noaa.gov/erddap/tabledap",
+        "schema:value": "pmelTaoDySst"
     },
-    "temporalCoverage": "1977-11-03T12:00:00Z/2023-02-14T12:00:00Z",
-    "spatialCoverage": {
-        "@type": "Place",
-        "geo": {
-            "@type": "GeoShape",
-            "box": "-25 -180 21 180"
+    "schema:temporalCoverage": "1977-11-03T12:00:00Z/2023-02-14T12:00:00Z",
+    "schema:spatialCoverage": {
+        "@type": "schema:Place",
+        "schema:geo": {
+            "@type": "schema:GeoShape",
+            "schema:box": "-25 -180 21 180"
         }
     },
-    "subjectOf": {
+    "schema:subjectOf": {
         "@id": "ex:metadata/osmc.noaa.gov/erddap/tabledap/pmelTaoDySst",
-        "@type": "DigitalDocument",
-        "description": "information about metadata record.  original JSON-LD from OIH at https://api.search.oceaninfohub.org/source?id=https%3A%2F%2Fosmc.noaa.gov%2Ferddap%2Ftabledap%2FpmelTaoDySst.html&_gl=1*8hv25s*_ga*MTkzMTMzNjY4Ny4xNzIwODE4MzI1*_ga_MQDK6BB0YQ*MTcyMjU1NDE4OS42LjEuMTcyMjU1NDM1NS4wLjAuMA..*_ga_QJ5XJMZFXW*MTcyMjU1NDE4OS41LjEuMTcyMjU1NDM1NS4wLjAuMA..",
-        "maintainer": {
+        "@type": "schema:DigitalDocument",
+        "schema:description": "information about metadata record.  original JSON-LD from OIH at https://api.search.oceaninfohub.org/source?id=https%3A%2F%2Fosmc.noaa.gov%2Ferddap%2Ftabledap%2FpmelTaoDySst.html&_gl=1*8hv25s*_ga*MTkzMTMzNjY4Ny4xNzIwODE4MzI1*_ga_MQDK6BB0YQ*MTcyMjU1NDE4OS42LjEuMTcyMjU1NDM1NS4wLjAuMA..*_ga_QJ5XJMZFXW*MTcyMjU1NDE4OS41LjEuMTcyMjU1NDM1NS4wLjAuMA..",
+        "schema:maintainer": {
             "@id": "https://oceaninfohub.org/.well-known/org/osmc",
-            "@type": "Organization",
-            "name": "Observing System Monitoring Center (OSMC)",
-            "url": "https://www.osmc.noaa.gov/"
+            "@type": "schema:Organization",
+            "schema:name": "Observing System Monitoring Center (OSMC)",
+            "schema:url": "https://www.osmc.noaa.gov/"
         },
-        "includedInDataCatalog": {
-            "@type": "DataCatalog",
-            "name": "ERDDAP Data Server at OSMC",
-            "url": "https://osmc.noaa.gov/erddap"
-        }
+        "schema:includedInDataCatalog": {
+            "@type": "schema:DataCatalog",
+            "schema:name": "ERDDAP Data Server at OSMC",
+            "schema:url": "https://osmc.noaa.gov/erddap"
+        },
+        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
     }
 }

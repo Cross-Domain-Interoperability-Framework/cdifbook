@@ -1,0 +1,60 @@
+{
+    "@context": {
+        "schema":"https://schema.org/",
+            "dcterms": "http://purl.org/dc/terms/",
+            "geosparql": "http://www.opengis.net/ont/geosparql#",
+            "spdx": "http://spdx.org/rdf/terms#",
+            "ex": "https://example.org/"
+        },
+    "@id": "ex:URIforNode2246",
+    "@type": ["schema:Dataset"],
+    "schema:identifier": "ex:URIforTheDataset",
+    "schema:name": "Minimal dataset metadata",
+    "schema:description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
+    "schema:url": "ex:locatortoGETlandingPage",
+    "schema:publishingPrinciples": [
+        {
+            "@type": "schema:CreativeWork",
+            "schema:url": "https://cdif.org/resources/policy/264"
+        }
+    ],
+    "schema:dateModified": "2010-02-03",
+    "schema:distribution": [
+        {
+            "@type": ["schema:WebAPI"],
+            "schema:serviceType": "URI for service type",
+            "schema:documentation": "URL for a service description document",
+            "schema:potentialAction": {
+                "@type": "schema:SearchAction",
+                "schema:target": {
+                    "@type": "schema:EntryPoint",
+                    "schema:contentType": [
+                        "application/x-netcdf",
+                        "text/tab-separated-values"
+                    ],
+                    "schema:urlTemplate": "https://www.sample-data-repository.org/dataset/1234/download?format={format}&bounds={bbox}",
+                    "schema:description": "Download dataset 1234 based on the requested format and bounding box",
+                    "schema:httpMethod": ["GET"]
+                },
+                "schema:query-input": [
+                    {
+                        "@type": "schema:PropertyValueSpecification",
+                        "schema:valueName": "format",
+                        "schema:description": "The desired format requested either 'application/x-netcdf' or 'text/tab-separated-values'",
+                        "schema:valueRequired": true,
+                        "schema:defaultValue": "application/x-netcdf"
+                    }
+                ]
+            },
+            "schema:termsOfService": "string or CreativeWork"
+        }
+    ],
+    "schema:license": ["https://microimagerylab.org/license.txt"],
+    "schema:subjectOf": {
+        "@id": "ex:URIforTheDigitalObjectMetadata",
+        "@type": "schema:DigitalDocument",
+        "schema:identifier": "ex:URIforNode2246",
+        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
+        "schema:dateModified": "2014-02-23"
+    }
+}

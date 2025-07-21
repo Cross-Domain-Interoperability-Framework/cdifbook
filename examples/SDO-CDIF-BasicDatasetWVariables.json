@@ -1,51 +1,50 @@
 {
-    "@context": [
-        "https://schema.org/",
-        {
+    "@context": {
+        "schema":"https://schema.org/",
             "dcterms": "http://purl.org/dc/terms/",
             "geosparql": "http://www.opengis.net/ont/geosparql#",
-            "spdx": "http://spdx.org/rdf/terms#",
             "ex": "https://example.org/"
-        }
-    ],
+        },
     "@id": "ex:URIforNode2246",
-    "@type": ["Dataset"],
-    "identifier": "ex:URIforTheDataset",
-    "name": "Minimal dataset metadata",
-    "description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
-    "url": "ex:locatortoGETlandingPage",
-    "publishingPrinciples": [
+    "@type": ["schema:Dataset"],
+    "schema:identifier": "ex:URIforTheDataset",
+    "schema:name": "Dataset metadata Example",
+    "schema:description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl and a Dataset.url for a landing page.",
+    "schema:url": "https://example.org/locatortoGETlandingPage",
+    "schema:license":"https://creativecommons.org/public-domain/cc0/",
+    "schema:publishingPrinciples": [
         {
-            "@type": "CreativeWork",
-            "url": "https://cdif.org/resources/policy/264"
+            "@type": "schema:CreativeWork",
+            "schema:name":"publishing principles for dummies",
+            "schema:url": "https://cdif.org/resources/policy/264"
         }
     ],
-    "dateModified": "2010-02-03",
-    "distribution": [
+    "schema:dateModified": "2010-02-03",
+    "schema:distribution": [
         {
-            "@type": "DataDownload",
-            "contentUrl": "https://example.org/locatorForDataset"
+            "@type": "schema:DataDownload",
+            "schema:contentUrl": "https://example.org/locatorForDataset"
         }
     ],
-    "variableMeasured": [
+    "schema:variableMeasured": [
         {
-            "@type": "PropertyValue",
-            "name": "arrayID",
-            "description": "Array identifier",
-            "propertyID": ["ioos_category:Identifier"]
+            "@type": "schema:PropertyValue",
+            "schema:name": "arrayID",
+            "schema:description": "Array identifier",
+            "schema:propertyID": ["ioos_category:Identifier"]
         },
         {
-            "@type": "StatisticalVariable",
-            "measuredProperty": {
-                "@type": "Property",
-                "identifier": "https://properties.org/id/305978",
-                "name": "Average age"
+            "@type": "schema:StatisticalVariable",
+            "schema:measuredProperty": {
+                "@type": "schema:Property",
+                "schema:identifier": "https://properties.org/id/305978",
+                "schema:name": "Average age"
             },
-            "statType": "Average",
-            "measurementMethod": "ex:https://protocols.org/census",
-            "populationType": {
+            "schema:statType": "Average",
+            "schema:measurementMethod": "ex:https://protocols.org/census",
+            "schema:populationType": {
                 "@type": "Class",
-                "name": "Citizens"
+                "schema:name": "Citizens"
             }
         }
     ],
@@ -61,11 +60,11 @@
             "dqv:value": "http://linkToASpecificQualityReport"
         }
     ],
-    "subjectOf": {
+    "schema:subjectOf": {
         "@id": "ex:URIforTheDigitalObjectMetadata",
         "@type": "DigitalDocument",
-        "identifier": "ex:URIforNode2246",
+        "schema:identifier": "ex:URIforNode2246",
         "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
-        "dateModified": "2014-02-23"
+        "schema:dateModified": "2014-02-23"
     }
 }

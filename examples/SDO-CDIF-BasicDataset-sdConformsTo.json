@@ -1,0 +1,45 @@
+{
+    "@context": [
+        "https://schema.org/",
+        {
+            "dcterms": "http://purl.org/dc/terms/",
+            "geosparql": "http://www.opengis.net/ont/geosparql#",
+            "ex": "https://example.org/",
+            "cdif": "https://codata.org/cdif/metadata/"
+        }
+    ],
+    "@id": "https://graph.uri/namedgraph",
+    "@graph": [
+        {
+            "@id": "ex:URIforNode2246",
+            "@graph": {
+                "@type": ["Dataset"],
+                "identifier": "ex:URIforTheDataset",
+                "name": "Dataset metadata Example",
+                "description": "example documentation",
+                "cdif:sdConformsTo": "cdif:sdo_disc_profile_uri",
+                "sdDatePublished": "2014-02-23"
+            }
+        },
+        {
+            "@id": "ex:URIforNode2290",
+            "@graph": {
+                "@id": "ex:URIforTheDataset",
+                "@type": ["Dataset"],
+                "cdif:prov": "{cdif prov profile content}",
+                "cdif:sdConformsTo": "cdif:sdo_prov_profile_uri",
+                "sdDatePublished": "2015-01-23"
+            }
+        },
+        {
+            "@id": "ex:URIforNode2560",
+            "@graph": {
+                "@id": "ex:URIforTheDataset",
+                "@type": ["Dataset"],
+                "cdif:prov": "{cdif secure access profile content}",
+                "cdif:sdConformsTo": "cdif:sdo_access_profile_uri",
+                "sdDatePublished": "2015-08-01"
+            }
+        }
+    ]
+}
