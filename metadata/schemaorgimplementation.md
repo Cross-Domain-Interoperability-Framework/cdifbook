@@ -85,14 +85,14 @@ JSON keys prefixed with '@' are keywords defined in the [JSON-LD specification](
 
 The following table maps the metadata content items described in the [Metadata Content Requirements](./contentmodel.md) section to the schema.org JSON-LD keys to use in metadata serialization. Some example metadata documents follow. The \'Obl.\' column specifies the cardinality obligation for the property; \'1\' means one value required; 1..\* means at least one value is required; 0..\* means the property is optional and more that one value can be provided. Properties with path from "subjectOf" describe the metadata.
 
-<table>
+<table class="table">
   <tr>
     <th><b>CDIF content<br>item</b></th>
     <th><b>Obl.</b></th>
     <th><b>Schema.org<br> implementation</b></th>
     <th><b>Scope note</b></th>
   </tr>
-  <tr>
+  <tr >
     <td>Metadata identifier</td>
     <td>1</td>
     <td>"subjectOf"/"@id":{URI} or "@id":{uri} in node with "identifier":"@id" of the node containing the resource description</td>
@@ -181,35 +181,45 @@ The following table maps the metadata content items described in the [Metadata C
     <td>Date of most recent update to resource content. If Publication date is not provided, defaults to the Modification Date. Use ISO 8601 format.</td>
   </tr>
   <tr>
-    <td>GeographicExtent (named place)</td>
+    <td>Keyword</td>
+    <td>0..*</td>
+    <td>"keywords":<br>[ {string}, <br> {"@type":"DefinedTerm", <br> "name": "OCEANS", <br> "inDefinedTermSet": "gcmd:sciencekeywords", <br> "identifier": "gcmd:concept/916b....6167d" },...]</td>
+    <td>Implement with text for tags, and schema:DefinedTerm for keywords from a controlled vocabulary. The DefinedTerm approach is used to represent concepts.</td>
+  </tr>
+  
+  <tr><td colspan="4"><b>GeographicExtent</b>  Required if resource has a geographic extent for its subject, a bounding rectangle, line, or point.  To support cross-domain searches based on geospatial location, location coordinates must be given in decimal degrees using the WGS 84 datum. There are various other systems for describing location; these can be provided as alternate location descriptions, recognizing that they might not be meaningful to some metadata harvesting agents.</td>
+  </tr>
+  <tr>
+    <td> Named place</td>
     <td>0..*</td>
     <td>"spatialCoverage": { "@type": "Place",<br>"name": {string} or {schema:DefinedTerm} }</td>
     <td>To specify location with place names; if the names are from a gazeteer, use the schema:DefinedTerm to provide a name, identifier, and inDefinedTermSet to fully document the concept.</td>
   </tr>
   <tr>
-    <td>GeographicExtent (bounding box)</td>
+    <td>Bounding box</td>
     <td>0..1</td>
     <td>"spatialCoverage": { <br>"@type": "Place",<br> "geo": {  "@type": "GeoShape", <br> "box": "39.3280 120.1633 40.445  123.7878"   } }</td>
     <td>For bounding box specification of the spatial extent of resource content. See [ESIP SOSO for details](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#bounding-boxes). Recommend including only one bounding box; behavior of harvesting clients when multiple geometries are specified is unpredictable.</td>
   </tr>
   <tr>
-    <td>GeographicExtent (curvilinear trace)</td>
+    <td>Curvilinear trace</td>
     <td>0..1</td>
     <td>"spatialCoverage": { <br>"@type": "Place",<br> "geo": {  "@type": "GeoShape", <br> "line": "39.33 120.77 40.44 123.96 41.00 121.34"   } }</td>
     <td>For resource related to a linear trace like a ship track or airplane flight line</td>
   </tr>
   <tr>
-    <td>GeographicExtent (point location)</td>
+    <td>Point location</td>
     <td>0..1</td>
     <td>"spatialCoverage": {<br> "@type": "Place", <br>"geo": {  "@type":  "GeoCoordinates",  <br> "latitude": 39.3280,   <br>  "longitude": 120.1633 } }</td>
     <td>For a point location specification of the spatial extent of resource content. Recommend including only one point; behavior of harvesting clients when multiple geometries are specified is unpredictable.</td>
     </tr>
   <tr>
-    <td>GeographicExtent (other serialization)</th>
+    <td>Other serialization</th>
     <td>0..*</th>
     <td>"geosparql:hasGeometry": { <br> "@type": "sf#Point", <br> "geosparql:asWKT":  "@type":#wktLiteral", <br>"@value":"POINT(-76  -18)"},<br> "Geosparql:crs": {"@id":"CRS84"} }</th>
     <td>Optional geographic extent using other more interoperable geometries, GeoSPARQL us recommended, see <a href="https://book.oceaninfohub.org/thematics/spatial/README.html#simple-geosparql-wkt">Ocean InfoHub</a>. (Note URIs in example are truncated...) Other geometry schemes might be specified in a specific domain profile, e.g. for atmospheric, subsurface data, or local coordinate systems.</th>
   </tr>
+  <tr><td colspan="4"><b>Distribution</b></td></tr>
   <tr>
     <td rowspan="2">Distribution Agent</td>
     <td>0..*</td>
@@ -221,6 +231,7 @@ The following table maps the metadata content items described in the [Metadata C
     <td>"distribution": [ { "@type": "DataDownload","provider":{Person or Organization} }...]</td>
     <td>If there are multiple distributions with different providers, each distribution can have a separate provider</td>
   </tr>
+  <tr><td colspan="4"><b>Variables in the data</b>  Required for datasets. The metadata about a dataset should include a list of variables that the dataset contains. Variable metadata should minimally specify the name of the variable as it appears in the dataset. That name should be, ideally, qualified by a controlled vocabulary or other semantic resource (e.g. represented by a resolvable URI), or minimally some descriptive text. </td></tr>
   <tr>
     <td>Variable (PropertyValue)</td>
     <td>0..*</td>
@@ -235,12 +246,6 @@ The following table maps the metadata content items described in the [Metadata C
 &emsp;&emsp;{"@type":"Property",      &emsp;&emsp;"identifier":"astm:id/305978",<br>
 &emsp;&emsp;"name":"Average age"}]</td>
     <td>Statistical variable offers properties useful for describing social science statistical variables like populationType and statType. Use of StatisticalVariable is preferred for variables with values calculated from some aggregation process.</td>
-  </tr>
-  <tr>
-    <td>Keyword</td>
-    <td>0..*</td>
-    <td>"keywords":<br>[ {string}, <br> {"@type":"DefinedTerm", <br> "name": "OCEANS", <br> "inDefinedTermSet": "gcmd:sciencekeywords", <br> "identifier": "gcmd:concept/916b....6167d" },...]</td>
-    <td>Implement with text for tags, and schema:DefinedTerm for keywords from a controlled vocabulary. The DefinedTerm approach is used to represent concepts.</td>
   </tr>
   <tr>
     <td rowspan="5">Temporal coverage</td>
