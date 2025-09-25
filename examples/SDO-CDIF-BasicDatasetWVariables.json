@@ -1,21 +1,21 @@
 {
     "@context": {
-        "schema":"https://schema.org/",
-            "dcterms": "http://purl.org/dc/terms/",
-            "geosparql": "http://www.opengis.net/ont/geosparql#",
-            "ex": "https://example.org/"
-        },
+        "schema": "https://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "ex": "https://example.org/"
+    },
     "@id": "ex:URIforNode2246",
     "@type": ["schema:Dataset"],
     "schema:identifier": "ex:URIforTheDataset",
     "schema:name": "Dataset metadata Example",
     "schema:description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl and a Dataset.url for a landing page.",
     "schema:url": "https://example.org/locatortoGETlandingPage",
-    "schema:license":"https://creativecommons.org/public-domain/cc0/",
+    "schema:license": "https://creativecommons.org/public-domain/cc0/",
     "schema:publishingPrinciples": [
         {
             "@type": "schema:CreativeWork",
-            "schema:name":"publishing principles for dummies",
+            "schema:name": "publishing principles for dummies",
             "schema:url": "https://cdif.org/resources/policy/264"
         }
     ],

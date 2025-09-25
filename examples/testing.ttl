@@ -1,0 +1,52 @@
+# baseURI: http://www.w3.org/ns/unnamed
+# prefix: unnamed
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix unnamed: <http://www.w3.org/ns/unnamed#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<ex:dataset1>
+  rdf:type <https://schema.org/Dataset> ;
+  <https://schema.org/creator> (
+      [
+        rdf:type <https://schema.org/Person> ;
+        <https://schema.org/name> "Alice" ;
+      ]
+      [
+        rdf:type <https://schema.org/Person> ;
+        <https://schema.org/name> "Bob" ;
+      ]
+    ) ;
+  <https://schema.org/creator> (
+      [
+        rdf:type <https://schema.org/Person> ;
+        <https://schema.org/name> "Alice" ;
+      ]
+      [
+        rdf:type <https://schema.org/Person> ;
+        <https://schema.org/name> "Bob" ;
+      ]
+    ) ;
+  <https://schema.org/creator> (
+      [
+        rdf:type <https://schema.org/Person> ;
+        <https://schema.org/name> "Alice" ;
+      ]
+      [
+        rdf:type <https://schema.org/Person> ;
+        <https://schema.org/name> "Bob" ;
+      ]
+    ) ;
+  <https://schema.org/creator> (
+      [
+        rdf:type <https://schema.org/Person> ;
+        <https://schema.org/name> "Alice" ;
+      ]
+      [
+        rdf:type <https://schema.org/Person> ;
+        <https://schema.org/name> "Bob" ;
+      ]
+    ) ;
+.
