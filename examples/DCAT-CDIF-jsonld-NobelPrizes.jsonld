@@ -17,8 +17,8 @@
             "dcterms:title": "Linked Nobel prizes",
             "dcterms:modified": "2014-09-25",
             "foaf:primaryTopic": {"@id": "http://nobelprize.org/datasets/dcat#ds1"},
-            "dcat:inCatalog":{"@id":"http://nobelprize.org/datasets/dcat#catalog"},
-            "description":"downloaded from https://raw.githubusercontent.com/SEMICeu/dcat-ap_validator/master/pages/samples/sample-json-ld.jsonld and edited by SMR 2024-07-31"
+            "dcat:inCatalog": {"@id": "http://nobelprize.org/datasets/dcat#catalog"},
+            "description": "downloaded from https://raw.githubusercontent.com/SEMICeu/dcat-ap_validator/master/pages/samples/sample-json-ld.jsonld and edited by SMR 2024-07-31"
         },
         {
             "@id": "http://nobelprize.org/datasets/dcat#ds1",
@@ -35,7 +35,8 @@
                 },
                 "vcard:hasRelated": {
                     "@id": "https://www.nobelprize.org/contact",
-                    "@type":"vcard"Contact"},
+                    "@type": "vcard:Contact"
+                },
                 "vcard:hasTelephone": {
                     "@type": [
                         "vcard:Work",
@@ -43,8 +44,7 @@
                     ],
                     "vcard:hasValue": {"@id": "tel:+46(0)86630920"}
                 }
-            }
-		},
+            },
             "dcat:distribution": {
                 "@id": "http://nobelprize.org/datasets/dcat#dist1",
                 "@type": "dcat:Distribution",
@@ -53,12 +53,12 @@
                     "@language": "en",
                     "@value": "Provides search and browse web interface with links to download RDF in Turtle, RDF/XML, JSON-LD, RDF/JSON formats, and links to specifications for linked data representations."
                 },
-                "dcat:mediaType":[                
-                {"@id":"https://www.iana.org/assignments/media-types/application/rdf+xml"},
-                {"@id":"https://www.iana.org/assignments/media-types/application/ld+json"},
-                {"@id":"https://www.iana.org/assignments/media-types/text/turtle"},
-                {"@id":"https://www.iana.org/assignments/media-types/application/json"}
-                ]
+                "dcat:mediaType": [
+                    {"@id": "https://www.iana.org/assignments/media-types/application/rdf+xml"},
+                    {"@id": "https://www.iana.org/assignments/media-types/application/ld+json"},
+                    {"@id": "https://www.iana.org/assignments/media-types/text/turtle"},
+                    {"@id": "https://www.iana.org/assignments/media-types/application/json"}
+                ],
                 "dcterms:conformsTo": {"@id": "https://data.nobelprize.org/specification/"},
                 "dcterms:license": {"@id": "http://creativecommons.org/licenses/by-nc/3.0/"},
                 "dcterms:title": {
@@ -93,7 +93,7 @@
                     "@type": "xsd:date",
                     "@value": "1905-03-01"
                 }
-            },
- }
+            }
+        }
     ]
 }
