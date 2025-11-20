@@ -1,0 +1,417 @@
+# Metadata for making data ‘integration ready’: DDI-CDI classes and properties 
+
+This appendix lists the classes discussed in the text above, and indicates which properties must or may 
+be used when these classes are instantiated. 
+It should be noted that while the Data Set and Data Structure classes appear in the DDI-CDI model, and 
+are used in the diagrams above, these are never directly instantiated. Instead, their sub-classes will be 
+used: Wide Data Set/Wide Data Structure, Long Data Set/Long Data Structure, and Dimensional Data 
+Set/Dimensional Data Structure. For this reason, Data Set and Data Structure are not listed here. 
+The identifiers of each metadata declaration (or instance) are assumed to be the URI used in the JSON
+LD. If other identifiers are to be associated with the instances, all of the classes listed can also use an 
+identifier property as per the DDI-CDI specification. This is not required, however, as it is assumed that 
+consumers of CDIF metadata will typically not be interested in non-public identifiers of this type. 
+Properties and associations are listed as “Required” or “Optional”, followed by “Multiple” if more than 
+one is allowed. Language-specific strings are allowed to be multiple, specific to language-locale pairs, 
+using language maps as described in Example 71 of the JSON-LD specification12. 
+All metadata instances will have @type referencing the DDI-CDI class, given in the “Type” field. Some 
+instances will declare multiple types where appropriate.  The classes are grouped by type, largely in the 
+order they are mentioned in the steps above. 
+Note that associations and properties are distinct in DDI-CDI, because it is based on a UML formalisation 
+where such a distinction is important (associations never link to literal values). They are listed separately 
+here, for ease of reference to the DDI-CDI documentation. 
+Data Store 
+This represents a queryable service. 
+Type: cdi:DataStore 
+Properties: 
+name (Required) – a string assigning a name to the service. More complete description of the 
+service can be provided using the fields in the CDIF Discovery recommendations. 
+Associations: 
+has (Required, Multiple) – links the Data Store to a Logical Record. 
+Logical Record 
+This describes the set of variables available in the service or data set at a logical level. 
+Type: cdi:LogicalRecord 
+Properties: 
+None. 
+Associations: 
+? organizes (Optional, Multiple) – points to a Wide Data Set, Long Data Set, or Dimensional Data 
+Set. 
+? has (Required, Multiple) – points to the Instance Variables making up the Logical Record. 
+? isDefinedBy (Optional, Multiple) – points to a Unit Type, Universe, or Population which provides a 
+description of the subject of the Logical Record. 
+Wide Data Set 
+This represents a data set where each row in the table is a record, holding a set of values for variables, 
+represented by columns. 
+12 https://w3c.github.io/json-ld-syntax/#string-internationalization 
+Type: cdi:WideDataSet, cdi:PhysicalDataSet 
+Properties: 
+? name (Required) – a string value holding the name of the data set. May be provided in multiple, 
+language-specific versions. 
+? physicalFileName (Required) - a URL providing the location of the data set. 
+Associations: 
+? isStructuredBy (Required) – points to an instance of cdi:WideDataStructure describing the 
+structure of the data set. 
+Long Data Set 
+This represents a data set where each row in the table is one or more measurements, with another 
+column for each measure in the row that indicates which logical variable is being measured. The variable 
+being measured is specified for each row, and can vary from row to row. 
+Type: cdi:LongDataSet, cdi:PhysicalDataSet 
+Properties: 
+? name (Required) – a string value holding the name of the data set. May be provided in multiple, 
+language-specific versions. 
+? physicalFileName (Required) - a URL providing the location of the data set. 
+Associations: 
+? isStructuredBy (Required) – points to an instance of cdi:LongDataStructure describing the 
+structure of the data set. 
+Dimensional Data Set 
+This represents a data set where each measurement and associated attributes are defined by a set of 
+dimensions. The data set can be understood as a “cube”. (See the DDI-CDI documentation for a more 
+complete description.) 
+Type: cdi:DimensionalDataSet, cdi:PhysicalDataSet 
+Properties: 
+? name (Required) – a string value holding the name of the data set. May be provided in multiple, 
+language-specific versions. 
+? physicalFileName (Required) - a URL providing the location of the data set. 
+Associations: 
+? isStructuredBy (Required) – points to an instance of cdi:DimensionalDataStructure describing 
+the structure of the data set. 
+Wide Data Structure 
+This is a description of the structure of a Wide Data Set. 
+Type: cdi:WideDataStructure 
+Properties: 
+? None. 
+Associations: 
+? has (Required) – Points to the cdi:PrimaryKey used to identify records in the data set. 
+? has (Required, Multiple) – References the components (variables) which make up the records: 
+links to cdi:IdentifierComponent, cdi:AttributeComponent, cdi:MeasureComponent. 
+Long Data Structure 
+This is a description of the structure of a Long Data Set. 
+Type: cdi:LongDataStructure 
+Properties: 
+? None. 
+Associations: 
+? has (Required) – Points to the cdi:PrimaryKey used to identify records in the data set. 
+? has (Required, Multiple) – References the components (variables) which make up the records: 
+links to cdi:IdentifierComponent, cdi:AttributeComponent, cdi:MeasureComponent, 
+cdi:DescriptorComponent, cdi:VariableValueComponent. Note that the components describe 
+only the variables which are part of the presentation of the data set - other purely logical 
+variables are referenced from the LogicalRecord associated with the Long Data Set and its 
+components (see above). 
+Dimensional Data Structure 
+This is a description of the structure of a Dimensional Data Set. 
+Type: cdi:DimensionalDataStructure 
+Properties: 
+? None. 
+Associations: 
+? has (Required) – Points to the cdi:PrimaryKey used to identify records in the data set, made up 
+of a set of cdi:DimensionComponents. 
+? has (Required, Multiple) – References the components (variables) which make up the records: 
+links to cdi:DimensionComponent, cdi:AttributeComponent, cdi:MeasureComponent. 
+? has (Optional, Multiple) – Points to the cdi:ComponentPosition instances used to order the 
+instances of cdi:DimensionComponent when the Primary Key is ordered. 
+Instance Variable 
+This represents a variable used in a data set. The full set of logical variables must always be described, so 
+that every value in the data set is accounted for. 
+Type: cdi:InstanceVariable, cdi:RepresentedVariable [only if Represented Variables are not instantiated 
+separately] 
+Properties: 
+? name (Required) – a string value holding the name of the variable. May be provided in multiple, 
+language-specific versions. 
+? definition (Required) – a string value holding the definition of the variable. May be provided in 
+multiple, language-specific versions. 
+? describedUnitOfMeasure (Optional) - a specification of the UOM, specified according to the 
+“defined term” implementation pattern specified in Appendix 1. 
+? unitOfMeasureKind (Optional) - a specification of the quantity-kind for the UOM, specified 
+according to the “defined term” implementation pattern specified in Appendix 1. 
+Associations: 
+? measures (Optional) – a link to an instance of cdi:Population. 
+? takesSubstantiveValuesFrom (Required) - a link to an instance of cdi:EnumeratedValueDomain, 
+which in turn provides information about the typing of the recorded values for the variable. 
+? takesSentinelValuesFrom (Optional) - a link to an instance of cdi:SentinelvalueDomain, which in 
+turn provides information about how flags, missing values, and similar notations are typed in the 
+variable.  
+Represented Variable 
+This represents a reusable variable description. 
+Type: cdi:RepresentedVariable  
+Properties: 
+? name (Required) – a string value holding the name of the variable. May be provided in multiple, 
+language-specific versions. 
+? definition (Required) – a string value holding the definition of the variable. May be provided in 
+multiple, language-specific versions. 
+? describedUnitOfMeasure (Optional) - a specification of the UOM, specified according to the 
+“defined term” implementation pattern specified in Appendix 1. 
+? unitOfMeasureKind (Optional) - a specification of the quantity-kind for the UOM, specified 
+according to the “defined term” implementation pattern specified in Appendix 1. 
+Associations: 
+? measures (Optional) – a link to an instance of cdi:Universe. 
+? takesSubstantiveValuesFrom (Required) - a link to an instance of cdi:SubstantiveValueDomain, 
+which in turn provides information about the typing of the recorded values for the variable. 
+? takesSentinelValuesFrom (Optional) - a link to an instance of cdi:SentinelvalueDomain, which in 
+turn provides information about how flags, missing values, and similar notations are typed in the 
+variable.  
+Reference Variable 
+Reference Variables are presentational variables used only in the description of Long Data Sets. They 
+contain values from the set of logical variables held in the data, and must have a representation which 
+supports the full range of possible values from them. 
+Type: cdi:ReferenceVariable 
+Properties: 
+? Name (Required) – a string value holding the name of the variable. May be provided in multiple, 
+language-specific versions. 
+Associations: 
+? takesSubstantiveValuesFrom (Required) - a link to an instance of cdi:SubstantiveValueDomain, 
+which in turn provides information about the typing of the recorded values for the variable. 
+? takesSentinelValuesFrom (Optional) - a link to an instance of cdi:SentinelvalueDomain, which in 
+turn provides information about how flags, missing values, and similar notations are typed in the 
+variable.  
+Descriptor Variable 
+Descriptor Variables hold values which reference the logical variables in the data set, indicating which 
+one the associated value in the corresponding Reference Variable is a measure/value for. Descriptor 
+Variables are presentational variables found only in Long Data Sets.  
+Type: cdi:DescriptorVariable 
+Properties: 
+? Name (Required) – a string value holding the name of the variable. May be provided in multiple, 
+language-specific versions. 
+Associations: 
+? takesSubstantiveValuesFrom (Required) - a link to an instance of cdi:DescriptorValueDomain, 
+which in turn provides information about logical variables to which each enumerated value 
+corresponds, using the cdi:Descriptor class. 
+Substantive Value Domain 
+Substantive values reflect the definition of the variable which they populate, as opposed to being an 
+indication of a process or system status (“missing,” etc.). They may be enumerated or otherwise typed. 
+Type: cdi:SubstantiveValueDomain 
+Properties: 
+? None. 
+Associations: 
+? recommendedDataType (Required) - provides a link either to a skos:ConceptScheme (for 
+enumerated values) or an XSD data type (see list in the text above). This describes the datatype 
+of the values permitted as valid for populating the fields described by the variable. 
+Sentinel Value Domain 
+Sentinel values are those which indicate some process or system status or value which is not directly 
+meaningful in terms of the variable definition of the field they populate. A typical example is flags for 
+missing values. 
+Type: cdi:SentinelValueDomain 
+Properties: 
+? None. 
+Associations: 
+? recommendedDataType (Required) - provides a link either to a skos:ConceptScheme (for 
+enumerated values) or an XSD data type (see list in the text above). This describes the datatype 
+of the sentinel values permitted as valid for populating the fields described by the variable. 
+Descriptor Value Domain 
+This provides a list of instances of the Descriptor class, connecting the values found in a Long Data Set’s 
+Descriptor Variable with the logical variables for which values are provided in the Reference Variable.  
+Type: cdi:DescriptorValueDomain 
+Properties: 
+? None. 
+Associations: 
+? None. 
+Descriptor 
+An instance of the cdi: Descriptor class  
+Type: cdi:Descriptor 
+Properties: 
+? content (Required) - the value appearing in the Long Data Set, expressed as a string. 
+Associations: 
+? identifies (Required) – reference to the cdi:InstanceVariable which corresponds to the content 
+property. 
+Unity Type 
+A Unit Type is the object or phenomenon serving as the subject of a data record, identified at a general 
+level. If the values in a data set are “Age,” “Sex”, and “Occupation” the Unit Type would be “person”. If 
+the values are a measure of salinity and depth, the Unit Type might be “sea water”. The value of an 
+instance of cdi:UnitType is the general term for the unifying subject of a data record (an instance of 
+cdi:LogicalRecord).  
+Type: cdi:UnitType 
+Properties: 
+? name (Required) – a string value holding the name of the variable. May be provided in multiple, 
+language-specific versions. 
+? descriptiveText (Optional) – a textual description of the Unit Type. May be provided in multiple, 
+language-specific versions.  
+Associations: 
+? None. 
+Universe 
+An instance of cdi:Universe qualifies a Unit Type, to provide a more-specific description of the subject of 
+the data, but excluding time and geography. If the Unit Type is “person,” the Universe might be “adults”. 
+If the Unit Type is “sea water,” the Universe might be “sea water in temperate oceans”. 
+Type: cdi:Universe 
+Properties: 
+? name (Required) – a string value holding the name of the variable. May be provided in multiple, 
+language-specific versions. 
+? descriptiveText (Optional) – a textual description of the Unit Type. May be provided in multiple, 
+language-specific versions.  
+Associations: 
+? uses (Optional) – a reference to the instance of cdi:UnitType which the Universe qualifies.  
+Population 
+This is a fully qualified description of the subject of the data in a field or record. It extends the 
+description provided by Unit Type and Universe by adding geographical and temporal bounds. 
+Type: cdi:Population 
+Properties: 
+? name (Required) – a string value holding the name of the variable. May be provided in multiple, 
+language-specific versions. 
+? descriptiveText (Optional) – a textual description of the Unit Type. May be provided in multiple, 
+language-specific versions.  
+Associations: 
+? uses (Optional, 2 Maximum) – a reference to the instance of cdi:Universe and/or cdi:UnitType 
+which the Universe qualifies.  
+Identifier Component 
+The instance of cdi:IdentifierComponent is a reference to a variable which provides a unique identifier 
+for the case being observed in the Logical Record. It is typically an assigned or official identifier for the 
+unit, according to an external scheme (e.g., a taxpayer ID for a person, a sample identifier, etc.). The 
+Identifier Component is a role attached to the variable to describe its function within the data structure - it is usually part of (and may be the entire) key for the record. 
+Type: cdi:IdentifierComponent 
+Properties: 
+? None. 
+Associations: 
+? isDefinedBy (Required) – A reference to an instance of cdi:InstanceVariable (or, if present, 
+cdi:RepresentedVariable) which defines the Identifier Component variable. 
+Measure Component 
+The instance of cdi:MeasureComponent indicates that the referenced variable contains a measurement 
+or observation value, or a derived value, within the Logical Record. Bote that cdi:MeasureComponent 
+might be a simple value (string, number, term), or an object (e.g. an array of spectral values). 
+For this profile, we are restricting discussion to simple values. 
+Type: cdi:MeasureComponent 
+Properties: 
+? None. 
+Associations: 
+? isDefinedBy (Required) – A reference to an instance of cdi:InstanceVariable (or, if present, 
+cdi:RepresentedVariable) which defines the Measure Component variable. 
+Attribute Component 
+Each instance of cdi”AttributeComponent indicates that the referenced variable holds a value which 
+describes the values in the Measure Components or otherwise provides information which is not itself a 
+measure/observation or derived value. 
+Type: cdi:AttributeComponent 
+Properties: 
+? None. 
+Associations: 
+? isDefinedBy (Required) – A reference to an instance of cdi:InstanceVariable (or, if present, 
+cdi:RepresentedVariable) which defines the Attribute Component variable. 
+Dimension Component 
+The instances of cdi:DimensionComponent are references to the variables which are the components of 
+a compound identifier, in which each variable is a single field - an axis - in a coordinate system 
+addressing a location in a matrix. These variables are often categorical, but also commonly include time. 
+Unlike other Components, they may be ordered using instances of  cdi:ComponentPosition. 
+Type: cdi:DimensionComponent 
+Properties: 
+? None. 
+Associations: 
+? isDefinedBy (Required) – A reference to an instance of cdi:InstanceVariable (or, if present, 
+cdi:RepresentedVariable) which defines the Attribute Component variable. 
+Component Position 
+Each instance of cdi:ComponentPosition indexes a Dimension Component within the Primary Key of a 
+Dimensional Data Structure, by assigning an incrementing value to it (lowest number comes first in the 
+sequence). 
+Type: cdi:ComponentPosition 
+Properties: 
+? value (Required) - An integer indicating the position of the Dimension Component within the 
+sequence of the Primary key for the referencing Dimensional Data Structure.  
+Associations: 
+? indexes (Required) – a reference to the instance of cdi:DimensionComponent which is being 
+ordered. Assigns the value to it as a position within the Primary Key. 
+Primary Key 
+The instance of Primary Key defines the set of Components which, taken together, provide the 
+identifying values for a single logical record within a data structure. The values of the Primary Key are 
+used to reference the non-Primary Key fields within the Logical Record, by additionally  specifying the 
+Component/Instance Variable wanted. Such fields include the Measure Components and non-identifying 
+Attribute Components.  
+Type: cdi:PrimaryKey 
+Properties: 
+? None. 
+Associations: 
+? isComposedOf (Required, Multiple) – References to the instances of cdi:PrimaryKeyComponent 
+making up the Primary Key. 
+Primary Key Component 
+Instances of cdi:PrimaryKeyComponent reference the Components which make up the primary Key in a 
+Data Structure. 
+Type: cdi:PrimaryKeyComponent 
+Properties: 
+? None. 
+Associations: 
+? correspondsTo (Required) – A reference to the instance of cdi:IdentifierComponent, 
+cdi:AttributeComponent, cdi:DimensionComponent, or cdi:VariableDescriptorComponent used 
+as a Primary Key Component.  
+Variable Value Component 
+Each instance of a cdi:VariableValueComponent points to a Reference Variable, which holds the values 
+of several logical variables combined into a single field within a Long Data Structure. This Component is 
+part of a presentational structure, as opposed to a logical one. 
+Type: cdi:VariableValueComponent 
+Properties: 
+? None. 
+Associations: 
+? isDefinedBy (Required) – A reference to an instance of cdi:ReferenceVariable. 
+Variable Descriptor Component 
+Instances of cdi:VariableDescriptorComponent are fields in a Long Data Structure which indicate the 
+logical variable with which the value of the Variable Value Component/Reference Variable are 
+associated. 
+Type: cdi:VariableDescriptorComponent 
+Properties: 
+? None. 
+Associations: 
+? refersTo (Required) – A reference to an instance of cdi:DescriptorVariable. 
+Physical Segment Layout 
+Each instance of cdi:PhysicalSegmentLayout describes the physical expression of a record in a data file or 
+other storage expressed as a textual format. The Logical Record encoded is referenced. There is only a 
+single Physical Segment Layout used to describe data files - all records are assumed to have the same 
+layout.  
+Type: cdi:PhysicalSegmentLayout 
+Properties: 
+? arrayBase (Optional) - This is a literal value of either “0” or “1” indicating the starting number 
+for the sequence of variables in the record as indexed by instances of cdi:ValueMappingPosition 
+for each variable. 
+? commentPrefix (Optional) - A string used to indicate that a line in the input is a comment. 
+? delimiter (Optional) - The character used to separate fields in a delimited file (for example, the 
+comma in a CSV file), 
+? encoding (Required) - A string specifying the character encoding (typically UTF-8). Values are the 
+same as those used for the HTML charset attribute.13 
+? escapeCharacter (Optional) - Provides the string which is used to escape the quote character. 
+? hasHeader (Optional) - A boolean value indicated as “true” or “false” (case sensitive) which 
+indicates that the number of initial rows in headerRowCount should be skipped, as they do not 
+contain data values. 
+? headerRowCount (Optional) - An integer which indicates now many initial rows to skip as 
+containing header information. Only used if hasHeader has a value of “true”. 
+? isDelimited (Optional) - A boolean value indicated as “true” or “false” (case sensitive) which says 
+whether the file is delimited. If “true”, then the delimiter property will provide the delimiter. If 
+“true” then isFixedWidth must have a value of “false” if provided. 
+? isFixedWidth (Optional) - A boolean value indicated as “true” or “false” (case sensitive) which 
+says whether the file has fixed-width fields. If “true” then isDelimited must have a value of 
+“false” if provided. The starting and ending positions of each field are provided by the instances 
+of cdi:ValueMapping associated with each variable in the record, in relation to the arrayBase 
+property. 
+? lineTerminator (Optional) - The character sequence used to terminate rows. Defaults to the 
+array [CRLF, LF] as per the Metadata Vocabulary for Tabular Data.14  
+13 See https://www.w3schools.com/html/html_charset.asp. 
+14 https://www.w3.org/TR/tabular-metadata/ 
+? quoteChatacter (Optional) - The string that is used around escaped cells, or null, set by the 
+quoteChar property of a dialect description. The default is “.”. See W3C Recommendation 
+“Model for Tabular Data and Metadata on the Web”.15  
+? skipInitialSpace (Optional) - A boolean value expressed as “true” or “false” (case-sensitive) 
+indicating that - if “true” - white space at the beginning of a row or following a delimiter should 
+be ignored. 
+? trim (Optional) - This field takes the values “Both”, “End”, “Neither”, and “Start” describing the 
+places where white space can be trimmed from rows. Default is “Neither”. 
+Associations: 
+? Formats (Required) - specifies an instance of cdi:LogicalRecord. 
+? has (Required, Multiple) – A reference to an instance of cdi:ValueMapping. 
+? has (Required, Multiple) - A reference to an instance of cdi:ValueMappingPosition, one per 
+Value Mapping. 
+Value Mapping 
+Instances of cdi:ValueMapping are used to indicate the connection of variables with a Physical Segment 
+layout. 
+Type: cdi:ValueMapping 
+Properties: 
+? decimalPositions (Optional)  - An integer indicating the number of decimal positions when the 
+decimal separator is implied. 
+? defaultDecimalSeparator  (Optional)  - A string providing the character used as a decimal 
+separator. 
+? length (Optional) - An integer specifying the length of a fixed-width field. 
+? maximumLength (Optional) - An integer indicating the maximum length of the field value. 
+? minimumLength (Optional) - An integer expressing the maximum length of the field value 
+Associations: 
+15 https://www.w3.org/TR/tabular-data-model/#parsing 
+? formats (Required) - specifies an instance of cdi:InstanceVariable, cdi:RepresentedVariable, 
+cdi:ReferenceVariable, ot cdi:DescriptorVariable. 
+Value Mapping Position 
+Instance of cdi:ValueMappingPosition provides the sequence of the mapped variables within the 
+Physical Segment Layout. 
+Type: cdi:ValueMappingPosition 
+Properties: 
+? value (Required) – An integer indicating the relative position of the mapped variable in the 
+sequence of the Physical Segment Layout. Uses the arrayBase property of the Physical Record 
+Segment as a starting point. 
+Associations: 
+? indexes (Required) – A reference to an instance of cdi:ValueMappin
