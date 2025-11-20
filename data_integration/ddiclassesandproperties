@@ -1,19 +1,15 @@
 # Metadata for making data ‘integration ready’: DDI-CDI classes and properties 
 
+This appendix lists the classes discussed in the text above, and indicates which properties must or may be used when these classes are instantiated.
 
-This appendix lists the classes discussed in the text above, and indicates which properties must or may 
-be used when these classes are instantiated. 
-It should be noted that while the Data Set and Data Structure classes appear in the DDI-CDI model, and 
-are used in the diagrams above, these are never directly instantiated. Instead, their sub-classes will be 
-used: Wide Data Set/Wide Data Structure, Long Data Set/Long Data Structure, and Dimensional Data 
-Set/Dimensional Data Structure. For this reason, Data Set and Data Structure are not listed here. 
-The identifiers of each metadata declaration (or instance) are assumed to be the URI used in the JSON
-LD. If other identifiers are to be associated with the instances, all of the classes listed can also use an 
-identifier property as per the DDI-CDI specification. This is not required, however, as it is assumed that 
-consumers of CDIF metadata will typically not be interested in non-public identifiers of this type. 
-Properties and associations are listed as “Required” or “Optional”, followed by “Multiple” if more than 
-one is allowed. Language-specific strings are allowed to be multiple, specific to language-locale pairs, 
-using language maps as described in Example 71 of the JSON-LD specification12. 
+It should be noted that while the Data Set and Data Structure classes appear in the DDI-CDI model, and are used in the diagrams above, these are never directly instantiated. Instead, their sub-classes will be 
+used: Wide Data Set/Wide Data Structure, Long Data Set/Long Data Structure, and Dimensional Data Set/Dimensional Data Structure. For this reason, Data Set and Data Structure are not listed here. 
+
+The identifiers of each metadata declaration (or instance) are assumed to be the URI used in the JSON-LD. If other identifiers are to be associated with the instances, all of the classes listed can also use an 
+identifier property as per the DDI-CDI specification. This is not required, however, as it is assumed that consumers of CDIF metadata will typically not be interested in non-public identifiers of this type. 
+Properties and associations are listed as “Required” or “Optional”, followed by “Multiple” if more than one is allowed. Language-specific strings are allowed to be multiple, specific to language-locale pairs, 
+using language maps as described in Example 71 of the JSON-LD specification12.
+
 All metadata instances will have @type referencing the DDI-CDI class, given in the “Type” field. Some 
 instances will declare multiple types where appropriate.  The classes are grouped by type, largely in the 
 order they are mentioned in the steps above. 
