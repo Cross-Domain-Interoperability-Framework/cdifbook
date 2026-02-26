@@ -1,13 +1,16 @@
 {
     "@context": {
-        "schema":"https://schema.org/",
-            "dcterms": "http://purl.org/dc/terms/",
-            "geosparql": "http://www.opengis.net/ont/geosparql#",
-            "spdx": "http://spdx.org/rdf/terms#",
-            "ex": "https://example.org/"
-        },
+        "schema": "http://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "ex": "https://example.org/",
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+    },
     "@id": "ex:URIforNode2246",
-    "@type": ["schema:Dataset"],
+    "@type": [
+        "schema:Dataset"
+    ],
     "schema:identifier": "ex:URIforTheDataset",
     "schema:name": "Minimal dataset metadata",
     "schema:description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
@@ -21,10 +24,13 @@
     "schema:dateModified": "2010-02-03",
     "schema:distribution": [
         {
-            "@type": ["schema:WebAPI"],
+            "@type": [
+                "schema:WebAPI"
+            ],
             "schema:serviceType": "URI for service type",
             "schema:documentation": "URL for a service description document",
-            "schema:potentialAction": {
+            "schema:potentialAction": [
+                {
                 "@type": "schema:SearchAction",
                 "schema:target": {
                     "@type": "schema:EntryPoint",
@@ -34,7 +40,9 @@
                     ],
                     "schema:urlTemplate": "https://www.sample-data-repository.org/dataset/1234/download?format={format}&bounds={bbox}",
                     "schema:description": "Download dataset 1234 based on the requested format and bounding box",
-                    "schema:httpMethod": ["GET"]
+                    "schema:httpMethod": [
+                        "GET"
+                    ]
                 },
                 "schema:query-input": [
                     {
@@ -45,16 +53,26 @@
                         "schema:defaultValue": "application/x-netcdf"
                     }
                 ]
-            },
+            }
+            ],
             "schema:termsOfService": "string or CreativeWork"
         }
     ],
-    "schema:license": ["https://microimagerylab.org/license.txt"],
+    "schema:license": [
+        "https://microimagerylab.org/license.txt"
+    ],
     "schema:subjectOf": {
         "@id": "ex:URIforTheDigitalObjectMetadata",
-        "@type": "schema:DigitalDocument",
+        "@type": "schema:Dataset",
         "schema:identifier": "ex:URIforNode2246",
-        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
-        "schema:dateModified": "2014-02-23"
+        "dcterms:conformsTo": [
+            {
+                "@id": "ex:cdif_SDO_profile_uri"
+            }
+        ],
+        "schema:dateModified": "2014-02-23",
+        "schema:about": {
+            "@id": "ex:URIforNode2246"
+        }
     }
 }

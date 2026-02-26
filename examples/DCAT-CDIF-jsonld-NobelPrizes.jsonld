@@ -17,6 +17,7 @@
             "dcterms:title": "Linked Nobel prizes",
             "dcterms:modified": "2014-09-25",
             "foaf:primaryTopic": {"@id": "http://nobelprize.org/datasets/dcat#ds1"},
+            "dcterms:conformsTo": "ex:cdif_DCAT_profile_uri",
             "dcat:inCatalog": {"@id": "http://nobelprize.org/datasets/dcat#catalog"},
             "description": "downloaded from https://raw.githubusercontent.com/SEMICeu/dcat-ap_validator/master/pages/samples/sample-json-ld.jsonld and edited by SMR 2024-07-31"
         },
@@ -73,6 +74,7 @@
             ],
             "dcat:landingPage": {"@id": "http://data.nobelprize.org/"},
             "dcat:theme": {"@id": "http://eurovoc.europa.eu/100142"},
+            "dcterms:identifier": "http://nobelprize.org/datasets/dcat#ds1",
             "dcterms:accrualPeriodicity": {"@id": "http://purl.org/cld/freq/daily"},
             "dcterms:description": "This dataset contains Nobel prizes, Nobel laureates and information about related media resources. ",
             "dcterms:modified": "2024",

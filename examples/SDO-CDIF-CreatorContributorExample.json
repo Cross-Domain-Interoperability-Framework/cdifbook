@@ -1,18 +1,25 @@
 {
     "@context": {
-        "schema": "https://schema.org/",
+        "schema": "http://schema.org/",
         "dcterms": "http://purl.org/dc/terms/",
         "geosparql": "http://www.opengis.net/ont/geosparql#",
         "spdx": "http://spdx.org/rdf/terms#",
-        "ex": "https://example.org/"
+        "ex": "https://example.org/",
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
     },
     "@id": "ex:URIforDescribedResource",
-    "@type": ["schema:Dataset"],
-    "schema:additionalType": ["multispectral high resolution micro image"],
+    "@type": [
+        "schema:Dataset"
+    ],
+    "schema:additionalType": [
+        "multispectral high resolution micro image"
+    ],
     "schema:name": "Sample yx200, polished surface",
     "schema:description": "Description of what's in the image, where and why taken",
     "schema:identifier": "https:doi.org/10.35467/2357838",
-    "schema:license": ["https://microimagerylab.org/license.txt"],
+    "schema:license": [
+        "https://microimagerylab.org/license.txt"
+    ],
     "schema:creator": {
         "@list": [
             {
@@ -50,18 +57,21 @@
     "schema:datePublished": "2012-07-18",
     "schema:distribution": [
         {
-            "@type": "schema:DataDownload",
-            "schema:encodingFormat": ["image/tif"],
+            "@type": [
+                "schema:DataDownload"
+            ],
+            "schema:encodingFormat": [
+                "image/tif"
+            ],
             "schema:contentUrl": "https://repository.org/images/2423757.tif"
         }
     ],
     "schema:subjectOf": {
         "@id": "ex:URIforTheMetadata",
-        "@type": "schema:DigitalDocument",
+        "@type": "schema:Dataset",
         "schema:dateModified": "2017-05-23",
         "schema:about": {
-            "@type": "schema:DigitalDocument",
-            "schema:url": "ex:URIforDescribedResource"
+            "@id": "ex:URIforDescribedResource"
         },
         "schema:maintainer": {
             "@type": "schema:Organization",
@@ -69,6 +79,11 @@
             "schema:email": "metadata@microimagerylab.org",
             "schema:identifier": "https://ror.org/884jk511"
         },
-        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
-    }
+        "dcterms:conformsTo": [
+            {
+                "@id": "ex:cdif_SDO_profile_uri"
+            }
+        ]
+    },
+    "schema:dateModified": "2012-07-18"
 }

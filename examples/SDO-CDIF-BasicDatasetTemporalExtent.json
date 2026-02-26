@@ -1,31 +1,39 @@
 {
-    "@context": 
-        {
-            "schema":"https://schema.org/", 
-            "dcterms": "http://purl.org/dc/terms/",
-            "geosparql": "http://www.opengis.net/ont/geosparql#",
-            "spdx": "http://spdx.org/rdf/terms#",
-            "ex": "https://example.org/",
-        "time": "http://www.w3.org/2006/time#"
-        },
+    "@context": {
+        "schema": "http://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "ex": "https://example.org/",
+        "time": "http://www.w3.org/2006/time#",
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+    },
     "@id": "ex:URIforNode2246",
-    "@type": ["schema:Dataset"],
+    "@type": [
+        "schema:Dataset"
+    ],
     "schema:identifier": "ex:URIforTheDataset",
     "schema:name": "Minimal dataset metadata",
     "schema:description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
     "schema:url": "https://example.org/locatortoGETlandingPage",
-    "schema:license":{"@id":"https://creativecommons.org/publicdomain/zero/1.0/"},
+    "schema:license": [
+        {
+            "@id": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+    ],
     "schema:publishingPrinciples": [
         {
             "@type": "schema:CreativeWork",
-            "schema:name":"big book of publishing policies",
+            "schema:name": "big book of publishing policies",
             "schema:url": "https://cdif.org/resources/policy/264"
         }
     ],
     "schema:dateModified": "2010-02-03",
     "schema:distribution": [
         {
-            "@type": "schema:DataDownload",
+            "@type": [
+                "schema:DataDownload"
+            ],
             "schema:contentUrl": "https://example.org/locatorForDataset"
         }
     ],
@@ -50,21 +58,35 @@
             }
         },
         {
-            "@type": "time:Instant",
-            "time:inTimePosition": {
-                "@type": "time:TimePosition",
-                "time:nominalPosition": 26.2,
-                "time:hasTRS": "http://www.opengis.net/def/crs/OGC/0/ChronometricGeologicTime"
+            "@type": "time:ProperInterval",
+            "schema:description": "Approximate geologic age of 26.2 Ma",
+            "time:hasBeginning": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:nominalPosition": 26.2,
+                    "time:hasTRS": "http://www.opengis.net/def/crs/OGC/0/ChronometricGeologicTime"
+                }
+            },
+            "time:hasEnd": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:nominalPosition": 26.2,
+                    "time:hasTRS": "http://www.opengis.net/def/crs/OGC/0/ChronometricGeologicTime"
+                }
             }
         }
     ],
-    "prov:wasGeneratedBy": {
-        "@type": "prov:Activity",
-        "prov:used": [
-            "http://vocab.nerc.ac.uk/collection/L05/current/134/",
-            "http://vocab.nerc.ac.uk/collection/B76/current/B7600031/"
-        ]
-    },
+    "prov:wasGeneratedBy": [
+        {
+            "@type": ["prov:Activity"],
+            "prov:used": [
+                "http://vocab.nerc.ac.uk/collection/L05/current/134/",
+                "http://vocab.nerc.ac.uk/collection/B76/current/B7600031/"
+            ]
+        }
+    ],
     "prov:wasDerivedFrom": [
         "http://doi.org/10.547/347848",
         "http://doi.org/10.3578/h5ls",
@@ -72,9 +94,16 @@
     ],
     "schema:subjectOf": {
         "@id": "ex:URIforTheDigitalObjectMetadata",
-        "@type": "schema:DigitalDocument",
+        "@type": "schema:Dataset",
         "schema:identifier": "ex:URIforNode2246",
-        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
-        "schema:dateModified": "2014-02-23"
+        "dcterms:conformsTo": [
+            {
+                "@id": "ex:cdif_SDO_profile_uri"
+            }
+        ],
+        "schema:dateModified": "2014-02-23",
+        "schema:about": {
+            "@id": "ex:URIforNode2246"
+        }
     }
 }

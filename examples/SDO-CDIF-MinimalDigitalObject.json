@@ -1,30 +1,41 @@
 {
     "@context": {
-        "schema": "https://schema.org/",
+        "schema": "http://schema.org/",
         "dcterms": "http://purl.org/dc/terms/",
         "geosparql": "http://www.opengis.net/ont/geosparql#",
-        "spdx": "http://spdx.org/rdf/terms#"
+        "spdx": "http://spdx.org/rdf/terms#",
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
     },
     "@id": "ark:/99152/URIforTheDigitalObject",
-    "@type": ["schema:Dataset"],
+    "@type": [
+        "schema:Dataset"
+    ],
     "schema:name": "Minimal dataset metadata",
     "schema:description": "example minimal documentation that will validate with CDIF schema.org JSON schema. Either a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
     "schema:identifier": "https:doi.org/10.35467/2357838",
-    "schema:license": ["https://microimagerylab.org/license.txt"],
+    "schema:license": [
+        "https://microimagerylab.org/license.txt"
+    ],
     "schema:distribution": [
         {
-            "@type": "schema:DataDownload",
+            "@type": [
+                "schema:DataDownload"
+            ],
             "schema:contentUrl": "https://example.org/locatorForDataset"
         }
     ],
     "schema:subjectOf": {
         "@id": "ex:URIforTheMetadata",
-        "@type": "schema:DigitalDocument",
+        "@type": "schema:Dataset",
         "schema:dateModified": "2017-05-23",
         "schema:about": {
-            "@type": "schema:DigitalDocument",
-            "schema:url": "ex:URIforDescribedResource"
+            "@id": "ex:URIforDescribedResource"
         },
-        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
-    }
+        "dcterms:conformsTo": [
+            {
+                "@id": "ex:cdif_SDO_profile_uri"
+            }
+        ]
+    },
+    "schema:dateModified": "2024-01-01"
 }

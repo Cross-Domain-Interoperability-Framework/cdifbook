@@ -1,13 +1,16 @@
 {
     "@context": {
-        "schema":"https://schema.org/",
-            "dcterms": "http://purl.org/dc/terms/",
-            "geosparql": "http://www.opengis.net/ont/geosparql#",
-            "spdx": "http://spdx.org/rdf/terms#",
-            "ex": "https://example.org/"
-        },
+        "schema": "http://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "ex": "https://example.org/",
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+    },
     "@id": "ex:URIforTheDataset",
-    "@type": ["schema:Dataset"],
+    "@type": [
+        "schema:Dataset"
+    ],
     "schema:name": "Tabular dataset metadata",
     "schema:description": "example documentation that will validate with CDIF schema.org JSON schema. includes both multiple distributions.",
     "schema:identifier": {
@@ -27,7 +30,9 @@
     ],
     "schema:distribution": [
         {
-            "@type":"schema:DataDownload",
+            "@type": [
+                "schema:DataDownload"
+            ],
             "schema:contentUrl": "https://example.org/datasets/1234567890.csv",
             "schema:description": "A comma delimited text distribution of the data following csv on the web W3C conventions (a digitalObject...). We do not consider the URL that locates this particular digitalObject as the identifier for the object, so this DataDownload is a blank node. ",
             "spdx:checksum": {
@@ -36,14 +41,22 @@
                 "spdx:checksumValue": "0BAA1B8"
             },
             "schema:contentSize": "12345 kb",
-            "schema:encodingFormat": ["text/csv (base mime type)"],
+            "schema:encodingFormat": [
+                "text/csv (base mime type)"
+            ],
             "dcterms:conformsTo": [
-                "https://example.org/dataonthewebcsvprofile",
-                "https://fdof.org/fdofprofile"
+                {
+                    "@id": "https://example.org/dataonthewebcsvprofile"
+                },
+                {
+                    "@id": "https://fdof.org/fdofprofile"
+                }
             ]
         },
         {
-            "@type":"schema:DataDownload",
+            "@type": [
+                "schema:DataDownload"
+            ],
             "schema:contentUrl": "https://example.org/datasets/1234567890.rdb",
             "schema:description": "A comma delimited text distribution of the data using USGS RDB conventions (a digitalObject...). We do not consider the URL that locates this particular digitalObject as the identifier for the object, so this DataDownload is a blank node. ",
             "spdx:checksum": {
@@ -52,30 +65,41 @@
                 "spdx:checksumValue": "0F119B7"
             },
             "schema:contentSize": "11256 kb",
-            "schema:encodingFormat": ["text/csv (base mime type)"],
+            "schema:encodingFormat": [
+                "text/csv (base mime type)"
+            ],
             "dcterms:conformsTo": [
-                "https://example.org/usgsRDBprofile",
-                "https://fdof.org/fdofprofile"
+                {
+                    "@id": "https://example.org/usgsRDBprofile"
+                },
+                {
+                    "@id": "https://fdof.org/fdofprofile"
+                }
             ]
         }
     ],
-    "schema:conditionsOfAccess":"these are the applicable conditions for accessing the resource",
+    "schema:conditionsOfAccess": [
+        "these are the applicable conditions for accessing the resource"
+    ],
     "schema:dateModified": "2010-02-03",
     "schema:subjectOf": {
         "@id": "ark:/99152/URIforTheMetadataRecord",
-        "@type": "schema:DigitalDocument",
+        "@type": "schema:Dataset",
         "schema:description": "information about this metadata record",
         "schema:maintainer": {
-            "@type": "Person",
+            "@type": "schema:Person",
             "@id": "https://orcid.org/identifierForMetadataProducer",
             "schema:name": "metadata creator-editor-steward name",
             "schema:description": "person responsible for the metadata"
         },
         "schema:about": {
-            "@type": "DigitalDocument",
-            "schema:url":"ex:URIforTheDataset"
-            },
+            "@id": "ex:URIforTheDataset"
+        },
         "schema:dateModified": "2014-02-23",
-        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri"
+        "dcterms:conformsTo": [
+            {
+                "@id": "ex:cdif_SDO_profile_uri"
+            }
+        ]
     }
 }

@@ -1,21 +1,35 @@
 {
     "@context": {
-        "schema":"https://schema.org/",
-            "dcterms": "http://purl.org/dc/terms/",
-            "geosparql": "http://www.opengis.net/ont/geosparql#",
-            "spdx": "http://spdx.org/rdf/terms#",
-            "ex": "https://example.org/"
-        },
-    "@type": ["schema:ItemList"],
+        "schema": "http://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "ex": "https://example.org/",
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+    },
+    "@type": [
+        "schema:Collection",
+        "schema:ItemList"
+    ],
     "@id": "https://example.org/id/graph/X",
     "schema:name": "Example CDIF Metadata collection",
     "schema:description": "this is a JSON file containing a collection of CDIF 1.0 conformant JSON-LD records. The structure uses the schema.org ItemList type. ",
+    "schema:identifier": "https://example.org/id/graph/X",
+    "schema:dateModified": "2024-01-01",
     "schema:itemListOrder": "https://schema.org/ItemListUnordered",
     "schema:numberOfItems": 3,
+    "schema:subjectOf": {
+        "@id": "ex:metadata/graph/X",
+        "@type": "schema:Dataset",
+        "schema:about": {"@id": "https://example.org/id/graph/X"},
+        "dcterms:conformsTo": [{"@id": "ex:cdif_SDO_profile_uri"}]
+    },
     "schema:itemListElement": [
         {
             "@id": "ex:URIforTheDataset",
-            "@type": ["schema:Dataset"],
+            "@type": [
+                "schema:Dataset"
+            ],
             "schema:name": "Minimal dataset metadata",
             "schema:description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
             "schema:url": "ex:locatortoGETlandingPage",
@@ -26,36 +40,49 @@
                 }
             ],
             "schema:identifier": "https://doi.org/10.5878/landingPage",
-            "schema:conditionsOfAccess":"these are the applicable conditions for accessing the resource",
+            "schema:conditionsOfAccess": [
+                "these are the applicable conditions for accessing the resource"
+            ],
             "schema:dateModified": "2010-02-03",
             "schema:distribution": [
                 {
-                    "@type": "schema:DataDownload",
+                    "@type": [
+                        "schema:DataDownload"
+                    ],
                     "schema:contentUrl": "https://example.org/locatorForDataset"
                 }
             ],
             "schema:subjectOf": {
                 "@id": "ex:metadata/URIforTheDigitalObjectMetadata",
-                "@type": "schema:DigitalDocument",
+                "@type": "schema:Dataset",
                 "schema:about": {
-                    "@type": "DigitalDocument",
-                    "schema:url": "ex:URIforTheDataset"
+                    "@id": "ex:URIforTheDataset"
                 },
-                "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
+                "dcterms:conformsTo": [
+                    {
+                        "@id": "ex:cdif_SDO_profile_uri"
+                    }
+                ],
                 "schema:dateModified": "2014-02-23"
             }
         },
         {
-            "@type": ["schema:Dataset"],
+            "@type": [
+                "schema:Dataset"
+            ],
             "@id": "https://doi.org/10.5878/tnzz-m331",
             "schema:identifier": "https://doi.org/10.5878/tnzz-m331",
             "schema:version": "4",
             "schema:name": "Dataset for SOU 2023:18 The Wind's Value - Compensation, Incentives and Planning for a Continued Sustainable Wind Power Development",
             "schema:description": "The study is a Governmental ....",
-            "schema:conditionsOfAccess":"these are the applicable conditions for accessing the resource",
+            "schema:conditionsOfAccess": [
+                "these are the applicable conditions for accessing the resource"
+            ],
             "schema:datePublished": "2023-06-21T11:37:06Z",
             "schema:dateModified": "2023-06-21T11:37:06Z",
-            "schema:temporalCoverage": "2020/2022",
+            "schema:temporalCoverage": [
+                "2020/2022"
+            ],
             "schema:publisher": {
                 "@type": "schema:Organization",
                 "@id": "https://snd.gu.se",
@@ -63,46 +90,64 @@
             },
             "schema:distribution": [
                 {
-                    "@type": "schema:DataDownload",
+                    "@type": [
+                        "schema:DataDownload"
+                    ],
                     "schema:name": "ID 006 - Vero, Beskattning av vind- och solkraftverk Norge.pdf",
                     "schema:contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+006+-+Vero%2C+Beskattning+av+vind-+och+solkraftverk+Norge.pdf",
                     "schema:contentSize": 356791,
-                    "schema:encodingFormat": ["application/pdf"],
+                    "schema:encodingFormat": [
+                        "application/pdf"
+                    ],
                     "schema:isAccessibleForFree": true
                 },
                 {
-                    "@type": "schema:DataDownload",
+                    "@type": [
+                        "schema:DataDownload"
+                    ],
                     "schema:name": "ID 042 - Nye regler om stigning i grundskylden p...pdf",
                     "schema:contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+042+-+Nye+regler+om+stigning+i+grundskylden+p...pdf",
                     "schema:contentSize": 739978,
-                    "schema:encodingFormat": ["application/pdf"],
+                    "schema:encodingFormat": [
+                        "application/pdf"
+                    ],
                     "schema:isAccessibleForFree": true
                 }
             ],
             "schema:subjectOf": {
                 "@id": "metadata:10.5878/tnzz-m331",
-                "@type": "schema:DigitalDocument",
-                "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
+                "@type": "schema:Dataset",
+                "dcterms:conformsTo": [
+                    {
+                        "@id": "ex:cdif_SDO_profile_uri"
+                    }
+                ],
                 "schema:about": {
-                    "@type": "schema:DigitalDocument",
-                    "schema:url": "https://doi.org/10.5878/tnzz-m331"
+                    "@id": "https://doi.org/10.5878/tnzz-m331"
                 }
             }
         },
         {
             "@context": {
-                "schema":"https://schema.org/",
-                    "dcterms": "http://purl.org/dc/terms/",
-                    "geosparql": "http://www.opengis.net/ont/geosparql#",
-                    "spdx": "http://spdx.org/rdf/terms#",
-                    "ex": "https://example.org/"
-                },
+                "schema": "http://schema.org/",
+                "dcterms": "http://purl.org/dc/terms/",
+                "geosparql": "http://www.opengis.net/ont/geosparql#",
+                "spdx": "http://spdx.org/rdf/terms#",
+                "ex": "https://example.org/",
+                "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+            },
             "@id": "ex:URIforDescribedResource",
-            "@type": ["schema:Dataset"],
-            "schema:additionalType": ["multispectral high resolution micro image"],
+            "@type": [
+                "schema:Dataset"
+            ],
+            "schema:additionalType": [
+                "multispectral high resolution micro image"
+            ],
             "schema:name": "Sample yx200, polished surface",
             "schema:description": "Description of what's in the image, where and why taken",
-            "schema:license": ["https://microimagerylab.org/license.txt"],
+            "schema:license": [
+                "https://microimagerylab.org/license.txt"
+            ],
             "schema:identifier": "ex:URIforTheDataset",
             "schema:creator": {
                 "@list": [
@@ -141,26 +186,35 @@
             "schema:datePublished": "2012-07-18",
             "schema:distribution": [
                 {
-                    "@type": "schema:DataDownload",
-                    "schema:encodingFormat": ["image/tif"],
+                    "@type": [
+                        "schema:DataDownload"
+                    ],
+                    "schema:encodingFormat": [
+                        "image/tif"
+                    ],
                     "schema:contentUrl": "https://repository.org/images/2423757.tif"
                 }
             ],
             "schema:subjectOf": {
                 "@id": "ex:URIforTheMetadata",
-                "@type": "schema:DigitalDocument",
+                "@type": "schema:Dataset",
                 "schema:dateModified": "2017-05-23",
                 "schema:maintainer": {
                     "@type": "schema:Organization",
                     "schema:name": "J. Tally microimagery lab",
                     "schema:email": "metadata@microimagerylab.org"
                 },
-                "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
+                "dcterms:conformsTo": [
+                    {
+                        "@id": "ex:cdif_SDO_profile_uri"
+                    }
+                ],
                 "schema:about": {
-                    "@type": "schema:DigitalDocument",
-                    "schema:url": "ex:URIforDescribedResource"
+                    "@id": "ex:URIforDescribedResource"
                 }
-            }
+            },
+            "schema:dateModified": "2012-07-18"
         }
-    ]
+    ],
+    "schema:dateModified": "2024-01-01"
 }

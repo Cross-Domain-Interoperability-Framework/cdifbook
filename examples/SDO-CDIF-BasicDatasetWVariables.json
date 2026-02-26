@@ -1,17 +1,23 @@
 {
     "@context": {
-        "schema": "https://schema.org/",
+        "schema": "http://schema.org/",
         "dcterms": "http://purl.org/dc/terms/",
         "geosparql": "http://www.opengis.net/ont/geosparql#",
-        "ex": "https://example.org/"
+        "ex": "https://example.org/",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
     },
     "@id": "ex:URIforNode2246",
-    "@type": ["schema:Dataset"],
+    "@type": [
+        "schema:Dataset"
+    ],
     "schema:identifier": "ex:URIforTheDataset",
     "schema:name": "Dataset metadata Example",
     "schema:description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl and a Dataset.url for a landing page.",
     "schema:url": "https://example.org/locatortoGETlandingPage",
-    "schema:license": "https://creativecommons.org/public-domain/cc0/",
+    "schema:license": [
+        "https://creativecommons.org/public-domain/cc0/"
+    ],
     "schema:publishingPrinciples": [
         {
             "@type": "schema:CreativeWork",
@@ -22,19 +28,30 @@
     "schema:dateModified": "2010-02-03",
     "schema:distribution": [
         {
-            "@type": "schema:DataDownload",
+            "@type": [
+                "schema:DataDownload"
+            ],
             "schema:contentUrl": "https://example.org/locatorForDataset"
         }
     ],
     "schema:variableMeasured": [
         {
-            "@type": "schema:PropertyValue",
+            "@type": [
+                "schema:PropertyValue",
+                "cdi:InstanceVariable"
+            ],
             "schema:name": "arrayID",
             "schema:description": "Array identifier",
-            "schema:propertyID": ["ioos_category:Identifier"]
+            "schema:propertyID": [
+                "ioos_category:Identifier"
+            ]
         },
         {
-            "@type": "schema:StatisticalVariable",
+            "@type": [
+                "schema:StatisticalVariable",
+                "schema:PropertyValue",
+                "cdi:InstanceVariable"
+            ],
             "schema:measuredProperty": {
                 "@type": "schema:Property",
                 "schema:identifier": "https://properties.org/id/305978",
@@ -45,7 +62,9 @@
             "schema:populationType": {
                 "@type": "Class",
                 "schema:name": "Citizens"
-            }
+            },
+            "schema:name": " (variable)",
+            "schema:description": "Variable:  (variable)"
         }
     ],
     "dqv:hasQualityMeasurement": [
@@ -62,9 +81,16 @@
     ],
     "schema:subjectOf": {
         "@id": "ex:URIforTheDigitalObjectMetadata",
-        "@type": "DigitalDocument",
+        "@type": "schema:Dataset",
         "schema:identifier": "ex:URIforNode2246",
-        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
-        "schema:dateModified": "2014-02-23"
+        "dcterms:conformsTo": [
+            {
+                "@id": "ex:cdif_SDO_profile_uri"
+            }
+        ],
+        "schema:dateModified": "2014-02-23",
+        "schema:about": {
+            "@id": "ex:URIforNode2246"
+        }
     }
 }
