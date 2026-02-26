@@ -8,7 +8,7 @@
         "time": "http://www.w3.org/2006/time#",
         "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
     },
-    "@id": "ex:URIforNode2246",
+    "@id": "ex:URIforNode2246123",
     "@type": [
         "schema:Dataset"
     ],
@@ -95,7 +95,7 @@
     "schema:subjectOf": {
         "@id": "ex:URIforTheDigitalObjectMetadata",
         "@type": "schema:Dataset",
-        "schema:identifier": "ex:URIforNode2246",
+        "schema:identifier": "ex:URIforNode2246123",
         "dcterms:conformsTo": [
             {
                 "@id": "ex:cdif_SDO_profile_uri"
@@ -103,7 +103,7 @@
         ],
         "schema:dateModified": "2014-02-23",
         "schema:about": {
-            "@id": "ex:URIforNode2246"
+            "@id": "ex:URIforNode2246123"
         }
     }
 }

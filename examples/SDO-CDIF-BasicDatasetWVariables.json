@@ -7,7 +7,7 @@
         "spdx": "http://spdx.org/rdf/terms#",
         "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
     },
-    "@id": "ex:URIforNode2246",
+    "@id": "ex:URIforNode22461234",
     "@type": [
         "schema:Dataset"
     ],
@@ -82,7 +82,7 @@
     "schema:subjectOf": {
         "@id": "ex:URIforTheDigitalObjectMetadata",
         "@type": "schema:Dataset",
-        "schema:identifier": "ex:URIforNode2246",
+        "schema:identifier": "ex:URIforNode22461234",
         "dcterms:conformsTo": [
             {
                 "@id": "ex:cdif_SDO_profile_uri"
@@ -90,7 +90,7 @@
         ],
         "schema:dateModified": "2014-02-23",
         "schema:about": {
-            "@id": "ex:URIforNode2246"
+            "@id": "ex:URIforNode22461234"
         }
     }
 }
