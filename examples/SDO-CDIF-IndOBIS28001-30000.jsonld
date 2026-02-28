@@ -5,7 +5,8 @@
         "geosparql": "http://www.opengis.net/ont/geosparql#",
         "spdx": "http://spdx.org/rdf/terms#",
         "ex": "https://example.org/",
-        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "dcat": "http://www.w3.org/ns/dcat#"
     },
     "@type": [
         "schema:Dataset"
@@ -48,6 +49,7 @@
             },
             "schema:additionalProperty": {
                 "@type": "schema:PropertyValue",
+                "schema:name": "Spatial_reference_system: wgs84_pos#lat_long",
                 "schema:propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
                 "schema:value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
             }
@@ -70,7 +72,12 @@
         }
     ],
     "schema:subjectOf": {
-        "@type": "schema:Dataset",
+        "@type": [
+            "schema:Dataset"
+        ],
+        "schema:additionalType": [
+            "dcat:CatalogRecord"
+        ],
         "@id": "ex:metadata/71c18dbe-72a9-42af-8108-4f2799e1c270",
         "schema:identifier": "https://obis.org/metadata/71c18dbe-72a9-42af-8108-4f2799e1c270",
         "schema:description": "information about metadata record.  JSONLD metadata harvested from OceanInfohub, https://api.search.oceaninfohub.org/source?id=https%3A%2F%2Fobis.org%2Fdataset%2F71c18dbe-72a9-42af-8108-4f2799e1c270&_gl=1*4zln2q*_ga*MTkzMTMzNjY4Ny4xNzIwODE4MzI1*_ga_MQDK6BB0YQ*MTcyMjU1MTY2Ni41LjEuMTcyMjU1MTgzMS4wLjAuMA..*_ga_QJ5XJMZFXW*MTcyMjU1MTY3Mi40LjEuMTcyMjU1MTgzMS4wLjAuMA.",
