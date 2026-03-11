@@ -37,7 +37,7 @@ This book is built using [Jupyter Book](https://jupyterbook.org/). You can build
 ### Prerequisites
 
 - Python 3.8+
-- [pip](https://pip.pypa.io/en/stable/installation/)
+- Either [pip](https://pip.pypa.io/en/stable/installation/) or [uv](https://docs.astral.sh/uv/)
 
 ### Installation
 
@@ -47,9 +47,18 @@ This book is built using [Jupyter Book](https://jupyterbook.org/). You can build
     cd cdifbook
     ```
 
-2.  **Install dependencies:**
+2.  **Install dependencies (Option A: pip):**
     ```bash
+    python -m venv .venv
+    source .venv/bin/activate
     pip install -r requirements.txt
+    ```
+
+3.  **Install dependencies (Option B: uv):**
+    ```bash
+    uv venv
+    source .venv/bin/activate
+    uv pip install -r requirements.txt
     ```
 
 ### Building the Book
@@ -61,6 +70,23 @@ jupyter-book build .
 ```
 
 The output will be generated in `_build/html/`. You can open `_build/html/index.html` in your browser to view the book.
+
+### Development Workflow
+
+Use these commands while iterating on content:
+
+- **Build after edits:**
+    ```bash
+    jupyter-book build .
+    ```
+- **Force a full rebuild (when TOC/config changes):**
+    ```bash
+    jupyter-book build . --all
+    ```
+- **Check links:**
+    ```bash
+    jupyter-book build . --builder linkcheck
+    ```
 
 ---
 
