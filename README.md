@@ -66,10 +66,10 @@ This book is built using [Jupyter Book](https://jupyterbook.org/). You can build
 To build the HTML version of the book:
 
 ```bash
-jupyter-book build .
+jupyter-book build --site --html
 ```
 
-The output will be generated in `_build/html/`. You can open `_build/html/index.html` in your browser to view the book.
+The output will be generated in `_build/html/` (with site assets in `_build/site/`). You can open `_build/html/index.html` in your browser to view the book.
 
 ### Development Workflow
 
@@ -77,15 +77,16 @@ Use these commands while iterating on content:
 
 - **Build after edits:**
     ```bash
-    jupyter-book build .
+    jupyter-book build --site --html
     ```
-- **Force a full rebuild (when TOC/config changes):**
+- **Force a full rebuild (when project/config changes):**
     ```bash
-    jupyter-book build . --all
+    jupyter-book clean --all --yes
+    jupyter-book build --site --html
     ```
 - **Check links:**
     ```bash
-    jupyter-book build . --builder linkcheck
+    jupyter-book build --site --html --check-links
     ```
 
 ---
