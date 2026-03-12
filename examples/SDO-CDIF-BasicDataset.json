@@ -5,7 +5,8 @@
         "geosparql": "http://www.opengis.net/ont/geosparql#",
         "spdx": "http://spdx.org/rdf/terms#",
         "ex": "https://example.org/",
-        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "dcat": "http://www.w3.org/ns/dcat#"
     },
     "@id": "ex:URIforNode2246",
     "@type": [
@@ -36,7 +37,12 @@
     ],
     "schema:subjectOf": {
         "@id": "ex:URIforTheDigitalObjectMetadata",
-        "@type": "schema:Dataset",
+        "@type": [
+            "schema:Dataset"
+        ],
+        "schema:additionalType": [
+            "dcat:CatalogRecord"
+        ],
         "schema:identifier": "ex:URIforNode2246",
         "dcterms:conformsTo": [
             {

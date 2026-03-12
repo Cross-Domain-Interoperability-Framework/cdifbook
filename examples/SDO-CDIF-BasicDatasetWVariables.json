@@ -5,7 +5,11 @@
         "geosparql": "http://www.opengis.net/ont/geosparql#",
         "ex": "https://example.org/",
         "spdx": "http://spdx.org/rdf/terms#",
-        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "dqv": "http://www.w3.org/ns/dqv#",
+        "imf": "https://www.imf.org/external/np/",
+        "nerc": "https://vocab.nerc.ac.uk/"
     },
     "@id": "ex:URIforNode22461234",
     "@type": [
@@ -81,7 +85,12 @@
     ],
     "schema:subjectOf": {
         "@id": "ex:URIforTheDigitalObjectMetadata",
-        "@type": "schema:Dataset",
+        "@type": [
+            "schema:Dataset"
+        ],
+        "schema:additionalType": [
+            "dcat:CatalogRecord"
+        ],
         "schema:identifier": "ex:URIforNode22461234",
         "dcterms:conformsTo": [
             {

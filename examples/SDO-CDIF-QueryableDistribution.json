@@ -5,7 +5,8 @@
         "geosparql": "http://www.opengis.net/ont/geosparql#",
         "spdx": "http://spdx.org/rdf/terms#",
         "ex": "https://example.org/",
-        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "dcat": "http://www.w3.org/ns/dcat#"
     },
     "@id": "ex:URIforNode224612345",
     "@type": [
@@ -31,29 +32,29 @@
             "schema:documentation": "URL for a service description document",
             "schema:potentialAction": [
                 {
-                "@type": "schema:SearchAction",
-                "schema:target": {
-                    "@type": "schema:EntryPoint",
-                    "schema:contentType": [
-                        "application/x-netcdf",
-                        "text/tab-separated-values"
-                    ],
-                    "schema:urlTemplate": "https://www.sample-data-repository.org/dataset/1234/download?format={format}&bounds={bbox}",
-                    "schema:description": "Download dataset 1234 based on the requested format and bounding box",
-                    "schema:httpMethod": [
-                        "GET"
+                    "@type": "schema:SearchAction",
+                    "schema:target": {
+                        "@type": "schema:EntryPoint",
+                        "schema:contentType": [
+                            "application/x-netcdf",
+                            "text/tab-separated-values"
+                        ],
+                        "schema:urlTemplate": "https://www.sample-data-repository.org/dataset/1234/download?format={format}&bounds={bbox}",
+                        "schema:description": "Download dataset 1234 based on the requested format and bounding box",
+                        "schema:httpMethod": [
+                            "GET"
+                        ]
+                    },
+                    "schema:query-input": [
+                        {
+                            "@type": "schema:PropertyValueSpecification",
+                            "schema:valueName": "format",
+                            "schema:description": "The desired format requested either 'application/x-netcdf' or 'text/tab-separated-values'",
+                            "schema:valueRequired": true,
+                            "schema:defaultValue": "application/x-netcdf"
+                        }
                     ]
-                },
-                "schema:query-input": [
-                    {
-                        "@type": "schema:PropertyValueSpecification",
-                        "schema:valueName": "format",
-                        "schema:description": "The desired format requested either 'application/x-netcdf' or 'text/tab-separated-values'",
-                        "schema:valueRequired": true,
-                        "schema:defaultValue": "application/x-netcdf"
-                    }
-                ]
-            }
+                }
             ],
             "schema:termsOfService": "string or CreativeWork"
         }
@@ -63,7 +64,12 @@
     ],
     "schema:subjectOf": {
         "@id": "ex:URIforTheDigitalObjectMetadata",
-        "@type": "schema:Dataset",
+        "@type": [
+            "schema:Dataset"
+        ],
+        "schema:additionalType": [
+            "dcat:CatalogRecord"
+        ],
         "schema:identifier": "ex:URIforNode224612345",
         "dcterms:conformsTo": [
             {

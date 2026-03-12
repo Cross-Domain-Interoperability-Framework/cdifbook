@@ -4,7 +4,10 @@
         "dcterms": "http://purl.org/dc/terms/",
         "geosparql": "http://www.opengis.net/ont/geosparql#",
         "spdx": "http://spdx.org/rdf/terms#",
-        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "ark": "https://n2t.net/",
+        "ex": "https://example.org/"
     },
     "@id": "ark:/99152/URIforTheDigitalObject",
     "@type": [
@@ -26,7 +29,12 @@
     ],
     "schema:subjectOf": {
         "@id": "ex:URIforTheMetadata",
-        "@type": "schema:Dataset",
+        "@type": [
+            "schema:Dataset"
+        ],
+        "schema:additionalType": [
+            "dcat:CatalogRecord"
+        ],
         "schema:dateModified": "2017-05-23",
         "schema:about": {
             "@id": "ex:URIforDescribedResource"

@@ -5,7 +5,9 @@
         "geosparql": "http://www.opengis.net/ont/geosparql#",
         "spdx": "http://spdx.org/rdf/terms#",
         "ex": "https://example.org/",
-        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "metadata": "https://doi.org/"
     },
     "@type": [
         "schema:Dataset"
@@ -56,7 +58,12 @@
     ],
     "schema:subjectOf": {
         "@id": "metadata:10.5878/tnzz-m331",
-        "@type": "schema:Dataset",
+        "@type": [
+            "schema:Dataset"
+        ],
+        "schema:additionalType": [
+            "dcat:CatalogRecord"
+        ],
         "schema:identifier": "https://metadata.org/10.5878/tnzz-m331",
         "dcterms:conformsTo": [
             {
