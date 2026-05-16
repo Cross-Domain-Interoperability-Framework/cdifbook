@@ -1,0 +1,78 @@
+version: 1
+project:
+  title: Cross Domain Interoperability Framework Handbook
+  authors:
+    - name: World Fair CDIF working group
+  github: Cross-Domain-Interoperability-Framework/cdifbook
+  bibliography:
+    - references.bib
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/book.pdf
+  toc:
+    - file: introduction.md
+    - title: Overview
+      children:
+        - file: background/checklistForImplementation.md
+        - file: background/whycdif.md
+        - file: background/history.md
+        - file: background/structure.md
+        - file: background/principles.md
+        - file: background/maintenance.md
+    - title: Core Profiles/Recommendations
+      children:
+        - file: metadata/technicalexpressionmetadata.md
+          children:
+            - file: metadata/distributionapis.md
+            - file: metadata/queryabledistributions.md
+            - file: metadata/publishingmetadata.md
+        - file: metadata/discovery.md
+          children:
+            - file: metadata/recommendations.md
+            - file: metadata/contentmodel.md
+            - file: metadata/publication.md
+        - file: data_access/intro.md
+          children:
+            - file: data_access/odrloverview.md
+            - file: data_access/policies.md
+            - file: data_access/odrlinternalpolicies.md
+            - file: data_access/odrlaggregateaccessconditions.md
+            - file: data_access/odrlsharedservices.md
+            - file: data_access/odrlfederatedanalysis.md
+            - file: data_access/odrlincdif.md
+        - file: controlled_vocabularies/vocabintro.md
+          children:
+            - file: controlled_vocabularies/cdifskosprofile.md
+            - file: controlled_vocabularies/statisticalclassification.md
+        - file: data_integration/dataintegrationintro.md
+          children:
+            - file: data_integration/dataintegrationstandards.md
+            - file: data_integration/datadescriptionforintegration.md
+            - file: data_integration/ddidescriptiondatastructure.md
+        - file: universals/univintro.md
+          children:
+            - file: universals/univgeography.md
+            - file: universals/univtime.md
+            - file: universals/univuom.md
+    - title: Open Topics, Future Profiles
+      children:
+        - file: future/provenance.md
+        - file: future/context.md
+        - file: future/perspectives-ai.md
+        - file: future/packaging.md
+        - file: future/additionaldataformats.md
+    - title: Implementation Resources
+      children:
+        - file: metadata/schemaorgimplementation.md
+        - file: metadata/dcat.md
+        - file: examples/index.md
+        - file: metadata/mapping.md
+          children:
+            - file: metadata/pidkernel.md
+            - file: metadata/signpostinglinkrel.md
+site:
+  options:
+    logo: CDIF_LOGO.jpg
+    folders: true
+  template: book-theme
