@@ -63,14 +63,3 @@ To find out more about CDIF, please consult the [presentations and recording fro
 
 A major goal of CDIF is to streamline workflow from needing particular data to having the data you need accessible to the software you're writing or using in the environment where you work. If you have experience or ideas for how this can be achieved, please get in touch!
 
-Some work items we need help with:
-
-* Example CDIF JSON-LD metadata with detailed information for data integration. Data integration information using CDI-DDI vocabulary to describe more complex datasets, with objects, relationships, sentinel values, and controlled vocabularies.  
-
-* Example CDIF JSON-LD Metadata for Data Access, examples using ODRL to document various workflows and requirements to obtain permission for data access or necessary aggregation to de-personalize data.
-
-* Example Metadata describing gridded data or time series using NetCDF or HDF.
-
-* SHACL rules to validate CDIF JSON-LD
-
-* Use cases and example for describing data for use by AI system e.g. for training data. Use of Croissant.
