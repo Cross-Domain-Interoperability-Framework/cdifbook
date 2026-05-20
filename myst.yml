@@ -14,12 +14,13 @@ project:
     - file: introduction.md
     - title: Overview
       children:
-        - file: background/checklistForImplementation.md
+       
         - file: background/whycdif.md
         - file: background/history.md
         - file: background/structure.md
         - file: background/principles.md
         - file: background/maintenance.md
+         - file: background/checklistForImplementation.md
     - title: Core Profiles/Recommendations
       children:
         - file: metadata/technicalexpressionmetadata.md
