@@ -4,15 +4,27 @@ Many important research questions demand a multi-disciplinary approach in which 
 
 The idea for CDIF first emerged from workshops and discussions at conferences prior to the WorldFAIR project, beginning in 2018. The WorldFAIR project provided an opportunity to advance that vision, through aset of 11 case studies across many domains, allowing the needs and practices around FAIR within such domains to be summarised in the form of FAIR Implementation Profiles (FIPs). Based on the FIPs and focused meetings, the requirements for CDIF were established. A group of 30 invited experts from different FAIR initiatives and standards bodies made up a Working Group and an Advisory Group to synthesise the findings from WorldFAIR and to produce the current CDIF draft. 
 
-The framework is based on a set of five core profiles that address the most important functions for cross-domain FAIR implementation.
-1. Discovery (patterns for metadata content, serialization and publication)
-2. Data access (documentation of access conditions and permitted use)
-3. Controlled vocabularies (practices for the publication of controlled vocabularies and semantic artefacts)
-4. Data integration (documentation of the structural and semantic aspects of data to make it integration-ready)
-5. Universals (description of ‘universal’ elements -- time, geography, and units of measurement).
+The framework is based on a set of profiles that address the most important functions for cross-domain FAIR implementation by providing core metadata fields useful in all domains and infrastructures:
+
+1. Discovery (for cataloguing and search)
+
+2. Data Description (for describing distributions of quantitative data)
+
+3. Data Structure (for reusable variables and data structures)
+
+4. Codelist (for the enumerated, coded values found in datasets)
+
+5. Concepts (for describing concept systems containing domain semantics)
+
+6. Data access (for documentation of access conditions and permitted use)
+
+7. Manifest (for creating packages of complete FAIR resources for archiving and reuse)
+
+8. Universals (description of ‘universal’ elements – time, geography, and units of measurement across other profiles)
+
+9. Core (basic fields used in all profiles)
 
 Each of these profiles is supported by specific recommendations, including the set of metadata fields in specific standards to use, and the method of implementation to be employed for machine-level interoperability.
-
 
 CDIF is designed to leverage the work of other FAIR initiatives such as FAIR-Impact and the work in EOSC. It is designed to be implementable with existing tools, standards, and technologies but, as a set of recommended practices, must be maintained as FAIR implementations develop and evolution occurs in the technology sphere. CDIF leverages methodologies such as FIPs from the [GO FAIR Foundation](https://www.go-fair.org/how-to-go-fair/fair-implementation-profile/). Importantly, it aligns with efforts such as the [EOSC Interoperability Framework](https://op.europa.eu/en/publication-detail/-/publication/d787ea54-6a87-11eb-aeb5-01aa75ed71a1/language-en), and developments such as [Signposting](https://signposting.org/FAIR/) and reference implementation of the [FAIR Digital Object Framework](https://fairdo.org/). Work on semantic mapping and in some other areas is informed by on-going developments in other fora such as [RDA](https://www.rd-alliance.org/). CDIF is designed to enable the practical implementation of FAIR by supporting these frameworks and approaches in cross-domain scenarios. 
 
