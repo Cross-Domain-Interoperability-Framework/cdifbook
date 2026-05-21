@@ -20,14 +20,15 @@ project:
         - file: background/structure.md
         - file: background/principles.md
         - file: background/maintenance.md
-         - file: background/checklistForImplementation.md
-    - title: Core Profiles/Recommendations
+        - file: background/checklistForImplementation.md
+    - title: Metadata technical expression
       children:
         - file: metadata/technicalexpressionmetadata.md
           children:
             - file: metadata/distributionapis.md
             - file: metadata/queryabledistributions.md
             - file: metadata/publishingmetadata.md
+    - title: Core Profiles/Recommendations
         - file: metadata/discovery.md
           children:
             - file: metadata/recommendations.md
