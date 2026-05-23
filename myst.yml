@@ -13,8 +13,7 @@ project:
   toc:
     - file: introduction.md
     - title: Overview
-      children:
-       
+      children: 
         - file: background/whycdif.md
         - file: background/history.md
         - file: background/structure.md
@@ -23,18 +22,26 @@ project:
         - file: background/checklistForImplementation.md
     - title: Metadata technical expression
       children:
+        - file: metadata/recommendations.md
         - file: metadata/technicalexpressionmetadata.md
           children:
             - file: metadata/distributionapis.md
             - file: metadata/queryabledistributions.md
             - file: metadata/publishingmetadata.md
-    - title: Core Profiles/Recommendations
-      children:
-        - file: metadata/discovery.md
-          children:
-            - file: metadata/recommendations.md
             - file: metadata/contentmodel.md
             - file: metadata/publication.md
+    - title: Core Profiles/Recommendations
+      children:
+        - file: metadata/core.md
+        - file: metadata/discovery.md
+        - file: controlled_vocabularies/vocabintro.md
+          children:
+            - file: controlled_vocabularies/cdifskosprofile.md
+            - file: controlled_vocabularies/statisticalclassification.md
+        - file: data_integration/datadescriptionforintegration.md
+        - file: data_integration/ddidescriptiondatastructure.md
+    - title: Open Topics, Future Profiles
+      children:
         - file: data_access/intro.md
           children:
             - file: data_access/odrloverview.md
@@ -44,22 +51,14 @@ project:
             - file: data_access/odrlsharedservices.md
             - file: data_access/odrlfederatedanalysis.md
             - file: data_access/odrlincdif.md
-        - file: controlled_vocabularies/vocabintro.md
-          children:
-            - file: controlled_vocabularies/cdifskosprofile.md
-            - file: controlled_vocabularies/statisticalclassification.md
-        - file: data_integration/dataintegrationintro.md
-          children:
-            - file: data_integration/dataintegrationstandards.md
-            - file: data_integration/datadescriptionforintegration.md
-            - file: data_integration/ddidescriptiondatastructure.md
         - file: universals/univintro.md
           children:
             - file: universals/univgeography.md
             - file: universals/univtime.md
             - file: universals/univuom.md
-    - title: Open Topics, Future Profiles
-      children:
+        - file: data_integration/dataintegrationintro.md
+          children:
+            - file: data_integration/dataintegrationstandards.md
         - file: future/provenance.md
         - file: future/context.md
         - file: future/perspectives-ai.md
