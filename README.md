@@ -32,7 +32,7 @@ The handbook is organized around five core profiles:
 
 ## 🛠 Local Development
 
-This book is built using [Jupyter Book](https://jupyterbook.org/). You can build it locally to preview changes.
+This book is built using [Jupyter Book 2](https://jupyterbook.org/) (the MyST `mystmd`-based engine, pinned to `2.1.2` in `requirements.txt`). You can build it locally to preview changes.
 
 ### Prerequisites
 
@@ -61,6 +61,13 @@ This book is built using [Jupyter Book](https://jupyterbook.org/). You can build
     uv pip install -r requirements.txt
     ```
 
+4.  **Install dependencies (Option C: conda):**
+    ```bash
+    conda create -n cdifbook python=3.12
+    conda activate cdifbook
+    pip install -r requirements.txt
+    ```
+
 ### Building the Book
 
 To build the HTML version of the book:
@@ -75,6 +82,11 @@ The output will be generated in `_build/html/` (with site assets in `_build/site
 
 Use these commands while iterating on content:
 
+- **Live preview (auto-rebuilds on save, recommended):**
+    ```bash
+    jupyter-book start
+    ```
+    Serves the book at [http://localhost:3000](http://localhost:3000).
 - **Build after edits:**
     ```bash
     jupyter-book build --site --html
@@ -88,6 +100,8 @@ Use these commands while iterating on content:
     ```bash
     jupyter-book build --site --html --check-links
     ```
+
+> **Working offline?** The first build downloads the ~130 MB site theme into `_build/` and caches it there (there is no global cache). Run a build once while online, then avoid `jupyter-book clean` / deleting `_build/` — otherwise the next offline build will fail trying to re-download the theme. Link checking also requires a connection.
 
 ---
 

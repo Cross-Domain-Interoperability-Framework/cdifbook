@@ -9,13 +9,12 @@ When working on this repository, act as a **Precision Technical Writer and FAIR 
 
 ## 🏗 Project Architecture
 
-- **Core Engine:** [Jupyter Book](https://jupyterbook.org/)
-- **Markup Language:** [MyST Markdown](https://myst-parser.readthedocs.io/)
+- **Core Engine:** [Jupyter Book 2](https://jupyterbook.org/) — v2.1.2, the MyST `mystmd`-based engine (not the legacy Sphinx v1).
+- **Markup Language:** [MyST Markdown](https://mystmd.org/)
 - **Configuration:**
-  - `_config.yml`: Global settings, metadata, and execution parameters.
-  - `_toc.yml`: The Table of Contents (defines the book's structure).
+  - `myst.yml`: Single config file holding project metadata, the table of contents (`toc:`), and site/theme options. (There is no `_config.yml`/`_toc.yml` — those are legacy v1.)
 - **Primary Content:** `.md` files organized by topic (e.g., `data_access/`, `controlled_vocabularies/`).
-- **Dependencies:** `requirements.txt` (Mainly `jupyter-book`, `matplotlib`, `numpy`).
+- **Dependencies:** `requirements.txt` (`jupyter-book==2.1.2`, `matplotlib`, `numpy`).
 
 ## 🎯 High-Priority Objectives for Agents
 
@@ -42,17 +41,23 @@ When working on this repository, act as a **Precision Technical Writer and FAIR 
 
 ## 🛠 Tools & Commands for Agents
 
+The build environment is the **`cdifbook` conda env** (Jupyter Book 2.1.2). Conda activation does not persist between separate shell invocations, so prefix every command with `conda run -n cdifbook`.
+
 Before submitting any changes, you SHOULD:
 
-1.  **Validate the TOC:** If you add a new file, ensure it is correctly placed in `_toc.yml`.
+1.  **Validate the TOC:** If you add a new file, ensure it is correctly placed under `toc:` in `myst.yml`. Mind YAML indentation — each `- title:` group must have a `children:` key before its `- file:` entries.
 2.  **Local Build Preview:**
     ```bash
-    jupyter-book build .
+    conda run -n cdifbook jupyter-book build --html
     ```
-3.  **Link Check:** 
+    Output is written to `_build/html/` (open `_build/html/index.html`).
+3.  **Live Preview (auto-rebuild while editing):**
     ```bash
-    jupyter-book build . --builder linkcheck
+    conda run -n cdifbook jupyter-book start
     ```
+    Serves at http://localhost:3000.
+
+> ⚠️ Do not run `jupyter-book clean` or delete `_build/` — it holds the only local copy of the ~130 MB site theme cache (there is no global cache), which is required for offline builds.
 
 ## 📋 Quality Checklist
 
