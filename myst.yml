@@ -29,6 +29,7 @@ project:
             - file: metadata/queryabledistributions.md
             - file: metadata/publishingmetadata.md
     - title: Core Profiles/Recommendations
+      children:
         - file: metadata/discovery.md
           children:
             - file: metadata/recommendations.md

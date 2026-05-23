@@ -266,6 +266,7 @@ Reasoning:
 - `requirements.txt`
 - `.gitignore`
 
+<<<<<<< Updated upstream
 ## Implementation Status
 
 Status update (2026-03-12): Option B has now been applied in this repository.
@@ -282,3 +283,8 @@ Notes:
 
 - Build now succeeds with both `pip` and `uv` using the updated command syntax.
 - Existing content-level warnings/errors (for example unresolved `TBD` links and a missing image in `data_integration/ddidescriptiondatastructure.md`) are pre-existing content issues and were not part of this setup migration.
+=======
+## No Changes Yet
+
+This document is informational only. No repository changes are proposed here beyond the options outlined above.
+>>>>>>> Stashed changes

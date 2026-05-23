@@ -1,139 +1,54 @@
-# Schema.org implementation of CDIF metadata
+# Core
 
-JSON-LD has been chosen as the recommended serialization format for CDIF metadata following our principle to use existing mainstream technology. The JSON format is widely used for data serialization and popular with developers. JSON-LD adds additional syntax for the representation of linked data, compatible with existing JSON implementations so that integration with existing applications is relatively frictionless. Many metadata providers are using the [schema.org](https://schema.org/) vocabulary with JSON-LD serialization for metadata publication and interchange. Use of this format provides a low barrier to entry for data providers.
+The core of the Cross Domain Interoperability Framerwork is a set of implementation-independent content that must be specified in any CDIF-conformant metadata. This core set is supplemented by a more extensive set of metadata properties that are expected to apply to any information resource of interest, but are optional in the model. These optional properties might not be applicable in some situations or, more commonly, are unknown, not available, or not provide for some reason. 
 
-The JSON syntax is defined by the [ECMA JSON specification](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/), and JSON-LD is specified in the [JSON-LD 1.1 recommendation](https://www.w3.org/TR/json-ld11/) from the World Wide Web Consortium (W3C). This serialization is designed for linked data applications that will translate the JSON into a set of {subject, predicate, object} triples that can be loaded into an RDF database for processing. The JSON-LD context binds JSON keys to URIs for more precise semantics, and the use of URIs to identify entities and property values in the metadata will maximize the linkage with resources on the wider web to build an ever-expanding global knowledge graph.
+ This recommendation is a synthesis of various metadata schemes, including ISO 19115-1:2014, schema.org conventions from [ESIPFed Science on Schema.org]() and Ocean Data net, DCAT, DCAT-AP, and [FDO Kernel Attributes-2.0](https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0). These core content requirements are scoped for a broad spectrum of resource types; other fields will be added in the CDIF extension profiles.
 
-The metadata about the resource has properties about the resource like title, description, responsible parties, spatial or temporal extent (as outlined in the [Metadata Content Requirements](./contentmodel.md) section).
+## Information Model
 
-In a harvesting/federated catalog system some metadata about the metadata is useful to keep track of where metadata came from, what format/profile it uses (harvesters need this to process), and update dates [see Metadata Content Requirements](./contentmodel.md). Unambiguous expression of this information requires making statements about a metadata record distinct from the thing in the world that the metadata describes. In an RDF framework, this requires a distinct identifier for the metadata record object that will serve as the subject for these triples.
+ ### Required
+If the content of a required element does not provide useful information, the metadata is considered useless for even the most rudimentary discovery use cases. Conformant metadata MUST provide valid values: an identifier for the described resource, a meaningful title that identifies the resource, either a URL or Distribution object (details later) that enables access to the resource, a statement of any licensing, usage, or access constraints (i.e., Rights),  an identifier for the type of resource described in the metadata, and identifier(s) for the specification of the metadata serialisation.
 
-Schema.org includes several properties that can be used to embed information about the metadata record in the resource metadata: [**sdDatePublished**](https://schema.org/sdDatePublished), [**sdLicense**](https://schema.org/sdLicense), [**sdPublisher**](https://schema.org/sdPublisher), but lacks a way to provide an identifier for the metadata record distinct from the resource it describes, to specify other agents responsible for the metadata except the publisher, or to assert specification or profile conformance for the metadata record itself.
+- **Resource identifier** (1 entry): A globally unique, resolvable identifier for the resource described by the metadata record.
+- **Title** (1 entry): Succinct (preferably &lt;250 characters) name of the resource; should be sufficient to uniquely identify the resource for a human user.
+- **Distribution**: URL, Distribution object, or Access Instructions (1 entry): There are several options. If the resource is a single digital object accessible online, provide a URL that will retrieve the resource. If the resource has multiple representations, or to provide users more information about the resource representation, a Distribution Object should be used to document the various possible representations and component files with a URL  for each. Metadata for distributions through an API that allows query, filter, or processing as part of a data access request are described in the Queryable Distribution Interfaces (API) section, below. If the resource is not accessible online, provide a URL to a landing page that describes how to access the resource.
+- **Rights** (1 to many entry): Information about required access permissions, licences, contractual requirements, use constraints, and security constraints. Might be described in text or through links to external documents. 
+- **Resource type** (1 to many): A scoped name (label with classification scheme) that specifies the kind of resource described by the metadata. The resource type might be used to determine validation requirements specific to descriptions for that kind of resource.
+- **Metadata profile identifier** (1 to many): Identifier for metadata specification (profile) used to create this metadata record. Generally this will be populated automatically if the metadata is created using CDIF aware tools.
 
-In the RDF serialization, Schema.org metadata records are [JSON-LD node objects](https://www.w3.org/TR/json-ld/#node-objects), and include an "@id" keyword with a value that identifies the node, analogous to a primary key in a relational database.  This identifier can be interpreted to represent a thing in the world that the metadata record (the 'node') is about, or to represent the metadata record (a JSON object) itself.
+### Recommended
+Other properties that should be specified if possible and relevant. All are optional.
+- **Description** (0..1 entry): Inform users about the resource's content, context, provenance, and any other information deemed useful for future cross-domain usage. 
+- **Originators** (0 to many entries): One or more parties (person or organisation) that have a role related to the origin of the resource, e.g., author or editor. Each party has a name (label), identifier, and optional contact information. 
+- **Modified Date** (0..1 entry): Date (not temporal extent) when the most recent changes to the resource were completed. Use [ISO 8601 date and time](https://en.wikipedia.org/wiki/ISO_8601) format. Alternative date formatting must be machine-readable and consistent across all datasets. 
+- **Distribution Agent** (0..1 entry):The party (person or organisation) to contact about accessing the resource. Each party has a name (label), identifier, and optional contact information. If there are multiple distribution options with different contact points, the Distribution Agent should be specified as part of the Distribution Object.
+- **Checksum**. (0 or 1): A string value calculated from the content of a digital object that allows verification that the content of the object has not been modified. Even insignificant changes to the content of the file will change its checksum. The algorithm used to calculate the checksum must be documented. See also [RFC-6920 'Naming things with hashes'](https://www.rfc-editor.org/rfc/rfc6920.html) that establishes ways to identify checksum algorithms and to represent checksum values as a URI. Note that checksums apply to specific digital objects, typically a unique resource representation. Non-digital resources do not have checksums; their representations can have checksums. See implementation notes in Appendix 1.
+- **Funding**. (0 to many entries): Cite funding sources (Grants, contracts...). Each source has a grant or contract identifier, source organisation, and label.
+- **Keyword** (0 to many entries): Distinguish 'tags' and 'controlled terms'. Tags are simply words that a metadata creator thinks will be useful for users to identify resources of interest. Controlled terms are words defined in a vocabulary that minimally include the word (a fixed string to identify the term for humans) and a definition. Each term represents some concept. More semantically rich vocabularies would include resolvable identifiers, source information, and links to related terms (see [Cox et al., 2021](https://doi.org/10.1371/journal.pcbi.1009041) ). One common set of relationships in a vocabulary is a kind-of hierarchy linking broader to narrower concepts. Controlled terms should minimally be represented with a label and scheme name that identifies the source vocabulary; ideally a term URI and scheme URI could be included for more accurate identification and data integration. 
+- **Policies** (0 to many entries): Policies used in management of the described resource, including whether the content may be changed (mutable or immutable), any scheduled updates, what is the expected lifetime for resource availability, what (if any) is the maintenance schedule, versioning, documentation for changes and change requests. Explicit support for specific policy frameworks can be included (e.g., CARE).
+- **Publication Date** (0 or 1): Date (not temporal extent) when the resource was made accessible. Use a ‘year’ or ISO 8601 date and time format. Alternative date formatting must be machine-readable and consistent across all datasets. If no publication date is known, estimate the publication date range, enter the oldest year as the publication date, and include the estimated date range in the Description field.
+- **Other related agents** (0 to many entries): Recognition for others who have contributed to the production of the resource but are not recognized as authors/creators. Includes a variety of roles like maintainer, publisher, point of contact, copyright holder, contributor (see e.g. [DataCite contributor types](https://datacite-metadata-schema.readthedocs.io/en/4.5_draft/properties/recommended_optional/property_contributor.html#a-contributortype), [ISO19115-1 role code](https://wiki.esipfed.org/ISO_19115_and_19115-2_CodeList_Dictionaries#CI_RoleCode) )
+- **Related resources** (0 to many entries): Links to related data, publications, annotation, data sources, software used, etc. Links have at least a label, relationship type, and resolvable target resource identifier.
+- **Version** (0 or 1): If the resource is versioned, specify the label for this version. Version labels should follow a scheme that allows alphanumeric sorting reflecting the order of version release.
+- **Provenance** (0..many): For discovery, provide information about datasets that were used in the creation of the described resource and specify sensors, platforms, software, algorithms etc. used to aquire information contained in the resource.  Details about workflows, activity sequences, association of sensors etc. with specific variables, individuals associate with particular activities in workflow etc. require used of cdif prov extension [tbd](./tbd).
+- **Quality** (0..many) Provide statements about the quality of information in the described resource,  information about quality policies or certificates that apply to the resource, and results of quality measures with information about the measurement protocol/procedure used. In all cases the focus should be on information useful for initial assessment by potential users.
 
-To avoid this ambiguity, CDIF adopts the convention that the schema.org identifier property is used to identify a thing in the world that is the subject of the JSON-LD node.  The identified thing might be physical, imaginary, abstract, or a digital object.  The JSON-LD @id property identifies a node in a graph, which is an abstract object. As a URI the @id URI is expected to dereference to produce a JSON-LD object containing the properties that are attached to the graph node. Given this convention, when the metadata record is processed, the processor should use the schema:identifier as subject of triples about the subject of the metadata record to avoid ambiguity.  In addition, this convention would suggest that if a schema:identifier property is present, the @id property should be interpreted to identify the JSON object that is the representation of the node in the knowledge graph.
+### Properties for metadata management
+These elements provide information for the operation of a distributed catalogue system with harvesting of metadata between catalogue servers. Values should be populated automatically by metadata creation tools, requiring no user input.  Some providers might not include this information in metadata interchange files. 
+- **Metadata Date** (0..1 entry): Last metadata update/creation date-time stamp in ISO 8601 date and time format. This may be automatically updated on metadata import if a metadata format conversion is necessary.
+- **Metadata Contact Agent** (0..1 entry): The party responsible for metadata content and accuracy; Agent object includes a name (label), identifier, and optional contact information
+- **Metadata Identifier** (0..1 entry): The identifier for the Digital object that contains the metadata.
 
-Statements about the metadata record (the JSON object) as a distinct entity should be made using a separate identified node object. This node object is embedded in the resource metadata using the `schema:subjectOf` property (Example 1 below), or published as a separate node in the graph (Example 2 below). The embedded node uses `@type: ["schema:Dataset"]` with `schema:additionalType: ["dcat:CatalogRecord"]` to indicate that it functions as a catalog record, and links back to the resource via `schema:about`. Note that this approach parallels the [DCAT CatalogRecord](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog_Record).
+# Implementation
 
-## JSON-LD context
-
-The CDIF implementation requires that the `@context` be an object declaring namespace prefixes used in the metadata record. At minimum, the `schema`, `dcterms`, and `dcat` prefixes must be declared:
-
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "dcterms": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "spdx": "http://spdx.org/rdf/terms#"
-  }
-}
-```
-
-Additional prefixes may be needed depending on which optional properties are used (e.g. `geosparql`, `prov`, `dqv`, `cdi`, `time`). Because CDIF uses prefixed property names (e.g. `schema:name` rather than `name`), the context must map each prefix to its namespace IRI.
-
-## Catalog Record (subjectOf)
-
-The metadata record information is embedded using `schema:subjectOf`. The CDIF implementation types the catalog record node as `schema:Dataset` with `schema:additionalType` of `dcat:CatalogRecord`:
-
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "dcterms": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "spdx": "http://spdx.org/rdf/terms#",
-    "ex": "https://example.com/99152/"
-  },
-  "@id": "ex:URIforNode1",
-  "@type": ["schema:Dataset"],
-  "schema:identifier": {
-    "@type": "schema:PropertyValue",
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
-    "schema:value": "10.1234/example",
-    "schema:url": "https://doi.org/10.1234/example"
-  },
-  "schema:name": "unique title for the resource",
-  "schema:description": "Description of the resource",
-  "schema:dateModified": "2017-05-23",
-  "schema:license": ["https://creativecommons.org/licenses/by/4.0/"],
-  "schema:url": "https://example.com/resource-landing-page",
-  "schema:subjectOf": {
-    "@id": "ex:URIforNode2",
-    "@type": ["schema:Dataset"],
-    "schema:additionalType": ["dcat:CatalogRecord"],
-    "schema:about": {"@id": "ex:URIforNode1"},
-    "schema:sdDatePublished": "2017-05-23",
-    "dcterms:conformsTo": [
-      {"@id": "https://w3id.org/cdif/core/1.0/"},
-      {"@id": "https://w3id.org/cdif/discovery/1.0/"}
-    ]
-  }
-}
-```
-Example 1.  Metadata about the metadata embedded via subjectOf.
-
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "dcterms": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "ex": "https://example.com/99152/"
-  },
-  "@graph": [
-    {
-      "@id": "ex:URIforNode1",
-      "@type": ["schema:Dataset"],
-      "schema:identifier": "ex:URIforDescribedResource",
-      "schema:name": "unique title for the resource",
-      "schema:description": "Description of the resource"
-    },
-    {
-      "@id": "ex:URIforNode2",
-      "@type": ["schema:Dataset"],
-      "schema:additionalType": ["dcat:CatalogRecord"],
-      "schema:about": {"@id": "ex:URIforNode1"},
-      "schema:sdDatePublished": "2017-05-23",
-      "dcterms:conformsTo": [
-        {"@id": "https://w3id.org/cdif/core/1.0/"},
-        {"@id": "https://w3id.org/cdif/discovery/1.0/"}
-      ]
-    }
-  ]
-}
-```
-
-Example 2. Metadata about metadata as a separate graph node.
-
-The distinct identifier for the metadata record allows statements to be made about the metadata separately from statements about the resource it describes. The catalog record node requires `@type`, `schema:additionalType`, `@id`, `schema:about`, and `dcterms:conformsTo`.
-
-## Conformance URIs
-
-Each CDIF building block defines a conformance URI that must be listed in the catalog record's `dcterms:conformsTo` array. The URIs follow the pattern `https://w3id.org/cdif/{scope}/{version}/`. A CDIFDiscovery-conformant record must declare at minimum:
-
-| Building block | Conformance URI |
-|---|---|
-| cdifCore | `https://w3id.org/cdif/core/1.0/` |
-| cdifOptional (Discovery) | `https://w3id.org/cdif/discovery/1.0/` |
-
-Extended profiles add additional conformance URIs (e.g. `https://w3id.org/cdif/datadescription/1.0/`, `https://w3id.org/cdif/provenance/1.0/`).
-
-JSON keys prefixed with '@' are keywords defined in the [JSON-LD specification]( https://www.w3.org/TR/json-ld11/#keywords) (see table below)
-
- | Keyword  |   Description|
- |-----------|-------------|
- | \@context |  The value must be an object that maps namespace prefixes to their IRI expansions. CDIF requires at minimum `schema`, `dcterms`, and `dcat` prefix declarations. Additional prefixes (e.g. `geosparql`, `prov`, `dqv`, `time`) are needed when using properties from those namespaces. |
-|  \@id    |    A string that identifies the subject of the assertions in the JSON object that contains the \@id key.|
-|  \@type   |   An array of type identifiers for the JSON object. In CDIF, the array must include `schema:Dataset`. Additional schema.org types from the allowed set may also be included. Values use the `schema:` prefix (e.g. `schema:Dataset`, `schema:CreativeWork`). The `schema:additionalType` property should be used for types from other vocabularies (e.g. `dcat:CatalogRecord`). |
+The current recommended implementation uses the schema.org vocabulary, with a few entities and properties from other vocabularies to fill gaps. For background on JSON, JSON-LD and general implementation patters CDIF is using, see [Schema.org implementation notes](schemaOrgImplementationv2.md)
 
 
-# Implementation of metadata content items
+## Implementation of metadata content items
 
-The following table maps the metadata content items described in the [Metadata Content Requirements](./contentmodel.md) section to the schema.org JSON-LD keys to use in metadata serialization. Some example metadata documents follow. The \'Obl.\' column specifies the cardinality obligation for the property; \'1\' means one value required; 1..\* means at least one value is required; 0..\* means the property is optional and more that one value can be provided. Properties with path from "subjectOf" describe the metadata.
+The following table maps the metadata content items described in the Information Model section (above). Some example metadata documents are accessible in the [Core Github repository](https://github.com/Cross-Domain-Interoperability-Framework/core/tree/main/examples). The \'Obl.\' column specifies the cardinality obligation for the property; \'1\' means one value required; 1..\* means at least one value is required; 0..\* means the property is optional and more that one value can be provided. Properties with path from "subjectOf" describe the metadata.
 
-All property names use namespace prefixes as declared in the `@context` (e.g. `schema:name`, `dcterms:conformsTo`). The `schema:` prefix is required for all schema.org properties.
+All property names use namespace prefixes as declared in the `@context` (e.g. `schema:`, `dcterms:`). The `schema:` prefix is required for all schema.org properties. The CDIF JSON-LD implementation uses a hierarchical JSON structure, and CURIE syntax to abbreviate URIs using prefixes defined in the JSON-LD context.  The implementation does not map un-prefixed JSON keys to URIs, rather prefixes a namespace abbreviation on the key label to represent the URI.  This enables using standard JSON schema to validate documents and avoids confusion about the vocabulary origin of keys used in the JSON.
 
 <table class="table" border="1" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
   <tr>
@@ -146,7 +61,7 @@ All property names use namespace prefixes as declared in the `@context` (e.g. `s
     <td >Metadata identifier</td>
     <td >1</td>
     <td > "schema:subjectOf"/"@id":{URI}</td>
-    <td >The URI for the metadata record should be the \@id value for the 'schema:subjectOf' node. This node has \@type ["schema:Dataset"] with schema:additionalType ["dcat:CatalogRecord"], and a schema:about property referencing the \@id of the root resource node.</td>
+    <td >The URI for the metadata record should be the @id value for the 'schema:subjectOf' node. This node has \@type ["schema:Dataset"] with schema:additionalType ["dcat:CatalogRecord"], and a schema:about property referencing the \@id of the root resource node.</td>
   </tr>
   <tr>
     <td>Resource identifier</td>
@@ -424,16 +339,3 @@ Implementation of metadata to describe a service-based (API) distribution:
 | Service description document | 0..1 | "schema:documentation": {string or CreativeWork} | Document that provides a machine-actionable description of a service instance. Examples include OpenAPI documents, OGC Capabilities documents. |
 | Endpoint URL | 1 | "schema:potentialAction":[{"@type":["schema:Action"],<br>"schema:target":{"@type":"schema:EntryPoint",<br>"schema:urlTemplate": ...}}] | Web location to invoke service; if there are parameters on the URL, the URL template construct enables description of the parameters. |
 | Access constraints | 1 | "schema:termsOfService": {string or CreativeWork} | Description of access privileges required to use the API, e.g. registration, licensing, payments. |
-
-
-# Implementation patterns
-
-All property names use namespace prefixes as declared in the `@context` (e.g. `schema:`, `dcterms:`). The `schema:` prefix is required for all schema.org properties. The CDIF JSON-LD implementation uses a hierarchical JSON structure, and CURIE syntax to abbreviate URIs using prefixes defined in the JSON-LD context.  The implementation does not map un-prefixed JSON keys to URIs, rather prefixes a namespace abbreviation on the key label to represent the URI.  This enables using standard JSON schema to validate documents and avoids confusion about the vocabulary origin of keys used in the JSON.
-
--   DefinedTerm. {label, schemename, conceptURI, schemeURI}. This is a pattern used for property values that are concepts defined in a controlled vocabulary, ontology, or similar semantic artefact. Values have a `schema:name` (label meaningful to humans), `schema:inDefinedTermSet` (identifies the source semantic resource), `schema:identifier` (a PropertyValue with the concept URI), and `schema:termCode` (a short code for the concept).
-
--   Identifier. Identifiers can be inserted as simple string literals. If the identifier can be provided as a string literal that is resolvable and for which the identifier scheme is evident, that is all that is required. If the identifier scheme is not well known, or a separate resolver must be used, use the schema:PropertyValue to provide additional information. The `schema:propertyID` specifies the identifier scheme. CDIF recommends using scheme identifiers from [https://registry.identifiers.org/registry/](https://registry.identifiers.org/registry/). The `schema:value` provides the identifier as a string value. If the identifier can be resolved on the web, the `schema:url` provides a resolvable URL.
-
--   Agent. This pattern is for specifying an Agent in the PROV sense: An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent\'s activity. Agents can be persons, organizations, or software-defined actors. Agents have a `schema:name` for human recognition, a type (schema:Person, schema:Organization), an `@id` identifier, `schema:contactPoint` and `schema:affiliation`. Machine agent contact points should be the accessible human who operates the environment running the machine agent. This pattern is used for hard-typed roles in the CDIF implementation-- schema:creator, schema:maintainer, schema:contributor, schema:provider. Other roles can be documented using the [schema.org role pattern](http://blog.schema.org/2014/06/introducing-role.html) in the schema:contributor property. Note that `schema:creator` uses the JSON-LD `@list` wrapper to preserve author ordering.
-
--   DistributionObject {contentUrl, encodingFormat, dcterms:conformsTo, distributionAgent}. This pattern specifies information for implementing machine access to a DigitalObject. Includes a URL (`schema:contentUrl`) for the web location at which the DigitalObject can be accessed, the specifications or profiles to which the serialization and content of the object conform using `dcterms:conformsTo` (an array of objects with @id), the format of the digital object content (`schema:encodingFormat`), and the Agent responsible for the distribution platform (`schema:provider`). The `@type` must be an array containing `schema:DataDownload`.
