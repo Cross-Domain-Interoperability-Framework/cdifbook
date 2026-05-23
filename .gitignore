@@ -1,5 +1,6 @@
 # Jupyter Book
 _build/
+build.log
 
 # Python
 __pycache__/
@@ -45,6 +46,7 @@ Icon?
 .antigravity/
 .agent/
 .agents/
+.claude/
 AGENTS_WORKFLOWS_LOGS.md
 
 # Other
