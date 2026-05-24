@@ -33,6 +33,8 @@ project:
     - title: Core Profiles/Recommendations
       children:
         - file: metadata/core.md
+          children:
+            - file: metadata/coreSchemaImplementationNew.md
         - file: metadata/discovery.md
         - file: controlled_vocabularies/vocabintro.md
           children:
@@ -79,4 +81,5 @@ site:
   options:
     logo: CDIF_LOGO.jpg
     folders: true
+    style: _static/custom.css
   template: book-theme
