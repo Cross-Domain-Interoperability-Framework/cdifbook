@@ -15,6 +15,23 @@ A data provider is expected to describe the data as they manage and present it, 
 
 The concept definitions that specify semantics must be separated from the structural description of data for a useful cross-domain data description scheme, along with an indication of where the semantics for both the field and the values come from. 
 
+# Data structure basics
+
+A dataset provides values for a set of variables that characterize some unit of interest. Each record in the dataset is about a particular unit or individual in the world. In the CDIF framework, a data descovery description provides basic information about the units that are the subject of a dataset, and can provide a list of variables associated with those units. The data description profile provides information about the physical representation of the values for variables, and how they are arranged to serialize in a file that can be shared between computer systems.  
+
+The DDI-CDI model provides a framework for describing data structures. A foundation concept is the variable cascade.  A variable can be defined at the conceptual level-- independent of any particular approach to representing values the variable might have. Temperature could be considered a conceptual variable.  Conceptual variables can be represented in inforamtion systems in various ways.  Temperature can be represented with categories like 'really hot', 'hot', 'cold', or numerically with one of several quantitative scales like kelvin or farenheit. A represented variable specifies how a conceptual variable's values are quantified in an implementation independent way. A set of temperature categories can be represented using a different vocabularies; quantitative temperatures might be represented as integers or decimal numbers. An instance variable specifies a the implementation of a represented variable in a particular data set-- the exact set of strings used to represent categories, data types that are defined in programming languages, constraints on string lengths, constraints on string syntax using regular expressions, etc. 
+
+Another foundation concept useful for describing data structures is the data structure component.  Variables in a data structure have different roles in their relationship to description of the unit that is the subject of a record. Key roles include:
+- identifier: variables that serve to uniquely identify the individual that is the subject of a record
+- measure: variables that quantify properties of the subject of the record
+- attribute: variables that qualify the values of other variables in the dataset. 
+- reference: variables the provide identifiers for linking between datasets. 
+- Other more complex roles will be described later.
+
+The data description profile is focused on describing the physical implementation of variables in a particular dataset, based on a set of instance variable descriptions and a physical mapping that documents how the values of variables and their binding to individual records are located in a file containing the dataset.   The data structure profile provides a way to describe a dataset that can be applied to more than one dataset instance, using represented variables and data structure components.  We will refer to this 'portable' data structure description as a logical data structure.  
+
+# Data description workflow
+
 CDIF recommends a subset of the classes in the DDI-CDI specification for data description.  For a static set of data there are four steps. For a service, where the structure and physical format of the data will depend on the service, the last two steps are not required.
 
 The process for providing such detailed descriptions of data can be broken down into a series of steps:

@@ -36,10 +36,12 @@ project:
         - file: metadata/discovery.md
         - file: controlled_vocabularies/vocabintro.md
           children:
-            - file: controlled_vocabularies/cdifskosprofile.md
-            - file: controlled_vocabularies/statisticalclassification.md
-        - file: data_integration/datadescriptionforintegration.md
-        - file: data_integration/ddidescriptiondatastructure.md
+            - file: controlled_vocabularies/conceptprofile.md
+            - file: controlled_vocabularies/codelistprofile.md
+        - file: data_description/datadescriptionforintegration.md
+          children:
+            - file: data_description/datadescriptionprofile.md
+            - file: data_description/datastructureprofile.md
     - title: Open Topics, Future Profiles
       children:
         - file: data_access/intro.md
@@ -56,9 +58,9 @@ project:
             - file: universals/univgeography.md
             - file: universals/univtime.md
             - file: universals/univuom.md
-        - file: data_integration/dataintegrationintro.md
+        - file: data_description/dataintegrationintro.md
           children:
-            - file: data_integration/dataintegrationstandards.md
+            - file: data_description/dataintegrationstandards.md
         - file: future/provenance.md
         - file: future/context.md
         - file: future/perspectives-ai.md

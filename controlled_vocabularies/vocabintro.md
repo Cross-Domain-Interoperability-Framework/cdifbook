@@ -35,13 +35,15 @@ CDIF is recommending profiles for two kinds of controlled vocabulary resources: 
 - every item in the scheme must cite the authority for its definition; the authority may be 'this scheme' if definitions are original to the concept scheme.
 - Optional: hierarchical links between items encoding 'broader' and 'narrower' relationships between items. Broader,narrower can be interpreted broadly according to the semantics of the concept entries. To facilitate software applications using the concept scheme, broader and narrower relations must both be explicit in the concept representation. 
 
-
-
-### language localization
-TBD
-
-### Implementation
+# Implementation
 
 CDIF recommends the use of the Simple Knowledge Organisation System (SKOS) for representing concept vocabularies.  SKOS is a RDF vocabulary that includes predicates to assign an identifier to a concept,  provide a definition, and assign preferred, language-localized labels (strings) for human use to identify the concept. A vocabulary service exposing the SKOS content on the web is necesary to make the identifiers resolvable. 
 
+This use of SKOS materially aligns with that described in the document [‘Modelling of Eurostat’s Statistical
+Classifications in ShowVoc’](https://cros.ec.europa.eu/book-page/modeling-eurostats-statistical-classifications-showvoc) for classification items.
+
 CDIF recommends following the guidance provided by [Cox et al. (2021) ‘Ten Simple Rules for making a Vocabulary FAIR’](https://doi.org/10.1371/journal.pcbi.1009041). The CDIF recommendation to use SKOS (as described in this section) aligns with Rule 6 (Cox et al., 2021) regarding machine-readable formats for CVs.
+
+## Note on formal statistical classifications
+Documentation of formal statistical classifications includes additional information, but a detailed profile for CDIF has not been developed. CDIF recommends using the style used at [Eurostat](https://cros.ec.europa.eu/book-page/modeling-eurostats-statistical-classifications-showvoc) and [FAO](https://www.fao.org/statistics/caliper/resources/data-modeling/en). These descriptions include additonal properties, and can include tables documenting mapping between versions of classifications. This information is represented using XKOS, see the [XKOS specification](https://rdf-vocabulary.ddialliance.org/xkos.html) and [user guide](https://linked-statistics.github.io/xkos/xkos-best-practices.html).
+

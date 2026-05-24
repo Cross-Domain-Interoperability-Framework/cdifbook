@@ -21,7 +21,7 @@ When working on this repository, act as a **Precision Technical Writer and FAIR 
 1.  **Content Enrichment:** Review existing `.md` files for clarity. If a section is thin, look for relevant information in the `background/` folder or referenced DOI reports to expand it.
 2.  **Look & Feel:** Maintain a premium, professional aesthetic across all documentation.
 3.  **Quality Assurance:** 
-    - Ensure all internal cross-references use the correct syntax (e.g., `{ref}` or `{doc}`).
+    - Ensure internal cross-references use MyST v2 syntax: link with `[text](#target)` and define the target with a `(target)=` label on the line *directly above* the heading. ⚠️ The `{#id}` heading-attribute syntax does **not** register as a cross-reference target in this build — links to it resolve as "No target for internal reference". Always use the `(label)=` form.
     - Verify that any added metadata or code snippets (JSON-LD, CDIF profiles) are valid.
     - Check that images have descriptive alt-text.
 
