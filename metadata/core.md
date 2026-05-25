@@ -1,7 +1,7 @@
 # Core
 The core of the Cross Domain Interoperability Framerwork is a set of implementation-independent content that must be specified in any CDIF-conformant metadata. This core set is supplemented by a more extensive set of metadata properties that are expected to apply to any information resource of interest, but are optional in the model. These optional properties might not be applicable in some situations or, more commonly, are unknown, not available, or not provide for some reason. 
 
- This recommendation is a synthesis of various metadata schemes, including ISO 19115-1:2014, schema.org conventions from [ESIPFed Science on Schema.org]() and Ocean Data net, DCAT, DCAT-AP, and [FDO Kernel Attributes-2.0](https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0). These core content requirements are scoped for a broad spectrum of resource types; other fields will be added in the CDIF extension profiles.
+ This recommendation is a synthesis of various metadata schemes, including ISO 19115-1:2014, schema.org conventions from [ESIPFed Science on Schema.org](https://github.com/ESIPFed/science-on-schema.org) and Ocean Data net, DCAT, DCAT-AP, and [FDO Kernel Attributes-2.0](https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0). These core content requirements are scoped for a broad spectrum of resource types; other fields will be added in the CDIF extension profiles.
 
 ## Information Model
 
@@ -29,7 +29,7 @@ Other properties that should be specified if possible and relevant. All are opti
 - **Other related agents** (0 to many entries): Recognition for others who have contributed to the production of the resource but are not recognized as authors/creators. Includes a variety of roles like maintainer, publisher, point of contact, copyright holder, contributor (see e.g. [DataCite contributor types](https://datacite-metadata-schema.readthedocs.io/en/4.5_draft/properties/recommended_optional/property_contributor.html#a-contributortype), [ISO19115-1 role code](https://wiki.esipfed.org/ISO_19115_and_19115-2_CodeList_Dictionaries#CI_RoleCode) )
 - **Related resources** (0 to many entries): Links to related data, publications, annotation, data sources, software used, etc. Links have at least a label, relationship type, and resolvable target resource identifier.
 - **Version** (0 or 1): If the resource is versioned, specify the label for this version. Version labels should follow a scheme that allows alphanumeric sorting reflecting the order of version release.
-- **Provenance** (0..many): For discovery, provide information about datasets that were used in the creation of the described resource and specify sensors, platforms, software, algorithms etc. used to aquire information contained in the resource.  Details about workflows, activity sequences, association of sensors etc. with specific variables, individuals associate with particular activities in workflow etc. require used of cdif prov extension [tbd](./tbd).
+- **Provenance** (0..many): For discovery, provide information about datasets that were used in the creation of the described resource and specify sensors, platforms, software, algorithms etc. used to aquire information contained in the resource.  Details about workflows, activity sequences, association of sensors etc. with specific variables, individuals associate with particular activities in workflow etc. require used of cdif prov extension (TBD).
 
 
 ### Properties for metadata management

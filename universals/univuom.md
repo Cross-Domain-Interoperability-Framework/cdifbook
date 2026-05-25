@@ -20,7 +20,7 @@ The quantity-kind is sometimes required because the same unit of measure can be 
 
 <p style="text-align: center;">( "km/hr" , ( 60.4 , 75.1, 99.0, 109.5 ) )</p>
 
-For any of these approaches the code or symbol that denotes the uom must come from a well defined system with unambiguous semantics. Note that CDIF Data Description provides properties on variables for specifying both UOM and quantity-kind (see [TBD]()), using the micro-format described in [TBD]()).
+For any of these approaches the code or symbol that denotes the uom must come from a well defined system with unambiguous semantics. Note that CDIF Data Description provides properties on variables for specifying both UOM and quantity-kind (see TBD), using the micro-format described in TBD).
 
 ## UOM code systems
 The following list is provided for reference, giving information about some of the common coding systems used for UOM.
