@@ -18,12 +18,12 @@ Additional prefixes may be added for concept URIs (e.g. `"sf": "https://w3id.org
 
 The root object representing the controlled vocabulary or classification scheme, typed as `skos:ConceptScheme`. It carries the scheme-level properties below together with the mandatory CDIF Core metadata.
 
-### @id
+### \@id
 - **Obligation:** mandatory
 - **JSON:** `"@id": "{URI}"`
 - **Scope note:** Globally unique, resolvable URI for the concept scheme.
 
-### @type
+### \@type
 - **Obligation:** mandatory
 - **JSON:** `"@type": ["skos:ConceptScheme"]`
 - **Scope note:** Must include `skos:ConceptScheme`.
@@ -79,12 +79,12 @@ The root object representing the controlled vocabulary or classification scheme,
 ## Codelist concept
 A `skos:Concept` with CDIF constraints, representing a single term or category within the scheme.
 
-### @id
+### \@id
 - **Obligation:** mandatory
 - **JSON:** `"@id": "{URI}"`
 - **Scope note:** Globally unique, resolvable URI for this concept.
 
-### @type
+### \@type
 - **Obligation:** mandatory
 - **JSON:** `"@type": ["skos:Concept"]`
 - **Scope note:** Must include `skos:Concept`.
