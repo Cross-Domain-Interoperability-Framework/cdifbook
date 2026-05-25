@@ -94,8 +94,7 @@ A `schema:variableMeasured` item at the Data Description level is a CDIF profile
 
 
 ### cdi:hasIntendedDataType
-
-**Cardinality:** Optional
+- **Cardinality:** Optional
 - **Content:** [xsdDataType](#sec-xsddatatype), [DefinedTerm](#sec-definedterm), or [skos:Concept](#sec-skosconcept)
 - **Description:** The data type intended to be used by this variable, independent of its physical representation (RepresentedVariable.hasIntendedDataType). Recommended values are XML Schema datatypes; see [xsdDataType](#sec-xsddatatype).
 
@@ -131,10 +130,10 @@ Defines the physical realization of one field in a tabular or structured dataset
 ### cdif:index
 - **Cardinality:** Optional (required for tabular text)
 - **Content:** integer (≥ 0)
-- **Description:** Non-negative integer that orders the fields in the data structure (column number, 0-based). Required for `cdi:TabularTextDataSet`; for `cdi:StructuredDataSet` use `cdif:locator` instead.
+- **Description:** Non-negative integer that orders the fields in the data structure (column number, 0-based). Required for `cdi:TabularTextDataSet`; for `cdi:StructuredDataSet` use `cdi:locator` instead.
 
 
-### cdif:locator
+### cdi:locator
 - **Cardinality:** Optional
 - **Content:** string
 - **Description:** Path to the field inside a structured (hierarchical) physical container — for example a NetCDF/HDF5 group path like `/measurements/intensity`, a JSON Pointer, or a Zarr array path. Used in place of `cdif:index` for `cdi:StructuredDataSet` distributions where column-order positioning does not apply.
@@ -144,6 +143,12 @@ Defines the physical realization of one field in a tabular or structured dataset
 - **Cardinality:** Optional
 - **Content:** string
 - **Description:** Format pattern for the field — for numbers a token like `decimal`, `scientific`, `integer`; for dates a pattern such as `YYYY/MM` or `YYYY-MM-DDTHH:mm:ssZ`; for booleans the literal token(s) used; etc.
+
+
+### cdi:numberPattern
+- **Cardinality:** Optional
+- **Content:** string
+- **Description:** Number format pattern for the field (PhysicalMapping.numberPattern). Text-format properties (column width, decimal/digit-group separators, display label) live on the text-mapping shape below.
 
 
 ### cdif:physicalDataType
@@ -161,7 +166,25 @@ Defines the physical realization of one field in a tabular or structured dataset
 ### cdi:length
 - **Cardinality:** Optional
 - **Content:** integer
-- **Description:** Column width for fixed-width tabular text.
+- **Description:** Column width for fixed-width tabular text (text-mapping shape).
+
+
+### cdi:defaultDecimalSeparator
+- **Cardinality:** Optional
+- **Content:** string
+- **Description:** Decimal separator used when not otherwise specified (text-mapping shape; TextMapping.defaultDecimalSeparator).
+
+
+### cdi:defaultDigitGroupSeparator
+- **Cardinality:** Optional
+- **Content:** string
+- **Description:** Digit-group (thousands) separator (text-mapping shape; TextMapping.defaultDigitGroupSeparator).
+
+
+### cdif:displayLabel
+- **Cardinality:** Optional, Repeatable
+- **Content:** string
+- **Description:** Human-readable label(s) for display of this field (text-mapping shape; CDIF plain-string simplification of DDI-CDI TextMapping.displayLabel).
 
 
 ### cdi:nullSequence
@@ -233,6 +256,12 @@ The set of valid, meaningful values an InstanceVariable can take — distinct fr
 - **Description:** One or more XSD data type tokens recommended for values from this domain. Required if `cdif:takesValuesFrom` is not provided; the SubstantiveValueDomain node MUST carry at least one of `cdif:takesValuesFrom` or `cdif:recommendedDataType`.
 
 
+### cdi:isDescribedBy
+- **Cardinality:** Optional
+- **Content:** [cdi:ValueAndConceptDescription](#sec-valueandconceptdescription) inline, or [object reference](#object-reference)
+- **Description:** A `cdi:ValueAndConceptDescription` giving the formal description (value ranges, format/number pattern, regular expression, classification level, logical expression) of the values this domain admits.
+
+
 (sec-cdifsentinelvaluedomain)=
 ## class--cdif:SentinelValueDomain
 The set of sentinel (missing / not-applicable / refusal / etc.) codes for an InstanceVariable, distinct from the substantive values the variable takes. Used as the value of `cdi:takesSentinelValuesFrom`. Same shape as `cdif:SubstantiveValueDomain` but typed `cdif:SentinelValueDomain` and intended for the non-substantive value codes (so survey "Don't know" / "Refused" codes, sensor `-9999`-style fill values, etc. are represented separately from valid measurements).
@@ -262,6 +291,75 @@ The set of sentinel (missing / not-applicable / refusal / etc.) codes for an Ins
 - **Cardinality:** Optional, Repeatable
 - **Content:** [xsdDataType](#sec-xsddatatype)
 - **Description:** Same semantics as on `cdif:SubstantiveValueDomain`. At least one of `cdif:takesValuesFrom` or `cdif:recommendedDataType` MUST be present.
+
+
+### cdi:isDescribedBy
+- **Cardinality:** Optional
+- **Content:** [cdi:ValueAndConceptDescription](#sec-valueandconceptdescription) inline, or [object reference](#object-reference)
+- **Description:** Same semantics as on `cdif:SubstantiveValueDomain`: a `cdi:ValueAndConceptDescription` giving the formal description of the sentinel values this domain admits.
+
+
+(sec-valueandconceptdescription)=
+## class--cdi:ValueAndConceptDescription
+A formal description of a set of values — value ranges, format / number patterns, regular expressions, classification level, and logical expressions. Used as the value of `cdi:isDescribedBy` on a `cdif:SubstantiveValueDomain` or `cdif:SentinelValueDomain` to constrain or describe the admissible values beyond (or instead of) an enumerated list.
+
+### \@type
+- **Cardinality:** Required
+- **Content:** string.uri array, MUST contain `cdi:ValueAndConceptDescription`
+
+
+### \@id
+- **Cardinality:** Optional
+- **Content:** string.uri
+- **Description:** Identifier for this ValueAndConceptDescription node.
+
+
+### cdi:classificationLevel
+- **Cardinality:** Optional
+- **Content:** string (one of `Continuous`, `Interval`, `Nominal`, `Ordinal`, `Ratio`)
+- **Description:** The measurement/relationship type of the representation: nominal, ordinal, interval, ratio, or continuous.
+
+
+### cdi:description
+- **Cardinality:** Optional
+- **Content:** string
+- **Description:** A formal description of the set of values in human-readable language.
+
+
+### cdi:identifier
+- **Cardinality:** Optional
+- **Content:** [Identifier](#sec-propertyvalue-id)
+- **Description:** Identifier for objects requiring short- or long-lasting referencing and management.
+
+
+### cdi:formatPattern
+- **Cardinality:** Optional
+- **Content:** [skos:Concept](#sec-skosconcept)
+- **Description:** A number/date format pattern as described in Unicode LDML (e.g. `#,##0.###` for a decimal number, or `yyyy.MM.dd G 'at' HH:mm:ss zzz` for a datetime).
+
+
+### cdi:logicalExpression
+- **Cardinality:** Optional
+- **Content:** [skos:Concept](#sec-skosconcept)
+- **Description:** A logical expression whose satisfying values are the members of the valid value set (e.g. "all reals x such that x > 0").
+
+
+### cdi:regularExpression
+- **Cardinality:** Optional
+- **Content:** string
+- **Description:** A regular expression; strings matching it belong to the set of valid values.
+
+
+### cdi:minimumValueInclusive, cdi:minimumValueExclusive
+- **Cardinality:** Optional
+- **Content:** string
+- **Description:** The minimum valid value, inclusive or exclusive respectively (per the W3C Tabular Data Metadata `minimum` / `minExclusive` annotations).
+
+
+### cdi:maximumValueInclusive, cdi:maximumValueExclusive
+- **Cardinality:** Optional
+- **Content:** string
+- **Description:** The maximum valid value, inclusive or exclusive respectively (per the W3C Tabular Data Metadata `maximum` / `maxExclusive` annotations).
 
 
 (sec-cdifenumerationdomain)=
@@ -295,6 +393,12 @@ A codification vocabulary documented as an enumerated value domain — typically
 - **Cardinality:** Optional
 - **Content:** SKOS ConceptScheme inline, or [object reference](#object-reference)
 - **Description:** SKOS concept scheme that contains the concepts defining the allowed values of this enumeration domain. Reference an external published vocabulary, or inline one. See [skos:Concept](#sec-skosconcept) for individual concept entries.
+
+
+### cdif:purpose
+- **Cardinality:** Optional
+- **Content:** string
+- **Description:** Intent or reason for the enumeration domain (or for the description of the object).
 
 
 (sec-cdifkey)=
@@ -445,8 +549,8 @@ Statistics for a specific Category of an instance variable within a dataset.
 
 ### cdi:for
 - **Cardinality:** Required
-- **Content:** [skos:Concept](#sec-skosconcept) or [object reference](#object-reference)
-- **Description:** The Category this CategoryStatistics is for (inline Category node or an `@id`-reference).
+- **Content:** `cdi:Category` node (a concept-like node typed `cdi:Category`, carrying `cdif:name`/`cdif:definition`/`cdif:displayLabel`/`cdif:descriptiveText`), or [object reference](#object-reference)
+- **Description:** The Category this CategoryStatistics is for (inline `cdi:Category` node or an `@id`-reference).
 
 
 ### cdi:statistic
