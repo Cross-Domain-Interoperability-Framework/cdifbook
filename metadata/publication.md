@@ -13,7 +13,7 @@ Starting at the top (1) in the above figure, if there are HTML landing pages tha
 
 ## Option 2. Individual metadata file URLs
 If the resources of interest do not have individual landing pages, or the metadata publisher does not have authority to update the content of landing pages, the metadata should be placed in a Web-accessible location (step 4 in the figure above). There are two common approaches:
-- Each metadata record is accessed in a separate, static file with its own URL. The CDIF metadata is serialised as JSON-LD (see [Schema.org implementation](./schemaorgimplementation.md) ). MIME type for the metadata file, returned as the Content-Type parameter in the HTTP response header, is:
+- Each metadata record is accessed in a separate, static file with its own URL. The CDIF metadata is serialised as JSON-LD (see [Schema.org implementation](./schemaOrgImplementationpatterns.md) ). MIME type for the metadata file, returned as the Content-Type parameter in the HTTP response header, is:
 <p style="text-align: center;">type="application/ld+json" profile="CDIF1.0"</p>
 
 - Each metadata record is accessed dynamically from the server using a URL. There are various open-source metadata server systems that can be configured to deliver CDIF metadata from the server's metadata database, e.g. [GeoNetwork OpenSource](https://geonetwork-opensource.org/), [GeoPortal](https://github.com/Esri/geoportal-server-catalog), [CKAN](https://ckan.org/). The metadata retrieval URLs have different syntax depending on the software used, but typically include a metadata record identifier and a format parameter that would be used to indicate that CDIF metadata should be returned. If there is a format parameter in URL requests, its value should be '**CDIF1.0**'.

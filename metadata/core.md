@@ -38,8 +38,8 @@ These elements provide information for the operation of a distributed catalogue 
 - **Metadata Contact Agent** (0..1 entry): The party responsible for metadata content and accuracy; Agent object includes a name (label), identifier, and optional contact information
 - **Metadata Identifier** (0..1 entry): The identifier for the Digital object that contains the metadata.
 
-# Implementation
+## Implementation
 
-The current recommended implementation uses the schema.org vocabulary, with a few entities and properties from other vocabularies to fill gaps. For background on JSON, JSON-LD and general implementation patters CDIF is using, see [Schema.org implementation notes](schemaOrgImplementationv2.md)
+The current recommended implementation uses the schema.org vocabulary, with a few entities and properties from other vocabularies to fill gaps. For background on JSON, JSON-LD and general implementation patters CDIF is using, see [Schema.org implementation notes](schemaOrgImplementationpatterns.md)
 
 ## [Implementation of metadata content items](coreSchemaImplementationNew.md)

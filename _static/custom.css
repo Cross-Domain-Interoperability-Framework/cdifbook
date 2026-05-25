@@ -5,8 +5,9 @@
    NOTE: MyST renders the page title as <h1> and shifts content headings +1, so a
    source-level "### property" heading is rendered as <h4>. */
 
-/* Underline property-name headings (source ###, rendered as <h4>) */
-article h4 {
+/* Underline property-name headings. With a single H1 (page title) per doc,
+   mystmd does not shift levels, so source "### property" renders as <h3>. */
+article h3 {
   text-decoration: underline;
 }
 
@@ -15,7 +16,7 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
   margin-bottom: 0.25em !important;
 }
 article h1, article h2, article h3, article h4, article h5, article h6 {
-  margin-top: 2em !important;
+  margin-top: 3em !important;
 }
 article :is(h1, h2, h3, h4, h5, h6) + * {
   margin-top: 0.1em !important;
@@ -23,7 +24,7 @@ article :is(h1, h2, h3, h4, h5, h6) + * {
 
 /* Decrease general line spacing and block gaps */
 article p, article li {
-  line-height: 1.3 !important;
+  line-height: 1.2 !important;
 }
 article p, article ul, article ol {
   margin-top: 0.5em !important;

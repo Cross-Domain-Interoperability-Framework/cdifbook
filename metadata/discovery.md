@@ -17,7 +17,7 @@ See [Core](core.md)
 - **Quality** (0..many) Provide statements about the quality of information in the described resource,  information about quality policies or certificates that apply to the resource, and results of quality measures with information about the measurement protocol/procedure used. In all cases the focus should be on information useful for initial assessment by potential users.
 
 
-# Implementation of Discovery Extensions
+## Implementation of Discovery Extensions
 Instance of the Discovery profile must conform to the requirements of the [core profile](metadata/core.md). The discovery profile adds these additional properties:
 
 ## Variables in the data

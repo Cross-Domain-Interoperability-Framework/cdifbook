@@ -4,7 +4,7 @@ This profile specifies metadata for describing quantitative data sets at a detai
 
 Conformance to this profile entails populating all mandatory content from cdifCore, using recommended discovery properties, and providing the additional data description constraints. The implementation target is an rdf serialization, which is an open world logical model; users are thus free to add additional properties that they find useful for dataset documentation in their community, but these can be ignored by other users without penalty.
 
-# Requirements
+## Requirements
 
 This profile imports all requirements from CDIF Core and CDIF Data Discovery profile. This profile adds additional requirements:
 
@@ -19,7 +19,7 @@ This profile imports all requirements from CDIF Core and CDIF Data Discovery pro
 - Linkage of attribute variable to variable(s) it qualifies. 
 - Statistics on InstanceVariables
 
-# Implementation
+## Implementation
 
 ## class--Dataset properties added in Data Description Profile
 

@@ -274,7 +274,7 @@ Provenance for discovery is limited to documenting technology used in the creati
 
 
 
-# Service-based distribution
+## Service-based distribution
 An API builds on a basic communication protocol (e.g. HTTP) by defining functionality and formatting to enable providing the specific data a user requires. This might involve filtering, subsetting, or various transformations for e.g. schema mapping, aggregating or anonymizing data. The focus here is on Web APIs that provide data using a URL for the endpoint location (the server that implements the data access protocol), with parameters to specify the particular data requested. The query parameters might be appended to this base URL as part of the URL, or provided as a message with the request. The implementation is based on the schema.org Action patterns. A WebAPI distribution is included as an item in the `schema:distribution` array alongside DataDownload items.
 
 Implementation of metadata to describe a service-based (API) distribution:
