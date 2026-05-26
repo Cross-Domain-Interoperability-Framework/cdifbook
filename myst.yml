@@ -18,7 +18,7 @@ project:
         - file: background/history.md
         - file: background/structure.md
         - file: background/principles.md
-        - file: background/maintenance.md
+        - file: background/development.md
         - file: background/checklistForImplementation.md
     - title: Metadata technical expression
       children:
