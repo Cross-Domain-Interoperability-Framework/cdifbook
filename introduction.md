@@ -4,25 +4,31 @@ Many important research questions demand a multi-disciplinary approach in which 
 
 The idea for CDIF first emerged from workshops and discussions at conferences prior to the WorldFAIR project, beginning in 2018. The WorldFAIR project provided an opportunity to advance that vision, through aset of 11 case studies across many domains, allowing the needs and practices around FAIR within such domains to be summarised in the form of FAIR Implementation Profiles (FIPs). Based on the FIPs and focused meetings, the requirements for CDIF were established. A group of 30 invited experts from different FAIR initiatives and standards bodies made up a Working Group and an Advisory Group to synthesise the findings from WorldFAIR and to produce the current CDIF draft. 
 
-The framework is based on a set of profiles that address the most important functions for cross-domain FAIR implementation by providing core metadata fields useful in all domains and infrastructures:
+The framework is based on a set of profiles that address the most important functions for cross-domain FAIR implementation by providing core metadata fields useful in all domains and infrastructures. Below is a list of the functions and the profiles supporting each of them:
 
-1. Discovery (for cataloguing and search)
+- Discovery, Cataloguing, and Dissemination (Search, indexing, and packaging)
+	- Data Discovery Profile (Search, cataloguing, and indexing)
+	- Manifest Profile (Packaging of resources for archiving and reuse)
 
-2. Data Description (for describing distributions of quantitative data)
+- Data Description, Use, and Integration
+	- Data Description Profile (Detailed description of quantitative data)
+	- Data Structure Profile (Reusable data structures and essential variables)
+	- Codelist Profile (Enumerated values and classifications used in data)
+	- Concept Scheme Profile (Glossaries, controlled vocabularies, and other semantic resources)
 
-3. Data Structure (for reusable variables and data structures)
+- Controlling Data Access (Data confidentiality, access, and permitted use)
+	- Access Rights Profile
+	
+- Core Metadata and Universals (Administration and common expression) 
+	- Core Profile (Basic fields used in all profiles)
+	- Universals Profile (description of ‘universal’ elements – time, geography, and units of measurement across other profiles)   for archiving 
+	
+Under Development:
 
-4. Codelist (for the enumerated, coded values found in datasets)
+- Characterizing Data 
+	- Provenance Profile (Processes producing and editing data)
+	- Context Profile (Scientific background of variables)
 
-5. Concepts (for describing concept systems containing domain semantics)
-
-6. Data access (for documentation of access conditions and permitted use)
-
-7. Manifest (for creating packages of complete FAIR resources for archiving and reuse)
-
-8. Universals (description of ‘universal’ elements – time, geography, and units of measurement across other profiles)
-
-9. Core (basic fields used in all profiles)
 
 Each of these profiles is supported by specific recommendations, including the set of metadata fields in specific standards to use, and the method of implementation to be employed for machine-level interoperability.
 
