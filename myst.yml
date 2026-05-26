@@ -70,6 +70,7 @@ project:
         - file: future/additionaldataformats.md
     - title: Implementation Resources
       children:
+        - file: metadata/datatypes.md
         - file: metadata/schemaOrgImplementationpatterns.md
         - file: metadata/dcat.md
         - file: examples/index.md

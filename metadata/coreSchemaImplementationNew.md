@@ -257,7 +257,7 @@ Provenance for discovery is limited to documenting technology used in the creati
     ]
   }]
   ```
-- **Scope note:** Identify sensors, instruments, platforms, software, algorithms, etc. used in the creation of the described resource. The `prov:used` array accepts strings (URIs or labels) or object references with `@id`.
+- **Scope note:** Identify sensors, instruments, platforms, software, algorithms, etc. used in the creation of the described resource. The `prov:used` array accepts strings (URIs or labels) or object reference (`{"@id": "..."}`).
 
 ### *Provenance (input datasets)*
 - **Obligation:** 0..*
@@ -269,7 +269,7 @@ Provenance for discovery is limited to documenting technology used in the creati
     {"@type": "schema:CreativeWork", "schema:name": "...", "schema:url": "..."}
   ]
   ```
-- **Scope note:** Identify datasets that were inputs to the content of the described resource. Items can be strings (URIs), object references, or CreativeWork objects with name and URL.
+- **Scope note:** Identify datasets that were inputs to the content of the described resource. Items can be strings (URIs), object reference (`{"@id": "..."}`), or CreativeWork objects with name and URL.
 
 
 

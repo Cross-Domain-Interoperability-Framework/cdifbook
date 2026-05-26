@@ -58,7 +58,7 @@ The metadata about a dataset should include a list of variables that the dataset
 
 ### Temporal coverage
 Temporal coverage is encoded as an array. It can be expressed in several ways: a calendar/clock dateTime or date-time interval using ISO 8601 serialization, a named time-ordinal era, an interval bounded by time-ordinal eras, or with a numeric coordinate in a temporal reference system.
-- **Obligation**: 0..*.* 
+- **Obligation:** 0..*
 ### *Calendar date / clock time instant*
   - **JSON:**  `"schema:temporalCoverage": ["2018-01-22"]`
   - **Scope note:** Calendar date or clock time instant using ISO 8601 encoding.
@@ -75,7 +75,7 @@ Temporal coverage is encoded as an array. It can be expressed in several ways: a
     }]
     ```
    - **Scope note:** Time-ordinal era interval, using the `owl:time` namespace (`time: http://www.w3.org/2006/time#`). This example uses the [International Chronostratigraphic Chart (isc)](http://resource.geosciml.org/classifier/ics/ischart/). See [PeriodO](https://perio.do/en/) for identifiers for many other named time intervals.
-### *Geologic age interval (abbreviated form)*\
+### *Geologic age interval (abbreviated form)*
   - **JSON:**`"schema:temporalCoverage": [{"time:ProperInterval-345/298 Ma"}]`
   - **Scope note:** For time intervals specified using geologic ages, in Ka, Ma, or Ga. The text string is an abbreviated `owl:time` interval (proposal, under discussion).
   

@@ -52,7 +52,7 @@ The root object representing the controlled vocabulary or classification scheme,
 
 ### schema:identifier
 - **Obligation:** mandatory
-- **JSON:** `"schema:identifier": "https://w3id.org/isample/vocabulary/sampledfeature/"` or a [PropertyValue](#propertyvalue-identifier)
+- **JSON:** `"schema:identifier": "https://w3id.org/isample/vocabulary/sampledfeature/"` or a [PropertyValue](#sec-propertyvalue-id)
 - **Scope note:** Primary identifier for the codelist (a CDIF Core metadata property). Takes precedence over `dcterms:identifier`.
 
 ### schema:dateModified
@@ -121,25 +121,7 @@ A `skos:Concept` with CDIF constraints, representing a single term or category w
 
 ## Data types
 
-(languagetaggedvalue)=
-### LanguageTaggedValue
-- **JSON:** `{"@value": "{{string}}", "@language": "{{language code}}"}`
-- **Scope note:** An RDF literal with a language tag, serialized as a JSON-LD value object. `@value` is the text content; `@language` is a BCP 47 language tag (e.g. `en`, `fr`, `de`, `sv`).
-
-(propertyvalue-identifier)=
-### PropertyValue (for schema:identifier)
-The ESIPfed Science On Schema.org guidance recommends serializing identifiers using the schema:PropertyValue element. CDIF suggests only using this approach for identifiers for which the URI does not make the authority clear or for which the resolution process is not well known.
-
-- **JSON:**
-  ```json
-  {
-    "@type": ["schema:PropertyValue"],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
-    "schema:value": "10.5683/SP2/TTJNIU",
-    "schema:url": "https://doi.org/10.5683/SP2/TTJNIU"
-  }
-  ```
-- **Scope note:** Use when the identifier is not a simple resolvable URI.
+This profile uses the shared [LanguageTaggedValue](#languagetaggedvalue), [object reference](#object-reference), and [PropertyValue](#sec-propertyvalue-id) patterns defined on the [Common data types](../metadata/datatypes.md) page.
 
 (bidirectional-hierarchy)=
 ## Bidirectional hierarchy
