@@ -15,7 +15,6 @@ project:
     - title: Overview
       children: 
         - file: background/whycdif.md
-        - file: background/history.md
         - file: background/structure.md
         - file: background/principles.md
         - file: background/development.md
