@@ -16,6 +16,7 @@ project:
       children: 
         - file: background/whycdif.md
         - file: background/structure.md
+        - file: background/conformance.md
         - file: background/principles.md
         - file: background/development.md
         - file: background/checklistForImplementation.md
