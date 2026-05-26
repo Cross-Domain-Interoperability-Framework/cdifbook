@@ -20,13 +20,26 @@ The CDIF Book  and the CDIF.org website are good places to find the latest infor
 ## Development of CDIF Profiles
 
 CDIF is developed by teams of experts who are typically volunteers or project participants with an interest in the existence of CDIF because of the interoperability it will enable. Research is increasingly data-intensive and cross-domain in orientation, making the need for something like CDIF increasingly urgent. Many volunteers are involved with the development of other technical standards and specifications in areas related to FAIR use of resources. 
+
 These individuals are brought together by CODATA as the coordinating body, providing the expertise and work force for the development of CDIF. They are organized into two groups: the CDIF Working group and the CDIF Advisory Group. The Working Group performs most of the development, with the Advisory group in a steering and review capacity.
+
 When a new profile has been identified for development, a series of meetings are held, going through several steps:
 1. Landscape review: Identification of the current state of play, scope, and requirements.
 2. Narrative: Creation of a description of the purpose of the profile - how it will be used, what problems it will solve, and what business functions it will support.
 3. Conceptual model: A syntax-independent modelling of the information needed for the profile, bearing in mind existing system capabilities and information holdings.
 4. Implementations and examples: The use of one (or, if needed, more than one) common standard(s) for the implementation of the identified information, and creation of syntax examples based on real use cases. This both tests earlier steps and illustrates the solution to be recommended.
 5. Hand-off to production: This stage involves working with the production team to make sure that the profile is formally modelled as intended in UML, and that the outputs created contain the needed information. Input in the form of specific documentation is critical so that the intention of the developers is communicated to end users effectively. 
+
+### Development platform
+Github will be the development platform, using the [https://github.com/Cross-Domain-Interoperability-Framework](https://github.com/Cross-Domain-Interoperability-Framework) organization.  There are separate repositories for each profile. 
+
+Development work should be organized in the main branch of a repository. Work should generally start by creating an issue describing planned contribution, and then creating a branch with the issue number in the branch name.  When the contribution is ready, create a pull request to merge the branch into the main branch. When the pull request is merged, the issue can be closed, and the branch deleted (it will still be in the GitHub history). If a contributor does not have permission to create a branch in the repository, they should create a fork to host their work.  
+
+###Identifiers for CDIF resources
+
+URIs will be resolved using the w3id redirect service ([https://github.com/perma-id/w3id.org#permanent-identifiers-for-the-web](https://github.com/perma-id/w3id.org#permanent-identifiers-for-the-web)).  Many of these will redirect to released in GithHub. Artifacts that are not managed via github can be published on cdif.codata.org with w3id redirects to those locations.   New releases will require updating the .htaccess files at [https://github.com/perma-id/w3id.org](https://github.com/perma-id/w3id.org). 
+
+
 
 ## Production of CDIF Profiles
 
