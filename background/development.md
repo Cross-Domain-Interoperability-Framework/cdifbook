@@ -35,7 +35,7 @@ Github will be the development platform, using the [https://github.com/Cross-Dom
 
 Development work should be organized in the main branch of a repository. Work should generally start by creating an issue describing planned contribution, and then creating a branch with the issue number in the branch name.  When the contribution is ready, create a pull request to merge the branch into the main branch. When the pull request is merged, the issue can be closed, and the branch deleted (it will still be in the GitHub history). If a contributor does not have permission to create a branch in the repository, they should create a fork to host their work.  
 
-###Identifiers for CDIF resources
+### Identifiers for CDIF resources
 
 URIs will be resolved using the w3id redirect service ([https://github.com/perma-id/w3id.org#permanent-identifiers-for-the-web](https://github.com/perma-id/w3id.org#permanent-identifiers-for-the-web)).  Many of these will redirect to released in GithHub. Artifacts that are not managed via github can be published on cdif.codata.org with w3id redirects to those locations.   New releases will require updating the .htaccess files at [https://github.com/perma-id/w3id.org](https://github.com/perma-id/w3id.org). 
 
@@ -43,7 +43,7 @@ URIs will be resolved using the w3id redirect service ([https://github.com/perma
 
 ## Production of CDIF Profiles
 
-For the existing CDIF profiles, all of the various artefacts (documentation, SHACL validation, JSON Schemas, examples) have been created by hand. A standard set of artefacts has been identified as a result of several different projects and implementations, so that there will be a consistent in version 1.1 and beyond. This will include:
+For the existing CDIF profiles, all of the various artefacts (documentation, SHACL validation, JSON Schemas, examples) have been created by hand. Up until now, ythere has not been a consistent set of artefacts for the profiles, but an evolving one. A standard set of artefacts has been identified as a result of several different projects and implementations, so that there will be a consistent in version 1.1 and beyond. This will include:
 1. High-level documentation describing the purpose of the profile, and describing the Conceptual Model as a set of information requirements
 2. Field-level documentation for each recommended syntax implementation, provided in the form of a normative document.
 3. SHACL for validating the profile
@@ -57,13 +57,19 @@ For the existing CDIF profiles, all of the various artefacts (documentation, SHA
 
 The production flow in future will start with the creation of the UML model for each profile implementation, working with the development team on the basis of the Conceptual Model and the syntax implementation and examples. Once the production team has developed a suitable UML model, this will be used to drive the coordinated generation of all of the other artefacts.
 It is worth describing why the UML: model is used in this way. It is often the case that UML is employed to define a conceptual formalization. That is not the case here. RDF vocabularies are often modelled in a fashion which does not fit neatly into the object-oriented style of UML formalizations, so the more generic style used in the RDF community is employed here (essentially, "boxes and arrows" based on the RDF information model, as often seen in W3C Recommendations). The CDOIF Conceptual Model for each profile is documented, but is not formalized as a UML model. 
+
 The UML formalization is not a single implementation model, but a somewhat generalized one, as it must span implementation in a set of different syntax-bound outputs: SHACL, JSON Schema, OO classes like Pydantic, etc. All of these artefacts must be coordinated, or the profiles will not function as intended. (E.g., a JSON-LD metadata instance must be valid according to both the JSON Schema and the SHACL rules, etc.)
+
 Given the number of profiles anticipated, as shown in the diagram below, it is essential that the artefacts themselves are generated from a single source of truth, so that they remain consistent without the risk of manual error.
   
 While the UML model for each profile may be useful to implementers, and will be made available to them in an XMI format for reuse, it is primarily a part of the CDIF production system, and should be considered as such. It is not itself a deliverable for direct use, unlike other artefacts (such as SHACL rules, JSON Schema, Pydantic classes, etc.)
 
+![CDIF Profiles - current and planned](CDIF_Profiles_Future.jpg)
+
 ## Dissemination, Maintenance, and Versioning of CDIF Profiles
 
 Once all the different artefacts for a profile have been produced, and have gone through the approval process, they will be published in the CDIF Book as part of a versioned release. Each profile implementation will have a date assigned to it, indicating when it was last updated. This mechanism will be used to track minor changes, such as documentation edits,  and additions (as for new types of artefacts), but will not be indicative of major changes to the recommendations themselves. Major changes will be part of larger, numbered  releases (as we see from Version 1.0 to Version 1.1). 
+
 All of the CDIF artefacts are stored in the appropriate GitHub repositories. In the case of explanatory text, this may be in the form of the Markdown which is used to populate the CDIF Book. Other non-narrative forms of documentation (field-level documentation, JSON Schemas and examples, SHACL rules, etc.) will be managed in a related production repository, which will also serve as the basis for the technical distributions.
+
 GitHub issues and pull requests will be used as the basis for a regular process of reporting bugs and requesting features in existing profiles. (This process is documented separately.) The CDIF Editorial Team is responsible for performing this maintenance on a technical level.
