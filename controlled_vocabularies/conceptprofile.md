@@ -1,6 +1,6 @@
 # Concept Scheme
 
-A CDIF Concept Scheme is a controlled vocabulary or terminology represented as a [SKOS](https://www.w3.org/TR/skos-reference/) `ConceptScheme` in JSON-LD. It uses the same SKOS building blocks as the [Codelist](codelistprofile.md) profile, but `skos:Concept` has broader usage here: a concept can represent a possible value for a categorical variable, or an entity or property in a data model. Where the Codelist profile expects a simple, often flat list of coded values, the Concept Scheme profile accommodates richer terminologies with definitions, sources, and hierarchy.
+A CDIF Concept Scheme is a controlled vocabulary or terminology represented as a [SKOS](https://www.w3.org/TR/skos-reference/) `ConceptScheme` in JSON-LD. It uses the same SKOS building blocks as the [Codelist](codelistprofile.md) profile, but `skos:Concept` has broader usage here: a concept can represent a possible value for a categorical variable, or an entity or property in a data model. Where the Codelist profile expects a simple, often flat list of coded values, the Concept Scheme profile accommodates richer terminologies with definitions, sources, and hierarchy.  
 
 All property names use namespace prefixes declared in the `@context`:
 
