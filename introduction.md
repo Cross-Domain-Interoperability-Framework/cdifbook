@@ -51,12 +51,13 @@ CDIF is aimed primarily at data infrastructures, i.e. those organisations which 
 
 # The CDIF workgroup
 
-The History section describes the development of this specification.  Many people have contributed and we'd like acknowledge their time and effort. 
+Many people have contributed and we'd like acknowledge their time and effort. The "History" section of CDIF.org provides information about who and how CDIF came to be. **[ADD LINK]**
 
 
 
 # How to contribute 
 
+**[UPDATE]**
 The CDIF Working Group meets virtually every two weeks and collaborates online.  The focus of work will be on developing the new profiles, as well as renewing the existing profiles based on feedback.
 
 The CDIF Advisory Group meets 2-4 times a year, as required and receives profile documentation to review.
