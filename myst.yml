@@ -66,8 +66,6 @@ project:
         - file: future/provenance.md
         - file: future/context.md
         - file: future/perspectives-ai.md
-        - file: future/packaging.md
-        - file: future/additionaldataformats.md
     - title: Implementation Resources
       children:
         - file: metadata/datatypes.md
