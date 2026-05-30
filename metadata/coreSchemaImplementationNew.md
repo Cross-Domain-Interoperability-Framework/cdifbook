@@ -48,11 +48,10 @@ See also [graphical presentation of the core profile](https://cross-domain-inter
 - **JSON:**
   ```json
   "schema:subjectOf" / "dcterms:conformsTo": [
-    {"@id": "https://w3id.org/cdif/core/1.0/"},
-    {"@id": "https://w3id.org/cdif/discovery/1.0/"}
+    {"@id": "https://w3id.org/cdif/core/1.0/"}
   ]
   ```
-- **Description:** An array of objects, each with an `@id` property whose value is a conformance URI. For CDIFDiscovery, both the core and discovery URIs are required. Extended profiles add their own conformance URIs to this array.
+- **Description:** An array of objects, each with an `@id` property whose value is a conformance URI. For CDIFCore, the core URI is required. Extended profiles add their own conformance URIs to this array.
 
 ## Metadata date
 - **Cardinality:** 0..1
