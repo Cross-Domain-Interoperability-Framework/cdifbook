@@ -28,9 +28,9 @@ Another foundation concept useful for describing data structures is the data str
 - reference: variables the provide identifiers for linking between datasets. 
 - Other more complex roles will be described later.
 
-The data description profile is focused on describing the physical implementation of variables in a particular dataset, based on a set of instance variable descriptions and a physical mapping that documents how the values of variables and their binding to individual records are located in a file containing the dataset.   The data structure profile provides a way to describe a dataset that can be applied to more than one dataset instance, using represented variables and data structure components.  We will refer to this 'portable' data structure description as a logical data structure.  
+The data description profile is focused on describing the physical implementation of variables in a particular dataset, based on a set of instance variable descriptions and a physical mapping that documents how the values of variables and their binding to individual records are located in a file containing the dataset. The data structure profile provides a way to describe a dataset that can be applied to more than one dataset instance, using represented variables and data structure components. We will refer to this 'portable' data structure description as a logical data structure.  
 
-# Data description workflow
+# Data Description Workflow
 
 CDIF recommends a subset of the classes in the DDI-CDI specification for data description.  For a static set of data there are four steps. For a service, where the structure and physical format of the data will depend on the service, the last two steps are not required.
 
@@ -40,5 +40,8 @@ The process for providing such detailed descriptions of data can be broken down 
 3. **Describe the Data Structure**: Including the fields used to identify a record (the 'primary key').
 4. **Describe the Physical Format of the Data**: Describe the encoding of all variables physically present in the file, and how they are sequenced and stored for programmatic retrieval.
 
+# Mappings
+
+It is recognized that transformations to both data and metadata at several levels are a critical part of data integration. The mappings used to inform transformations are a critical aspect of this, being both needed provenance information and also potentially providing a reusable FAIR resource in their own right. There is an RDA group workoing on FAIR Mappings, and the CDIF WG follows this work and attempts to align with it. Currently, the use of A Simple Standard for Sharing Ontology mappings ([SSSOM](https://mapping-commons.github.io/sssom/dev/)) is seen as a useful standard for the expression of mappings, with the RDF Mapping language [RML](https://rml.io/specs/rml/) also proving to be of interest, This is an area where motre work remains to be done, but will be the subject of a CDIF profile in the not-too-distant future.
 
  
