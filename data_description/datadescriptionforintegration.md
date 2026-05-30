@@ -1,4 +1,4 @@
-# Data Description for Integration
+# Metadata for Describing End-to-End Data Integration
 
 This version of the CDIF recommendations does not contain a full profile for the description of data integration, but this topic has received a lot of attention from the working group. An exploration into different data integration scenarios has been conducted, notably an effort to integrate data from ILO, the World Health Organization (WHO), and the SDG Indicators, with a goal of publishing this data into Google Data Commons and the knowledge graph model used there. This work is on-going, but it has demonstrated the set of metadata needed to fully describe a data integration.
 
@@ -15,7 +15,7 @@ A data provider is expected to describe the data as they manage and present it, 
 
 The concept definitions that specify semantics must be separated from the structural description of data for a useful cross-domain data description scheme, along with an indication of where the semantics for both the field and the values come from. 
 
-# Data structure basics
+# Data Structure Basics
 
 A dataset provides values for a set of variables that characterize some unit of interest. Each record in the dataset is about a particular unit or individual in the world. In the CDIF framework, a data descovery description provides basic information about the units that are the subject of a dataset, and can provide a list of variables associated with those units. The data description profile provides information about the physical representation of the values for variables, and how they are arranged to serialize in a file that can be shared between computer systems.  
 
