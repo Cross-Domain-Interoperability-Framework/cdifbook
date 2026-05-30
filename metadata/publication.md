@@ -1,4 +1,4 @@
-# Metadata publication
+# Metadata Publication
 
 This section describes workflows recommended for a metadata publisher to make their metadata accessible to Web crawlers for search engines to index their resources. The figure below is a flow chart showing the decision tree to determine how to expose metadata. Numbers in the following discussion refer to numbered boxes in the diagram.
 
@@ -11,19 +11,19 @@ Starting at the top (1) in the above figure, if there are HTML landing pages tha
 
 <p style="text-align: center;">type="application/ld+json" profile="CDIF1.0"</p>
 
-## Option 2. Individual metadata file URLs
+## Option 2. Individual Metadata File URLs
 If the resources of interest do not have individual landing pages, or the metadata publisher does not have authority to update the content of landing pages, the metadata should be placed in a Web-accessible location (step 4 in the figure above). There are two common approaches:
 - Each metadata record is accessed in a separate, static file with its own URL. The CDIF metadata is serialised as JSON-LD (see [Schema.org implementation](./schemaOrgImplementationpatterns.md) ). MIME type for the metadata file, returned as the Content-Type parameter in the HTTP response header, is:
 <p style="text-align: center;">type="application/ld+json" profile="CDIF1.0"</p>
 
 - Each metadata record is accessed dynamically from the server using a URL. There are various open-source metadata server systems that can be configured to deliver CDIF metadata from the server's metadata database, e.g. [GeoNetwork OpenSource](https://geonetwork-opensource.org/), [GeoPortal](https://github.com/Esri/geoportal-server-catalog), [CKAN](https://ckan.org/). The metadata retrieval URLs have different syntax depending on the software used, but typically include a metadata record identifier and a format parameter that would be used to indicate that CDIF metadata should be returned. If there is a format parameter in URL requests, its value should be '**CDIF1.0**'.
 
-## Option 3. Metadata list file
+## Option 3. Metadata List File
 - A collection of metadata records is gathered in one file accessed using a single URL. For CDIF, this file should contain a set of CDIF JSON-LD metadata objects, implemented as a schema.org [ItemList](https://schema.org/ItemList). See example in Appendix 1. The MIME type for the collection is:
 
 <p style="text-align: center;">*type="application/ld+json" profile="CDIF-list-1.0"*</p>
 
-# Find metadata
+# Find Metadata
 CDIF recommends the use of sitemaps to address the questions of how crawlers find metadata to index or use. A [sitemap](https://www.sitemaps.org/protocol.html) is an XML document that a metadata crawler or harvester can access (**6** in the figure above). The basic sitemap is an XML document that is a structured list of URLs, with an optional date stamp property that should indicate when the metadata at the URL target location was last updated. The most basic CDIF recommended approach for resources that have landing pages that can be modified is Option 1 outlined above. The workflow for a harvester in this approach corresponds to existing structured data on the Web practice, with metadata conforming to the CDIF recommendations. Existing robots.txt and sitemap files can be used, and no modifications need to be made to HTTP headers provided by resource servers.
 
 ![Basic harvesting pattern](./figures/basicharvestingpattern.jpg)
