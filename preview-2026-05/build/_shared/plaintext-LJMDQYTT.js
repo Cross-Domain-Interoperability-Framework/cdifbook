@@ -1,0 +1,1 @@
+import{c as e}from"/cdifbook/preview-2026-05/build/_shared/chunk-OZE3FFNP.js";var n=e((l,t)=>{function a(i){return{name:"Plain text",aliases:["text","txt"],disableAutodetect:!0}}t.exports=a});export default n();
