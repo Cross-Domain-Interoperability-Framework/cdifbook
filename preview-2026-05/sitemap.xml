@@ -38,9 +38,6 @@
     <loc>http://localhost:3000/metadata/publishingmetadata</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/metadata/contentmodel</loc>
-  </url>
-  <url>
     <loc>http://localhost:3000/metadata/publication</loc>
   </url>
   <url>
