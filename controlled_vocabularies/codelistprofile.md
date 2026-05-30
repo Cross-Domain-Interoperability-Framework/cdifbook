@@ -14,27 +14,29 @@ All property names use namespace prefixes declared in the `@context`:
 
 Additional prefixes may be added for concept URIs (e.g. `"sf": "https://w3id.org/isample/vocabulary/sampledfeature/"`).
 
+[Graphical presentation of Codelist profile](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFCodelist/index.html)
+
 ## Codelist concept scheme
 
 The root object representing the controlled vocabulary or classification scheme, typed as `skos:ConceptScheme`. It carries the scheme-level properties below together with the mandatory CDIF Core metadata.
 
 ### \@id
-- **Obligation:** mandatory
+- **Cardinality:** mandatory
 - **JSON:** `"@id": "{URI}"`
-- **Scope note:** Globally unique, resolvable URI for the concept scheme.
+- **Description:** Globally unique, resolvable URI for the concept scheme.
 
 ### \@type
-- **Obligation:** mandatory
+- **Cardinality:** mandatory
 - **JSON:** `"@type": ["skos:ConceptScheme"]`
-- **Scope note:** Must include `skos:ConceptScheme`.
+- **Description:** Must include `skos:ConceptScheme`.
 
 ### skos:prefLabel
-- **Obligation:** mandatory
+- **Cardinality:** mandatory
 - **JSON:** `"skos:prefLabel": "Sampled Feature Type vocabulary"` or an array of [LanguageTaggedValue](#languagetaggedvalue)
-- **Scope note:** Preferred human-readable label for the scheme. At most one per language.
+- **Description:** Preferred human-readable label for the scheme. At most one per language.
 
 ### skos:hasTopConcept
-- **Obligation:** 1..*
+- **Cardinality:** 1..*
 - **JSON:**
   ```json
   "skos:hasTopConcept": [
@@ -48,26 +50,26 @@ The root object representing the controlled vocabulary or classification scheme,
 	{.. possibly other codelist concept instances}
   ]
   ```
-- **Scope note:** Top-level concepts that have no `skos:broader` within this scheme. The JSON-LD hierarchy is rooted here — all child concepts are reached by traversing `skos:narrower` from these top concepts. Items may be inline concept objects or [object reference](#object-reference)s.
+- **Description:** Top-level concepts that have no `skos:broader` within this scheme. The JSON-LD hierarchy is rooted here — all child concepts are reached by traversing `skos:narrower` from these top concepts. Items may be inline concept objects or [object reference](#object-reference)s.
 
 ### schema:identifier
-- **Obligation:** mandatory
+- **Cardinality:** mandatory
 - **JSON:** `"schema:identifier": "https://w3id.org/isample/vocabulary/sampledfeature/"` or a [PropertyValue](#sec-propertyvalue-id)
-- **Scope note:** Primary identifier for the codelist (a CDIF Core metadata property). Takes precedence over `dcterms:identifier`.
+- **Description:** Primary identifier for the codelist (a CDIF Core metadata property). Takes precedence over `dcterms:identifier`.
 
 ### schema:dateModified
-- **Obligation:** mandatory
+- **Cardinality:** mandatory
 - **JSON:** `"schema:dateModified": "2024-04-19"`
-- **Scope note:** Date (ISO 8601) when the codelist was last modified. Takes precedence over `dcterms:modified`.
+- **Description:** Date (ISO 8601) when the codelist was last modified. Takes precedence over `dcterms:modified`.
 
 ### schema:license / schema:conditionsOfAccess
-- **Obligation:** mandatory — at least one
+- **Cardinality:** mandatory — at least one
 - **JSON:** `"schema:license": [{"@id": "https://creativecommons.org/licenses/by/4.0/legalcode"}]` or `"schema:conditionsOfAccess": ["{text}"]`
-- **Scope note:** A license (URI or [object reference](#object-reference)) or a text statement of access conditions; at least one is required. `schema:license` takes precedence over `dcterms:license`.
+- **Description:** A license (URI or [object reference](#object-reference)) or a text statement of access conditions; at least one is required. `schema:license` takes precedence over `dcterms:license`.
 
 ### Optional scheme properties
-- **Obligation:** optional
-- **JSON -- Scope note:**
+- **Cardinality:** optional
+- **JSON -- Description:**
   - `schema:url` -- web page describing the codelist.
   - `schema:creator` -- Person, Organization, or `@list` of agents (author/maintainer); `dcterms:created` — original creation date.
   - `schema:version` -- version identifier for the scheme.
@@ -80,44 +82,44 @@ The root object representing the controlled vocabulary or classification scheme,
 A `skos:Concept` with CDIF constraints, representing a single term or category within the scheme.
 
 ### \@id
-- **Obligation:** mandatory
+- **Cardinality:** mandatory
 - **JSON:** `"@id": "{URI}"`
-- **Scope note:** Globally unique, resolvable URI for this concept.
+- **Description:** Globally unique, resolvable URI for this concept.
 
 ### \@type
-- **Obligation:** mandatory
+- **Cardinality:** mandatory
 - **JSON:** `"@type": ["skos:Concept"]`
-- **Scope note:** Must include `skos:Concept`.
+- **Description:** Must include `skos:Concept`.
 
 ### skos:prefLabel
-- **Obligation:** mandatory
+- **Cardinality:** mandatory
 - **JSON:** `"skos:prefLabel": "Natural Solid Material"` or an array of [LanguageTaggedValue](#languagetaggedvalue)
-- **Scope note:** Preferred label that identifies the codelist item for human users. At most one per language (enforced by SHACL `sh:uniqueLang`).
+- **Description:** Preferred label that identifies the codelist item for human users. At most one per language (enforced by SHACL `sh:uniqueLang`).
 
 ### skos:inScheme
-- **Obligation:** mandatory
+- **Cardinality:** mandatory
 - **JSON:** `"skos:inScheme": {"@id": "sf:sampledfeaturevocabulary"}`
-- **Scope note:** The concept scheme(s) this concept belongs to, each given as an [object reference](#object-reference).
+- **Description:** The concept scheme(s) this concept belongs to, each given as an [object reference](#object-reference).
 
 ### skos:definition
-- **Obligation:** optional
+- **Cardinality:** optional
 - **JSON:** `"skos:definition": "A naturally occurring solid material."`
-- **Scope note:** Formal definition of this concept.
+- **Description:** Formal definition of this concept.
 
 ### skos:broader
-- **Obligation:** required if the concept is a value of `skos:narrower` on another concept
+- **Cardinality:** required if the concept is a value of `skos:narrower` on another concept
 - **JSON:** `"skos:broader": [{"@id": "sf:anysampledfeature"}]`
-- **Scope note:** Broader (parent) concept(s), given as [object reference](#object-reference)s. See [Bidirectional hierarchy](#bidirectional-hierarchy). Top concepts must **not** declare `skos:broader` within the scheme.
+- **Description:** Broader (parent) concept(s), given as [object reference](#object-reference)s. See [Bidirectional hierarchy](#bidirectional-hierarchy). Top concepts must **not** declare `skos:broader` within the scheme.
 
 ### skos:narrower
-- **Obligation:** optional, repeatable
+- **Cardinality:** optional, repeatable
 - **JSON:** array of inline [Codelist concept](#codelist-concept) objects or [object reference](#object-reference)s
-- **Scope note:** Narrower (child) concepts. Each inline child must declare `skos:broader` pointing back to this concept. Use inline objects to build the JSON tree, or `{"@id": "..."}` references.
+- **Description:** Narrower (child) concepts. Each inline child must declare `skos:broader` pointing back to this concept. Use inline objects to build the JSON tree, or `{"@id": "..."}` references.
 
 ### skos:notation
-- **Obligation:** mandatory
+- **Cardinality:** mandatory
 - **JSON:** `"skos:notation": ["{{string}}"]`
-- **Scope note:** Classification code(s) that identify the item for use in datasets / computer consumption. Should be unique within the scheme.
+- **Description:** Classification code(s) that identify the item for use in datasets / computer consumption. Should be unique within the scheme.
 
 ## Data types
 
