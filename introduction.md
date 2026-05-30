@@ -44,18 +44,18 @@ There is a wealth of research on how FAIR can be implemented, and investigations
 
 To this end, CDIF identifies a set of common functions which are needed to implement FAIR: describing data for discovery and assessment, supporting access to data by describing the licensing and conditions of use, laying out the structure and semantics of data to support automated integration, and providing information regarding the provenance of data and resources. In each area, practical recommendations are made regarding what standard or standards should be used, and how they should be implemented. In those areas where there is no clear practice which can be recommended, or which require further investigation, this is noted. For the provision of basic discovery metadata, the description of licence conditions, the publication of controlled vocabularies, and the description of data to make it ‘integration ready’, specific steps are described which can be used to guide immediate implementation.
 
-# Who can use the CDIF?
+# Who Can Use the CDIF?
 
 CDIF is aimed primarily at data infrastructures, i.e. those organisations which develop, maintain, and disseminate FAIR resources for reuse, often as centralised points of access within their communities or area(s) of interest. While data stewardship by research organisations is an important element of FAIR, not all research organisations perform this dissemination, instead relying on data archives or other dedicated repositories. FAIR reuse is most effective when authoritative producers, or those acting on their behalf, provide their data and metadata to others for reuse, so the authoritative versions of such resources are the ones which get reused. Such organisations are often motivated to be the point of dissemination, as it is their mission, and they bear the responsibility, both legal and reputational, for those resources. CDIF is a tool which they can use to better support this mission.
 
 
-# The CDIF workgroup
+# The CDIF Working Group
 
 Many people have contributed and we'd like acknowledge their time and effort. The "History" section of CDIF.org provides information about who and how CDIF came to be. **[ADD LINK]**
 
 
 
-# How to contribute 
+# How to Contribute 
 
 **[UPDATE]**
 The CDIF Working Group meets virtually every two weeks and collaborates online.  The focus of work will be on developing the new profiles, as well as renewing the existing profiles based on feedback.

@@ -28,7 +28,7 @@ project:
             - file: metadata/distributionapis.md
             - file: metadata/queryabledistributions.md
             - file: metadata/publishingmetadata.md
-            - file: metadata/contentmodel.md
+           
             - file: metadata/publication.md
     - title: Profiles/Recommendations
       children:

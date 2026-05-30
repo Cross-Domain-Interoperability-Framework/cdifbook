@@ -1,8 +1,8 @@
-# Queryable distributions
+# Queryable Distributions
 
 This section provides details for documenting online data distribution approaches.
 
-## Data Provider conventions
+## Data Provider Conventions
 
 **File download distribution**. In the simplest and still common file-based data access scenario, the dataset distribution information in a metadata record includes a link (URL) that will get a file containing the actual resource content in a particular format. The format and information model for the file content must be specified in the distribution object in the metadata. The HTTP protocol is used to GET a resource. Given the view that an API specifies the functions offered and constrains the content of messages transmitted between a client and the agent, this simple file download is not considered an API.
 
@@ -28,11 +28,11 @@ cardinality for the parameter. If the parameter is populated from a controlled v
 specification of the allowed values should be provided, either as an enumerated list or a link to a
 vocabulary that will be recognised by users.
 
-## Metadata Provider conventions
+## Metadata Provider Conventions
 
 Metadata providers offering APIs to search metadata catalogues can be considered a special case because they play a 'middleware' role between resource providers and resource consumers. The only real difference is in the intention of the content offered by the API. The resource they offer is data that is about other data, but the distribution description fits into the above content model. The service type would need to indicate that the API is for discovering information about resources (potentially in some thematic scope). The operations would necessarily include a search operation. The output formats would be the metadata schemes (and optional profiles) offered for service responses, e.g. ISO19115-3 MCP profile, ISO19139 INSPIRE profile, schema.org CDIF profile, DCAT-AP. URL template parameters would include the various properties that are queryable.
 
-## Data User conventions
+## Data User Conventions
 
 To identify an API that an application can work with, metadata for the application must specify what formats are acceptable for input data, and the interface(s) used by the application to request input data in that format. The software input file format will be matched with the output formats and the implemented communication protocols will be matched with the service types offered by resource distributions to determine where interoperability is possible.
 

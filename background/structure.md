@@ -1,4 +1,4 @@
-# The structure of CDIF
+# The Structure of CDIF
 
 The organisation of the CDIF recommendations follows a basic functional breakdown emerging from the need to support certain exchanges of information as dictated by the FAIR Principles. ‘Findable’ requires that we be able to make our resources searchable, and enable them to be catalogued. ‘Accessible’ requires that we can retrieve or link to resources in a technical sense, but also that we can understand what conditions are in the case that access is limited. ‘Interoperable’ means that we can load resources into our systems for processing once acquired, and operate on them in a meaningful way. ‘Reusable’ means that we have enough information to understand the data and the uses to which it can legally be put.
 
@@ -16,7 +16,7 @@ These areas were identified through examination of FAIR implementations in many 
 
 While we are early in our development of standards and systems for automating access to controlled data, there are some initial steps which can be easily taken. Data interoperability and reuse have been receiving an increasing amount of attention in many domains: these are arguably the most metadata-intensive aspects of FAIR, but they also hold a huge potential in terms of efficiency gains: if we can ease the problems of integration and harmonisation ('data wrangling') through automation, the potential resource savings are large. Data integration necessarily raises the question of how semantics are exposed and mapped. These topics provide the focus of the current document and the CDIF profiles.
 
-# Summary of CDIF profiles and recommendations
+# Summary of CDIF Profiles and Recommendations
 
 **General**: CDIF metadata should be embedded in landing pages or linked stand-alone files, encoded in JSON-LD. The supported profiles will be indicated as part of the metadata.
 

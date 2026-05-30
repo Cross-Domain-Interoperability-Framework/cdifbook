@@ -1,4 +1,4 @@
-# Publishing metadata
+# Publishing Metadata
 
 The use of standardised metadata to describe resources is one facet of discoverability, but mechanisms to make these metadata descriptions discoverable by search applications or other machine agents is also necessary. Search applications harvest metadata to index and present in search results. In other cases a machine agent might have an identifier for a resource on the Web and want to get its metadata to learn about the content and capabilities of the resource.
 
@@ -9,7 +9,7 @@ Signposting is an approach to discovering the content and capabilities of resour
 
 Figure 1. FDOF-CDIF metadata relations.
 
-## Search engines
+## Search Engines
 One of the drivers for the success of the World Wide Web is the emergence of search applications that use various mechanisms to traverse the Web, find Digital Objects of interest, analyse those objects to extract information about their content, and create indexes that support user searches for resources of interest. Creators and providers of Web resources (publishers) seek to increase visibility and usage of their published resources by assuring that search engines (aggregators) find and index their products. This section outlines various approaches used to make metadata accessible to search engines.
 
 **Finding documents to index**: Web-crawling is still an important approach to finding and indexing resources on the Web, and this approach is supplemented by Signposting. A different and widely-used approach is the sitemap, which is a list of Web locations (URLs) for files that a hosting agent wants search engines to index.  Many search engines enable providers to register sitemap locations. Alternatively, a widely-used convention on Web servers is to place a 'robots.txt' file in the root directory of a Web site. This file contains links that point to one or more sitemaps that should be indexed.
@@ -36,7 +36,7 @@ Example 2. HTML meta tags with metadata about a resource.
 
 6. Another option is for the sitemap to provide a URL that retrieves a document containing a collection of metadata records, something like the US Government Data.gov [Project Open Data Catalog](https://project-open-data.cio.gov/v1.1/schema/catalog.json), or [Ocean Info Hub graph first approach](https://book.oceaninfohub.org/indexing/graphpub.html), with individual records providing CDIF profile metadata.
 
-## How do harvesters know where to look?
+## How Do Harvesters Know Where to Look?
 - Publishers register metadata services with a harvester, e.g. by providing a URL to GET a sitemap or other metadata catalogue document, e.g. an [OpenGeospatial Consortium (OGC) Record collection (catalogue)](https://docs.ogc.org/DRAFTS/20-004.html#sc_record-collection-overview). 
 - Server robots.txt has link to sitemap.xml file; The sitemap.xml lists Web locations that a crawler should
 index.
@@ -47,7 +47,7 @@ Once the harvester has a URL for a location to index, how do they know where the
 - GET the content at the URL. Look for a &lt;script&gt; element with a known type and profile. Failing that, look for elements with rel='describedby' and a known type and profile, then get the content at that link. This general procedure can be simplified if the sitemap or other catalogue the harvester is iterating through
 provides labelled links.
 
-## What does the harvester do with the metadata?
+## What Does the Harvester Do with the Metadata?
 
 There are many possible approaches a client application could use to extract the information it needs from a metadata record. The simplest and likely most accurate approach is for the metadata to conform to a profile that the application is programmed to parse, and to communicate that profile conformance to the application. This entails two requirements. The profile must be documented in a way that allows software developers to write code to parse metadata conforming to the profile, and the profile must have an identifier that can be used to assert conformance.
 

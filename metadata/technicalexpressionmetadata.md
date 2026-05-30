@@ -1,4 +1,4 @@
-# Technical expression of metadata
+# Technical Expression of Metadata
 In the CDIF framework we think of things on the World Wide Web as Digital Objects. Metadata objects are a special kind of digital object that describe and document things on the web. To guide metadata aggregators and search engines to find metadata to index is addressed using existing web technology and emerging conventions (see [Publishing metadata](./publishingmetadata.md) ). 
 
 The Internet and World Wide Web constitute an immense body of data, information, and knowledge accessible to anyone with a computer that can interact with the system. The Web can be thought of as a library containing a large fraction of the written, recorded, and graphic works of humanity, or as a database containing an almost unimaginable spectrum of data from scientific research, historical records, government records, sensor networks, etc.

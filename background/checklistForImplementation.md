@@ -1,6 +1,6 @@
-# Checklist to implement
+# Checklist to Implement
 
-## Scenario: Metadata publisher
+## Scenario: Metadata Publisher
 
 The user represents a community that is generating data or other information resources, and making those resources accesible online.  The user needs to make those resources discoverable, with information in the metadata so that the search client can do at least a superficial evaluation of a discovered resource, and the search client can obtain the resource in a useful format, following any designated security or privacy protocols.
 
