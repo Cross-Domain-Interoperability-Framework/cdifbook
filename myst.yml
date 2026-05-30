@@ -72,7 +72,6 @@ project:
         - file: metadata/datatypes.md
         - file: metadata/schemaOrgImplementationpatterns.md
         - file: metadata/dcat.md
-        - file: examples/index.md
         - file: metadata/mapping.md
           children:
             - file: metadata/pidkernel.md
