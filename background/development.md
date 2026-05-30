@@ -21,7 +21,7 @@ The CDIF Book  and the CDIF.org website are good places to find the latest infor
 
 CDIF is developed by teams of experts who are typically volunteers or project participants with an interest in the existence of CDIF because of the interoperability it will enable. Research is increasingly data-intensive and cross-domain in orientation, making the need for something like CDIF increasingly urgent. Many volunteers are involved with the development of other technical standards and specifications in areas related to FAIR use of resources. 
 
-These individuals are brought together by CODATA as the coordinating body, providing the expertise and work force for the development of CDIF. They are organized into two groups: the CDIF Working group and the CDIF Advisory Group. The Working Group performs most of the development, with the Advisory group in a steering and review capacity.
+These individuals are brought together by CODATA as the coordinating body, providing the expertise and work force for the development of CDIF. They are organized into two groups: the CDIF Working Group and the CDIF Advisory Group. The Working Group performs most of the development, with the Advisory Group in a steering and review capacity.
 
 When a new profile has been identified for development, a series of meetings are held, going through several steps:
 1. Landscape review: Identification of the current state of play, scope, and requirements.
@@ -52,11 +52,12 @@ For the existing CDIF profiles, all of the various artefacts (documentation, SHA
 6. JSON-LD Framing for the profile
 7. Clickable Field-Level documentation, linking all of the syntax artefacts (SHACL, JSON Schema, etc.) together with detailed documentation for developers
 8. A UML formalization of the profile implementation, expressed as Canonical XMI, and according to the UCMIS style to ensure interoperability across UML tools
-9. Potential/Future: Pydantic classes to enable easier Python implementation
-10. Potential/Future: OGC Building Blocks to enable easier domain-level adaptation and specification
+9. *Potential/Future:* Pydantic classes to enable easier Python implementation
+10. *Potential/Future:* OGC Building Blocks to enable easier domain-level adaptation and specification
 
 The production flow in future will start with the creation of the UML model for each profile implementation, working with the development team on the basis of the Conceptual Model and the syntax implementation and examples. Once the production team has developed a suitable UML model, this will be used to drive the coordinated generation of all of the other artefacts.
-It is worth describing why the UML: model is used in this way. It is often the case that UML is employed to define a conceptual formalization. That is not the case here. RDF vocabularies are often modelled in a fashion which does not fit neatly into the object-oriented style of UML formalizations, so the more generic style used in the RDF community is employed here (essentially, "boxes and arrows" based on the RDF information model, as often seen in W3C Recommendations). The CDOIF Conceptual Model for each profile is documented, but is not formalized as a UML model. 
+
+It is worth describing why the UML: model is used in this way. It is often the case that UML is employed to define a conceptual formalization. That is not the case here. RDF vocabularies are often modelled in a fashion which does not fit neatly into the object-oriented style of UML formalizations, so the more generic style used in the RDF community is employed here (essentially, "boxes and arrows" based on the RDF information model, as often seen in W3C Recommendations). The CDIF Conceptual Model for each profile is documented, but is not formalized as a UML model during initial development. 
 
 The UML formalization is not a single implementation model, but a somewhat generalized one, as it must span implementation in a set of different syntax-bound outputs: SHACL, JSON Schema, OO classes like Pydantic, etc. All of these artefacts must be coordinated, or the profiles will not function as intended. (E.g., a JSON-LD metadata instance must be valid according to both the JSON Schema and the SHACL rules, etc.)
 
