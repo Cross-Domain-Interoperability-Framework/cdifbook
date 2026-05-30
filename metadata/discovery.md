@@ -2,6 +2,8 @@
 
 The Discovery profile is an extension of the Core Profile that add properties to document the spatial or temporal extent of the resource content or subject, and to document variables that are specified in a structured dataset. These properties are not included in core based on the observation that the information is not necessarily applicable to any kind of resource. 
 
+See also [graphical presentation of Discovery Profile](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDiscovery/index.html)
+
 ## Core elements
 See [Core](core.md)
 
@@ -24,7 +26,7 @@ Instance of the Discovery profile must conform to the requirements of the [core 
 The metadata about a dataset should include a list of variables that the dataset contains. Variable metadata should minimally specify the name of the variable as it appears in the dataset. That name should be qualified by a controlled vocabulary or other semantic resource (e.g. represented by a resolvable URI), or minimally some descriptive text.
 
 ### Variable (PropertyValue)
-- **Obligation:** 0..*
+- **Cardinality:** 0..*
 - **JSON:**
   ```json
   "schema:variableMeasured": [{
@@ -38,10 +40,10 @@ The metadata about a dataset should include a list of variables that the dataset
     "schema:description": "..."
   }, ...]
   ```
-- **Scope note:** Follow the [ESIP Science on Schema.org recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables); see also discussion for representing more complex data structures in [ESIP Experimental](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Experimental.md#AdvancedVariableValueType) and the [Data Integration module of CDIF](https://cross-domain-interoperability-framework.github.io/cdifbook/data_integration/ddidescriptiondatastructure.html). Variable must have a name and description, should have a `propertyID` with URI for the represented concept. The URI in the `propertyID` provides the semantic linkage for the meaning of the variable.
+- **Description:** Follow the [ESIP Science on Schema.org recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables); see also discussion for representing more complex data structures in [ESIP Experimental](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Experimental.md#AdvancedVariableValueType) and the [Data Integration module of CDIF](https://cross-domain-interoperability-framework.github.io/cdifbook/data_integration/ddidescriptiondatastructure.html). Variable must have a name and description, should have a `propertyID` with URI for the represented concept. The URI in the `propertyID` provides the semantic linkage for the meaning of the variable.
 
 ### Variable (StatisticalVariable)
-- **Obligation:** 0..*
+- **Cardinality:** 0..*
 - **JSON:**
   ```json
   "schema:variableMeasured": [{
@@ -54,17 +56,17 @@ The metadata about a dataset should include a list of variables that the dataset
     }
   }]
   ```
-- **Scope note:** `StatisticalVariable` offers properties useful for describing social-science statistical variables like `populationType` and `statType`. Use of `StatisticalVariable` is preferred for variables with values calculated from some aggregation process.
+- **Description:** `StatisticalVariable` offers properties useful for describing social-science statistical variables like `populationType` and `statType`. Use of `StatisticalVariable` is preferred for variables with values calculated from some aggregation process.
 
 ### Temporal coverage
 Temporal coverage is encoded as an array. It can be expressed in several ways: a calendar/clock dateTime or date-time interval using ISO 8601 serialization, a named time-ordinal era, an interval bounded by time-ordinal eras, or with a numeric coordinate in a temporal reference system.
-- **Obligation:** 0..*
+- **Cardinality:** 0..*
 ### *Calendar date / clock time instant*
   - **JSON:**  `"schema:temporalCoverage": ["2018-01-22"]`
-  - **Scope note:** Calendar date or clock time instant using ISO 8601 encoding.
+  - **Description:** Calendar date or clock time instant using ISO 8601 encoding.
 ### *Calendar date / clock time interval*
   - **JSON:**`"schema:temporalCoverage": ["2012-09-20/2016-01-22"]`
-  - **Scope note:** Calendar date or clock time interval using ISO 8601 encoding.
+  - **Description:** Calendar date or clock time interval using ISO 8601 encoding.
 ### *Time ordinal era interval*
   - **JSON:**
     ```json
@@ -74,16 +76,16 @@ Temporal coverage is encoded as an array. It can be expressed in several ways: a
       "time:intervalFinishedBy": "isc:LowerPermian"
     }]
     ```
-   - **Scope note:** Time-ordinal era interval, using the `owl:time` namespace (`time: http://www.w3.org/2006/time#`). This example uses the [International Chronostratigraphic Chart (isc)](http://resource.geosciml.org/classifier/ics/ischart/). See [PeriodO](https://perio.do/en/) for identifiers for many other named time intervals.
+   - **Description:** Time-ordinal era interval, using the `owl:time` namespace (`time: http://www.w3.org/2006/time#`). This example uses the [International Chronostratigraphic Chart (isc)](http://resource.geosciml.org/classifier/ics/ischart/). See [PeriodO](https://perio.do/en/) for identifiers for many other named time intervals.
 ### *Geologic age interval (abbreviated form)*
   - **JSON:**`"schema:temporalCoverage": [{"time:ProperInterval-345/298 Ma"}]`
-  - **Scope note:** For time intervals specified using geologic ages, in Ka, Ma, or Ga. The text string is an abbreviated `owl:time` interval (proposal, under discussion).
+  - **Description:** For time intervals specified using geologic ages, in Ka, Ma, or Ga. The text string is an abbreviated `owl:time` interval (proposal, under discussion).
   
 ## Geographic extent
 Required if the resource has a geographic extent for its subject — a bounding rectangle, line, or point. To support cross-domain searches based on geospatial location, location coordinates must be given in decimal degrees using the WGS 84 datum. Other systems for describing location can be provided as alternate descriptions, recognizing that they may not be meaningful to some metadata harvesting agents. Spatial coverage is encoded as an array.
 
 ### *Named place*
-- **Obligation:** 0..*
+- **Cardinality:** 0..*
 - **JSON:**
 ```json
   "schema:spatialCoverage": [{
@@ -91,10 +93,10 @@ Required if the resource has a geographic extent for its subject — a bounding 
     "schema:name": {string} or {schema:DefinedTerm}
   }]
 ```
-- **Scope note:** To specify location with place names. If the names are from a gazetteer, use the `schema:DefinedTerm` to provide a name, identifier, and `inDefinedTermSet` to fully document the concept.
+- **Description:** To specify location with place names. If the names are from a gazetteer, use the `schema:DefinedTerm` to provide a name, identifier, and `inDefinedTermSet` to fully document the concept.
 
 ### *Bounding box*
-- **Obligation:** 0..1
+- **Cardinality:** 0..1
 - **JSON:**
   ```json
   "schema:spatialCoverage": [{
@@ -105,10 +107,10 @@ Required if the resource has a geographic extent for its subject — a bounding 
     }
   }]
   ```
-- **Scope note:** For bounding-box specification of the spatial extent of resource content. See [ESIP SOSO for details](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#bounding-boxes). Recommend including only one bounding box; behavior of harvesting clients when multiple geometries are specified is unpredictable.
+- **Description:** For bounding-box specification of the spatial extent of resource content. See [ESIP SOSO for details](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#bounding-boxes). Recommend including only one bounding box; behavior of harvesting clients when multiple geometries are specified is unpredictable.
 
 ### *Curvilinear trace*
-- **Obligation:** 0..1
+- **Cardinality:** 0..1
 - **JSON:**
   ```json
   "schema:spatialCoverage": [{
@@ -119,10 +121,10 @@ Required if the resource has a geographic extent for its subject — a bounding 
     }
   }]
   ```
-- **Scope note:** For resources related to a linear trace like a ship track or airplane flight line.
+- **Description:** For resources related to a linear trace like a ship track or airplane flight line.
 
 ### *Point location*
-- **Obligation:** 0..1
+- **Cardinality:** 0..1
 - **JSON:**
   ```json
   "schema:spatialCoverage": [{
@@ -134,10 +136,10 @@ Required if the resource has a geographic extent for its subject — a bounding 
     }
   }]
   ```
-- **Scope note:** For a point-location specification of the spatial extent of resource content. Recommend including only one point; behavior of harvesting clients when multiple geometries are specified is unpredictable.
+- **Description:** For a point-location specification of the spatial extent of resource content. Recommend including only one point; behavior of harvesting clients when multiple geometries are specified is unpredictable.
 
 ### *Other serialization*
-- **Obligation:** 0..*
+- **Cardinality:** 0..*
 - **JSON:**
   ```json
   "geosparql:hasGeometry": {
@@ -149,12 +151,12 @@ Required if the resource has a geographic extent for its subject — a bounding 
     "geosparql:crs": {"@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"}
   }
   ```
-- **Scope note:** Optional geographic extent using other more interoperable geometries. GeoSPARQL is recommended; see [Ocean InfoHub](https://book.oceaninfohub.org/thematics/spatial/README.html#simple-geosparql-wkt). Other geometry schemes might be specified in a specific domain profile, e.g. for atmospheric, subsurface data, or local coordinate systems.
+- **Description:** Optional geographic extent using other more interoperable geometries. GeoSPARQL is recommended; see [Ocean InfoHub](https://book.oceaninfohub.org/thematics/spatial/README.html#simple-geosparql-wkt). Other geometry schemes might be specified in a specific domain profile, e.g. for atmospheric, subsurface data, or local coordinate systems.
 
 ## Quality information for discovery
 A text statement documenting quality of the resource should be included in `schema:description`. If there are quality policies or certificates that apply, these should be specified in `schema:publishingPrinciples`. Quality measurements or assessment protocols that have an output result specific to this resource can be specified using `dqv:hasQualityMeasurement`.
 
-- **Obligation:** 0..*
+- **Cardinality:** 0..*
 - **JSON:**
   ```json
   "dqv:hasQualityMeasurement": [{
@@ -167,10 +169,10 @@ A text statement documenting quality of the resource should be included in `sche
     "dqv:value": "http://linkToASpecificQualityReport"
   }]
   ```
-- **Scope note:** Quality assessment or measurement conducted using the procedure or protocol specified by the `dqv:isMeasurementOf` property, with the result value specified in the `dqv:value` property. The result might be numeric, a categorical term, or a link to a document describing the quality assessment.
+- **Description:** Quality assessment or measurement conducted using the procedure or protocol specified by the `dqv:isMeasurementOf` property, with the result value specified in the `dqv:value` property. The result might be numeric, a categorical term, or a link to a document describing the quality assessment.
 
 ## Measuement technique
-- **Obligation:** 0..*
+- **Cardinality:** 0..*
 - **JSON:** string or 
   ```
   "schema:measurementTechnique": [
@@ -183,4 +185,4 @@ A text statement documenting quality of the resource should be included in `sche
     }
   ],
   ```
-- **Scope note:** A string or schema:DefinedTerm that specifies how the data were acquired.
+- **Description:** A string or schema:DefinedTerm that specifies how the data were acquired.

@@ -12,3 +12,5 @@ Requirements:
 - when a reusable DataStructure is used in a dataset description, the represented variables must be mapped to instance variables.
 
 TBD a DataStructure class that defines the file format mappings for the data structure components in a physical implemenation; The only things that the InstanceVariables can modify in datasets using the resusable DataStructure are the labels for the variables and the physicalDataType. 
+
+See [graphical presentation of Data Structure Profile](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDataStructure/index.html)
