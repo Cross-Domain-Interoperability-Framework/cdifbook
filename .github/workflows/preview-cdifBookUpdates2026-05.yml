@@ -1,0 +1,59 @@
+name: Deploy preview (cdifBookUpdates2026-05)
+
+# Builds the cdifBookUpdates2026-05 branch and publishes it to the
+# gh-pages branch under /preview-2026-05/, leaving the main-branch
+# book at the root untouched. Resulting URL:
+#   https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/
+
+on:
+  push:
+    branches:
+      - cdifBookUpdates2026-05
+  workflow_dispatch:
+
+# One run at a time for this branch; cancel any in-flight build when a
+# new commit lands.
+concurrency:
+  group: preview-cdifBookUpdates2026-05
+  cancel-in-progress: true
+
+permissions:
+  contents: write   # peaceiris/actions-gh-pages pushes to gh-pages
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js (mystmd engine)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install jupyter-book (pinned to local env)
+        run: pip install -r requirements.txt
+
+      - name: Build HTML (with subpath base URL)
+        env:
+          # mystmd bakes BASE_URL into generated absolute links so the
+          # site works when served from a subpath rather than domain root.
+          BASE_URL: /cdifbook/preview-2026-05
+        run: jupyter-book build --html
+
+      - name: Deploy to gh-pages subpath
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_build/html
+          destination_dir: preview-2026-05
+          # keep_files: true preserves everything else on gh-pages
+          # (notably the main-branch book at root).
+          keep_files: true
+          commit_message: "Deploy preview-2026-05 from ${{ github.sha }}"
