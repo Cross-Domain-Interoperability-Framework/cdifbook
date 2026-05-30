@@ -20,7 +20,7 @@ project:
         - file: background/principles.md
         - file: background/development.md
         - file: background/checklistForImplementation.md
-    - title: Metadata technical expression
+    - title: Metadata Technical Expression
       children:
         - file: metadata/recommendations.md
         - file: metadata/technicalexpressionmetadata.md
