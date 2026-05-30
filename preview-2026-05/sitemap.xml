@@ -131,9 +131,6 @@
     <loc>http://localhost:3000/metadata/dcat</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/examples</loc>
-  </url>
-  <url>
     <loc>http://localhost:3000/metadata/mapping</loc>
   </url>
   <url>
