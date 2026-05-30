@@ -110,6 +110,9 @@
     <loc>http://localhost:3000/data-description/dataintegrationintro</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/data-description/datadescriptionforintegration-1</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/data-description/dataintegrationstandards</loc>
   </url>
   <url>
