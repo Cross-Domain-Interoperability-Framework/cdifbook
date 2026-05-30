@@ -63,6 +63,7 @@ project:
       children:
         - file: data_description/dataintegrationintro.md
           children:
+            -  file: data_description/datadescriptionforintegration.md
             - file: data_description/dataintegrationstandards.md
         - file: future/provenance.md
         - file: future/context.md

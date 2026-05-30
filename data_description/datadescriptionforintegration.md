@@ -44,4 +44,7 @@ The process for providing such detailed descriptions of data can be broken down 
 
 It is recognized that transformations to both data and metadata at several levels are a critical part of data integration. The mappings used to inform transformations are a critical aspect of this, being both needed provenance information and also potentially providing a reusable FAIR resource in their own right. There is an RDA group workoing on FAIR Mappings, and the CDIF WG follows this work and attempts to align with it. Currently, the use of A Simple Standard for Sharing Ontology mappings ([SSSOM](https://mapping-commons.github.io/sssom/dev/)) is seen as a useful standard for the expression of mappings, with the RDF Mapping language [RML](https://rml.io/specs/rml/) also proving to be of interest, This is an area where motre work remains to be done, but will be the subject of a CDIF profile in the not-too-distant future.
 
+# Processing Description
+In CDIF, the description of processing is understood to be a primary aspect of data provenance. As such, it will be addressed by its own profile in future. There is some provision for provenance information in CDIF now, but this aspect of data integartion will be more completely addressed by the firthcoming profile.
+
  
