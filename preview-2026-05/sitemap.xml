@@ -41,6 +41,9 @@
     <loc>http://localhost:3000/metadata/publication</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/metadata/profilesoverview</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/metadata/core</loc>
   </url>
   <url>
