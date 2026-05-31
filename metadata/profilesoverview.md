@@ -26,13 +26,13 @@ For technical use, a set of artefacts is made available for each profile impleme
 This section provides a brief overview of the currently targeted profiles. More details are presented in subsequent sections.
 
 ### Core
-The CDIF Core profile defines the mandatory and optional base properties for any CDIF metadata record, implemented as JSON-LD using the schema.org vocabulary.  The Core profile release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-core](https://github.com/Cross-Domain-Interoperability-Framework/profile-core)
+The CDIF Core profile defines the mandatory and optional base properties for any CDIF metadata record, implemented as JSON-LD using the schema.org vocabulary.  The Core profile release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-core](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/reviewRevision202606/README.md)
 
 ### Data Discovery
- The Discovery profile defines optional properties for documenting spatial or temporal extent, and simple documentation of variables specified in a resource. This recognizes that there are a variety of resources of interest that might not have relevant spatial or temporal extent, and might not explicitly define variables with values. The Discovery release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/doc-corediscovery](https://github.com/Cross-Domain-Interoperability-Framework/doc-corediscovery}
+ The Discovery profile defines optional properties for documenting spatial or temporal extent, and simple documentation of variables specified in a resource. This recognizes that there are a variety of resources of interest that might not have relevant spatial or temporal extent, and might not explicitly define variables with values. The Discovery release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/reviewRevision202606/README.md}
 
 ### Data description
-The CDIF Data Description profile defines metadata elements for documentation of variable value domains, statistics aggregating variable values, physical data file layout, and roles of variables in a dataset (e.g. identifier, measure, attribute).  The Data Description release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/doc-discoverydatadescription](https://github.com/Cross-Domain-Interoperability-Framework/doc-discoverydatadescription}
+The CDIF Data Description profile defines metadata elements for documentation of variable value domains, statistics aggregating variable values, physical data file layout, and roles of variables in a dataset (e.g. identifier, measure, attribute).  The Data Description release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/reviewRevision202606/README.md}
 
 ### Codelist
 
