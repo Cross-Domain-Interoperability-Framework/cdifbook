@@ -71,6 +71,9 @@
     <loc>http://localhost:3000/data-description/datastructureprofile</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/manifest/manifest</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/data-access/intro</loc>
   </url>
   <url>
