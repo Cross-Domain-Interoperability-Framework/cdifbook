@@ -6,6 +6,8 @@ Conformance to this profile entails populating all mandatory content from cdifCo
 
 see also [graphical presentation of Data Description Profile](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDataDescription/index.html)
 
+Artefacts for the Data Description profile are in this [Github repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/tree/reviewRevision202606) (TBD--update link to release tag)
+
 ## Requirements
 
 This profile imports all requirements from CDIF Core and CDIF Data Discovery profile. This profile adds additional requirements:
