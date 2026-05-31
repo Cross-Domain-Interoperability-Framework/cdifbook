@@ -1,4 +1,4 @@
-# Discovery
+# Discovery Profile
 
 The Discovery profile is an extension of the Core Profile that add properties to document the spatial or temporal extent of the resource content or subject, and to document variables that are specified in a structured dataset. These properties are not included in core based on the observation that the information is not necessarily applicable to any kind of resource. 
 

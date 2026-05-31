@@ -1,4 +1,4 @@
-# Core
+# Core Profile
 The core of the Cross Domain Interoperability Framerwork is a set of implementation-independent content that must be specified in any CDIF-conformant metadata. This core set is supplemented by a more extensive set of metadata properties that are expected to apply to any information resource of interest, but are optional in the model. These optional properties might not be applicable in some situations or, more commonly, are unknown, not available, or not provide for some reason. 
 
  This recommendation is a synthesis of various metadata schemes, including ISO 19115-1:2014, schema.org conventions from [ESIPFed Science on Schema.org](https://github.com/ESIPFed/science-on-schema.org) and Ocean Data net, DCAT, DCAT-AP, and [FDO Kernel Attributes-2.0](https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0). These core content requirements are scoped for a broad spectrum of resource types; other fields will be added in the CDIF extension profiles.
