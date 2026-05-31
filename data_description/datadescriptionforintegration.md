@@ -1,4 +1,4 @@
-# Metadata for Describing End-to-End Data Integration
+# Metadata for Describing Data Sets, Structures, and Integration
 
 This version of the CDIF recommendations does not contain a full profile for the description of data integration, but this topic has received a lot of attention from the working group. An exploration into different data integration scenarios has been conducted, notably an effort to integrate data from ILO, the World Health Organization (WHO), and the SDG Indicators, with a goal of publishing this data into Google Data Commons and the knowledge graph model used there. This work is on-going, but it has demonstrated the set of metadata needed to fully describe a data integration.
 
@@ -14,6 +14,8 @@ While this seems like a daunting set of information, the exploratory work has sh
 A data provider is expected to describe the data as they manage and present it, along with information about its logical contents. The user can then re-structure the data as needed for their own use, and do so programmatically. Sufficient metadata must be available to support this programmatic restructuring, without losing any of the information about the data - especially its links to semantic definitions.
 
 The concept definitions that specify semantics must be separated from the structural description of data for a useful cross-domain data description scheme, along with an indication of where the semantics for both the field and the values come from. 
+
+In the current release, we provide profiles for describing data sets - including a minimal structural description - in the Data Description profile, and a means of describing reusable (or more complex) data structures and harmonized, reusable variables in the Data Structures profile.
 
 # Data Structure Basics
 
