@@ -1,5 +1,11 @@
 # Data Description Profile
 
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/reviewRevision202606/cdifDataDescriptionStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/reviewRevision202606/CDIFDataDescriptionImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/reviewRevision202606/dataDescriptionRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/reviewRevision202606/cdifDataDescription-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/tree/reviewRevision202606/examples)
+
 This profile specifies metadata for describing quantitative data sets at a detailed level, sufficient to support the machine-to-machine exchange of data for processing, including links to all needed semantic artefacts (i.e., codelists, controlled vocabularies) for scientists to understand the data. The emphasis is on structural metadata describing a physical dataset instance,  to enable parsing and re-organizing data for use. The profile covers the description of wide ("unit record") data sets, long (event stream) data sets, and multi-dimensional data sets ("data cubes"). The profile uses [Schema.org](https://schema.org/) and [DDI-CDI](https://ddialliance.org/ddi-cdi), with a reliance on the Codelist profile for describing enumerated value domains. Documentation of physical dataset structure that is reusable for description of many dataset instance is specified in the Data Structure profile.
 
 Conformance to this profile entails populating all mandatory content from cdifCore, using recommended discovery properties, and providing the additional data description constraints. The implementation target is an rdf serialization, which is an open world logical model; users are thus free to add additional properties that they find useful for dataset documentation in their community, but these can be ignored by other users without penalty.

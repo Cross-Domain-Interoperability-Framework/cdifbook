@@ -1,5 +1,11 @@
 # Codelist Profile
 
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/reviewRevision202606/CDIFCodelistProfileStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/reviewRevision202606/CDIFCodelistImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/reviewRevision202606/rules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/reviewRevision202606/CDIFCodelist-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/tree/reviewRevision202606/Examples)
+
 A CDIF codelist is a controlled vocabulary or classification scheme represented as a [SKOS](https://www.w3.org/TR/skos-reference/) `ConceptScheme` serialized in JSON-LD. The profile composes the base SKOS ConceptScheme and Concept building blocks with CDIF-specific constraints: resolvable identifiers, required definitions, bidirectional hierarchy, and the mandatory CDIF Core metadata properties. It aligns with the approach described in ['Modelling of Eurostat's Statistical Classifications in ShowVoc'](https://cros.ec.europa.eu/book-page/modeling-eurostats-statistical-classifications-showvoc).
 
 All property names use namespace prefixes declared in the `@context`:

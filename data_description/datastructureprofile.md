@@ -1,5 +1,11 @@
 # Data structure Profile
 
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/reviewRevision202606/cdifDataStructureStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/reviewRevision202606/CDIFDataStructureImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/reviewRevision202606/dataStructureRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/reviewRevision202606/CDIFDataStructure-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/tree/reviewRevision202606/examples)
+
 This profile is focused on the definition of a physical or logical dataset structure in a way that can be packages and reused for documenting different datasets that use the same structure, for instance periodically released statistics reported in the same format. 
 
 Conformance to this profile entails populating all mandatory content from cdifCore, using recommended discovery properties, and conforming to  additional data description profile constraints. The implementation target is an rdf serialization, which is an open world logical model; users are thus free to add additional properties that they find useful for dataset documentation in their community, but these can be ignored by other users without penalty.
