@@ -1,4 +1,4 @@
-# Mapping from CDIF metadata to RDA PID Kernel attributes
+# Mapping from CDIF Metadata to RDA PID Kernel Attributes
 
 In the Fair Digital Object Framework (FDOF) specifies that a Digital Object idnetifier (PID) can be resolved to obtain a PID kernel record. For the content of the PID kernel record we are following the RDA Recommendation on PID Kernel Information ([Weigel et al, 2019](https://www.rd-alliance.org/system/files/RDA%20Recommendation%20on%20PID%20Kernel%20Information_final.pdf) ). The implementation approach for supplying PID Kernel information records (See sections 3.1 and 3.2 in https://fairdigitalobjectframework.org/) associated with digital object identifiers is an architecture decision, not specified in this version of the CDIF framework. However, the information necessary to produce such metadata to implement the FDOF conventions is included in the CDIF metadata implementation, except for embedding of thumbnails or other data objects directly in the metadata digital object.
 
