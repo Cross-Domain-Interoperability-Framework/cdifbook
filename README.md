@@ -20,13 +20,14 @@ CDIF is designed to support multi-disciplinary research by establishing a "lingu
 
 ## 📖 Framework Structure
 
-The handbook is organized around five core profiles:
+The handbook is organized around these core profiles:
 
-1.  **Discovery:** Patterns for metadata content, serialization, and publication.
-2.  **Data Access:** Documentation of access conditions and permitted use.
+1.  **Core:** Shared metadata content model and schema.org implementation underpinning the other profiles.
+2.  **Discovery:** Patterns for metadata content, serialization, and publication.
 3.  **Controlled Vocabularies:** Practices for publishing semantic artifacts.
-4.  **Data Integration:** Structural and semantic documentation to make data "integration-ready."
-5.  **Universals:** Description of universal elements like time, geography, and units of measurement.
+4.  **Data Description (for Integration):** Structural and semantic documentation to make data "integration-ready."
+5.  **Data Access:** Documentation of access conditions and permitted use.
+6.  **Universals:** Description of universal elements like time, geography, and units of measurement.
 
 ---
 
@@ -73,10 +74,10 @@ This book is built using [Jupyter Book 2](https://jupyterbook.org/) (the MyST `m
 To build the HTML version of the book:
 
 ```bash
-jupyter-book build --site --html
+jupyter-book build --html
 ```
 
-The output will be generated in `_build/html/` (with site assets in `_build/site/`). You can open `_build/html/index.html` in your browser to view the book.
+The output is written to `_build/html/`. Open `_build/html/index.html` in your browser to view the book.
 
 ### Development Workflow
 
@@ -89,19 +90,25 @@ Use these commands while iterating on content:
     Serves the book at [http://localhost:3000](http://localhost:3000).
 - **Build after edits:**
     ```bash
-    jupyter-book build --site --html
-    ```
-- **Force a full rebuild (when project/config changes):**
-    ```bash
-    jupyter-book clean --all --yes
-    jupyter-book build --site --html
+    jupyter-book build --html
     ```
 - **Check links:**
     ```bash
-    jupyter-book build --site --html --check-links
+    jupyter-book build --html --check-links
     ```
 
-> **Working offline?** The first build downloads the ~130 MB site theme into `_build/` and caches it there (there is no global cache). Run a build once while online, then avoid `jupyter-book clean` / deleting `_build/` — otherwise the next offline build will fail trying to re-download the theme. Link checking also requires a connection.
+> ⚠️ **Do not run `jupyter-book clean` or delete `_build/`.** The ~130 MB site theme is cached only inside `_build/` (no global cache under `~/.myst` or `%LOCALAPPDATA%`). Wiping it forces a fresh download from the network and will break offline builds entirely.
+
+> **Working offline?** Run a build once while online to populate the theme cache, then leave `_build/` alone. Link checking also requires a connection.
+
+### Branch Preview Deploys
+
+Pushes to the `cdifBookUpdates2026-05` branch are auto-built by a GitHub Actions workflow (`.github/workflows/preview-cdifBookUpdates2026-05.yml`) and published to a subpath of the GitHub Pages site without disturbing the main-branch book at root:
+
+- **Preview URL:** [https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/)
+- **Main book (from `main`):** [https://cross-domain-interoperability-framework.github.io/cdifbook/](https://cross-domain-interoperability-framework.github.io/cdifbook/)
+
+The workflow builds with `BASE_URL=/cdifbook/preview-2026-05` so internal links resolve under the subpath, and deploys to `gh-pages/preview-2026-05/` with `keep_files: true` (the root site is preserved).
 
 ---
 
