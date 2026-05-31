@@ -1,4 +1,4 @@
-# Schema.org implementation of CDIF metadata
+# Schema.org Implementation of CDIF Metadata
 
 JSON-LD has been chosen as the recommended serialization format for CDIF metadata following our principle to use existing mainstream technology. The JSON format is widely used for data serialization and popular with developers. JSON-LD adds additional syntax for the representation of linked data, compatible with existing JSON implementations so that integration with existing applications is relatively frictionless. Many metadata providers are using the [schema.org](https://schema.org/) vocabulary with JSON-LD serialization for metadata publication and interchange. Use of this format provides a low barrier to entry for data providers.
 
@@ -16,7 +16,7 @@ To avoid this ambiguity, CDIF adopts the convention that the schema.org identifi
 
 Statements about the metadata record (the JSON object) as a distinct entity should be made using a separate identified node object. This node object is embedded in the resource metadata using the `schema:subjectOf` property (Example 1 below), or published as a separate node in the graph (Example 2 below). The embedded node uses `@type: ["schema:Dataset"]` with `schema:additionalType: ["dcat:CatalogRecord"]` to indicate that it functions as a catalog record, and links back to the resource via `schema:about`. Note that this approach parallels the [DCAT CatalogRecord](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog_Record).
 
-## JSON-LD context
+## JSON-LD Context
 
 The CDIF implementation requires that the `@context` be an object declaring namespace prefixes used in the metadata record. At minimum, the `schema`, `dcterms`, and `dcat` prefixes must be declared:
 
@@ -133,7 +133,7 @@ JSON keys prefixed with '@' are keywords defined in the [JSON-LD specification](
 |  \@type   |   An array of type identifiers for the JSON object. In CDIF, the array must include `schema:Dataset`. Additional schema.org types from the allowed set may also be included. Values use the `schema:` prefix (e.g. `schema:Dataset`, `schema:CreativeWork`). The `schema:additionalType` property should be used for types from other vocabularies (e.g. `dcat:CatalogRecord`). |
 
 
-# Implementation patterns
+# Implementation Patterns
 
 All property names use namespace prefixes as declared in the `@context` (e.g. `schema:`, `dcterms:`). The `schema:` prefix is required for all schema.org properties. The CDIF JSON-LD implementation uses a hierarchical JSON structure, and CURIE syntax to abbreviate URIs using prefixes defined in the JSON-LD context.  The implementation does not map un-prefixed JSON keys to URIs, rather prefixes a namespace abbreviation on the key label to represent the URI.  This enables using standard JSON schema to validate documents and avoids confusion about the vocabulary origin of keys used in the JSON.
 

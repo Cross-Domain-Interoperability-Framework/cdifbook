@@ -1,9 +1,9 @@
-# Common data types
+# Common Data Types
 
 Several JSON-LD encoding patterns recur across the CDIF profiles. They are defined once here and referenced from the individual profile pages. All property names use namespace prefixes declared in each document's `@context` (`schema:`, `skos:`, `dcterms:`, `cdi:`, `xsd:`, etc.).
 
 (object-reference)=
-## Object reference
+## Object Reference
 
 A reference to another node by its `@id`, used to link to an object defined elsewhere in the same document, in another CDIF document, or externally. An object reference carries no other properties — it is resolved by matching its `@id` to the full node definition.
 
