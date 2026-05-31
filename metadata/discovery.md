@@ -6,6 +6,7 @@ Resources:
 - [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/reviewRevision202606/discoveryRules.shacl)
 - [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/reviewRevision202606/cdifDiscovery-frame.jsonld)
 - [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/tree/reviewRevision202606/examples)
+- [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDiscovery/index.html)
 
 The Discovery profile defines properties to document the spatial or temporal extent of the resource content or subject, and to document variables that are specified in a structured dataset. These properties are not included in core based on the observation that the information is not necessarily applicable to any kind of resource. 
 

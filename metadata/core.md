@@ -6,7 +6,7 @@ Resources:
 - [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/reviewRevision202606/coreRules.shacl)
 - [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/reviewRevision202606/cdifCore-frame.jsonld)
 - [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/tree/reviewRevision202606/examples)
-
+- [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFCore/index.html)
 
 The core of the Cross Domain Interoperability Framerwork is a set of implementation-independent content that must be specified in any CDIF-conformant metadata. This core set is supplemented by a more extensive set of metadata properties that are expected to apply to any information resource of interest, but are optional in the model. These optional properties might not be applicable in some situations or, more commonly, are unknown, not available, or not provide for some reason. 
 

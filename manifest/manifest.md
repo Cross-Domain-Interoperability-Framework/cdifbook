@@ -7,6 +7,7 @@ Resources:
 - [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/reviewRevision202606/cdifManifest-frame.jsonld)
 - [Transform RO-CRATE to/from CDIF](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/tree/reviewRevision202606/tools)
 - [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/tree/reviewRevision202606/examples)
+- [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFManifest/index.html)
 
 ## Overview
 Within the set of FAIR functions supported by the CDIF guidelines is a practical need to construct packages of related files that are treated as a single resource. This requirement appears in different forms: Researchers must be able to collect and group the various resources involved in their research, so that sense can be made of it for the purposes of replication, comprehension, and reuse. Archives and repositories have a requirement for packages of related resources to be submitted and stored, and these form the basis for dissemination. There is the popular concept of a FAIR Digital Object (FDO) which can be anything FAIR – even an atomic metadata item – but in practical terms requires that coherent packages be assembled to support practical use.
