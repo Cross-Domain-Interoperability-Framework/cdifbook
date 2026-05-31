@@ -1,4 +1,4 @@
-# CDIF Profiles
+# Overview of CDIF Profiles
 
 ## Profile Content
 
@@ -39,3 +39,23 @@ The CDIF Data Description profile defines metadata elements for documentation of
 The CDIF Codelist profile defines how controlled vocabularies and classification schemes are represented as SKOS ConceptSchemes in JSON-LD. The profile composes skos:ConceptScheme and skos:Concept with CDIF-specific requirements inherited from cdifCore.  Concept properties include a preferred label, bidirectional hierarchy, notation.  CDIF core metadata properties are included on the ConceptScheme. The key feature of the codelist is specification of the 'notation' for a concept -- the strings that actually appear in data, along with a human-readable lable conveying the meaning of the code.
 
 The implementation uses the SKOS (Simple Knowledge Organization System) vocabulary with JSON-LD serialization. This profile aligns with the approach described in ['Modelling of Eurostat's Statistical Classifications in ShowVoc'](https://cros.ec.europa.eu/book-page/modeling-eurostats-statistical-classifications-showvoc), but in alignment with cdifCore, the required properties from cdifCore are implemented using schema.org elements. The Codelist release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/reviewRevision202606/README.md)
+
+### Data Structure
+
+This profile supports the description of reusable data structures and/or their component variables. Enumerated values for variables are described using the Codelist profile. This profile primarily uses the DDI-CDI standard. 
+
+### Concept Scheme
+
+This profile uses SKOS to describe concept systems which are meaningful for purposes other than the representation of variable values. Domain ontologies may need to be expressed for FAIR use: this profile is intended as a supplement to ontologies described in OWL as it can be rendered using tools such as SKOSify from them, so that they are more widely accessible.
+
+### Manifest
+
+This profile is used to package metadata and FAIR resources, to form bundles for dissemination, archiving, etc. It can be used to render "webby" FDOs. The recommended implementation uses [RO Crate](https://www.researchobject.org/ro-crate/).
+
+### Access 
+
+This is a general guideline for the use of the [Open Digital Rights Language (ODRL)](https://www.w3.org/TR/odrl-model/) to describe the policies for the access conditions and use of FAIR resources.
+
+### Universals
+
+Time, geography, and units of measure are used ubiquitously in metadata, and are important for the integration and use of data. This profile gives some general guidance on these important topics.
