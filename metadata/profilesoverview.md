@@ -31,7 +31,7 @@ The CDIF Core profile defines the mandatory and optional base properties for any
 ### Data Discovery
  The Discovery profile defines optional properties for documenting spatial or temporal extent, and simple documentation of variables specified in a resource. This recognizes that there are a variety of resources of interest that might not have relevant spatial or temporal extent, and might not explicitly define variables with values. The Discovery release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/reviewRevision202606/README.md)
 
-### Data description
+### Data Description
 The CDIF Data Description profile defines metadata elements for documentation of variable value domains, statistics aggregating variable values, physical data file layout, and roles of variables in a dataset (e.g. identifier, measure, attribute).  The Data Description release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/reviewRevision202606/README.md)
 
 ### Codelist
