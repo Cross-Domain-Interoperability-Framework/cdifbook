@@ -4,6 +4,8 @@ The Discovery profile is an extension of the Core Profile that add properties to
 
 See also [graphical presentation of Discovery Profile](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDiscovery/index.html)
 
+Artefacts for the Discovery profile are in this [Github repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/tree/reviewRevision202606) (TBD--update link to release tag)
+
 ## Core elements
 See [Core](core.md)
 

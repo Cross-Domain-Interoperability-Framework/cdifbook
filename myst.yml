@@ -32,6 +32,8 @@ project:
             - file: metadata/publication.md
     - title: Profiles/Recommendations
       children:
+      - file: metadata/profilesoverview.md
+        children:
         - file: metadata/core.md
           children:
             - file: metadata/coreSchemaImplementationNew.md
@@ -44,26 +46,25 @@ project:
           children:
             - file: data_description/datadescriptionprofile.md
             - file: data_description/datastructureprofile.md
-        - file: data_access/intro.md
-          children:
-            - file: data_access/odrloverview.md
-            - file: data_access/policies.md
-            - file: data_access/odrlinternalpolicies.md
-            - file: data_access/odrlaggregateaccessconditions.md
-            - file: data_access/odrlsharedservices.md
-            - file: data_access/odrlfederatedanalysis.md
-            - file: data_access/odrlincdif.md
-        - file: universals/univintro.md
-          children:
-            - file: universals/univgeography.md
-            - file: universals/univtime.md
-            - file: universals/univuom.md
-
+      - file: data_access/intro.md
+        children:
+          - file: data_access/odrloverview.md
+          - file: data_access/policies.md
+          - file: data_access/odrlinternalpolicies.md
+          - file: data_access/odrlaggregateaccessconditions.md
+          - file: data_access/odrlsharedservices.md
+          - file: data_access/odrlfederatedanalysis.md
+          - file: data_access/odrlincdif.md
+      - file: universals/univintro.md
+        children:
+          - file: universals/univgeography.md
+          - file: universals/univtime.md
+          - file: universals/univuom.md
     - title: Open Topics, Future Profiles
       children:
         - file: data_description/dataintegrationintro.md
           children:
-            -  file: data_description/datadescriptionforintegration.md
+            - file: data_description/datadescriptionforintegration.md
             - file: data_description/dataintegrationstandards.md
         - file: future/provenance.md
         - file: future/context.md
