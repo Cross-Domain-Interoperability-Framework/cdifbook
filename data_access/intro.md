@@ -1,4 +1,4 @@
-# Data Access Introduction
+# Data Access Recommendations
 
 This section of the framework makes recommendations for describing and documenting policies related to the retrieval of a digital object for research, and subsequent operations performed on that digital object. In the CDIF framework, we use the term 'access' to include the activities connected to the initial retrieval of a digital object, and 'usage' to include all subsequent operations performed on that digital object.  Access and usage policies (herein 'access policies'), when defined, are typically unstructured and bespoke. Data providers may not make access policies explicit and when they do, they tend to re-invent new policies locally. Therefore data users experience new data access policy content and structure at every access-related interaction across the science system. Any kind of aggregation or orchestration of data across providers is stymied by an incoherent data access policy environment in terms of existence, coverage, content, and machine-actionability.
 

@@ -33,19 +33,18 @@ project:
     - title: Profiles/Recommendations
       children:
       - file: metadata/profilesoverview.md
+      - file: metadata/core.md
         children:
-        - file: metadata/core.md
-          children:
-            - file: metadata/coreSchemaImplementationNew.md
-        - file: metadata/discovery.md
-        - file: controlled_vocabularies/vocabintro.md
-          children:
-            - file: controlled_vocabularies/conceptprofile.md
-            - file: controlled_vocabularies/codelistprofile.md
-        - file: data_description/datadescriptionforintegration.md
-          children:
-            - file: data_description/datadescriptionprofile.md
-            - file: data_description/datastructureprofile.md
+          - file: metadata/coreSchemaImplementationNew.md
+      - file: metadata/discovery.md
+      - file: controlled_vocabularies/vocabintro.md
+        children:
+          - file: controlled_vocabularies/conceptprofile.md
+          - file: controlled_vocabularies/codelistprofile.md
+      - file: data_description/datadescriptionforintegration.md
+        children:
+          - file: data_description/datadescriptionprofile.md
+          - file: data_description/datastructureprofile.md
       - file: data_access/intro.md
         children:
           - file: data_access/odrloverview.md
