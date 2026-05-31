@@ -62,7 +62,7 @@ project:
           - file: universals/univuom.md
     - title: Open Topics, Future Profiles
       children:
-        - file: data_description/dataintegrationintro.md
+        - file: future/FAIRMappings.md
           children:
             - file: data_description/datadescriptionforintegration.md
             - file: data_description/dataintegrationstandards.md
