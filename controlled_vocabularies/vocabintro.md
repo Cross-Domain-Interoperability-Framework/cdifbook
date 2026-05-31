@@ -1,4 +1,4 @@
-# Controlled Vocabularies 
+# Controlled Vocabularies: Codelists and Concept Schemes 
 
 Terminology-based semantic resources are a key element in information systems, establishing the binding between the symbols (strings) manipulated by computers and human-intelligible meaning of properties, types, values, or any other element in a volume of data. These are a critical component in scenarios involving (but not limited to) data integration and harmonisation.
 
