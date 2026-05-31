@@ -40,6 +40,4 @@ These elements provide information for the operation of a distributed catalogue 
 
 ## Implementation
 
-The current recommended implementation uses the schema.org vocabulary, with a few entities and properties from other vocabularies to fill gaps. For background on JSON, JSON-LD and general implementation patters CDIF is using, see [Schema.org implementation notes](schemaOrgImplementationpatterns.md)
-
-## [Implementation of metadata content items](coreSchemaImplementationNew.md)
+The current recommended implementation uses the schema.org vocabulary, with a few entities and properties from other vocabularies to fill gaps; see [Implementation of metadata content items](coreSchemaImplementationNew.md). For background on JSON, JSON-LD and general implementation patters CDIF is using, see [Schema.org implementation notes](schemaOrgImplementationpatterns.md). 
