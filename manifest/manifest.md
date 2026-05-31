@@ -57,10 +57,10 @@ Thus a node like this must be included in the RO-CRATE metadata file:
 
 
 Some important distinctions include: 
--	 Metadata File Descriptor -- a CreativeWork entity with @id: "ro-crate-metadata.json" that points to the Root Data Entity via about.
-- Serialize as flattened, condensed JSON-LD file. all entities (dataset, files, people, organizations) appear as top-level objects in a flat @graph array, cross-referenced by @id. 
--	Document root /@type "schema:CreativeWork" (same as RO Crate 1.2). 
--	Will have "ro-crate-metadata.json" as the graph @id, and the file will be named "ro-crate-metadata.json" and appear in the root of the package.
+-	 Metadata File Descriptor -- a CreativeWork entity with \@id: "ro-crate-metadata.json" that points to the Root Data Entity via about.
+- Serialize as flattened, condensed JSON-LD file. all entities (dataset, files, people, organizations) appear as top-level objects in a flat \@graph array, cross-referenced by \@id. 
+-	Document root \@type "schema:CreativeWork" (same as RO Crate 1.2). 
+-	Will have "ro-crate-metadata.json" as the graph \@id, and the file will be named "ro-crate-metadata.json" and appear in the root of the package.
 -	Data Entities -- File (alias for MediaObject) and Dataset entities representing files and folders.
 - Contextual Entities -- Person, Organization, Place, etc. entities referenced from the data entities. These match CDIF core requirements.
 
@@ -68,7 +68,7 @@ Some important distinctions include:
 schema.org implementation 
 - CDIF core covers the basic RO-CRATE metadata	
 - Packages delivered as zipped (or similar single-file) archive are considered schema:DataDownload objects.
-- indidividual parts of the package are typed as schema:MediaObject (like RO-CRATE); they are not required to have a schema:contentURL property because they're not expected to be individually downloadable.  Other @Type can be assigned to the package parts, as well as schema:additionalTypes that don't impact the content model for the node, but assist in semantic interpretation. 
+- indidividual parts of the package are typed as schema:MediaObject (like RO-CRATE); they are not required to have a schema:contentURL property because they're not expected to be individually downloadable.  Other \@Type can be assigned to the package parts, as well as schema:additionalTypes that don't impact the content model for the node, but assist in semantic interpretation. 
 
 # Dataset Properties added by the CDIF Manifest Profile
 
@@ -87,7 +87,7 @@ If the DataDownload type is application/zip (might need more general way to iden
 
 ## MediaObject
 
-### /@type
+### \@type
 -  (Required) May include additional types for categorization.  type: array of string, must contain "schema:MediaObject", may not contain "schema:DataDownload" since the media objects in the package are not independently downloadable.
 ### schema:name":
 - (Required) locator for the mediaObject within the package. If Some package components are remote (external to the package) this must be a resolvable locator (e.g. http URI). Type: string
@@ -98,7 +98,7 @@ If the DataDownload type is application/zip (might need more general way to iden
 ### schema:size
 - File size as a schema:QuantitativeValue value, with a numeric value and unit of measure: type: schema:QuantitativeValue.
 ### schema:about
-- For metadata sidecar files, references the data file this metadata describes. type: array of object reference to the @id of the data file described by this sidecar.
+- For metadata sidecar files, references the data file this metadata describes. type: array of object reference to the \@id of the data file described by this sidecar.
 ### spdx:checksum
 - checksum object contains string value calculated algorithmically from the mediaObject content to allow determination if the object has been corrupted. type: spdx:Checksum object.
 
