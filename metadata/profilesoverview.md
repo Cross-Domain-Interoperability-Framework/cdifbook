@@ -58,4 +58,4 @@ This is a general guideline for the use of the [Open Digital Rights Language (OD
 
 ### Universals
 
-Time, geography, and units of measure are used ubiquitously in metadata, and are important for the integration and use of data. This profile gives some general guidance on these important topics.
+Time, geography, and units of measure are used ubiquitously in data and metadata, and are important for the integration and use of data. This profile gives some general guidance on these important topics.
