@@ -107,6 +107,9 @@
     <loc>http://localhost:3000/universals/univuom</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/future/fullintegration</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/future/fairmappings</loc>
   </url>
   <url>
