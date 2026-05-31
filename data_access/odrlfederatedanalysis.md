@@ -1,4 +1,4 @@
-# Federated analytics
+# Federated Analytics
 
 Federated analytics is an approach to reuse data without moving the data from the place where it is stored, allowing reuse of sensitive data in its original format. This is a privacy-by-design approach designed to prevent the reverse engineering of individual data centres, sets, and subjects. This is also a useful approach when data are too large to move. 
 

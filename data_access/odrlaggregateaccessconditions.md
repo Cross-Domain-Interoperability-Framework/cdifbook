@@ -1,4 +1,4 @@
-# Aggregate Access conditions - Parties and Actions 
+# Aggregate Access Conditions - Parties and Actions 
 
 A data user wants to query the CESSDA catalogue to find assets useful to address specific data reuse requirements.  The metadata associated with discovered resources should provide a machine-actionable specification of access requirements. 
 

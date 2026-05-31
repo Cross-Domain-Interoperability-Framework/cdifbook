@@ -1,6 +1,6 @@
-# ODRL implementation
+# ODRL Implementation
 
-## Policy example
+## Policy Example
 Ahe data custodians can use ODRL to express a data asset access policy decomposed into specific access conditions, assets, actors, and actions.  This example is based on research environment in Australia.
 
 - **Actor**: Registered academic researchers (ANU_Registered_Users), condition: demonstrate accreditation by ANU (Accredited_Researcher_Property)
@@ -52,7 +52,7 @@ Example ODRL Policy.
  
 Note that in this example Actions, PartyCollections and Refinements only have local meaning and can only be executed locally. 'Analyse_In_TRE' and 'SecondaryUse' are labels that have no potential for machine-actionability beyond the local repository environment.
 
-## Policy template
+## Policy Template
 
 Conventions for ODRL policies to express access conditions could support more granular groupings of datasets based on their common access features. Re-usable ODRL policies could be deployed across multiple repositories enabling a metadata harvesters to aggregate content about access and make access conditions transparent for users searching the catalogue.
 

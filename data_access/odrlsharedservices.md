@@ -13,7 +13,7 @@ Standardised, machine-actionable data access policies necessary to deliver on tw
 The basic approach to representing policies that can be implemented with existing ODRL technology is described in [ODRL implementation](./odrlincdif.md).
 
 
-# Workflow scenario:
+# Workflow Scenario:
 The workflow outlined in the table below illustrates a message exchange initiated by a researcher requesting a dataset stored in a specific repository with a central clearing house mediating access on behalf of this and many other repositories. Note that here, the Broker (clearing house) is not acting as a portal for finding the data, but as a mediator of access to a resource known to be at an identified repository.
 
 | **step** | **Message** | **Message pseudo-description** |

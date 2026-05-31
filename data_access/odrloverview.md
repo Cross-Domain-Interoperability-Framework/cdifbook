@@ -12,7 +12,7 @@ encompassing:
 
 Figure. Simplified schematic of main ODRL Classes.
 
-## ODRL resources
+## ODRL Resources
 
 ODRL Information Model: https://www.w3.org/TR/odrl-model/
 
