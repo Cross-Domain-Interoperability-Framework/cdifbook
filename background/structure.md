@@ -26,7 +26,7 @@ While we are early in our development of standards and systems for automating ac
 
 [**Manifest Profile**](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/manifest/manifest/): This profile is used to describe packages of metadata and FAIR resources, to form bundles for dissemination, archiving, etc. It can be used to render “webby” FDOs. The recommended implementation uses RO Crate.
 
-**Access Profile**: This profile recommends that [ODRL](https://www.w3.org/TR/odrl-model/) Actions and Entities be used to describe policies and conditions for the use of data. At this time, the utility of this approach is limited by the lack of shared vocabularies for conditions of use, user qualifications, legal constraints, and similar important items. ODRL is thus limited to describing policies in terms of the disseminating institution, but provides a basis for expansion in future when the needed vocabularies are developed.
+[**Access Profile**(https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/data-access/intro/): This profile recommends that [ODRL](https://www.w3.org/TR/odrl-model/) Actions and Entities be used to describe policies and conditions for the use of data. At this time, the utility of this approach is limited by the lack of shared vocabularies for conditions of use, user qualifications, legal constraints, and similar important items. ODRL is thus limited to describing policies in terms of the disseminating institution, but provides a basis for expansion in future when the needed vocabularies are developed.
 
 [**Concept Scheme Profile**](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/controlled-vocabularies/conceptprofile/): This profile recommends the use of [SKOS](https://www.w3.org/TR/2009/REC-skos-reference-20090818/) for describing controlled vocabularies, understood to mean any terminological resource. The use of [OWL](https://www.w3.org/TR/owl2-overview/) as a linked extension towhat is presented in SKOS is also recommended, as is the use of [XKOS](https://ddialliance.org/Specification/RDF/XKOS) for formal statistical classifications.
 
@@ -36,7 +36,7 @@ While we are early in our development of standards and systems for automating ac
 
 [**Data Structure Profile**](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/data-description/datastructureprofile/): This profile uses [DDI-CDI](https://ddialliance.org/Specification/ddi-cdi) to describe reusable data structures and variables. In future, this capaility will be extended to data formats.
 
-**Universals Profile**: This section recommends the information which should be provided when describingtime, geography, and units of measurement in other metadata sets. Some standards for this purpose arerecommended in each area.
+[**Universals Profile**](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/universals/univintro/): This section recommends the information which should be provided when describingtime, geography, and units of measurement in other metadata sets. Some standards for this purpose arerecommended in each area.
 
 
 The CDIF includes recommendation for specific implementation approaches in each profile, based on web technology. While many standards and vocabularies require the use of RDF, it is not a technology that is commonly used in every domain. The solution to this is to advocate the use of JSON-LD, which allows the expression of RDF vocabularies in the common JSON syntax.
