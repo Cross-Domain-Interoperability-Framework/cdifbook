@@ -1,4 +1,4 @@
-#  Queryable distribution interfaces (API)
+#  Queryable Distribution Interfaces (API)
 
 Many resources are accessed using interfaces that allow customization of the resource representation and content that are delivered to a user. These interfaces are referred to as an API or 'Application Programming Interface', which is a specification of how to interact with a machine agent. Such a specification typically requires a communication protocol, description of the functions offered, and description of the content of messages transmitted between a client and the agent offering the interface. The focus of CDIF discovery is on communication protocols that use the internet and Hypertext Transfer Protocol (HTTP), which is the technology that underlies the World Wide Web. In this case the communication protocol can simply be specified as HTTP (or HTTPS). Various other protocols exist and new ones will be invented, these are out of scope for this recommendation.
 
@@ -6,7 +6,7 @@ Messages from a client to a service provider include, for example, requests to i
 
 An API is defined by a specification (the instructions for how it works), implemented by some software, deployed on a server accessible to target clients, and accessed through an addressable endpoint using some communication protocol. The content offered using the API is not necessarily part of the API definition, but an API might be specific to a particular kind of content (e.g. photographs, digital maps, time-series data, tabular data, weather data, sound recordings). In general the particular content offered is specific to a service endpoint.
 
-## Matching data and applications
+## Matching Data and Applications
 In order to link data and applications, metadata for the data and for the application software must have sufficient information about the distribution protocol and format to determine whether an application can work with an offered distribution. The pattern is similar to that used by desktop computers to match files with applications, but more granular categorization of the distribution encoding format and information model is necessary to match data to applications offering functionality specific to that data.
 
 From the software (data user) side of the connection, several factors come into play. The software might execute on an operating system like Linux, Windows, iOS, or Android, referred to here as 'standalone environment', or an application might execute in an online environment mediated by a Web browser application, referred to here as a 'browser environment'. In the standalone environment, an application has access to a local file system and various communication protocols and interfaces supported by the hosting operating system. We assume these include access to online resources using the internet. An internet-connected standalone application might implement a search function to find resources on the internet that work with the application.
