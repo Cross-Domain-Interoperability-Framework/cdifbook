@@ -13,9 +13,9 @@ CDIF has taken a pragmatic approach, prioritizing what it sees as the most impor
 
 This paper briefly describes the processes for development, production, dissemination, and maintenance of CDIF. Several new profiles will be added to Version 1.1, and a much large number in subsequent releases. Each new function is supported in its own "profile," a set of technical and documentary resources which enable developers to implement interoperable sets of metadata for each specific function. These profiles are the items which are developed and produced for use.
 
-Note that the development, production, and maintenance processes are coordinated by the CDIF Editorial Team, drawing on the expertise of other members of the CDIF WG. (Note that this document does not address the governance or organization of CDIF.)
+The development, production, and maintenance processes are coordinated by the CDIF Editorial Team, drawing on the expertise of other members of the CDIF WG. (Note that this document does not address the governance or organization of CDIF.)
 
-The CDIF Book  and the CDIF.org website are good places to find the latest information regarding what profiles are currently available, which are under development, and which are planned. This is also where information regarding the CDIF Working Group and CDIF Advisory Group may be found.
+Use the CDIF.org website to find the latest information regarding what profiles are currently available, which are under development, and which are planned. This is also where information regarding the CDIF Working Group and CDIF Advisory Group may be found.
 
 ## Development of CDIF Profiles
 
