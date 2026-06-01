@@ -1,5 +1,13 @@
 # Concept Scheme Profile
 
+Resources:
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/blob/reviewRevision202606/cdifConceptSchemeStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/blob/reviewRevision202606/CDIFConceptSchemeImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/blob/reviewRevision202606/conceptSchemeRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/blob/reviewRevision202606/cdifConceptScheme-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/tree/reviewRevision202606/examples)
+- [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/cdifConceptScheme/index.html)
+
 A CDIF Concept Scheme is a controlled vocabulary or terminology represented as a [SKOS](https://www.w3.org/TR/skos-reference/) `ConceptScheme` in JSON-LD. It uses the same SKOS building blocks as the [Codelist](codelistprofile.md) profile, but `skos:Concept` has broader usage here: a concept can represent a possible value for a categorical variable, or an entity or property in a data model. Where the Codelist profile expects a simple, often flat list of coded values, the Concept Scheme profile accommodates richer terminologies with definitions, sources, and hierarchy.  
 
 All property names use namespace prefixes declared in the `@context`:

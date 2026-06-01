@@ -28,7 +28,6 @@ project:
             - file: metadata/distributionapis.md
             - file: metadata/queryabledistributions.md
             - file: metadata/publishingmetadata.md
-           
             - file: metadata/publication.md
     - title: Profiles/Recommendations
       children:
@@ -45,6 +44,7 @@ project:
         children:
           - file: data_description/datadescriptionprofile.md
           - file: data_description/datastructureprofile.md
+      - file: manifest/manifest.md
       - file: data_access/intro.md
         children:
           - file: data_access/odrloverview.md
