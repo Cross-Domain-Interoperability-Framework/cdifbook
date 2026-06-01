@@ -3,7 +3,7 @@
 
 ## Background
 
-The goal of this section is to provide a brief overview of how the Cross-Domain Interoperability Framework (CDIF) will be developed, produced, disseminated, and maintained into the future, starting with Version 1.1.  The first version of the guidelines was produced as an output of the WorldFAIR project, and has undergone further development and maintenance under the WorldFAIR+ project, leading to the new release, Version 1.1. It is expected that several ongoing projects such as CDIF 4 XAS, CLIMATE ADAPT 4 EOSC, and especially CDIF 4 EOSC will drive significant further developments. Consequently, an attempt is made to establish a stable framework within which these developments can be managed.
+The goal of this section is to provide a brief overview of how the Cross-Domain Interoperability Framework (CDIF) will be developed, produced, disseminated, and maintained into the future, starting with Version 1.1.  The first version of the guidelines was produced as an output of the WorldFAIR project, and has undergone further development and maintenance under the WorldFAIR+ initiative, leading to the new release, Version 1.1. It is expected that several ongoing projects such as CDIF4XAS, CLIMATE-ADAPT4EOSC, and especially CDIF4EOSC will drive significant further developments. Consequently, an attempt is made to establish a stable framework within which these developments can be managed.
 
 CDIF has identified many different aspects of FAIR-supporting systems in cross-domain scenarios which will benefit from agreements about the metadata to be exchanged. These are termed "FAIR functions," and include such things as cataloguing, search, and discovery; description of data sets; description of access to and licensing of resources; description of data provenance; data packaging; data transformations and mappings; description of controlled vocabularies and code lists; and so on. The list is a long one. 
 
@@ -13,9 +13,9 @@ CDIF has taken a pragmatic approach, prioritizing what it sees as the most impor
 
 This paper briefly describes the processes for development, production, dissemination, and maintenance of CDIF. Several new profiles will be added to Version 1.1, and a much large number in subsequent releases. Each new function is supported in its own "profile," a set of technical and documentary resources which enable developers to implement interoperable sets of metadata for each specific function. These profiles are the items which are developed and produced for use.
 
-Note that the development, production, and maintenance processes are coordinated by the CDIF Editorial Team, drawing on the expertise of other members of the CDIF WG. (Note that this document does not address the governance or organization of CDIF.)
+The development, production, and maintenance processes are coordinated by the CDIF Editorial Team, drawing on the expertise of other members of the CDIF WG. (Note that this document does not address the governance or organization of CDIF.)
 
-The CDIF Book  and the CDIF.org website are good places to find the latest information regarding what profiles are currently available, which are under development, and which are planned. This is also where information regarding the CDIF Working Group and CDIF Advisory Group may be found.
+Use the CDIF.org website to find the latest information regarding what profiles are currently available, which are under development, and which are planned. This is also where information regarding the CDIF Working Group and CDIF Advisory Group may be found.
 
 ## Development of CDIF Profiles
 

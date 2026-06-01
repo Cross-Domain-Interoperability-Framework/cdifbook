@@ -105,8 +105,18 @@ Resources:
 
 ## Access 
 
-This is a general guideline for the use of the [Open Digital Rights Language (ODRL)](https://www.w3.org/TR/odrl-model/) to describe the policies for the access conditions and use of FAIR resources.
+This is a general guideline for the use of the [Open Digital Rights Language (ODRL)](https://www.w3.org/TR/odrl-model/) to describe the policies for the access conditions and use of FAIR resources. This profile gives some general guidance on these important topics.
+
+Resources: 
+- [ODRL overview](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/data-access/odrloverview/)
+- [ODRL Implementation](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/data-access/odrlincdif/) 
 
 ## Universals
 
 Time, geography, and units of measure are used ubiquitously in data and metadata, and are important for the integration and use of data. This profile gives some general guidance on these important topics.
+
+Resources: 
+- [Overview](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/universals/univintro/)
+- [Geography](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/universals/univgeography/)
+-[Time](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/universals/univtime/)
+-[Units of Measurement](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/universals/univuom/)
