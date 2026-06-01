@@ -44,6 +44,8 @@ project:
         children:
           - file: data_description/datadescriptionprofile.md
           - file: data_description/datastructureprofile.md
+            children:
+            - file: data_description/dataStructureSchemaImplementationNew.md
       - file: manifest/manifest.md
       - file: data_access/intro.md
         children:
@@ -73,6 +75,7 @@ project:
       children:
         - file: metadata/datatypes.md
         - file: metadata/schemaOrgImplementationpatterns.md
+        - file: examples/index.md
         - file: metadata/dcat.md
         - file: metadata/mapping.md
           children:

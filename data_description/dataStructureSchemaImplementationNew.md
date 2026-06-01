@@ -23,7 +23,7 @@ The profile's authoritative implementation guide is [CDIFDataStructureImplementa
     {"@id": "https://w3id.org/cdif/data_structure/1.0"}
   ]
   ```
-- **Description:** Required URI declaring that the metadata record conforms to the Data Structure profile. Add to the `dcterms:conformsTo` array on the catalog record alongside conformsTo identifiers for any other profiles that are also being asserted (Core, Discovery, Data Description, etc.).
+- **Description:** Required URI declaring that the metadata record conforms to the Data Structure profile. Add to the `dcterms:conformsTo` array on the catalog record alongside conformsTo identifiers for any other profiles that are also being asserted (Core, Discovery, Data Description, etc.). Note that the CDIF conformance class URIs are registered such that the base URI (e.g. https://w3id.org/cdif/data_structure/1.0/) resolves to this implementation guidance page; add /schema and the uri will resolve to the JSON schema for validating instance documents using that profile; add /shacl and the shacl rules, encoded in turtle format, will be returned.
 
 ## Distribution data structure link
 - **Cardinality:** 1 per conforming DataDownload

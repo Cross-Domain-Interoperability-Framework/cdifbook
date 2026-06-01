@@ -17,7 +17,7 @@ Artefacts for the Discovery profile are in this [Github repository](https://gith
 ## Core elements
 See [Core](core.md)
 
-## Discovery metadata extension requirements
+## Discovery metadata requirements
 - **Geographic Extent** - (0..many)  Required if resource has a geographic extent for its subject, either a named location, bounding rectangle, linear trace, or point. To support cross-domain searches based on geospatial location, location coordinates must be given in decimal degrees using the WGS 84 datum. There are various other systems for describing location (see [Space](../universals/univgeography.md) ); these can be provided as alternate location descriptions, recognizing that they might be meaningful to some metadata harvesting agents. Some resources might not be usefully described by a WGS 84 extent, in which case indicate nil:notapplicable; this would include extraterrestrial resources, but named location can still be provided.
   - *Bounding Rectangle*: North Bounding Latitude, South Bounding Latitude, East Bounding Longitude, West Bounding Longitude. The minimum rectangle that completely contains the coverage extent for the resource content. Coordinate order and syntax are determined by the serialisation profile.
   - *Linear trace*: a linear trace e.g. of a ship's track, aircraft flight path, or surface traverse, represented as a series of points. Coordinate order and syntax are determined by the serialisation profile.
@@ -30,7 +30,17 @@ See [Core](core.md)
 
 
 ## Implementation of Discovery Extensions
-Instance of the Discovery profile must conform to the requirements of the [core profile](core.md). The discovery profile adds these additional properties:
+Instance of the Discovery profile must conform to the requirements of the [core profile](core.md). The discovery profile adds these additional properties on the base Dataset element:
+
+## Metadata profile identifier
+- **Cardinality:** 1..*
+- **JSON:**
+  ```json
+  "schema:subjectOf" / "dcterms:conformsTo": [
+    {"@id": "https://w3id.org/cdif/discovery/1.0/"}
+  ]
+  ```
+- **Description:** Note that the CDIF conformance class URIs are registered such that the base URI (e.g. https://w3id.org/cdif/discovery/1.0/) resolves to this implementation guidance page; add /schema and the uri will resolve to the JSON schema for validating instance documents using that profile; add /shacl and the shacl rules, encoded in turtle format, will be returned.
 
 ## Variables in the data
 The metadata about a dataset should include a list of variables that the dataset contains. Variable metadata should minimally specify the name of the variable as it appears in the dataset. That name should be qualified by a controlled vocabulary or other semantic resource (e.g. represented by a resolvable URI), or minimally some descriptive text.
