@@ -1,8 +1,6 @@
 version: 1
 project:
   title: Cross Domain Interoperability Framework Handbook
-  authors:
-    - name: World Fair CDIF working group
   github: Cross-Domain-Interoperability-Framework/cdifbook
   bibliography:
     - references.bib
