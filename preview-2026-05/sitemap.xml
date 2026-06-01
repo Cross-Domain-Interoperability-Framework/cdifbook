@@ -71,6 +71,9 @@
     <loc>http://localhost:3000/data-description/datastructureprofile</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/data-description/datastructureschemaimplementationnew</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/manifest/manifest</loc>
   </url>
   <url>
@@ -135,6 +138,9 @@
   </url>
   <url>
     <loc>http://localhost:3000/metadata/schemaorgimplementationpatterns</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/examples</loc>
   </url>
   <url>
     <loc>http://localhost:3000/metadata/dcat</loc>
