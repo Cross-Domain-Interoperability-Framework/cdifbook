@@ -63,9 +63,9 @@ project:
       children:
       - file: future/FullIntegration.md
         children:
-          - file: future/FAIRMappings.md
           - file: data_description/datadescriptionforintegration.md
           - file: data_description/dataintegrationstandards.md
+          - file: future/FAIRMappings.md
       - file: future/provenance.md
       - file: future/context.md
       - file: future/perspectives-ai.md
