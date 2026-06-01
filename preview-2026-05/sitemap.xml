@@ -116,13 +116,13 @@
     <loc>http://localhost:3000/future/fullintegration</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/future/fairmappings</loc>
-  </url>
-  <url>
     <loc>http://localhost:3000/data-description/datadescriptionforintegration-1</loc>
   </url>
   <url>
     <loc>http://localhost:3000/data-description/dataintegrationstandards</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/future/fairmappings</loc>
   </url>
   <url>
     <loc>http://localhost:3000/future/provenance</loc>
