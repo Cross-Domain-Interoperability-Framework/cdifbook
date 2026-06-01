@@ -22,3 +22,7 @@ Requirements:
 TBD a DataStructure class that defines the file format mappings for the data structure components in a physical implemenation; The only things that the InstanceVariables can modify in datasets using the resusable DataStructure are the labels for the variables and the physicalDataType. 
 
 See [graphical presentation of Data Structure Profile](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDataStructure/index.html)
+
+## Implementation
+
+The current recommended implementation uses the schema.org vocabulary, with a few entities and properties from other vocabularies to fill gaps; see [Implementation of metadata content items](dataStructureSchemaImplementationNew.md). For background on JSON, JSON-LD and general implementation patters CDIF is using, see [Schema.org implementation notes](schemaOrgImplementationpatterns.md). 
