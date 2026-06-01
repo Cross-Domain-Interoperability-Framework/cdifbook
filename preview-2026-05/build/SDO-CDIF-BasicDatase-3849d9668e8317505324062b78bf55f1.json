@@ -1,0 +1,57 @@
+{
+    "@context": {
+        "schema": "http://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "ex": "https://example.org/",
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "dcat": "http://www.w3.org/ns/dcat#"
+    },
+    "@id": "ex:URIforNode2246",
+    "@type": [
+        "schema:Dataset"
+    ],
+    "schema:identifier": "ex:URIforTheDataset",
+    "schema:name": "Minimal dataset metadata",
+    "schema:description": "example documentation that will validate with CDIF schema.org JSON schema. includes both a distribution/DataDownload.contentUrl or a Dataset.url for a landing page will work.",
+    "schema:url": "https://example.org/locatortoGETlandingPage",
+    "schema:publishingPrinciples": [
+        {
+            "@type": "schema:CreativeWork",
+            "schema:name": "the big example.org policy document",
+            "schema:url": "https://cdif.org/resources/policy/264"
+        }
+    ],
+    "schema:conditionsOfAccess": [
+        "these are the applicable conditions for accessing the resource"
+    ],
+    "schema:dateModified": "2010-02-03",
+    "schema:distribution": [
+        {
+            "@type": [
+                "schema:DataDownload"
+            ],
+            "schema:contentUrl": "https://example.org/locatorForDataset"
+        }
+    ],
+    "schema:subjectOf": {
+        "@id": "ex:URIforTheDigitalObjectMetadata",
+        "@type": [
+            "schema:Dataset"
+        ],
+        "schema:additionalType": [
+            "dcat:CatalogRecord"
+        ],
+        "schema:identifier": "ex:URIforNode2246",
+        "dcterms:conformsTo": [
+            {
+                "@id": "ex:cdif_SDO_profile_uri"
+            }
+        ],
+        "schema:dateModified": "2014-02-23",
+        "schema:about": {
+            "@id": "ex:URIforNode2246"
+        }
+    }
+}
