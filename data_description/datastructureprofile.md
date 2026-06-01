@@ -1,4 +1,4 @@
-# Data structure Profile
+# Data Structure Profile
 
 This profile is focused on the definition of a physical or logical dataset structure in a way that can be packages and reused for documenting different datasets that use the same structure, for instance periodically released statistics reported in the same format. 
 
