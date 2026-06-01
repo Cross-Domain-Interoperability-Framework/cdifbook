@@ -28,13 +28,13 @@ Note that functioning as an FDO is not necessarily a requirement out of the star
 ## Information Model
 -	Protocol Conformance Statement (Required) – a statement of the protocol used to constitute the package being described, and to which supplied information conforms (RO Crate, Frictionless Data, etc.)
 -	Package identification  (R) – a unique identifier for the package, according to a known scheme
--	Package name (O) – a human-radable name for the package to help distinguish it from others.
+-	Package name (O) – a human-readable name for the package to help distinguish it from others.
 -	Package description (O) – a human-readable description of the package and its contents and purpose.
 -	Package date (O) – The data of the creation of the package (may include time).
 -	Package creator (O) – Information about the creator of the package for the purposes of attribution. May contain contact information.
 -	Distribution Information (conditional) – information needed to locate and retrieve the package (unless the metadata is an item inside the package).
 -	Item List (R) – A list of the items which are the parts of the package. Each has an ID and a location. These may be local (within the package container) or somewhere on a network, with the provided location information being sufficient for them to be retrieved. 
--   Item type (R) - categorization of kinds of item, typically MIME type, other categories or  semantic classification also allowed (e.g., “data entities,” “context entities”).
+-   Item type (R) - categorization of kinds of item, typically MIME type, other categories or  semantic classification also allowed (e.g., "data entities," "context entities").
 -	Licensing information (R) – according to IP law, assemblages can have different licensing than their constituent parts. The license for the package is required, but more restrictive licenses may be associated with individual resources in the package.
 
 ## Implementation
