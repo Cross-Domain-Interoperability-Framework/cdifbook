@@ -60,7 +60,7 @@ The metadata about a dataset should include a list of variables that the dataset
     "schema:description": "..."
   }, ...]
   ```
-- **Description:** Follow the [ESIP Science on Schema.org recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables); see also discussion for representing more complex data structures in [ESIP Experimental](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Experimental.md#AdvancedVariableValueType) and the [Data Description module of CDIF](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/data-description/datadescriptionforintegration/). Variable must have a name and description, should have a `propertyID` with URI for the represented concept. The URI in the `propertyID` provides the semantic linkage for the meaning of the variable.
+- **Description:** Follow the [ESIP Science on Schema.org recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables); see also discussion for representing more complex data structures in [ESIP Experimental](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Experimental.md#AdvancedVariableValueType) and the [Data Description module of CDIF](https://cross-domain-interoperability-framework.github.io/cdifbook/data-description/datadescriptionforintegration/). Variable must have a name and description, should have a `propertyID` with URI for the represented concept. The URI in the `propertyID` provides the semantic linkage for the meaning of the variable.
 
 ### Variable (StatisticalVariable)
 - **Cardinality:** 0..*
