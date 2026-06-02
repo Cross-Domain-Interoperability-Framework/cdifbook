@@ -68,25 +68,30 @@ body:not(.js-footer-loaded) .myst-footer-links::after {
   white-space: pre-wrap;
   line-height: 1.5;
 }
-/* Real footer injected by the build-time script (clickable links). */
-.myst-custom-footer {
-  flex-basis: 100%;
-  width: 100%;
-  margin-top: 2.5em;
-  padding-top: 1.5em;
-  padding-bottom: 1em;
+/* Real footer injected by the build-time script (clickable links).
+   This sits as a direct child of <body>, OUTSIDE React's mount tree,
+   so React's hydration/re-renders don't strip the <a> tags. The
+   trade-off is visual: it lives at the bottom of the page (below the
+   sidebars) rather than under the next/prev nav buttons. We give it a
+   max-width and auto margins so it visually aligns near the article
+   column rather than spanning full body width. */
+body > .myst-custom-footer {
+  display: block;
+  max-width: 60rem;
+  margin: 2.5em auto 2em auto;
+  padding: 1.5em 1.5em 1em 1.5em;
   border-top: 1px solid #e5e7eb;
   font-size: 0.65rem;
   color: #4a5568;
   line-height: 1.5;
 }
-.myst-custom-footer p {
+body > .myst-custom-footer p {
   margin: 0 0 0.75em 0;
 }
-.myst-custom-footer a {
+body > .myst-custom-footer a {
   color: #2563eb;
   text-decoration: underline;
 }
-.myst-custom-footer a:hover {
+body > .myst-custom-footer a:hover {
   color: #1d4ed8;
 }
