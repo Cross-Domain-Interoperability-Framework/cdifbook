@@ -1,5 +1,3 @@
-/* User Provided Stylesheet */
-
 /* ---- CDIF Handbook custom styles (MyST v2 book-theme) ----
    The theme uses Tailwind "prose" rules (line-height 1.75, large heading and
    list margins) via low-specificity :where() selectors, so these overrides are
