@@ -1,4 +1,4 @@
-import{b as e}from"C:/Program Files/Git/cdifbook/build/_shared/chunk-7DW7L33J.js";var l=e(()=>`
+import{b as e}from"/cdifbook/build/_shared/chunk-7DW7L33J.js";var l=e(()=>`
   /* Font Awesome icon styling - consolidated */
   .label-icon {
     display: inline-block;

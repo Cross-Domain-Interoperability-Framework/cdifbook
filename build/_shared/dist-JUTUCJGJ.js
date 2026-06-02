@@ -1,1 +1,1 @@
-import{a,b,c,d,e}from"C:/Program Files/Git/cdifbook/build/_shared/chunk-EMLRI2JG.js";import"C:/Program Files/Git/cdifbook/build/_shared/chunk-6FEZWRIS.js";import"C:/Program Files/Git/cdifbook/build/_shared/chunk-OZE3FFNP.js";e();export{d as css,b as cssCompletionSource,c as cssLanguage,a as defineCSSCompletionSource};
+import{a,b,c,d,e}from"/cdifbook/build/_shared/chunk-EMLRI2JG.js";import"/cdifbook/build/_shared/chunk-6FEZWRIS.js";import"/cdifbook/build/_shared/chunk-OZE3FFNP.js";e();export{d as css,b as cssCompletionSource,c as cssLanguage,a as defineCSSCompletionSource};

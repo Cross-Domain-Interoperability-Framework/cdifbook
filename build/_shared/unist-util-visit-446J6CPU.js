@@ -1,1 +1,1 @@
-import{b as a,c as b,d as c,f as d}from"C:/Program Files/Git/cdifbook/build/_shared/chunk-GUCIBHGO.js";import"C:/Program Files/Git/cdifbook/build/_shared/chunk-OZE3FFNP.js";export{a as CONTINUE,b as EXIT,c as SKIP,d as visit};
+import{b as a,c as b,d as c,f as d}from"/cdifbook/build/_shared/chunk-GUCIBHGO.js";import"/cdifbook/build/_shared/chunk-OZE3FFNP.js";export{a as CONTINUE,b as EXIT,c as SKIP,d as visit};
