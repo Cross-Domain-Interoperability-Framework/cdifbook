@@ -1,0 +1,17 @@
+# Checklist to implement
+
+## Scenario: Metadata publisher
+
+The user represents a community that is generating data or other information resources, and making those resources accesible online.  The user needs to make those resources discoverable, with information in the metadata so that the search client can do at least a superficial evaluation of a discovered resource, and the search client can obtain the resource in a useful format, following any designated security or privacy protocols.
+
+1. Review the CDIF content model requirements.  Is the necessary information available about the resources you offer?  Choose the level of documentation required to enable data access (are there security/privacy concerns), and data integration. For data integration, is the goal machine-actionable data integration, or simply to enable discovery based on the information provided by the resource?
+
+2. Determine how to generate CDIF JSON-LD metadata records from your internal data system that contains metadata about your community's offerings. Use the [JSON_LD implementation information](../metadata/schemaorgimplementation.md) and [examples](../examples/index.md) in the CDIF GitHub for guidance.  The assumption is that this metadata is already in some kind of structured information system e.g. a spreadsheet, relational database, or triple store.  If the listing of offerings is in text documents, you will need to figure out how to get these into a format that can be machine processed. If there are only a few resources for which you want to publish metadata, manually constructing the needed JSON-LD metadata documents might very well be the simplest approach. 
+
+3. Make the metadata records accessible on the web.   There are two common paths here. 
+	1. Create a web-accessible folder that contains a collection of metadata documents you want search engines to harvest and index. Each metadata document must be accessible via URL. 
+	1. Embed the JSON-LD as \<script\> html elements in landing pages for the resources you want indexed. In some situations, landing pages are generated via scripts from a database backend or internal metadata file format; in these cases this second approach is generally more straight forward, by adding the necessary code to this process to generate the CDIF JSON-LD script.   The choice of which approach to use will also depend on the capabilities of the metadata aggregators that you want to harvest your metadata. In some cases, you might need to implement one of the open-source catalog software platforms, e.g. Geonetwork-Opensource, Geoportal, CKAN, Deegree...., that implements a standard harvesting protocol. This can get significantly more complicated.
+
+4. Generate a sitemap and get it on your website. This is a simple xml file that contains a list of URLs, with other optional properties like a 'last modified date', in a standard format that most web scraping applications can use. A Robots.txt file in the root of the website where you are publishing the metadata contains a link that points to the sitemap. The sitemap.xml and robots.txt files are widely used and understood by metadata aggregators. 
+
+5. With all this in place, its a good idea to notify any metadata aggregators you want to harvest your metadata to make sure they check you sitemap.  Don't be surprised if there are bugs found in the pipeline between your internal metadata information system an the harvester's index. 
