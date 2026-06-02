@@ -54,15 +54,22 @@ jobs:
           SCRIPT = """<script>
           /* Footer injection: real <a> tags + survives SPA navigation.
              Tags <body> with .js-footer-loaded so the CSS fallback (used
-             only when this script does not run, e.g. local dev) turns off. */
+             only when this script does not run, e.g. local dev) turns off.
+             add() is ANCHOR-AWARE: if React's hydration strips the <a>
+             tags (leaving the surrounding text), we detect and rebuild. */
           (function() {
+            var HTML = '<p>We appreciate constructive feedback. Contact us at <a href="mailto:cdif-feedback@codata.org">cdif-feedback@codata.org</a> or file a GitHub Issue at <a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose">https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose</a>.</p><p>Copyright (c) 2022-2026 Committee on Data of the International Science Council (CODATA). The Cross Domain Interoperability Framework (CDIF) is licenced under CC-BY-4.0.</p>';
             function add() {
               var links = document.querySelector('.myst-footer-links');
               if (!links) return;
-              if (links.parentElement.querySelector('.myst-custom-footer')) return;
+              var existing = links.parentElement.querySelector('.myst-custom-footer');
+              if (existing) {
+                if (existing.querySelector('a[href^="mailto:"]')) return;
+                existing.remove();
+              }
               var f = document.createElement('div');
               f.className = 'myst-custom-footer';
-              f.innerHTML = '<p>We appreciate constructive feedback. Contact us at <a href="mailto:cdif-feedback@codata.org">cdif-feedback@codata.org</a> or file a GitHub Issue at <a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose">https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose</a>.</p><p>Copyright (c) 2026 Committee on Data of the International Science Council (CODATA). The Cross Domain Interoperability Framework (CDIF) is licenced under CC-BY-4.0.</p>';
+              f.innerHTML = HTML;
               links.after(f);
             }
             function init() {
