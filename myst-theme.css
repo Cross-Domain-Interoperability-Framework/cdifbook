@@ -57,7 +57,7 @@ article li {
 }
 /* CSS fallback — only kicks in when the JS injection hasn't tagged body. */
 body:not(.js-footer-loaded) .myst-footer-links::after {
-  content: "We appreciate constructive feedback. Contact us at cdif-feedback@codata.org or file a GitHub Issue at https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose\A \A Copyright (c) 2026 Committee on Data of the International Science Council (CODATA). The Cross Domain Interoperability Framework (CDIF) is licenced under CC-BY-4.0.";
+  content: "We appreciate constructive feedback. Contact us at cdif-feedback@codata.org or file a GitHub Issue at https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose\A \A Copyright (c) 2022-2026 Committee on Data of the International Science Council (CODATA). The Cross Domain Interoperability Framework (CDIF) is licenced under CC-BY-4.0.";
   display: block;
   flex-basis: 100%;
   width: 100%;
