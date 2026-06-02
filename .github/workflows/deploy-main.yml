@@ -47,6 +47,45 @@ jobs:
           BASE_URL: /cdifbook
         run: jupyter-book build --html
 
+      - name: Inject footer with clickable links into all index.html
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          SCRIPT = """<script>
+          /* Footer injection: real <a> tags + survives SPA navigation.
+             Tags <body> with .js-footer-loaded so the CSS fallback (used
+             only when this script does not run, e.g. local dev) turns off. */
+          (function() {
+            function add() {
+              var links = document.querySelector('.myst-footer-links');
+              if (!links) return;
+              if (links.parentElement.querySelector('.myst-custom-footer')) return;
+              var f = document.createElement('div');
+              f.className = 'myst-custom-footer';
+              f.innerHTML = '<p>We appreciate constructive feedback. Contact us at <a href="mailto:cdif-feedback@codata.org">cdif-feedback@codata.org</a> or file a GitHub Issue at <a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose">https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose</a>.</p><p>Copyright (c) 2026 Committee on Data of the International Science Council (CODATA). The Cross Domain Interoperability Framework (CDIF) is licenced under CC-BY-4.0.</p>';
+              links.after(f);
+            }
+            function init() {
+              document.body.classList.add('js-footer-loaded');
+              add();
+              new MutationObserver(add).observe(document.body, {childList: true, subtree: true});
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', init);
+            } else {
+              init();
+            }
+          })();
+          </script>"""
+          patched = 0
+          for html in Path('_build/html').rglob('index.html'):
+              text = html.read_text(encoding='utf-8')
+              if '</body>' in text and 'myst-custom-footer' not in text:
+                  html.write_text(text.replace('</body>', SCRIPT + '</body>'), encoding='utf-8')
+                  patched += 1
+          print(f"Injected footer script into {patched} index.html files")
+          PY
+
       - name: Checkout gh-pages to snapshot preview-2026-05
         uses: actions/checkout@v4
         with:
