@@ -191,7 +191,7 @@ A text statement documenting quality of the resource should be included in `sche
   ```
 - **Description:** Quality assessment or measurement conducted using the procedure or protocol specified by the `dqv:isMeasurementOf` property, with the result value specified in the `dqv:value` property. The result might be numeric, a categorical term, or a link to a document describing the quality assessment.
 
-## Measuement technique
+## Measurement technique
 - **Cardinality:** 0..*
 - **JSON:** string or 
   ```
