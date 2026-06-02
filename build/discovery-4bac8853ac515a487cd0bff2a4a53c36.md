@@ -1,13 +1,23 @@
-# Discovery
+# Discovery Profile
 
-The Discovery profile is an extension of the Core Profile that add properties to document the spatial or temporal extent of the resource content or subject, and to document variables that are specified in a structured dataset. These properties are not included in core based on the observation that the information is not necessarily applicable to any kind of resource. 
+Resources: 
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/reviewRevision202606/cdifDiscoveryStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/reviewRevision202606/CDIFDiscoveryImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/reviewRevision202606/discoveryRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/reviewRevision202606/cdifDiscovery-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/tree/reviewRevision202606/examples)
+- [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDiscovery/index.html)
+
+The Discovery profile defines properties to document the spatial or temporal extent of the resource content or subject, and to document variables that are specified in a structured dataset. These properties are not included in core based on the observation that the information is not necessarily applicable to any kind of resource. 
 
 See also [graphical presentation of Discovery Profile](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDiscovery/index.html)
+
+Artefacts for the Discovery profile are in this [Github repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/tree/reviewRevision202606) (TBD--update link to release tag)
 
 ## Core elements
 See [Core](core.md)
 
-## Discovery metadata extension requirements
+## Discovery metadata requirements
 - **Geographic Extent** - (0..many)  Required if resource has a geographic extent for its subject, either a named location, bounding rectangle, linear trace, or point. To support cross-domain searches based on geospatial location, location coordinates must be given in decimal degrees using the WGS 84 datum. There are various other systems for describing location (see [Space](../universals/univgeography.md) ); these can be provided as alternate location descriptions, recognizing that they might be meaningful to some metadata harvesting agents. Some resources might not be usefully described by a WGS 84 extent, in which case indicate nil:notapplicable; this would include extraterrestrial resources, but named location can still be provided.
   - *Bounding Rectangle*: North Bounding Latitude, South Bounding Latitude, East Bounding Longitude, West Bounding Longitude. The minimum rectangle that completely contains the coverage extent for the resource content. Coordinate order and syntax are determined by the serialisation profile.
   - *Linear trace*: a linear trace e.g. of a ship's track, aircraft flight path, or surface traverse, represented as a series of points. Coordinate order and syntax are determined by the serialisation profile.
@@ -20,7 +30,17 @@ See [Core](core.md)
 
 
 ## Implementation of Discovery Extensions
-Instance of the Discovery profile must conform to the requirements of the [core profile](core.md). The discovery profile adds these additional properties:
+Instance of the Discovery profile must conform to the requirements of the [core profile](core.md). The discovery profile adds these additional properties on the base Dataset element:
+
+## Metadata profile identifier
+- **Cardinality:** 1..*
+- **JSON:**
+  ```json
+  "schema:subjectOf" / "dcterms:conformsTo": [
+    {"@id": "https://w3id.org/cdif/discovery/1.0/"}
+  ]
+  ```
+- **Description:** Note that the CDIF conformance class URIs are registered such that the base URI (e.g. https://w3id.org/cdif/discovery/1.0/) resolves to this implementation guidance page; add /schema and the uri will resolve to the JSON schema for validating instance documents using that profile; add /shacl and the shacl rules, encoded in turtle format, will be returned.
 
 ## Variables in the data
 The metadata about a dataset should include a list of variables that the dataset contains. Variable metadata should minimally specify the name of the variable as it appears in the dataset. That name should be qualified by a controlled vocabulary or other semantic resource (e.g. represented by a resolvable URI), or minimally some descriptive text.
@@ -40,7 +60,7 @@ The metadata about a dataset should include a list of variables that the dataset
     "schema:description": "..."
   }, ...]
   ```
-- **Description:** Follow the [ESIP Science on Schema.org recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables); see also discussion for representing more complex data structures in [ESIP Experimental](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Experimental.md#AdvancedVariableValueType) and the [Data Integration module of CDIF](https://cross-domain-interoperability-framework.github.io/cdifbook/data_integration/ddidescriptiondatastructure.html). Variable must have a name and description, should have a `propertyID` with URI for the represented concept. The URI in the `propertyID` provides the semantic linkage for the meaning of the variable.
+- **Description:** Follow the [ESIP Science on Schema.org recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables); see also discussion for representing more complex data structures in [ESIP Experimental](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Experimental.md#AdvancedVariableValueType) and the [Data Description module of CDIF](https://cross-domain-interoperability-framework.github.io/cdifbook/data-description/datadescriptionforintegration/). Variable must have a name and description, should have a `propertyID` with URI for the represented concept. The URI in the `propertyID` provides the semantic linkage for the meaning of the variable.
 
 ### Variable (StatisticalVariable)
 - **Cardinality:** 0..*
@@ -171,7 +191,7 @@ A text statement documenting quality of the resource should be included in `sche
   ```
 - **Description:** Quality assessment or measurement conducted using the procedure or protocol specified by the `dqv:isMeasurementOf` property, with the result value specified in the `dqv:value` property. The result might be numeric, a categorical term, or a link to a document describing the quality assessment.
 
-## Measuement technique
+## Measurement technique
 - **Cardinality:** 0..*
 - **JSON:** string or 
   ```
