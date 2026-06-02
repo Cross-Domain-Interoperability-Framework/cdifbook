@@ -68,8 +68,8 @@ The metadata record information is embedded using `schema:subjectOf`. The CDIF i
     "schema:about": {"@id": "ex:URIforNode1"},
     "schema:sdDatePublished": "2017-05-23",
     "dcterms:conformsTo": [
-      {"@id": "https://w3id.org/cdif/core/1.0/"},
-      {"@id": "https://w3id.org/cdif/discovery/1.0/"}
+      {"@id": "https://w3id.org/cdif/core/1.1/"},
+      {"@id": "https://w3id.org/cdif/discovery/1.1/"}
     ]
   }
 }
@@ -101,8 +101,8 @@ This can also be implemented in a more flattened form as a graph with a separate
       "schema:about": {"@id": "ex:URIforNode1"},
       "schema:sdDatePublished": "2017-05-23",
       "dcterms:conformsTo": [
-        {"@id": "https://w3id.org/cdif/core/1.0/"},
-        {"@id": "https://w3id.org/cdif/discovery/1.0/"}
+        {"@id": "https://w3id.org/cdif/core/1.1/"},
+        {"@id": "https://w3id.org/cdif/discovery/1.1/"}
       ]
     }
   ]
@@ -119,10 +119,10 @@ Each CDIF building block defines a conformance URI that must be listed in the ca
 
 | Building block | Conformance URI |
 |---|---|
-| cdifCore | `https://w3id.org/cdif/core/1.0/` |
-| cdifOptional (Discovery) | `https://w3id.org/cdif/discovery/1.0/` |
+| cdifCore | `https://w3id.org/cdif/core/1.1/` |
+| cdifOptional (Discovery) | `https://w3id.org/cdif/discovery/1.1/` |
 
-Extended profiles add additional conformance URIs (e.g. `https://w3id.org/cdif/datadescription/1.0/`, `https://w3id.org/cdif/provenance/1.0/`).
+Extended profiles add additional conformance URIs (e.g. `https://w3id.org/cdif/datadescription/1.1/`, `https://w3id.org/cdif/provenance/1.1/`).
 
 JSON keys prefixed with '@' are keywords defined in the [JSON-LD specification]( https://www.w3.org/TR/json-ld11/#keywords) (see table below)
 
