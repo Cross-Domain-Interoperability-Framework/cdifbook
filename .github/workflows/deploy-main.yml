@@ -55,12 +55,22 @@ jobs:
           /* Footer injection at <body> root, OUTSIDE React's mount tree.
              Putting it inside <article> caused React's hydration/rerender
              to strip the injected <a> tags, producing a flicker between
-             clickable links and plain text. Body root is React-immune.
-             Observer watches direct body children only (no subtree) to
-             avoid firing on every internal article change. */
+             clickable links and plain text. Body root survives React's
+             child reconciliation, but React DOES reconcile body's class
+             attribute during hydration — so we observe both childList
+             (so the footer div is re-appended if React removes it) AND
+             class attribute changes (so the .js-footer-loaded marker is
+             re-applied if React's class reconciliation strips it; without
+             that marker the CSS plain-text fallback re-engages, which
+             produced the flash-and-revert symptom). classList.add is a
+             no-op when the class is already present, so re-asserting on
+             every observer fire does NOT cause an attribute-mutation
+             loop. */
           (function() {
             var HTML = '<p>We appreciate constructive feedback. Contact us at <a href="mailto:cdif-feedback@codata.org">cdif-feedback@codata.org</a> or file a GitHub Issue at <a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose">https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose</a>.</p><p>Copyright (c) 2022-2026 Committee on Data of the International Science Council (CODATA). The Cross Domain Interoperability Framework (CDIF) is licenced under CC-BY-4.0.</p>';
             function add() {
+              if (!document.body) return;
+              document.body.classList.add('js-footer-loaded');
               if (document.body.querySelector(':scope > .myst-custom-footer')) return;
               var f = document.createElement('div');
               f.className = 'myst-custom-footer';
@@ -68,9 +78,12 @@ jobs:
               document.body.appendChild(f);
             }
             function init() {
-              document.body.classList.add('js-footer-loaded');
               add();
-              new MutationObserver(add).observe(document.body, {childList: true});
+              new MutationObserver(add).observe(document.body, {
+                childList: true,
+                attributes: true,
+                attributeFilter: ['class']
+              });
             }
             if (document.readyState === 'loading') {
               document.addEventListener('DOMContentLoaded', init);
