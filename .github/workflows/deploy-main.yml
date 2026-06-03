@@ -53,24 +53,34 @@ jobs:
           from pathlib import Path
           SCRIPT = """<script>
           /* Footer injection at <body> root, OUTSIDE React's mount tree.
-             Putting it inside <article> caused React's hydration/rerender
-             to strip the injected <a> tags, producing a flicker between
-             clickable links and plain text. Body root survives React's
-             child reconciliation, but React DOES reconcile body's class
-             attribute during hydration — so we observe both childList
-             (so the footer div is re-appended if React removes it) AND
-             class attribute changes (so the .js-footer-loaded marker is
-             re-applied if React's class reconciliation strips it; without
-             that marker the CSS plain-text fallback re-engages, which
-             produced the flash-and-revert symptom). classList.add is a
-             no-op when the class is already present, so re-asserting on
-             every observer fire does NOT cause an attribute-mutation
-             loop. */
+             Two earlier attempts failed:
+             1. Putting the footer inside <article> let React's hydration
+                strip the <a> tags.
+             2. Adding a `.js-footer-loaded` class to body so the CSS
+                fallback would hide MyST's plain-text ::after rule caused
+                React and our observer to ping-pong over body's class
+                attribute during hydration, locking up the main thread.
+             Current approach: inject a <style> tag into <head> that
+             unconditionally suppresses MyST's plain-text fallback, and
+             append the clickable footer div to <body>. React doesn't
+             touch <head>, so nothing fights over the style rule, and
+             the body-root div survives React's child reconciliation.
+             MutationObserver watches body's childList only so the div
+             is re-appended if React ever removes it. */
           (function() {
+            var STYLE = '.myst-footer-links::after { content: none !important; }';
             var HTML = '<p>We appreciate constructive feedback. Contact us at <a href="mailto:cdif-feedback@codata.org">cdif-feedback@codata.org</a> or file a GitHub Issue at <a href="https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose">https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose</a>.</p><p>Copyright (c) 2022-2026 Committee on Data of the International Science Council (CODATA). The Cross Domain Interoperability Framework (CDIF) is licenced under CC-BY-4.0.</p>';
+            function ensureStyle() {
+              if (!document.head) return;
+              if (document.head.querySelector('style[data-cdif-footer]')) return;
+              var s = document.createElement('style');
+              s.setAttribute('data-cdif-footer', '');
+              s.textContent = STYLE;
+              document.head.appendChild(s);
+            }
             function add() {
               if (!document.body) return;
-              document.body.classList.add('js-footer-loaded');
+              ensureStyle();
               if (document.body.querySelector(':scope > .myst-custom-footer')) return;
               var f = document.createElement('div');
               f.className = 'myst-custom-footer';
@@ -79,11 +89,7 @@ jobs:
             }
             function init() {
               add();
-              new MutationObserver(add).observe(document.body, {
-                childList: true,
-                attributes: true,
-                attributeFilter: ['class']
-              });
+              new MutationObserver(add).observe(document.body, {childList: true});
             }
             if (document.readyState === 'loading') {
               document.addEventListener('DOMContentLoaded', init);
