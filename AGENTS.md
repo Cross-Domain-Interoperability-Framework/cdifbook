@@ -79,6 +79,25 @@ Implementation notes for agents who need to modify these workflows:
 - **Preservation across workflows is asymmetric.** `preview` deploy uses `keep_files: true` so it never touches root. `main` deploy uses `keep_files: false` to garbage-collect stale hashed asset files — but first it `actions/checkout`s `gh-pages` and copies `preview-2026-05/` into its build directory, so peaceiris's full-replace publishes the new root *with* the preserved preview alongside.
 - **Adding another branch preview:** copy `preview-cdifBookUpdates2026-05.yml`, change the workflow name, the `branches:` trigger, the `BASE_URL`, and the `destination_dir`. Leave the shared concurrency group as-is so it serializes with the others. Then in `deploy-main.yml`, extend the "Merge preview-2026-05 into deploy directory" step to also snapshot the new preview's directory, otherwise the next main deploy will erase it.
 
+## 📄 Site-wide footer
+
+Every TOC page ends with `:::{include} _static/footer.md:::` (path relative
+to the file's depth: `_static/` from root, `../_static/` from one-level subdirs).
+The included file is `_static/footer.md` — a single `<hr>` + a `<div>` styled
+slightly smaller and dimmer than body text, with the feedback contact and
+copyright as normal markdown autolinks. **Edit `_static/footer.md` to update
+all pages at once.**
+
+Earlier attempts (CSS `::after` plain-text fallback, JS-injected `<div>` inside
+`<article>`, JS-injected `<div>` at body root with a body-class signal) all
+collided with React's hydration in the book-theme — either stripping the `<a>`
+tags or, in the body-class case, ping-ponging with React's class reconciliation
+and locking up the page. The markdown-include approach renders before React
+mounts, so React leaves it alone.
+
+When adding a new page to the `toc:` in `myst.yml`, append the matching
+include directive (mirror an existing page in the same directory depth).
+
 ## 📋 Quality Checklist
 
 - [ ] Does the content align with the five core CDIF profiles?
