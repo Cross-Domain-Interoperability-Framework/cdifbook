@@ -55,5 +55,8 @@ CDIF is aimed primarily at data infrastructures, i.e. those organisations which 
 
 Many people have contributed and we'd like acknowledge their time and effort. The "History" section of CDIF.org provides information about who and how CDIF came to be. 
 
-CDIF historically has been made up of a Working Group (and sub-groups) and an Advisory Group. For the immediate future, significant development will take place under the auspices of the [CDIF4EOSC Project](https://cdif4eosc.eu/), in coordination with the CDIF Working Group and Advisory Group. To apply to join the WG or AG, please [use this form](https://docs.google.com/forms/d/e/1FAIpQLSfC6BoxSnAZOMWZ65pNTiljnsBXjfv80NgEeALPcY5DPaESHA/viewform). If you simply want to keep up to date with developments, [please register to join the CDIF community list](https://bit.ly/cdif-community-list).  
+CDIF historically has been made up of a Working Group (and sub-groups) and an Advisory Group. For the immediate future, significant development will take place under the auspices of the [CDIF4EOSC Project](https://cdif4eosc.eu/), in coordination with the CDIF Working Group and Advisory Group. To apply to join the WG or AG, please [use this form](https://docs.google.com/forms/d/e/1FAIpQLSfC6BoxSnAZOMWZ65pNTiljnsBXjfv80NgEeALPcY5DPaESHA/viewform). If you simply want to keep up to date with developments, [please register to join the CDIF community list](https://bit.ly/cdif-community-list).
 
+<!-- cdif-footer-include -->
+:::{include} _static/footer.md
+:::

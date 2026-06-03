@@ -586,3 +586,7 @@ Statistics for a specific Category of an instance variable within a dataset.
 ## Notes
 
 Shared encoding patterns such as [object reference](#object-reference), [DefinedTerm](#sec-definedterm), and [PropertyValue](#sec-propertyvalue-id) are defined on the [Common data types](datatypes.md) page.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

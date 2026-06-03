@@ -49,3 +49,7 @@ clearly benefits from the technology, and they know about the technology.
 
 ### Show and tell
 Collect and publish metadata related to the use of CDIF to show what implementers have done and what the results of those investments have been. A living, visible system will generate trust and uptake; and ensure that the CDIF remains fit for purpose as technology and priorities evolve. A framework that is not used will not continue to function. Make it easy to determine what standards are used, where data are shared, how data can be accessed, who is reusing data, and what the effects are of data reuse. This kind of information will also facilitate changes to improve the framework and its implementation.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

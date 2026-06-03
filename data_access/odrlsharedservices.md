@@ -32,4 +32,6 @@ The workflow outlined in the table below illustrates a message exchange initiate
 
 This is over-engineered for a simple download where the only condition is that the researcher be based in Germany. Practical access policies are likely to require multi-step processes with complex criteria, often with asynchronous handoffs to third parties for approval. The framework above, while necessarily brief for the purposes of this document, illustrates how a more complex stateful negotiation process could be performed using ODRL as the basis for defining conditions,  executing those conditions through a centralised brokerage, and generating a rich set of accounting information for access requests and fulfilment across the supported repositories.
 
-
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

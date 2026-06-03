@@ -42,3 +42,7 @@ Many datasets are structured as time-series, with either regular or irregular sa
 
 ### Usage
 Time series - the periodic measurement of the same phenomenon, using the same methods, etc. - are a common way of determining trends or otherwise making observations across time. In some cases, time series are the product of data integration from disparate sources, while in other cases the data are collected as part of time series as part of their design. In the Statistical Data and Metadata Exchange (SDMX) [*Content-Oriented Guidelines*](https://sdmx.org/?page_id=3215) there is a standard enumeration of commonly used frequencies for national and supra-national official statistics. [ISO 8601-1:2019](https://www.iso.org/standard/70907.html#:~:text=This%20document%20specifies%20representations%20of,Coordinated%20Universal%20Time%20(UTC)) adds notation for recurring arbitrary intervals (e.g., 9-5, every Mon-Fri, etc.).
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

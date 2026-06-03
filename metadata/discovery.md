@@ -206,3 +206,7 @@ A text statement documenting quality of the resource should be included in `sche
   ],
   ```
 - **Description:** A string or schema:DefinedTerm that specifies how the data were acquired.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

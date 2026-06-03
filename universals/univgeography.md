@@ -84,3 +84,7 @@ Spatial variation of a property across a spatial domain is commonly represented 
 
 ## Addresses
 Many different sources exist for the description of addresses. Among these are EPSG, ISO [19101-1:2014](https://www.iso.org/standard/59164.html) and [ISO 19107:2003](https://www.iso.org/obp/ui/#iso:std:iso:19107:ed-1:v1:en).
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

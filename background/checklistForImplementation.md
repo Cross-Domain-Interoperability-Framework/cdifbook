@@ -14,4 +14,8 @@ The user represents a community that is generating data or other information res
 
 4. Generate a sitemap and get it on your website. This is a simple xml file that contains a list of URLs, with other optional properties like a 'last modified date', in a standard format that most web scraping applications can use. A Robots.txt file in the root of the website where you are publishing the metadata contains a link that points to the sitemap. The sitemap.xml and robots.txt files are widely used and understood by metadata aggregators. 
 
-5. With all this in place, its a good idea to notify any metadata aggregators you want to harvest your metadata to make sure they check you sitemap.  Don't be surprised if there are bugs found in the pipeline between your internal metadata information system and the harvester's index. 
+5. With all this in place, its a good idea to notify any metadata aggregators you want to harvest your metadata to make sure they check you sitemap.  Don't be surprised if there are bugs found in the pipeline between your internal metadata information system and the harvester's index.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

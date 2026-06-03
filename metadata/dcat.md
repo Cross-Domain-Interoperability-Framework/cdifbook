@@ -60,3 +60,7 @@ Checksum|0..1|a dcat:Distribution;<br>   spdx:checksum [<br>     a spdx:Checksum
 |Provenance (instruments, software etc.)|0..*|prov:wasGeneratedBy <br> a prov:Activity;<br>  prov:used <br>      \<nerc:collection/L05/current/134\>,   \<nerc:collection/B76/current/B7600031\> \] } |Identify sensors, instruments, platforms, software, algorithms etc. used in the creation of the described resource |
 | Provenance (input datasets)|0..* |prov:wasDerivedFrom <br> \<http://doi.org/10.547/347848\>,        \<http://doi.org/10.3578/h5ls\>, \<http://doi.org/10.547/93578\> |Identify datasets used  in the creation of the described resource |
 |Quality measure |0..* |"dqv:hasQualityMeasurement <br>    a dqv:QualityMeasurement; <br> &emsp; dqv:isMeasurementOf  &emsp;&emsp;&nbsp;&nbsp;\<nerc:collection/L27/current/ARGO_QC\>; &emsp;&emsp;dqv:value  "good";      |Quality assesment or measument conducted using procedure or protocol specified by the dqv:isMeasurementOf property, with result value specified in the dqv:value property. The result might be numeric, a categorical term, or a link to a document describing the quality assessment. |
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

@@ -56,3 +56,7 @@ There are many possible approaches a client application could use to extract the
 ![example3](./figures/ex3-scriptwithtype.jpg)
 
 Example 3. Script with a type parameter in the MIME-type string
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

@@ -287,3 +287,7 @@ The profile's authoritative implementation guide is [CDIFDataStructureImplementa
 - **Cardinality:** 0..1 per component
 - **JSON:** `"cdi:identifier": {"@id": "https://example.org/idmint/component-12345"}`
 - **Description:** Optional reusable identifier for a component, allowing the same component definition to be referenced from multiple data structures. Value is an `@id` reference to a `schema:Identifier` (PropertyValue pattern).
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

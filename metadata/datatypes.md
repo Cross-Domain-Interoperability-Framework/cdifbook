@@ -75,3 +75,7 @@ A `schema:PropertyValue` used to express a structured identifier when a plain re
   }
   ```
 - **Scope note:** The ESIP Science on Schema.org guidance recommends serializing identifiers as `schema:PropertyValue`. CDIF suggests using this approach only for identifiers whose URI does not make the authority clear or whose resolution process is not well known; otherwise a simple URI string is sufficient.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

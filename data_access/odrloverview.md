@@ -24,3 +24,7 @@ https://fiware-true-connector.readthedocs.io/en/latest/usage_control_rules.html
 Arxiv preprint on applying ODRL in Transport Mobility Data Space: https://arxiv.org/pdf/2309.11289.pdf
 
 ODRL Policy validator: https://odrlapi.appspot.com/
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

@@ -128,4 +128,8 @@ CDIF recommends that a DCAT record be created, describing a dcat:distribution or
 
 Conversely, a DCAT record could express a predicate http://www.w3.org/ns/odrl/2/hasPolicy with the URI of the ODRL Policy as a target.
 
-An ODRL policy might apply to multiple ODRL Assets. One possible solution is to leverage the ODRL AssetCollection class, which can group multiple Assets under one URI as the target of an ODRL rule. This requires policies defining persistent grouping rules that define an AssetCollection, determining if and how the membership of the AssetCollection can change. 
+An ODRL policy might apply to multiple ODRL Assets. One possible solution is to leverage the ODRL AssetCollection class, which can group multiple Assets under one URI as the target of an ODRL rule. This requires policies defining persistent grouping rules that define an AssetCollection, determining if and how the membership of the AssetCollection can change.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

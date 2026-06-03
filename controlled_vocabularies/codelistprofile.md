@@ -181,3 +181,7 @@ Consumers of CDIF codelist documents should test whether a value is a string or 
 ## Validation
 - **JSON Schema** validates structure: required scheme properties (`@id`, `skos:prefLabel`, `skos:hasTopConcept`, `schema:identifier`, `schema:dateModified`, and license/access), concept requirements (`@id`, `skos:inScheme`, `skos:definition`), and bidirectional hierarchy (inline narrower concepts must have `skos:broader`).
 - **SHACL** validates RDF constraints: `sh:uniqueLang` on `skos:prefLabel`, `sh:class skos:ConceptScheme` on `skos:inScheme`, `sh:class skos:Concept` on `skos:broader`, and the `narrowerImpliesBroader` rule.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

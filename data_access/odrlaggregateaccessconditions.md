@@ -11,3 +11,7 @@ Conventions for ODRL policies to express the above access conditions could suppo
 At a minimum, this would require referencing a number of standard items such as ODRL ‘Parties’ or ODRL ‘Actions’ by URI.
 
 Formalising access descriptions with a common set of semantics and syntax such as ODRL would enable a discovery metadata aggregator, such as the CESSDA Catalogue, to aggregate content about access, making access conditions more transparent at the point of aggregation.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

@@ -45,4 +45,8 @@ In each profile a minimum set of required fields are specified to support common
 
 Users only need adopt those profiles that are useful to them. There is no requirement for the adoption of optional profile content. For example, it is possible to describe data to make it ‘integration ready’ at a detailed level, but not to support profiles for data discovery or access, to give but one example. CDIF profiles are intended to be a toolkit for implementation, with the needed functions being addressed in any specific setting according to implementer priorities.
 
-For some common combinations of profiles, implementation artefacts will also be provided as a convenience. 
+For some common combinations of profiles, implementation artefacts will also be provided as a convenience.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

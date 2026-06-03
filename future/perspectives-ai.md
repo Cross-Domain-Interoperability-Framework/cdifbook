@@ -8,4 +8,8 @@ The emergence of generative AI as a huge force for change in how data is consume
 
 Toward this end, the CDIF WG has been exploring how different systems of access, based on ODRL, and other mechanisms can be combined. This has raised interest in the use of Decentralized Identifiers ([DIDs](https://www.w3.org/TR/did-1.0/)). This remains an area of focus.
 
-AI topics go beyond what is discussed here: generative AI tools can be extremely helpful in the production of needed metadata and documentation, so long as they are applied correctly, and can also play a significant role in harmonization of concepts and the integration and analysis of data. As it is further developed, CDIF will be looking at how such applications impact the core set of metadata needed for FAIR exchange of data across domains and infrastructures. 
+AI topics go beyond what is discussed here: generative AI tools can be extremely helpful in the production of needed metadata and documentation, so long as they are applied correctly, and can also play a significant role in harmonization of concepts and the integration and analysis of data. As it is further developed, CDIF will be looking at how such applications impact the core set of metadata needed for FAIR exchange of data across domains and infrastructures.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::
