@@ -120,3 +120,7 @@ Resources:
 - [Geography](https://cross-domain-interoperability-framework.github.io/cdifbook/universals/univgeography/)
 -[Time](https://cross-domain-interoperability-framework.github.io/cdifbook/universals/univtime/)
 -[Units of Measurement](https://cross-domain-interoperability-framework.github.io/cdifbook/universals/univuom/)
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

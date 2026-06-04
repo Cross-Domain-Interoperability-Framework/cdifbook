@@ -13,3 +13,7 @@ Both DDI Codebook and DDI Lifecycle are excellent models in terms of being gener
 The DDI Cross-Domain Integration specification was developed exactly because it is increasingly common for other types of data to be combined in research projects with this traditional form of SBE data. Four different data structure types are identified: wide, long, multi-dimensional, and key-value (the kind of data commonly found in ‘big data’ systems). Because they are described in a single model, intended to support transformations between these different structural types, the needed separation of logical and presentational aspects of the data was a necessity. DDI-CDI might seem to be a complex model but experience has shown that attempts to produce simpler models based on existing W3C specifications produce equal complexity,  effectively becoming new specifications in and of themselves. The framework recommends DDI-CDI specification for data description as the right approach for CDIF.
 
 Moving forward, there will be more attention paid to the issues of describing data in a way that connects the structural (logical and physical) and semantic description of data more completely. One place where this is likey to happen is in the W3C's [Dataset Exchange Working Group](https://www.w3.org/2026/04/dx-wg-charter.html). Notable here are several existing vocabularies (e.g., DCAT, DataCube) and the new VVD work.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

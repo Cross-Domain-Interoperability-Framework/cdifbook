@@ -2,4 +2,6 @@
 
 It is recognized that transformations to both data and metadata at several levels are a critical part of data integration. The mappings used to inform transformations are a critical aspect of this, being both needed provenance information and also potentially providing a reusable FAIR resource in their own right. There is an RDA group working on [FAIR Mappings](https://mapping-commons.github.io/rda-fair-mappings/use-cases/), and the CDIF WG follows this work and attempts to align with it. Currently, the use of A Simple Standard for Sharing Ontology mappings ([SSSOM](https://mapping-commons.github.io/sssom/dev/)) is seen as a useful standard for the expression of mappings, with the RDF Mapping Language [RML](https://rml.io/specs/rml/) also proving to be of interest, This is an area where more work remains to be done, but will be the subject of a CDIF profile in the not-too-distant future.
 
-
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

@@ -313,3 +313,7 @@ Implementation of metadata to describe a service-based (API) distribution:
 - **Cardinality**: 1
 - **JSON**:`"schema:termsOfService": "{string or CreativeWork}"`
 - **Description**: Description of access privileges required to use the API, e.g. registration, licensing, payments.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

@@ -101,14 +101,16 @@ Use these commands while iterating on content:
 
 > **Working offline?** Run a build once while online to populate the theme cache, then leave `_build/` alone. Link checking also requires a connection.
 
-### Branch Preview Deploys
+### Automated Deploys
 
-Pushes to the `cdifBookUpdates2026-05` branch are auto-built by a GitHub Actions workflow (`.github/workflows/preview-cdifBookUpdates2026-05.yml`) and published to a subpath of the GitHub Pages site without disturbing the main-branch book at root:
+Two GitHub Actions workflows publish the book to GitHub Pages — both pushing to the same `gh-pages` branch but at different paths:
 
-- **Preview URL:** [https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/)
-- **Main book (from `main`):** [https://cross-domain-interoperability-framework.github.io/cdifbook/](https://cross-domain-interoperability-framework.github.io/cdifbook/)
+| Source branch | Workflow file | Published URL |
+|---|---|---|
+| `main` | `.github/workflows/deploy-main.yml` | https://cross-domain-interoperability-framework.github.io/cdifbook/ |
+| `cdifBookUpdates2026-05` | `.github/workflows/preview-cdifBookUpdates2026-05.yml` | https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/ |
 
-The workflow builds with `BASE_URL=/cdifbook/preview-2026-05` so internal links resolve under the subpath, and deploys to `gh-pages/preview-2026-05/` with `keep_files: true` (the root site is preserved).
+Each workflow auto-runs on push to its source branch and can also be triggered manually (**Actions tab → Run workflow**). Builds set `BASE_URL` so internal navigation works under the appropriate path. The two workflows share concurrency group `deploy-ghpages` with `cancel-in-progress: false`, so simultaneous pushes queue instead of racing on `gh-pages`. The main deploy snapshots `preview-2026-05/` from `gh-pages` before publishing, so neither workflow erases the other's output. Total deploy time is ~55s per workflow run.
 
 ---
 

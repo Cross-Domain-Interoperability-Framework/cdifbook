@@ -5,3 +5,7 @@ CDIF aims to describe the full process of data integration, although that is not
 What we do currently cover in CDIF is the description of data sets and structures, and some further discussion of these topics is presented here. It should be noted that there are some developments within W3C which may impact these recommendations moving forward, notably within the Dataset Exchange Working Group ([DXWG](https://www.w3.org/groups/wg/dx/)). Any further developments should be understood in the context of the considerations presented here. (What is anticipated is alignment between some of the various models discussed.)
 
 Also, as CDIF supports a more complete description of provenance, it becomes possible to fully describe the process of data integration.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

@@ -9,4 +9,6 @@ Each CDIF profile is housed in a github repository containing an implementation 
 
 An additional critical part of the recommendations is description of [Workflows to publish CDIF metadata](./publication.md) so that is can be found and indexed by search providers using standard web technology.
 
-
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

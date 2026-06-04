@@ -2,6 +2,13 @@ version: 1
 project:
   title: Cross Domain Interoperability Framework Handbook
   github: Cross-Domain-Interoperability-Framework/cdifbook
+  license: CC-BY-4.0
+  copyright: |
+    We appreciate constructive feedback. Contact us at
+    [cdif-feedback@codata.org](mailto:cdif-feedback@codata.org) or file a GitHub Issue at
+    [Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose](https://github.com/Cross-Domain-Interoperability-Framework/cdifbook/issues/new/choose).
+
+    Copyright (c) 2026 Committee on Data of the International Science Council (CODATA). The Cross Domain Interoperability Framework (CDIF) is licenced under CC-BY-4.0.
   bibliography:
     - references.bib
   exports:

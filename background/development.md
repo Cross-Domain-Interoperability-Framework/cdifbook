@@ -74,3 +74,7 @@ Once all the different artefacts for a profile have been produced, and have gone
 All of the CDIF artefacts are stored in the appropriate GitHub repositories. In the case of explanatory text, this may be in the form of the Markdown which is used to populate the CDIF Book. Other non-narrative forms of documentation (field-level documentation, JSON Schemas and examples, SHACL rules, etc.) will be managed in a related production repositories, which will also serve as the basis for the technical distributions.
 
 GitHub issues and pull requests will be used as the basis for a regular process of reporting bugs and requesting features in existing profiles using standard GitHub workflows. The CDIF Editorial Team is responsible for performing this maintenance on a technical level.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

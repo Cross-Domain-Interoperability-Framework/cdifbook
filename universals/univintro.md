@@ -10,3 +10,7 @@ UOM are in some cases complex, and there is on-going discussion about how best t
 
 ## General pattern for implementation of universals
 The representation of universals is always implemented in some frame of reference: (value, reference-system [, time ]). The (optional) ‘time’ value is to allow for reference-systems subject to change, where the interpretation of the value may depend on a particular version of the reference-system. In some cases, the structure of data might provide these values in an explicit way which does not require the use of patterned text (e.g., there are separate fields for each piece of the information.) When available, these should be utilised in preference to patterned text. Fields in data might contain values defined by the data schema to use a particular reference system, or each value field might be paired with a field that assigns the reference system for that value.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

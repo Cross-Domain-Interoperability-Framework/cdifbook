@@ -99,3 +99,7 @@ A `skos:Concept` within the scheme. In the Concept Scheme profile a concept may 
 ## Data types
 
 This profile uses the shared [LanguageTaggedValue](#languagetaggedvalue), [object reference](#object-reference), and [PropertyValue](#sec-propertyvalue-id) patterns defined on the [Common data types](../metadata/datatypes.md) page.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

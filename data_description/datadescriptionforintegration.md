@@ -49,4 +49,6 @@ It is recognized that transformations to both data and metadata at several level
 # Processing Description
 In CDIF, the description of processing is understood to be a primary aspect of data provenance. As such, it will be addressed by its own profile in future. There is some provision for provenance information in CDIF now, but this aspect of data integartion will be more completely addressed by the firthcoming profile.
 
- 
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

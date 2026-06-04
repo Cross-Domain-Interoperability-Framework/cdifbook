@@ -24,3 +24,6 @@ These scenarios build a set of typical requirements for the interoperability of 
 
 Figure. Data access scenarios
 
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

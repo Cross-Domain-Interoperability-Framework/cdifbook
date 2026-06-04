@@ -10,3 +10,6 @@ Federated analysis of sensitive data needs to be accompanied by machine-actionab
 
 Data access policies and rules might constrain software Agents to accessing only parts of a dataset for particular users or analytic workflows. For example to only query a limited set of variables.  ODRL permissions and prohibitions need to consider the processing involved in data analysis and model building, as well as privacy preservation concerns as part of the policy action. This requires Policy makers to specify sub-sets or sub-structures of their data Assets with interoperable, machine-actionable representations. In a federated learning approach to data sharing, refinement of Asset descriptions, e.g. using the DDI-CDI variable model, is necessary to support these more granular access constraints for distributed analytics.
 
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

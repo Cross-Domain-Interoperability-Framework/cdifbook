@@ -118,4 +118,8 @@ If the DataDownload type is application/zip (might need more general way to iden
 - (required) the checksum string. type: string
 
 
-The formats can be interchanged losslessly, Code for the tranformation is located here: 
+The formats can be interchanged losslessly, Code for the tranformation is located here:
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

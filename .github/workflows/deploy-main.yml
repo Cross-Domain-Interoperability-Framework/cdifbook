@@ -1,0 +1,76 @@
+name: Deploy main to Pages root
+
+# Builds the main branch and publishes to the root of the gh-pages
+# branch, so https://cross-domain-interoperability-framework.github.io/cdifbook/
+# always reflects the latest main. The preview-2026-05/ subpath is
+# preserved by snapshotting it from gh-pages before publishing.
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Shared concurrency group with the preview workflow: only one deploy to
+# gh-pages runs at a time, so the two never race on a force-push.
+# cancel-in-progress: false → queue rather than cancel; we want every
+# deploy to complete in turn.
+concurrency:
+  group: deploy-ghpages
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # peaceiris/actions-gh-pages pushes to gh-pages
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js (mystmd engine)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install jupyter-book (pinned to local env)
+        run: pip install -r requirements.txt
+
+      - name: Build HTML
+        env:
+          BASE_URL: /cdifbook
+        run: jupyter-book build --html
+
+      - name: Checkout gh-pages to snapshot preview-2026-05
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages-current
+
+      - name: Merge preview-2026-05 into deploy directory
+        run: |
+          if [ -d gh-pages-current/preview-2026-05 ]; then
+            cp -r gh-pages-current/preview-2026-05 _build/html/preview-2026-05
+            echo "Preserved preview-2026-05/ from gh-pages."
+          else
+            echo "No preview-2026-05/ on gh-pages; nothing to preserve."
+          fi
+
+      - name: Deploy to gh-pages root
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_build/html
+          # No destination_dir → publish to gh-pages root.
+          # keep_files: false fully replaces gh-pages root with the new
+          # build. preview-2026-05/ survives because it was copied into
+          # _build/html/ in the prior step. Stale hashed asset files
+          # from earlier builds get garbage-collected this way.
+          keep_files: false
+          commit_message: "Deploy main to gh-pages root from ${{ github.sha }}"

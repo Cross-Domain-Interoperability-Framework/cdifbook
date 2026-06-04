@@ -44,3 +44,7 @@ Note that in this second case, the sitemap url/loc locations will get content th
 <p style="font-family:courier;">Sitemap: http://www.example.com/CDIFsitemap.xml </p>
 
 Based on these recommendations, metadata generated using the CDIF content and serialisation can be found and harvested by agents using standard off-the-shelf Web technology.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

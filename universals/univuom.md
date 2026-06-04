@@ -84,3 +84,7 @@ The following list is provided for reference, giving information about some of t
 - Validation and conversion
   - interactive https://ucum.nlm.nih.gov/ucum-lhc/demo.html
   - API https://ucum.nlm.nih.gov/ucum-service.html.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

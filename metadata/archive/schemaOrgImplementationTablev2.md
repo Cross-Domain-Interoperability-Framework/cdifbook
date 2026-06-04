@@ -48,7 +48,7 @@ The following table maps the metadata content items described in the [Metadata C
   <tr>
     <td>Metadata profile identifier</td>
     <td>1..*</td>
-    <td>"schema:subjectOf"/"dcterms:conformsTo": <br>[{"@id": "https://w3id.org/cdif/core/1.0/"}, <br>{"@id": "https://w3id.org/cdif/discovery/1.0/"}]</td>
+    <td>"schema:subjectOf"/"dcterms:conformsTo": <br>[{"@id": "https://w3id.org/cdif/core/1.1/"}, <br>{"@id": "https://w3id.org/cdif/discovery/1.1/"}]</td>
     <td>An array of objects with @id values that are conformance URIs. For CDIFDiscovery, both the core and discovery URIs are required. Extended profiles add their own conformance URIs to this array.</td>
   </tr>
   <tr>

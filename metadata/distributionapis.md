@@ -14,3 +14,7 @@ From the software (data user) side of the connection, several factors come into 
 In the browser environment, an application might run on a remote server and simply use the client browser as the user interface; at the other end of the spectrum, the server might download application code to the browser and the application runs in a browser container on the client side. In either case, the application execution would be started by an HTTP request to some Web location, and the HTTP protocol provides various mechanisms with the request that can be used to pass information specifying the target data for the application processing.
 
 Search applications running in a Web browser will typically not be able to invoke an application to run outside of the browser's 'sandbox' for security reasons. In such cases, search results can list applications that will work with a particular dataset, and provide links to Web pages for additional information about how to install the application (if the user does not already have it installed), but the user will have to start that application and access the discovered data manually.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

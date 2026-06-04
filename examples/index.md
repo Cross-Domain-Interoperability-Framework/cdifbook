@@ -32,3 +32,7 @@
 [Basic JSON-LD example](./DCAT-CDIF-jsonld-basic-example.jsonld)
 
 [Nobel prize data](./DCAT-CDIF-jsonld-NobelPrizes.jsonld)
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

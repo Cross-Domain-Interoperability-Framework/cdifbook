@@ -48,3 +48,6 @@ To promote interoperability and mutual intelligibility around access conditions,
 ## Risks and Enablers for CDIF Using ODRL
 The existence of ODRL as an existing, well-supported W3C standard is a key 'enabler' for CDIF, based on the the stated [principle](#mainstream) committed to using existing, well-supported standards wherever possible. The first risk with ODRL is that it doesn’t cover all scenarios. The scenario-based discussion in following sections aim to tease out what can be done with ODRL immediately and what scenarios might need further extensions or new approaches. Our conclusion is that  ODRL and its extension/profiling capability is quite useful as is. The second risk is the barrier to adoption of ODRL. There is an urgent need for tooling to simplify how domain scientists and data curators use this mature W3C standard. The information model, ontology, and linked data implementation are beyond the capability of many scientists and infrastructure service providers who can benefit from standardised access policies at scale. This risk is both high and likely and currently has no mitigation.
 
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

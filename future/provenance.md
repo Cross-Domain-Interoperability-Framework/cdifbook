@@ -7,3 +7,7 @@ The most important aspect of provenance to record - and the one on which the exi
 The CDIF Working Group has been actively working on provenance for several years, and it is expected that a recommended profile will be forthcoming in the near term. The work has been conducted in a bottom-up fashion, looking at examples of data collection and production across many different domains. From these, a more generic description of typical activities, resources, and actors has been developed. The implementation of this "cross-domain" description of process is potentially possible across several of the mentioned standards, and the idea that the CDIF provenance model will be essentially the same regardless of the standard vocabulary used for describing the historical process (e.g., PROV, Schema.org, or DDI-CDI) is being explored. Further, reference models of data production such as the UN/ECE's [Generic Statistical Business Process Model (GSBPM)](https://unece.org/statistics/gsbpm-v5.2) are being explored in implementation projects which are using CDIF (such as [Climate-Adapt4EOSC](https://climate-adapt4eosc.eu/)).  
 
 Some basic fields for capturing provenance exist within the Discovery profile, taken from the W3C PROV vocabulary, but these are minimal. A more complete set of recommendations regarding provenance can be expected soon the the CDIF WG completes their work on this topic.
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::

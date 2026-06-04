@@ -25,4 +25,8 @@ See [graphical presentation of Data Structure Profile](https://cross-domain-inte
 
 ## Implementation
 
-The current recommended implementation uses the schema.org vocabulary, with a few entities and properties from other vocabularies to fill gaps; see [Implementation of metadata content items](dataStructureSchemaImplementationNew.md). For background on JSON, JSON-LD and general implementation patters CDIF is using, see [Schema.org implementation notes](schemaOrgImplementationpatterns.md). 
+The current recommended implementation uses the schema.org vocabulary, with a few entities and properties from other vocabularies to fill gaps; see [Implementation of metadata content items](dataStructureSchemaImplementationNew.md). For background on JSON, JSON-LD and general implementation patters CDIF is using, see [Schema.org implementation notes](schemaOrgImplementationpatterns.md).
+
+<!-- cdif-footer-include -->
+:::{include} ../_static/footer.md
+:::
