@@ -37,10 +37,10 @@ Instance of the Discovery profile must conform to the requirements of the [core 
 - **JSON:**
   ```json
   "schema:subjectOf" / "dcterms:conformsTo": [
-    {"@id": "https://w3id.org/cdif/discovery/1.0/"}
+    {"@id": "https://w3id.org/cdif/discovery/1.1/"}
   ]
   ```
-- **Description:** Note that the CDIF conformance class URIs are registered such that the base URI (e.g. https://w3id.org/cdif/discovery/1.0/) resolves to this implementation guidance page; add /schema and the uri will resolve to the JSON schema for validating instance documents using that profile; add /shacl and the shacl rules, encoded in turtle format, will be returned.
+- **Description:** Note that the CDIF conformance class URIs are registered such that the base URI (e.g. https://w3id.org/cdif/discovery/1.1/) resolves to this implementation guidance page; add /schema and the uri will resolve to the JSON schema for validating instance documents using that profile; add /shacl and the shacl rules, encoded in turtle format, will be returned.
 
 ## Variables in the data
 The metadata about a dataset should include a list of variables that the dataset contains. Variable metadata should minimally specify the name of the variable as it appears in the dataset. That name should be qualified by a controlled vocabulary or other semantic resource (e.g. represented by a resolvable URI), or minimally some descriptive text.

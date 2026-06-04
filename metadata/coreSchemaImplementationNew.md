@@ -51,10 +51,10 @@ Artefacts for the core profile are in this [Github repository](https://github.co
 - **JSON:**
   ```json
   "schema:subjectOf" / "dcterms:conformsTo": [
-    {"@id": "https://w3id.org/cdif/core/1.0/"}
+    {"@id": "https://w3id.org/cdif/core/1.1/"}
   ]
   ```
-- **Description:** An array of objects, each with an `@id` property whose value is a conformance URI. For CDIFCore, the core URI is required. Extended profiles add their own conformance URIs to this array.  Note that the CDIF conformance class URIs are registered such that the base URI (e.g. https://w3id.org/cdif/core/1.0/) resolves to this implementation guidance page; add /schema and the uri will resolve to the JSON schema for validating instance documents using that profile; add /shacl and the shacl rules, encoded in turtle format, will be returned.
+- **Description:** An array of objects, each with an `@id` property whose value is a conformance URI. For CDIFCore, the core URI is required. Extended profiles add their own conformance URIs to this array.  Note that the CDIF conformance class URIs are registered such that the base URI (e.g. https://w3id.org/cdif/core/1.1/) resolves to this implementation guidance page; add /schema and the uri will resolve to the JSON schema for validating instance documents using that profile; add /shacl and the shacl rules, encoded in turtle format, will be returned.
 
 ## Metadata date
 - **Cardinality:** 0..1
