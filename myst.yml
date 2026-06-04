@@ -79,6 +79,7 @@ project:
     - title: Implementation Resources
       children:
         - file: metadata/datatypes.md
+        - file: metadata/validation.md
         - file: metadata/schemaOrgImplementationpatterns.md
         - file: examples/index.md
         - file: metadata/dcat.md
