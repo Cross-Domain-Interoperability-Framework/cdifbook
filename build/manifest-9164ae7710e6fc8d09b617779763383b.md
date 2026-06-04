@@ -52,7 +52,7 @@ Thus a node like this must be included in the RO-CRATE metadata file:
       "contentSize": "3866",
       "description": "CDIF formatted file conforming to manifest URI",
       "encodingFormat": "application/JSON-LD",
-	  "dcterms:conformsTo":"https:w3id.org/cdif/manifest/1.0
+	  "dcterms:conformsTo":"https://w3id.org/cdif/manifest/1.1"
     },
 
 
