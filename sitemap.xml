@@ -137,6 +137,9 @@
     <loc>http://localhost:3000/metadata/datatypes</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/metadata/validation</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/metadata/schemaorgimplementationpatterns</loc>
   </url>
   <url>
