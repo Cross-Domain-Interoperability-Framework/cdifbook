@@ -62,3 +62,15 @@ article li {
    ping-ponging with React's reconciliation and locking up the page).
    Rendering the footer as part of the source markdown side-steps React
    entirely. */
+
+/* EU funding logo in the site-wide footer.
+   mystmd rewrites <img> tags and strips inline styles, so size and
+   position have to come from CSS. Target by alt text — it's stable. */
+img[alt="Funded by the EU"] {
+  height: 60px !important;
+  width: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  float: left !important;
+  margin: 0 1em 0.5em 0 !important;
+}
