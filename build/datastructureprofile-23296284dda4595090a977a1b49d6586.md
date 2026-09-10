@@ -1,11 +1,11 @@
 # Data Structure Profile
 
 Resources:
-- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/reviewRevision202606/cdifDataStructureStructuredSchema.json)
-- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/reviewRevision202606/CDIFDataStructureImplementationGuide.md)
-- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/reviewRevision202606/dataStructureRules.shacl)
-- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/reviewRevision202606/CDIFDataStructure-frame.jsonld)
-- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/tree/reviewRevision202606/examples)
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.0/cdifDataStructureStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.0/CDIFDataStructureImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.0/dataStructureRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.0/CDIFDataStructure-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/tree/v1.1.0/examples)
 - [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDataStructure/index.html)
 
 This profile is focused on the definition of a physical or logical dataset structure in a way that can be packaged and reused for documenting different datasets that have the same structure, for instance periodically released statistics reported in the same format. 
