@@ -1,6 +1,6 @@
 # CDIF Data Structure Profile — Schema.org Implementation
 
-This page documents the content items in the CDIF Data Structure profile and how each is encoded in JSON-LD. Some example metadata documents are accessible in the [Data Structure GitHub repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/tree/reviewRevision202606/examples). The 'Cardinality' value specifies how many values a property may carry: `1` means one value required; `1..*` means at least one required, repeatable; `0..*` means optional and repeatable; `0..1` means optional, single-valued.
+This page documents the content items in the CDIF Data Structure profile and how each is encoded in JSON-LD. Some example metadata documents are accessible in the [Data Structure GitHub repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/tree/v1.1.0/examples). The 'Cardinality' value specifies how many values a property may carry: `1` means one value required; `1..*` means at least one required, repeatable; `0..*` means optional and repeatable; `0..1` means optional, single-valued.
 
 All property names use namespace prefixes as declared in the `@context` (e.g. `schema:`, `dcterms:`, `cdi:`, `cdif:`). The CDIF JSON-LD implementation uses a hierarchical JSON structure, and CURIE syntax to abbreviate URIs using prefixes defined in the JSON-LD context. The implementation does not map un-prefixed JSON keys to URIs; rather, it prefixes a namespace abbreviation on the key label to represent the URI. This enables using standard JSON Schema to validate documents and avoids confusion about the vocabulary origin of keys used in the JSON.
 
@@ -10,9 +10,9 @@ Each item lists its Cardinality, JSON encoding, and a Description explaining usa
 
 See also [graphical presentation of the Data Structure profile](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDataStructure/index.html)
 
-Artefacts for the Data Structure profile are in this [GitHub repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/tree/reviewRevision202606) (TBD — update link to release tag).
+Artefacts for the Data Structure profile are in this [GitHub repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/tree/v1.1.0) (TBD — update link to release tag).
 
-The profile's authoritative implementation guide is [CDIFDataStructureImplementationGuide.md](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/reviewRevision202606/CDIFDataStructureImplementationGuide.md); this page is a content-item-focused summary derived from it.
+The profile's authoritative implementation guide is [CDIFDataStructureImplementationGuide.md](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.0/CDIFDataStructureImplementationGuide.md); this page is a content-item-focused summary derived from it.
 
 
 ## Profile conformance declaration
@@ -203,7 +203,7 @@ The profile's authoritative implementation guide is [CDIFDataStructureImplementa
     "cdi:takesSubstantiveValuesFrom": {"@id": "#valuedomain-temperature"}
   }
   ```
-- **Description:** A conceptual variable bound to a substantive value domain — *logical* in the sense that it is not tied to a particular physical data type or column position. The same RepresentedVariable can be referenced from components in wide / long / dimensional structures; that's what lets the same dataset be presented in more than one layout. Cardinality of inner properties is mostly `0..1`; see the [Implementation Guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/reviewRevision202606/CDIFDataStructureImplementationGuide.md#cdifrepresentedvariable) for the full set.
+- **Description:** A conceptual variable bound to a substantive value domain — *logical* in the sense that it is not tied to a particular physical data type or column position. The same RepresentedVariable can be referenced from components in wide / long / dimensional structures; that's what lets the same dataset be presented in more than one layout. Cardinality of inner properties is mostly `0..1`; see the [Implementation Guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.0/CDIFDataStructureImplementationGuide.md#cdifrepresentedvariable) for the full set.
 
 ## Variable substantive value domain
 - **Cardinality:** 0..1 per RepresentedVariable
