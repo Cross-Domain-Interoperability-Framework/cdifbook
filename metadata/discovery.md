@@ -12,7 +12,7 @@ The Discovery profile defines properties to document the spatial or temporal ext
 
 See also [graphical presentation of Discovery Profile](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDiscovery/index.html)
 
-Artefacts for the Discovery profile are in this [Github repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/tree/v1.1.1) (TBD--update link to release tag)
+Artefacts for the Discovery profile are in this [Github repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/tree/v1.1.1).
 
 ## Core elements
 See [Core](core.md)

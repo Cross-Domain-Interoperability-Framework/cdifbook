@@ -10,7 +10,7 @@ Each item lists its Cardinality, JSON encoding, and a Description explaining usa
 
 See also [graphical presentation of the Data Structure profile](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDataStructure/index.html)
 
-Artefacts for the Data Structure profile are in this [GitHub repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/tree/v1.1.1) (TBD — update link to release tag).
+Artefacts for the Data Structure profile are in this [GitHub repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/tree/v1.1.1).
 
 The profile's authoritative implementation guide is [CDIFDataStructureImplementationGuide.md](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.1/CDIFDataStructureImplementationGuide.md); this page is a content-item-focused summary derived from it.
 
