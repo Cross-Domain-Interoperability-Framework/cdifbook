@@ -8,7 +8,7 @@ Each item lists its Cardinality, JSON encoding, and a Description explaining usa
 
 See also [graphical presentation of the core profile](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFCore/index.html)
 
-Artefacts for the core profile are in this [Github repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/tree/v1.1.0) (TBD--update link to release tag)
+Artefacts for the core profile are in this [Github repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/tree/v1.1.1) (TBD--update link to release tag)
 
 
 ## Metadata identifier
