@@ -136,6 +136,29 @@ The CDIF Working Group meets virtually every two weeks.
 4. Verify the build locally.
 5. Submit a Pull Request.
 
+### Linking to CDIF profile artifacts
+Link schemas, SHACL rules, frames, implementation guides and examples at a **release tag**, not
+at `main`:
+
+```
+https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.1/coreRules.shacl
+```
+
+A tag guarantees a reader sees the artifact the surrounding prose was written against; `main`
+moves with every release and would silently change what the text describes.
+
+The cost is that each patch release leaves every pin a version behind, and a stale tag does not
+break — it serves a correct-looking page for a superseded release, which the book's own build
+cannot detect because the link still resolves. So when a new release ships, sweep the pins:
+
+```bash
+grep -rlE 'Cross-Domain-Interoperability-Framework/[a-zA-Z-]+/(blob|tree|raw)/vOLD' --include='*.md' .
+```
+
+`check_w3id_redirects.py` in the [CDIF validation repo](https://github.com/Cross-Domain-Interoperability-Framework/validation)
+runs weekly and reports any pin left behind (`STALE`, or `MIXED` if a sweep was only partly
+applied), so a missed sweep surfaces without anyone having to remember.
+
 ---
 
 ## 📜 License
