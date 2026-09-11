@@ -1,11 +1,11 @@
 # Core Profile
 
 Resources: 
-- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.0/cdifCoreStructuredSchema.json)
-- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.0/CDIFCoreImplementationGuide.md)
-- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.0/coreRules.shacl)
-- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.0/cdifCore-frame.jsonld)
-- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/tree/v1.1.0/examples)
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.1/cdifCoreStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.1/CDIFCoreImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.1/coreRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.1/cdifCore-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/tree/v1.1.1/examples)
 - [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFCore/index.html)
 
 The core of the Cross Domain Interoperability Framerwork is a set of implementation-independent content that must be specified in any CDIF-conformant metadata. This core set is supplemented by a more extensive set of metadata properties that are expected to apply to any information resource of interest, but are optional in the model. These optional properties might not be applicable in some situations or, more commonly, are unknown, not available, or not provide for some reason. 

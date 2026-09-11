@@ -1,12 +1,12 @@
 # CDIF Manifest Profile
 
 Resources: 
-- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.0/cdifManifestStructuredSchema.json)
-- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.0/CDIFManifestImplementationGuide.md)
-- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.0/manifestRules.shacl)
-- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.0/cdifManifest-frame.jsonld)
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.1/cdifManifestStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.1/CDIFManifestImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.1/manifestRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.1/cdifManifest-frame.jsonld)
 - [Transform RO-CRATE to/from CDIF](https://github.com/Cross-Domain-Interoperability-Framework/validation/tree/main/converters/ROCrate)
-- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/tree/v1.1.0/examples)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/tree/v1.1.1/examples)
 - [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFManifest/index.html)
 
 ## Overview

@@ -20,50 +20,50 @@ For technical use, a set of artefacts is made available for each profile impleme
 This section provides a brief overview of the currently targeted profiles. More details are presented in subsequent sections.
 
 ## Core
-The CDIF Core profile defines the mandatory and optional base properties for any CDIF metadata record, implemented as JSON-LD using the schema.org vocabulary.  The Core profile release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-core](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.0/README.md)
+The CDIF Core profile defines the mandatory and optional base properties for any CDIF metadata record, implemented as JSON-LD using the schema.org vocabulary.  The Core profile release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-core](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.1/README.md)
 
 Resources: 
-- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.0/cdifCoreStructuredSchema.json)
-- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.0/CDIFCoreImplementationGuide.md)
-- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.0/coreRules.shacl)
-- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.0/cdifCore-frame.jsonld)
-- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/tree/v1.1.0/examples)
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.1/cdifCoreStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.1/CDIFCoreImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.1/coreRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/blob/v1.1.1/cdifCore-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-core/tree/v1.1.1/examples)
 - [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFCore/index.html)
 
 ## Data Discovery
- The Discovery profile defines optional properties for documenting spatial or temporal extent, and simple documentation of variables specified in a resource. This recognizes that there are a variety of resources of interest that might not have relevant spatial or temporal extent, and might not explicitly define variables with values. The Discovery release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/v1.1.0/README.md)
+ The Discovery profile defines optional properties for documenting spatial or temporal extent, and simple documentation of variables specified in a resource. This recognizes that there are a variety of resources of interest that might not have relevant spatial or temporal extent, and might not explicitly define variables with values. The Discovery release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/v1.1.1/README.md)
  
  Resources: 
-- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/v1.1.0/cdifDiscoveryStructuredSchema.json)
-- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/v1.1.0/CDIFDiscoveryImplementationGuide.md)
-- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/v1.1.0/discoveryRules.shacl)
-- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/v1.1.0/cdifDiscovery-frame.jsonld)
-- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/tree/v1.1.0/examples)
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/v1.1.1/cdifDiscoveryStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/v1.1.1/CDIFDiscoveryImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/v1.1.1/discoveryRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/blob/v1.1.1/cdifDiscovery-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-discovery/tree/v1.1.1/examples)
 - [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDiscovery/index.html)
 
 ## Data Description
-The CDIF Data Description profile defines metadata elements for documentation of variable value domains, statistics aggregating variable values, physical data file layout, and roles of variables in a dataset (e.g. identifier, measure, attribute).  The Data Description release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/v1.1.0/README.md)
+The CDIF Data Description profile defines metadata elements for documentation of variable value domains, statistics aggregating variable values, physical data file layout, and roles of variables in a dataset (e.g. identifier, measure, attribute).  The Data Description release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/v1.1.1/README.md)
 
 Resources:
-- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/v1.1.0/cdifDataDescriptionStructuredSchema.json)
-- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/v1.1.0/CDIFDataDescriptionImplementationGuide.md)
-- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/v1.1.0/dataDescriptionRules.shacl)
-- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/v1.1.0/cdifDataDescription-frame.jsonld)
-- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/tree/v1.1.0/examples)
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/v1.1.1/cdifDataDescriptionStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/v1.1.1/CDIFDataDescriptionImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/v1.1.1/dataDescriptionRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/blob/v1.1.1/cdifDataDescription-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/tree/v1.1.1/examples)
 - [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDataDescription/index.html)
 
 ## Codelist
 
 The CDIF Codelist profile defines how controlled vocabularies and classification schemes are represented as SKOS ConceptSchemes in JSON-LD. The profile composes skos:ConceptScheme and skos:Concept with CDIF-specific requirements inherited from cdifCore.  Concept properties include a preferred label, bidirectional hierarchy, notation.  CDIF core metadata properties are included on the ConceptScheme. The key feature of the codelist is specification of the 'notation' for a concept -- the strings that actually appear in data, along with a human-readable lable conveying the meaning of the code.
 
-The implementation uses the SKOS (Simple Knowledge Organization System) vocabulary with JSON-LD serialization. This profile aligns with the approach described in ['Modelling of Eurostat's Statistical Classifications in ShowVoc'](https://cros.ec.europa.eu/book-page/modeling-eurostats-statistical-classifications-showvoc), but in alignment with cdifCore, the required properties from cdifCore are implemented using schema.org elements. The Codelist release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/v1.1.0/README.md)
+The implementation uses the SKOS (Simple Knowledge Organization System) vocabulary with JSON-LD serialization. This profile aligns with the approach described in ['Modelling of Eurostat's Statistical Classifications in ShowVoc'](https://cros.ec.europa.eu/book-page/modeling-eurostats-statistical-classifications-showvoc), but in alignment with cdifCore, the required properties from cdifCore are implemented using schema.org elements. The Codelist release repository is here: [https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/v1.1.1/README.md)
 
 Resources:
-- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/v1.1.0/CDIFCodelistProfileStructuredSchema.json)
-- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/v1.1.0/CDIFCodelistImplementationGuide.md)
-- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/v1.1.0/rules.shacl)
-- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/v1.1.0/CDIFCodelist-frame.jsonld)
-- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/tree/v1.1.0/examples)
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/v1.1.1/CDIFCodelistProfileStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/v1.1.1/CDIFCodelistImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/v1.1.1/rules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/blob/v1.1.1/CDIFCodelist-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-codelist/tree/v1.1.1/examples)
 - [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFCodelist/index.html)
 
 ## Data Structure
@@ -71,11 +71,11 @@ Resources:
 This profile supports the description of reusable data structures and/or their component variables. Enumerated values for variables are described using the Codelist profile. This profile primarily uses the DDI-CDI standard. 
 
 Resources:
-- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.0/cdifDataStructureStructuredSchema.json)
-- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.0/CDIFDataStructureImplementationGuide.md)
-- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.0/dataStructureRules.shacl)
-- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.0/CDIFDataStructure-frame.jsonld)
-- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/tree/v1.1.0/examples)
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.1/cdifDataStructureStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.1/CDIFDataStructureImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.1/dataStructureRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/blob/v1.1.1/CDIFDataStructure-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-datastructure/tree/v1.1.1/examples)
 - [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDataStructure/index.html)
 
 ## Concept Scheme
@@ -83,11 +83,11 @@ Resources:
 This profile uses SKOS to describe concept systems which are meaningful for purposes other than the representation of variable values. Domain ontologies may need to be expressed for FAIR use: this profile is intended as a supplement to ontologies described in OWL as it can be rendered using tools such as SKOSify from them, so that they are more widely accessible.
 
 Resources:
-- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/blob/v1.1.0/cdifConceptSchemeStructuredSchema.json)
-- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/blob/v1.1.0/CDIFConceptSchemeImplementationGuide.md)
-- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/blob/v1.1.0/conceptSchemeRules.shacl)
-- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/blob/v1.1.0/cdifConceptScheme-frame.jsonld)
-- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/tree/v1.1.0/examples)
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/blob/v1.1.1/cdifConceptSchemeStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/blob/v1.1.1/CDIFConceptSchemeImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/blob/v1.1.1/conceptSchemeRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/blob/v1.1.1/cdifConceptScheme-frame.jsonld)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme/tree/v1.1.1/examples)
 - [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/cdifConceptScheme/index.html)
 
 ## Manifest
@@ -95,12 +95,12 @@ Resources:
 This profile is used to package metadata and FAIR resources, to form bundles for dissemination, archiving, etc. It can be used to render "webby" FDOs. The recommended implementation uses [RO Crate](https://www.researchobject.org/ro-crate/).
 
 Resources: 
-- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.0/cdifManifestStructuredSchema.json)
-- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.0/CDIFManifestImplementationGuide.md)
-- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.0/manifestRules.shacl)
-- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.0/cdifManifest-frame.jsonld)
+- [Structured JSON schema](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.1/cdifManifestStructuredSchema.json)
+- [Implementation guide](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.1/CDIFManifestImplementationGuide.md)
+- [SHACL rules](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.1/manifestRules.shacl)
+- [JSON-LD framing](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/blob/v1.1.1/cdifManifest-frame.jsonld)
 - [Transform RO-CRATE to/from CDIF](https://github.com/Cross-Domain-Interoperability-Framework/validation/tree/main/converters/ROCrate)
-- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/tree/v1.1.0/examples)
+- [Example instance files](https://github.com/Cross-Domain-Interoperability-Framework/profile-manifest/tree/v1.1.1/examples)
 - [Graphical view](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFManifest/index.html)
 
 ## Access 
