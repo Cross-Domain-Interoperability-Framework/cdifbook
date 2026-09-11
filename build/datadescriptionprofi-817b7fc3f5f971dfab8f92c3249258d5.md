@@ -14,7 +14,7 @@ Conformance to this profile entails populating all mandatory content from cdifCo
 
 see also [graphical presentation of Data Description Profile](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/cdif-uml-model/CDIFDataDescription/index.html)
 
-Artefacts for the Data Description profile are in this [Github repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/tree/v1.1.1) (TBD--update link to release tag)
+Artefacts for the Data Description profile are in this [Github repository](https://github.com/Cross-Domain-Interoperability-Framework/profile-datadescription/tree/v1.1.1).
 
 ## Requirements
 
