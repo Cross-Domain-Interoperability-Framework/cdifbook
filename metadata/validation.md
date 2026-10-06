@@ -64,7 +64,6 @@ SHACL severity is aligned with JSON Schema: properties that are optional in the 
 
 * [`tools/FlattenCDIF.py`](https://github.com/Cross-Domain-Interoperability-Framework/validation/blob/main/tools/FlattenCDIF.py) — the inverse of framing: flattens a nested CDIF tree into the `@graph` form.
 * [`tools/check_w3id_redirects.py`](https://github.com/Cross-Domain-Interoperability-Framework/validation/blob/main/tools/check_w3id_redirects.py) — guards the two version pins that otherwise fail silently: it checks that each `w3id.org/cdif/<profile>/<version>/schema` returns the version it names, and that the CDIF book's links to release artefacts are not a version behind. Run weekly in CI.
-* [`geocodes_harvester.py`](https://github.com/Cross-Domain-Interoperability-Framework/validation/blob/main/geocodes_harvester.py) — harvests dataset metadata from the [EarthCube GeoCodes](https://geocodes.earthcube.org/) SPARQL catalog and optionally converts the records to CDIF core/discovery form.
 
 ### Generating the validation artefacts
 
