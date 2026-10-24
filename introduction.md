@@ -58,5 +58,5 @@ To apply to join CDIF working or advisory groups, please [use this form](https:/
 
 <!-- cdif-footer-include -->
 
-:::{include} \_static/footer.md
+:::{include} _static/footer.md
 :::
