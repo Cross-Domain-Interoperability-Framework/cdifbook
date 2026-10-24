@@ -1,0 +1,71 @@
+@prefix : <https://data.csiro.au/dataset/> .
+@prefix v: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dap: <https://data.csiro.au/dataset/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix proj: <http://www.w3.org/ns/project#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@base <https://data.csiro.au/dataset/> .
+
+<https://data.csiro.au/dataset1/> rdf:type owl:Ontology ;
+                                  owl:imports <http://www.w3.org/2006/time> ,
+                                              <http://www.w3.org/2006/vcard/ns> ,
+                                              <http://www.w3.org/ns/adms> ,
+                                              <http://www.w3.org/ns/dcat> ,
+											  dcterms: 
+											  .
+											  
+###  https://data.csiro.au/dataset/atnf-P366-2003SEPT
+dap:atnf-P366-2003SEPT rdf:type  dcat:Dataset ;
+	   *dcterms:title "Parkes observations for project P366 semester 2003SEPT"@en;
+	   *dcterms:description "Parkes multibeam high-latitude pulsar survey"@en ;
+	   *dcterms:identifier "https://doi.org/10.4225/08/598dc08d07bb7"^^xsd:anyURI ,
+					  "ivo://au.csiro.atnf/P366-2003SEPT"^^xsd:anyURI ;
+	   *dcat:contactPoint [
+			dap:MartaBurgay-vcard rdf:type  v:Individual ;
+				v:hasEmail <mailto:burgay@oa-cagliari.inaf.it> ;
+				v:fn "Marta Burgay" .] ;
+	   *dcat:landingPage <https://data.csiro.au/collection/csiro:P366-2003SEPT> ;
+	   *dcat:theme <http://purl.org/au-research/vocabulary/anzsrc-for/2008/020199> ;
+	   *dcat:keyword "pulsar"@en ;
+	   *dcterms:type sdo:Dataset ;
+	   *dcterms:accessRights [ 
+			rdf:type dcterms:RightsStatement ;
+			rdfs:comment "The metadata and files (if any) are available to the public."@en
+		] ;
+	   *dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+	   *dcterms:modified "2017-07-30T08:55:55Z"^^xsd:dateTime ;
+	   # note that use of the generic dcterms:relation with an unresolvable identifier 
+	   #  as in this example is not useful outside of the community that a priori
+	   #  recognizes the identifier.
+	   *dcterms:relation [ dcterms:identifier "PH0090_0031.sf"],
+					[ dcterms:identifier "PH0090_0021.sf"]  ;
+	   *dcterms:rights [ rdf:type dcterms:RightsStatement ;
+					rdfs:comment "All Rights (including copyright) CSIRO 2017."@en
+				  ] ;
+	   *dcterms:temporal [
+			rdf:type dcterms:PeriodOfTime ;
+			dcat:startDate "2003-09-01"^^xsd:date ;
+			dcat:endDate "2003-12-31"^^xsd:date
+			]
+		] 
+ .
+
+ex:record-001
+	rdf:type dcat:CatalogRecord ;
+	foaf:primaryTopic dap:atnf-P366-2003SEPT ;
+	*dcterms:conformsTo <cdif DCAT profile uri>;
+	*dcterms:modified "2024-07-28"^^xsd:date;
+	*dcat:contactPoint [
+			rdf:type  v:Individual ;
+					v:hasEmail <mailto:smrTucson@gmail.com> ;
+					v:fn "Stephen Richard";
+					rdfs:label "Stephen Richard" . ];
