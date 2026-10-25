@@ -108,7 +108,7 @@ Two GitHub Actions workflows publish the book to GitHub Pages — both pushing t
 | Source branch | Workflow file | Published URL |
 |---|---|---|
 | `main` | `.github/workflows/deploy-main.yml` | https://cross-domain-interoperability-framework.github.io/cdifbook/ |
-| `cdifBookUpdates2026-05` | `.github/workflows/preview-cdifBookUpdates2026-05.yml` | https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/ |
+| `cdifBookUpdates` | `.github/workflows/preview-cdifBookUpdates.yml` | https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/ |
 
 Each workflow auto-runs on push to its source branch and can also be triggered manually (**Actions tab → Run workflow**). Builds set `BASE_URL` so internal navigation works under the appropriate path. The two workflows share concurrency group `deploy-ghpages` with `cancel-in-progress: false`, so simultaneous pushes queue instead of racing on `gh-pages`. The main deploy snapshots `preview-2026-05/` from `gh-pages` before publishing, so neither workflow erases the other's output. Total deploy time is ~55s per workflow run.
 

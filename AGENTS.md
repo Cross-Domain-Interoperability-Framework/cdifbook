@@ -69,7 +69,7 @@ Two GitHub Actions workflows publish to GitHub Pages (`gh-pages` branch), both a
 | Source branch | Workflow | Published URL | Strategy |
 |---|---|---|---|
 | `main` | `.github/workflows/deploy-main.yml` | https://cross-domain-interoperability-framework.github.io/cdifbook/ | Full root replace; snapshots `preview-2026-05/` from `gh-pages` first, then `keep_files: false` |
-| `cdifBookUpdates2026-05` | `.github/workflows/preview-cdifBookUpdates2026-05.yml` | https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/ | `destination_dir: preview-2026-05` + `keep_files: true` (root preserved) |
+| `cdifBookUpdates` | `.github/workflows/preview-cdifBookUpdates.yml` | https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/ | `destination_dir: preview-2026-05` + `keep_files: true` (root preserved) |
 
 Both expose `workflow_dispatch` for manual triggering and share concurrency group `deploy-ghpages` with `cancel-in-progress: false` — simultaneous pushes queue rather than racing on `gh-pages`. Total run time ~55s each.
 
@@ -77,7 +77,7 @@ Implementation notes for agents who need to modify these workflows:
 - **Build commands match local:** `pip install -r requirements.txt` then `jupyter-book build --html`. Same Python pin, same mystmd engine.
 - **`BASE_URL` is mandatory** to make absolute paths in generated HTML resolve from the right path. `main` deploy uses `BASE_URL=/cdifbook`; preview uses `BASE_URL=/cdifbook/preview-2026-05`. (GitHub Actions runs on Linux, so the git-bash MSYS path-conversion issue that bit local-Windows deploys does not apply.)
 - **Preservation across workflows is asymmetric.** `preview` deploy uses `keep_files: true` so it never touches root. `main` deploy uses `keep_files: false` to garbage-collect stale hashed asset files — but first it `actions/checkout`s `gh-pages` and copies `preview-2026-05/` into its build directory, so peaceiris's full-replace publishes the new root *with* the preserved preview alongside.
-- **Adding another branch preview:** copy `preview-cdifBookUpdates2026-05.yml`, change the workflow name, the `branches:` trigger, the `BASE_URL`, and the `destination_dir`. Leave the shared concurrency group as-is so it serializes with the others. Then in `deploy-main.yml`, extend the "Merge preview-2026-05 into deploy directory" step to also snapshot the new preview's directory, otherwise the next main deploy will erase it.
+- **Adding another branch preview:** copy `preview-cdifBookUpdates.yml`, change the workflow name, the `branches:` trigger, the `BASE_URL`, and the `destination_dir`. Leave the shared concurrency group as-is so it serializes with the others. Then in `deploy-main.yml`, extend the "Merge preview-2026-05 into deploy directory" step to also snapshot the new preview's directory, otherwise the next main deploy will erase it.
 
 ## 📄 Site-wide footer
 

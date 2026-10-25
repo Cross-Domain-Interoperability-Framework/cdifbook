@@ -1,6 +1,6 @@
-name: Deploy preview (cdifBookUpdates2026-05)
+name: Deploy preview (cdifBookUpdates)
 
-# Builds the cdifBookUpdates2026-05 branch and publishes it to the
+# Builds the cdifBookUpdates branch and publishes it to the
 # gh-pages branch under /preview-2026-05/, leaving the main-branch
 # book at the root untouched. Resulting URL:
 #   https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/
@@ -8,7 +8,7 @@ name: Deploy preview (cdifBookUpdates2026-05)
 on:
   push:
     branches:
-      - cdifBookUpdates2026-05
+      - cdifBookUpdates
   workflow_dispatch:
 
 # Shared concurrency group with deploy-main: only one deploy to

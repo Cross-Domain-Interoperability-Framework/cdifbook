@@ -87,6 +87,7 @@ project:
           children:
             - file: metadata/pidkernel.md
             - file: metadata/signpostinglinkrel.md
+        - file: metadata/converters.md
 site:
   options:
     logo: CDIF_LOGO.jpg
