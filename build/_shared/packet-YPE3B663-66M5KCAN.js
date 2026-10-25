@@ -1,0 +1,1 @@
+import{a as e,b as r}from"/cdifbook/build/_shared/chunk-IMEQYZY3.js";import"/cdifbook/build/_shared/chunk-GEZIJWLJ.js";import"/cdifbook/build/_shared/chunk-RAQ24GF6.js";export{e as PacketModule,r as createPacketServices};
